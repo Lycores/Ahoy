@@ -7,14 +7,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +19,49 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container{
+  display:flex;
+  margin:auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cardContainer{
+  
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  position:relative
+}
+
+.card-1{
+  background-color: aquamarine;
+  width: 200px;
+  height: 200px;
+  border-radius:20%;
+  box-shadow: 3px 3px 5px #000;
+  position: absolute;
+  z-index:3
+}
+
+.card-2{
+  background-color: aquamarine;
+  width: 200px;
+  height: 200px;
+  border-radius:20%;
+  box-shadow: 3px 3px 5px #000;
+  position: absolute;
+  left:20px;
+  top:20px;
+  z-index:2
+}
+
+.card-3{
+  background-color: aquamarine;
+  width: 200px;
+  height: 200px;
+  border-radius:20%;
+  box-shadow: 3px 3px 5px #000;
+  position: absolute;
+  left:40px;
+  top:40px;
+  z-index:1
 }

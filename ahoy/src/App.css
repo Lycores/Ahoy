@@ -32,6 +32,9 @@
   position:relative
 }
 
+#cardLeftDistance{
+  margin-left:300px;
+}
 .card-1{
   background-color: aquamarine;
   width: 200px;

@@ -35,6 +35,8 @@
 #cardLeftDistance{
   margin-left:300px;
 }
+
+
 .card-1{
   background-color: aquamarine;
   width: 200px;
@@ -67,4 +69,9 @@
   left:40px;
   top:40px;
   z-index:1
+}
+
+.expandCard{
+  margin-left: 300px;
+  margin-right: 300px;
 }

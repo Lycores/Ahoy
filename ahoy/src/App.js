@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import {useRef} from 'react'
+import {Card} from './card.js';
+
 
 
 function App() {
@@ -15,47 +17,48 @@ function App() {
     if(umbreallaRef.current.className.indexOf("expandCard") <= -1){
       umbreallaRef.current.className = umbreallaRef.current.className + " expandCard"
     }
-    
-    console.log(umbreallaRef.current.className)
+    console.log(umbreallaRef.current)
   }
 
   return (
     <div className="App">
       <div className="App-header">
        <div className="container">
-       <div ref={umbreallaRef} className="cardContainer" id="cardLeftDistance" onClick={expandCard}>
-          <div className="card-1 ">Umbrella</div>
-          <div className="card-2">Warm</div>
-          <div className="card-3">Cold</div>
+        <div ref={umbreallaRef} className="cardContainer" id="cardLeftDistance" onClick={expandCard}>
+          <Card name="Umbrella" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
         </div>
+
         <div ref={downCoatRef} className="cardContainer"  >
-          <div className="card-1 ">Down Coat</div>
-          <div className="card-2">Warm</div>
-          <div className="card-3">Cold</div>
+          <Card name="Down Coat" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
         </div>
 
         <div ref={sweaterRef} className="cardContainer"  onClick={onclick}>
-          <div className="card-1">Sweater</div>
-          <div className="card-2">Warm</div>
-          <div className="card-3">Cold</div>
+          <Card name="Sweater" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
         </div>
           
         <div ref={snowBootRef} className="cardContainer">
-          <div className="card-1">Snow Boot</div>
-          <div className="card-2">Necessary</div>
-          <div className="card-3">Unnecessary</div>
+          <Card name="Snow Boot" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
+          
         </div>
 
         <div ref={rainBootRef} className="cardContainer">
-          <div className="card-1">Rain Boot</div>
-          <div className="card-2">Necessary</div>
-          <div className="card-3">Unnecessary</div>
+          <Card name="Rain Boot" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
         </div>
 
         <div ref={maskRef} className="cardContainer">
-          <div className="card-1">Mask</div>
-          <div className="card-2">Necessary</div>
-          <div className="card-3">Unnecessary</div>
+          <Card name="Mask" css="card-1"/>
+          <Card name="Good" css="card-2"/>
+          <Card name="Bad" css="card-3"/>
         </div>
        </div>
       </div>

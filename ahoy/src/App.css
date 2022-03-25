@@ -24,15 +24,7 @@
   margin:auto;
 }
 
-.cardContainer{
-  
-  width: 200px;
-  height: 200px;
-  margin: 50px;
-  position:relative
-}
-
-#cardLeftDistance{
+.cardLeftDistance{
   margin-left:300px;
 }
 
@@ -72,6 +64,5 @@
 }
 
 .expandCard{
-  margin-left: 300px;
   margin-right: 300px;
 }

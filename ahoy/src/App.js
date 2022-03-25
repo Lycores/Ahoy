@@ -1,94 +1,68 @@
 import logo from './logo.svg';
 import './App.css';
-import {useRef} from 'react'
-import {Card} from './card.js';
+import {useRef, useState} from 'react';
+import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} 
+from './card.js';
 
 
 
 function App() {
-  const umbreallaRef = useRef(null)
+  const umbrellaRef = useRef(null)
   const downCoatRef = useRef(null)
   const sweaterRef = useRef(null)
   const snowBootRef = useRef(null)
   const rainBootRef = useRef(null)
   const maskRef = useRef(null)
 
-  const expandCard = () => {
-    console.log(useRef)
+  const clickCardContainer = (componentClicked) => {
+    return (event) => {
+      switch(componentClicked){
+        case "umbrella":
+          console.log(allCardsContainers)
+      }
+    }
   }
-
-  const cardContainer = {
-    width: '200px',
-    height: '200px',
-    margin: '50px',
-    position:'relative'
-  }
-
-  let umbrellaStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
-
-  let downCoatStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
-
-  let sweaterStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
-
-  let snowBootStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
-
-  let rainBootStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
-
-  let maskStyle = {
-    ...cardContainer,
-    marginRight: '50px'
-  }
+  
+  const [allCardsContainers, setAllCardsContainers] = useState({
+    umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle
+  })
+  
   return (
     <div className="App">
       <div className="App-header">
        <div className="container cardLeftDistance">
-        <div ref={umbreallaRef}   style={umbrellaStyle}  onClick={expandCard}>
+        <div ref={umbrellaRef}   style={umbrellaStyle}  onClick={clickCardContainer("umbrella")}>
           <Card name="Umbrella" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>
         </div>
 
-        <div ref={downCoatRef} style={downCoatStyle}  >
+        <div ref={downCoatRef} style={downCoatStyle} onClick={clickCardContainer("downCoat")} >
           <Card name="Down Coat" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>
         </div>
 
-        <div ref={sweaterRef} style={sweaterStyle}  onClick={onclick}>
+        <div ref={sweaterRef} style={sweaterStyle}  onClick={clickCardContainer("sweater")}>
           <Card name="Sweater" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>
         </div>
           
-        <div ref={snowBootRef} style={snowBootStyle}>
+        <div ref={snowBootRef} style={snowBootStyle} onClick={clickCardContainer("snowBoot")}>
           <Card name="Snow Boot" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>
           
         </div>
 
-        <div ref={rainBootRef} style={rainBootStyle}>
+        <div ref={rainBootRef} style={rainBootStyle} onClick={clickCardContainer("rainBoot")}>
           <Card name="Rain Boot" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>
         </div>
 
-        <div ref={maskRef} style={maskStyle}>
+        <div ref={maskRef} style={maskStyle} onClick={clickCardContainer("mask")}>
           <Card name="Mask" css="card-1"/>
           <Card name="Good" css="card-2"/>
           <Card name="Bad" css="card-3"/>

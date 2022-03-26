@@ -32,7 +32,7 @@ function App() {
       switch(componentClicked){
         case "umbrella":
           setAllCardsContainers(
-            {...allCardsContainers, umbrellaStyle: {...allCardsContainers.umbrellaStyle, marginRight:"300px"}}
+            {...allCardsContainers, umbrellaStyle: {...allCardsContainers.umbrellaStyle, marginLeft: "260px", marginRight:"300px"}}
           )
         
           umbrellaCard2Ref.current.classList.add("expandLeft")
@@ -40,7 +40,7 @@ function App() {
           break
         case "downCoat":
           setAllCardsContainers(
-            {...allCardsContainers, downCoatStyle: {...allCardsContainers.downCoatStyle, marginRight:"300px"}}
+            {...allCardsContainers, downCoatStyle: {...allCardsContainers.downCoatStyle, marginLeft: "260px", marginRight:"300px"}}
           )
 
           downCoatCard2Ref.current.classList.add("expandLeft")
@@ -49,7 +49,7 @@ function App() {
           break
         case "sweater":
           setAllCardsContainers(
-            {...allCardsContainers, sweaterStyle: {...allCardsContainers.sweaterStyle, marginRight:"300px"}}
+            {...allCardsContainers, sweaterStyle: {...allCardsContainers.sweaterStyle, marginLeft: "260px", marginRight:"300px"}}
           )
 
           sweaterCard2Ref.current.classList.add("expandLeft")
@@ -57,7 +57,7 @@ function App() {
           break
         case "snowBoot":
           setAllCardsContainers(
-            {...allCardsContainers, snowBootStyle: {...allCardsContainers.snowBootStyle, marginRight:"300px"}}
+            {...allCardsContainers, snowBootStyle: {...allCardsContainers.snowBootStyle, marginLeft: "260px", marginRight:"300px"}}
           )
 
           snowBootCard2Ref.current.classList.add("expandLeft")
@@ -65,7 +65,7 @@ function App() {
           break
         case "rainBoot":
           setAllCardsContainers(
-            {...allCardsContainers, rainBootStyle: {...allCardsContainers.rainBootStyle, marginRight:"300px"}}
+            {...allCardsContainers, rainBootStyle: {...allCardsContainers.rainBootStyle, marginLeft: "260px", marginRight:"300px"}}
           )
 
           rainBootCard2Ref.current.classList.add("expandLeft")
@@ -73,7 +73,7 @@ function App() {
           break
         case "mask":
           setAllCardsContainers(
-            {...allCardsContainers, maskStyle: {...allCardsContainers.maskStyle, marginRight:"300px"}}
+            {...allCardsContainers, maskStyle: {...allCardsContainers.maskStyle, marginLeft: "260px", marginRight:"300px"}}
           )
 
           maskCard2Ref.current.classList.add("expandLeft")

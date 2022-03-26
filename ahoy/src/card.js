@@ -1,5 +1,5 @@
 import './App.css';
-
+import React from 'react'
 let cardContainer = {
     width: '200px',
     height: '200px',
@@ -37,12 +37,12 @@ export  let maskStyle = {
     marginRight: '50px'
   }
 
-function Card(props){
+const Card = React.forwardRef((props, ref) => {
     const {name, css} = props
 
     return(
-        <div className={css}>{name}</div>
+        <div ref = {ref} className={css}>{name}</div>
     )
-}
+})
 
 export {Card}

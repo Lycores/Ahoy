@@ -39,6 +39,7 @@
   z-index:3
 }
 
+
 .card-2{
   background-color: aquamarine;
   width: 200px;
@@ -48,7 +49,8 @@
   position: absolute;
   left:20px;
   top:20px;
-  z-index:2
+  z-index:2;
+  transition-duration: 2000ms;
 }
 
 .card-3{
@@ -60,9 +62,20 @@
   position: absolute;
   left:40px;
   top:40px;
-  z-index:1
+  z-index:1;
+  transition-duration: 2000ms;
 }
 
 .expandCard{
   margin-right: 300px;
+}
+
+.expandLeft{
+  left:-250px;
+  top:0px;
+}
+
+.expandRight{
+  left:250px;
+  top:0px;
 }

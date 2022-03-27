@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 
 function App() {
@@ -146,6 +146,10 @@ function App() {
   let [folded, setFolded] = useState({
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
+
+  useEffect(() => {
+    console.log(process.env.REACT_APP_HOST)
+  }, [])
 
   return (
     <div className="App">

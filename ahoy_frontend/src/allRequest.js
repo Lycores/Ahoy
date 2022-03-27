@@ -1,8 +1,8 @@
 const requestDesktopData = (url) => {
-    fetch(url)
-    .then(response => {
-        console.log(response)
-    })
+    console.log(url)
+    fetch('http://localhost:4000/', {method: 'GET'})
+    .then(response => response.text())
+  .then(json => console.log(json))
   
 }
 

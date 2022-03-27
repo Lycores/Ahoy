@@ -54,6 +54,7 @@
   z-index:2;
   transition-duration: 2000ms;
   overflow: hidden;
+  color: #000;
 }
 
 .card-3{
@@ -68,6 +69,7 @@
   z-index:1;
   transition-duration: 2000ms;
   overflow: hidden;
+  color: #000;
 }
 
 .expandCard{

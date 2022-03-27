@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 import requestDesktopData from './allRequest.js';
 
-const backEndUrl = process.env.REACT_APP_HOST + ':' + process.env.REACT_APP_PORT
+const backEndUrl = 'http://' + process.env.REACT_APP_HOST + ':' + process.env.REACT_APP_PORT
 
 function App() {
   const umbrellaRef = useRef(null)

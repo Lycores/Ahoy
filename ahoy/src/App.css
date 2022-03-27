@@ -30,18 +30,20 @@
 
 
 .card-1{
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
   border-radius:20%;
   box-shadow: 3px 3px 5px #000;
   position: absolute;
-  z-index:3
+  z-index:3;
+  overflow: hidden;
+  color: #000;
 }
 
 
 .card-2{
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
   border-radius:20%;
@@ -51,10 +53,11 @@
   top:20px;
   z-index:2;
   transition-duration: 2000ms;
+  overflow: hidden;
 }
 
 .card-3{
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
   border-radius:20%;
@@ -64,6 +67,7 @@
   top:40px;
   z-index:1;
   transition-duration: 2000ms;
+  overflow: hidden;
 }
 
 .expandCard{

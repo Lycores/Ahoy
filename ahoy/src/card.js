@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faSnowman } from '@fortawesome/free-solid-svg-icons'
 
 let cardContainer = {
     width: '200px',
@@ -50,7 +50,7 @@ const Card = React.forwardRef((props, ref) => {
     const {name, css} = props
 
     return(
-        <div ref = {ref} className={css}><FontAwesomeIcon icon={faCoffee} /></div>
+        <div ref = {ref} className={css}>{name}</div>
     )
 })
 

@@ -3,8 +3,6 @@ import './App.css';
 import {useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 
-
-
 function App() {
   const umbrellaRef = useRef(null)
   const downCoatRef = useRef(null)
@@ -149,81 +147,45 @@ function App() {
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
 
-  let [umbrellaCardProps, setUmbrellaCardProps] = useState({
-    card_1_props: {name: "Umbrella", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
-  let [downCoatProps, setDownCoatProps] = useState({
-    card_1_props: {name: "DownCoat", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
-  let [sweaterProps, setSweaterProps] = useState({
-    card_1_props: {name: "Sweater", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
-  let [snowBootProps, setSnowBootProps] = useState({
-    card_1_props: {name: "SnowBoot", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
-  let [rainBootProps, setRainBootProps] = useState({
-    card_1_props: {name: "RainBoot", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
-  let [maskProps, setMaskProps] = useState({
-    card_1_props: {name: "Mask", css: "card-1"},
-    card_2_props: {name: "Good", css: "card-2"},
-    card_3_props: {name: "Good", css: "card-3"},
-  })
-
   return (
     <div className="App">
       <div className="App-header">
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainers.umbrellaStyle}  onClick={folded.umbrellaFolded? clickCardContainer("umbrella"): foldCardContainer("umbrella")}>
-          <Card {...umbrellaCardProps.card_1_props}/>
-          <Card ref={umbrellaCard2Ref} {...umbrellaCardProps.card_2_props}/>
-          <Card ref={umbrellaCard3Ref}{...umbrellaCardProps.card_3_props}/>
+          <Card name="Umbrella" css="card-1"/>
+          <Card ref={umbrellaCard2Ref} name="Good" css="card-2"/>
+          <Card ref={umbrellaCard3Ref} name="Good" css="card-3"/>
         </div>
 
         <div ref={downCoatRef} style={allCardsContainers.downCoatStyle} onClick={folded.downCoatFolded? clickCardContainer("downCoat"): foldCardContainer("downCoat")} >
-          <Card  {...downCoatProps.card_1_props}/>
-          <Card  ref={downCoatCard2Ref} {...downCoatProps.card_2_props}/>
-          <Card  ref={downCoatCard3Ref} {...downCoatProps.card_3_props}/>
+          <Card  name="downCoatRef" css="card-1"/>
+          <Card  ref={downCoatCard2Ref} name="downCoatRef" css="card-2"/>
+          <Card  ref={downCoatCard3Ref} name="downCoatRef" css="card-3"/>
         </div>
 
         <div ref={sweaterRef} style={allCardsContainers.sweaterStyle}  onClick={folded.sweaterFolded? clickCardContainer("sweater"): foldCardContainer("sweater")}>
-          <Card {...sweaterProps.card_1_props}/>
-          <Card ref={sweaterCard2Ref} {...sweaterProps.card_2_props}/>
-          <Card ref={sweaterCard3Ref} {...sweaterProps.card_3_props}/>
+          <Card name="sweaterRef" css="card-1"/>
+          <Card ref={sweaterCard2Ref} name="sweaterRef" css="card-2"/>
+          <Card ref={sweaterCard3Ref} name="sweaterRef" css="card-3"/>
         </div>
           
         <div ref={snowBootRef} style={allCardsContainers.snowBootStyle} onClick={folded.snowBootFolded? clickCardContainer("snowBoot"): foldCardContainer("snowBoot")}>
-          <Card {...snowBootProps.card_1_props}/>
-          <Card ref={snowBootCard2Ref} {...snowBootProps.card_2_props}/>
-          <Card ref={snowBootCard3Ref} {...snowBootProps.card_3_props}/>
+          <Card name="snowBootRef" css="card-1"/>
+          <Card ref={snowBootCard2Ref} name="snowBootRef" css="card-2"/>
+          <Card ref={snowBootCard3Ref} name="snowBootRef" css="card-3"/>
         </div>
 
 
         <div ref={rainBootRef} style={allCardsContainers.rainBootStyle} onClick={folded.rainBootFolded? clickCardContainer("rainBoot"): foldCardContainer("rainBoot")}>
-          <Card {...rainBootProps.card_1_props}/>
-          <Card ref={rainBootCard2Ref} {...rainBootProps.card_2_props}/>
-          <Card ref={rainBootCard3Ref} {...rainBootProps.card_3_props}/>
+          <Card name="rainBootRef" css="card-1"/>
+          <Card ref={rainBootCard2Ref} name="rainBootRef" css="card-2"/>
+          <Card ref={rainBootCard3Ref} name="rainBootRef" css="card-3"/>
         </div>
 
         <div ref={maskRef} style={allCardsContainers.maskStyle} onClick={folded.maskFolded? clickCardContainer("mask"): foldCardContainer("mask")}>
-          <Card {...maskProps.card_1_props}/>
-          <Card ref={maskCard2Ref} {...maskProps.card_2_props}/>
-          <Card ref={maskCard3Ref} {...maskProps.card_3_props}/>
+          <Card name="maskRef" css="card-1"/>
+          <Card ref={maskCard2Ref} name="maskRef" css="card-2"/>
+          <Card ref={maskCard3Ref} name="maskRef" css="card-3"/>
         </div>
        </div>
       </div>

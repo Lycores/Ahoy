@@ -1,9 +1,10 @@
-const requestDesktopData = (url) => {
-    fetch(url, {method: 'GET'})
-    .then(response => response.text())
-  .then(json => console.log(json))
-  console.log(url)
-  
+const requestDesktopData = async (url) => {
+        const res = await fetch(url, {method: 'GET'})
+        .then(response => response.json())
+        .then(json => {
+            return json;
+        })
+        console.log(res)
 }
 
 export default requestDesktopData

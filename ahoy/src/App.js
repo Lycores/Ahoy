@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useRef, useState} from 'react';
-import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} 
-from './card.js';
+import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 
 
 

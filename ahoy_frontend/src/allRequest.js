@@ -1,8 +1,8 @@
 const requestDesktopData = (url) => {
-    console.log(url)
-    fetch("/api", {method: 'GET'})
+    fetch(url, {method: 'GET'})
     .then(response => response.text())
   .then(json => console.log(json))
+  console.log(url)
   
 }
 

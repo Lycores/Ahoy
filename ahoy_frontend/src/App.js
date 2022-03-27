@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 import requestDesktopData from './allRequest.js';
 
-const backEndUrl = 'http://' + process.env.REACT_APP_HOST + ':' + process.env.REACT_APP_PORT
+const url = '/api'
 
 function App() {
   const umbrellaRef = useRef(null)
@@ -151,7 +151,7 @@ function App() {
   })
 
   useEffect(() => {
-    setInterval(requestDesktopData(backEndUrl), 2000)
+    setInterval(()=>{requestDesktopData(url)}, 2000)
   }, [])
 
   return (

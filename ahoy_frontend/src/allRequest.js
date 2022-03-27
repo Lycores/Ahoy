@@ -9,7 +9,6 @@ const requestDesktopData = async (url) => {
     catch(e){
         console.log(e)
     }
-        
 }
 
 export default requestDesktopData

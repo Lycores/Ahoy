@@ -147,7 +147,7 @@ function App() {
   const changeSizeOfMusicStrip = ()=> {
     let widthOfWindow = window.innerWidth
     console.log(widthOfWindow)
-    let widthOfMusicStrip = widthOfWindow * 0.8
+    let widthOfMusicStrip = widthOfWindow - 200
     setMusicStripWidthState({...musicStripStyleState, width: widthOfMusicStrip})
   }
   
@@ -171,7 +171,7 @@ function App() {
   return (
     <div>
       <div className="App-header">
-        <div className="clearfix">
+        <div id="head">
           <div style={homeButtonStyleState}/>
 
           <div style={musicStripStyleState}/>

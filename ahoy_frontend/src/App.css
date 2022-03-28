@@ -88,6 +88,10 @@
   height: 0;
 }
 
+#head{
+  height: 80px;
+}
+
 ::-webkit-scrollbar {
   width: 0 !important;
 }

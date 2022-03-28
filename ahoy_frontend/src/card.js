@@ -13,37 +13,43 @@ let cardContainer = {
 export  let umbrellaStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 export  let downCoatStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 export  let sweaterStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 export  let snowBootStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 export  let rainBootStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 export  let maskStyle = {
     ...cardContainer,
     marginRight: '50px',
-    transitionDuration: '2000ms'
+    transitionDuration: '2000ms',
+    flexShrink: 0
   }
 
 const Card = React.forwardRef((props, ref) => {

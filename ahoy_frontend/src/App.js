@@ -155,8 +155,11 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <div className="App-header">
+        <div id="test">
+          testtest
+        </div> 
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainers.umbrellaStyle}  onClick={folded.umbrellaFolded? clickCardContainer("umbrella"): foldCardContainer("umbrella")}>
           <Card name="Umbrella" css="card-1"/>

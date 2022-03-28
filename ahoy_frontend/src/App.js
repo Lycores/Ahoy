@@ -5,6 +5,7 @@ import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBoo
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle} from './headBanner.js'
 import * as eh from './eventHandler.js'
+import foldAnyContainer from './setService.js'
 const url = '/api'
 
 function App() {
@@ -32,23 +33,15 @@ function App() {
 
   const foldCardContainer = (componentClicked) => {
     return (event) => {
+      const dictionary = {"umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
+      "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref}
       switch(componentClicked){
         case "umbrella":
-        setAllCardsContainersState(
-          {...allCardsContainersState, umbrellaStyle: {...allCardsContainersState.umbrellaStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        umbrellaCard2Ref.current.classList.remove("expandLeft")
-        umbrellaCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, umbrellaFolded: true})
+          foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, "umbrella")
         break;
 
         case "downCoat":
-        setAllCardsContainersState(
-          {...allCardsContainersState, downCoatStyle: {...allCardsContainersState.downCoatStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        downCoatCard2Ref.current.classList.remove("expandLeft")
-        downCoatCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, downCoatFolded: true})
+          foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, "downCoat")
         break;
 
         case "sweater":

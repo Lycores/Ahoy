@@ -31,55 +31,17 @@ function App() {
   const musicStripRef = useRef(null);
   const loginButtonRef = useRef(null);
 
-  const foldCardContainer = (componentClicked) => {
+  const foldCardContainer = (componentClicked, foldUnfold) => {
     return (event) => {
-      const dictionary = {"umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
-      "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref}
-      switch(componentClicked){
-        case "umbrella":
-          foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, "umbrella")
-        break;
-
-        case "downCoat":
-          foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, "downCoat")
-        break;
-
-        case "sweater":
-        setAllCardsContainersState(
-          {...allCardsContainersState, sweaterStyle: {...allCardsContainersState.sweaterStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        sweaterCard2Ref.current.classList.remove("expandLeft")
-        sweaterCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, sweaterFolded: true})
-        break;
-
-        case "snowBoot":
-        setAllCardsContainersState(
-          {...allCardsContainersState, snowBootStyle: {...allCardsContainersState.snowBootStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        snowBootCard2Ref.current.classList.remove("expandLeft")
-        snowBootCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, snowBootFolded: true})
-        break;
-
-        case "rainBoot":
-        setAllCardsContainersState(
-          {...allCardsContainersState, rainBootStyle: {...allCardsContainersState.rainBootStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        rainBootCard2Ref.current.classList.remove("expandLeft")
-        rainBootCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, rainBootFolded: true})
-        break;
-
-        case "mask":
-        setAllCardsContainersState(
-          {...allCardsContainersState, maskStyle: {...allCardsContainersState.maskStyle, marginLeft: "50px", marginRight:"50px"}}
-        )
-        maskCard2Ref.current.classList.remove("expandLeft")
-        maskCard3Ref.current.classList.remove("expandRight")
-        setFoldedState({...foldedState, maskFolded: true})
-        break;
+      const dictionary = {
+      "umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
+      "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref, 
+      "sweaterCard2Ref":sweaterCard2Ref, "sweaterCard3Ref":sweaterCard3Ref,
+      "snowBootCard2Ref":snowBootCard2Ref, "snowBootCard3Ref":snowBootCard3Ref,
+      "rainBootCard2Ref":rainBootCard2Ref, "rainBootCard3Ref": rainBootCard3Ref,
+      "maskCard2Ref":maskCard2Ref, "maskCard3Ref":maskCard3Ref
       }
+      foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked)
     }
   }
 

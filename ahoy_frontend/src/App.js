@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle} from './headBanner.js'
-
+import * as eh from './eventHandler.js'
 const url = '/api'
 
 function App() {
@@ -146,24 +146,6 @@ function App() {
     }
   }
 
-  const changeSizeOfMusicStrip = ()=> {
-    let widthOfWindow = window.innerWidth
-    console.log(widthOfWindow)
-    let widthOfMusicStrip = widthOfWindow - 200
-    setMusicStripWidthState({...musicStripStyleState, width: widthOfMusicStrip})
-  }
-
-  const homeButtonClicked = () => {
-    console.log("111")
-  }
-
-  const musicStripClicked = () => {
-    console.log("222")
-  }
-
-  const loginButtonClicked = () => {
-    console.log("333")
-  }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({
     umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle
@@ -173,22 +155,23 @@ function App() {
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
 
-  let [musicStripStyleState, setMusicStripWidthState] = useState(musicStripStyle)
+  let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 2000)
-    window.addEventListener('resize', changeSizeOfMusicStrip);
+    window.addEventListener('resize', eh.changeSizeOfMusicStrip);
+    
   }, [])
 
   return (
     <div>
       <div className="App-header">
         <div id="head">
-          <div style={homeButtonStyleState} onClick={homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={musicStripClicked} />
-          <div style={loginButtonStyleState} onClock={loginButtonClicked} />
+          <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
+          <div style={musicStripStyleState} onClick={eh.musicStripClicked(allCardsContainersState, setAllCardsContainersState)} />
+          <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  onClick={foldedState.umbrellaFolded? clickCardContainer("umbrella"): foldCardContainer("umbrella")}>

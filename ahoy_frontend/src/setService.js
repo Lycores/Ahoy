@@ -1,10 +1,10 @@
 import App from './App'
 
 const foldAnyContainer = (cardState ,setCardState, foldState, setFoldState, dictionary, property) => {
-    const propertyStyle = property + "Style"
-    const propertyCard2Ref = property + "Card2Ref"
-    const propertyCard3Ref = property + "Card3Ref"
-    const propertyFolded = property + "Folded"
+    var propertyStyle = property + "Style"
+    var propertyCard2Ref = property + "Card2Ref"
+    var propertyCard3Ref = property + "Card3Ref"
+    var propertyFolded = property + "Folded"
     setCardState(
         {...cardState, [propertyStyle]: {...cardState[propertyStyle], marginLeft: "50px", marginRight:"50px"}}
       )

@@ -115,7 +115,7 @@ function App() {
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
 
   useEffect(() => {
-    setInterval(()=>{requestDesktopData(url)}, 2000)
+    setInterval(()=>{requestDesktopData(url)}, 200000)
     window.addEventListener('resize', eh.changeSizeOfMusicStrip);
     
   }, [])

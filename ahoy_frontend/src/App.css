@@ -14,9 +14,18 @@
 }
 
 
-#test{
-  height:300px;
-  width:300px;
+#musicStrip{
+  height: 50px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 15px;
+  color: black;
+  margin-top: 5px;
+  
 }
 
 .cardLeftDistance{
@@ -28,7 +37,7 @@
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:20%;
+  border-radius:25px;
   box-shadow: 3px 3px 5px #000;
   position: absolute;
   z-index:3;
@@ -41,7 +50,7 @@
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:20%;
+  border-radius:25px;
   box-shadow: 3px 3px 5px #000;
   position: absolute;
   left:20px;
@@ -56,7 +65,7 @@
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:20%;
+  border-radius:25px;
   box-shadow: 3px 3px 5px #000;
   position: absolute;
   left:40px;
@@ -85,6 +94,6 @@
   overflow:hidden
 } 
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0 !important;
-} */
+}

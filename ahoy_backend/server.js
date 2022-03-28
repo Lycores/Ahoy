@@ -4,7 +4,7 @@ const data = {name:"aaa"}
 let app = http.createServer((req, res) => {
     // Set a response type of plain text for the response
     console.log("someone come")
-    res.writeHead(200, {'Content-Type': 'text/plain; charset=UTF-8'});
+    res.writeHead(200, {'Content-Type': 'application/json; charset=UTF-8'});
 
     res.write(JSON.stringify(data))
     // Send back a response and end the connection

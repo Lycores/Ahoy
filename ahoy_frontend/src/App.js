@@ -40,7 +40,7 @@ function App() {
     }
   const foldCardContainer = (componentClicked, foldUnfold) => {
     return (event) => {
-      console.log(componentClicked)
+    
       foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked, foldUnfold)
     }
   }

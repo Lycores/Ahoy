@@ -26,7 +26,9 @@ function App() {
   const rainBootCard3Ref = useRef(null);
   const maskCard2Ref = useRef(null);
   const maskCard3Ref = useRef(null);
-
+  const homeButtonRef = useRef(null);
+  const musicStripRef = useRef(null);
+  const loginButtonRef = useRef(null);
 
   const foldCardContainer = (componentClicked) => {
     return (event) => {
@@ -150,6 +152,18 @@ function App() {
     let widthOfMusicStrip = widthOfWindow - 200
     setMusicStripWidthState({...musicStripStyleState, width: widthOfMusicStrip})
   }
+
+  const homeButtonClicked = () => {
+    console.log("111")
+  }
+
+  const musicStripClicked = () => {
+    console.log("222")
+  }
+
+  const loginButtonClicked = () => {
+    console.log("333")
+  }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({
     umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle
@@ -172,11 +186,9 @@ function App() {
     <div>
       <div className="App-header">
         <div id="head">
-          <div style={homeButtonStyleState}/>
-
-          <div style={musicStripStyleState}/>
-
-          <div style={loginButtonStyleState}/>
+          <div style={homeButtonStyleState} onClick={homeButtonClicked} />
+          <div style={musicStripStyleState} onClick={musicStripClicked} />
+          <div style={loginButtonStyleState} onClock={loginButtonClicked} />
         </div>
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  onClick={foldedState.umbrellaFolded? clickCardContainer("umbrella"): foldCardContainer("umbrella")}>

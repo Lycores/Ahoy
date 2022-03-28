@@ -11,11 +11,14 @@ const DisplayNoneAllCard = (allState, setFunc) => {
     })
 }
 
-export const changeSizeOfMusicStrip = ()=> {
-    let widthOfWindow = window.innerWidth
-    console.log(widthOfWindow)
-    let widthOfMusicStrip = widthOfWindow - 200
-    App.setMusicStripWidthState({...App.musicStripStyleState, width: widthOfMusicStrip})
+export const changeSizeOfMusicStrip = (allState, setFunc)=> {
+    return () => {      
+        let widthOfWindow = window.innerWidth
+        console.log(widthOfWindow)
+        let widthOfMusicStrip = widthOfWindow - 200
+        setFunc({...allState, width: widthOfMusicStrip})
+    }
+    
 }
 
 export const homeButtonClicked = () => {

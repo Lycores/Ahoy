@@ -30,17 +30,17 @@ function App() {
   const homeButtonRef = useRef(null);
   const musicStripRef = useRef(null);
   const loginButtonRef = useRef(null);
-
-  const foldCardContainer = (componentClicked, foldUnfold) => {
+  const dictionary = {
+    "umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
+    "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref, 
+    "sweaterCard2Ref":sweaterCard2Ref, "sweaterCard3Ref":sweaterCard3Ref,
+    "snowBootCard2Ref":snowBootCard2Ref, "snowBootCard3Ref":snowBootCard3Ref,
+    "rainBootCard2Ref":rainBootCard2Ref, "rainBootCard3Ref": rainBootCard3Ref,
+    "maskCard2Ref":maskCard2Ref, "maskCard3Ref":maskCard3Ref
+    }
+  const foldCardContainer = (componentClicked) => {
     return (event) => {
-      const dictionary = {
-      "umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
-      "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref, 
-      "sweaterCard2Ref":sweaterCard2Ref, "sweaterCard3Ref":sweaterCard3Ref,
-      "snowBootCard2Ref":snowBootCard2Ref, "snowBootCard3Ref":snowBootCard3Ref,
-      "rainBootCard2Ref":rainBootCard2Ref, "rainBootCard3Ref": rainBootCard3Ref,
-      "maskCard2Ref":maskCard2Ref, "maskCard3Ref":maskCard3Ref
-      }
+      console.log(componentClicked)
       foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked)
     }
   }

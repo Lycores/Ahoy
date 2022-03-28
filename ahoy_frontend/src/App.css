@@ -13,18 +13,6 @@
   justify-content: flex-start;
 }
 
-
-#musicStrip{
-  height: 50px;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 15px;
-  box-shadow: 3px 3px 5px #000;
-  margin-top: 5px;
-  
-}
-
 .cardLeftDistance{
   margin-left:50px;
 }
@@ -90,6 +78,15 @@
 .noScrollBar{
   overflow:hidden
 } 
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
 
 ::-webkit-scrollbar {
   width: 0 !important;

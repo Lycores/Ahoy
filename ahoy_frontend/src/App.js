@@ -72,38 +72,44 @@ function App() {
           <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
        <div className="container cardLeftDistance">
-        <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  onClick={foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"): foldCardContainer("umbrella", "fold")}>
+        <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  onClick={
+          foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"): foldCardContainer("umbrella", "fold")}>
           <Card name="Umbrella" css="card-1"/>
           <Card ref={umbrellaCard2Ref} name="Good" css="card-2"/>
           <Card ref={umbrellaCard3Ref} name="Good" css="card-3"/>
         </div>
 
-        <div ref={downCoatRef} style={allCardsContainersState.downCoatStyle} onClick={foldedState.downCoatFolded? foldCardContainer("downCoat", "unfold"): foldCardContainer("downCoat", "fold")} >
+        <div ref={downCoatRef} style={allCardsContainersState.downCoatStyle} onClick={
+          foldedState.downCoatFolded? foldCardContainer("downCoat", "unfold"): foldCardContainer("downCoat", "fold")} >
           <Card  name="downCoatRef" css="card-1"/>
           <Card  ref={downCoatCard2Ref} name="downCoatRef" css="card-2"/>
           <Card  ref={downCoatCard3Ref} name="downCoatRef" css="card-3"/>
         </div>
 
-        <div ref={sweaterRef} style={allCardsContainersState.sweaterStyle}  onClick={foldedState.sweaterFolded? foldCardContainer("sweater", "unfold"): foldCardContainer("sweater", "fold")}>
+        <div ref={sweaterRef} style={allCardsContainersState.sweaterStyle}  onClick={
+          foldedState.sweaterFolded? foldCardContainer("sweater", "unfold"): foldCardContainer("sweater", "fold")}>
           <Card name="sweaterRef" css="card-1"/>
           <Card ref={sweaterCard2Ref} name="sweaterRef" css="card-2"/>
           <Card ref={sweaterCard3Ref} name="sweaterRef" css="card-3"/>
         </div>
           
-        <div ref={snowBootRef} style={allCardsContainersState.snowBootStyle} onClick={foldedState.snowBootFolded? foldCardContainer("snowBoot", "unfold"): foldCardContainer("snowBoot", "fold")}>
+        <div ref={snowBootRef} style={allCardsContainersState.snowBootStyle} onClick={
+          foldedState.snowBootFolded? foldCardContainer("snowBoot", "unfold"): foldCardContainer("snowBoot", "fold")}>
           <Card name="snowBootRef" css="card-1"/>
           <Card ref={snowBootCard2Ref} name="snowBootRef" css="card-2"/>
           <Card ref={snowBootCard3Ref} name="snowBootRef" css="card-3"/>
         </div>
 
 
-        <div ref={rainBootRef} style={allCardsContainersState.rainBootStyle} onClick={foldedState.rainBootFolded? foldCardContainer("rainBoot", "unfold"): foldCardContainer("rainBoot", "fold")}>
+        <div ref={rainBootRef} style={allCardsContainersState.rainBootStyle} onClick={
+          foldedState.rainBootFolded? foldCardContainer("rainBoot", "unfold"): foldCardContainer("rainBoot", "fold")}>
           <Card name="rainBootRef" css="card-1"/>
           <Card ref={rainBootCard2Ref} name="rainBootRef" css="card-2"/>
           <Card ref={rainBootCard3Ref} name="rainBootRef" css="card-3"/>
         </div>
 
-        <div ref={maskRef} style={allCardsContainersState.maskStyle} onClick={foldedState.maskFolded? foldCardContainer("mask", "unfold"): foldCardContainer("mask", "fold")}>
+        <div ref={maskRef} style={allCardsContainersState.maskStyle} onClick={
+          foldedState.maskFolded? foldCardContainer("mask", "unfold"): foldCardContainer("mask", "fold")}>
           <Card name="maskRef" css="card-1"/>
           <Card ref={maskCard2Ref} name="maskRef" css="card-2"/>
           <Card ref={maskCard3Ref} name="maskRef" css="card-3"/>

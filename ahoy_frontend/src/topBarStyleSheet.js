@@ -7,7 +7,13 @@ export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeBu
 var musicStripWidth = "calc(100% - " +  (musicStripDistanceLeft + musicStripDistanceRight).toString() + "px)";
 console.log(musicStripWidth)
 
-export const musicStripStyle = {
+export var topBarStyle = {
+    height: globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
+}
+
+
+
+export var musicStripStyle = {
     height: globalStyle.headerItemHeight,
     width: musicStripWidth,
     borderRadius: '15px',
@@ -17,7 +23,7 @@ export const musicStripStyle = {
     left: musicStripDistanceLeft
 }
 
-export const homeButtonStyle = {
+export var homeButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.homeButtonWidth,
     boxShadow: '3px 3px 5px #000',
@@ -27,7 +33,7 @@ export const homeButtonStyle = {
     left: globalStyle.marginLeft
 }
 
-export const loginButtonStyle = {
+export var loginButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.loginButtonWidth,
     boxShadow: '3px 3px 5px #000',

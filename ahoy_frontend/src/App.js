@@ -3,10 +3,11 @@ import './App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight} from './topBarStyleSheet.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
 import foldAnyContainer from './setService.js'
 import playListStyle from './playlistStyleSheet'
+import footerStyle from './footerStyleSheet'
 const url = '/api'
 
 function App() {
@@ -76,8 +77,8 @@ function App() {
 
   return (
     <div>
-      <div className="App-header">
-        <div id="head">
+      <div className="App-Container">
+        <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
           <div style={musicStripStyleState} onClick={eh.musicStripClicked(
             allCardsContainersState, setAllCardsContainersState, playListStyleState, setplayListStyleState)} />

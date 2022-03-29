@@ -7,7 +7,7 @@ export const globalStyle = {
     headerItemHeight: 70,
     homeButtonWidth:70,
     loginButtonWidth:70,
-    boxShadow: '3px 3px 5px #000',
+    boxShadow: "18px 18px 30px rgba(0, 0, 0, 0.2)",
     borderRadius: 20,
     playlistWidth: 200
 }

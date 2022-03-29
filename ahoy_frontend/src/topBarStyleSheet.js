@@ -17,7 +17,7 @@ export var musicStripStyle = {
     height: globalStyle.headerItemHeight,
     width: musicStripWidth,
     borderRadius: '15px',
-    boxShadow: '3px 3px 5px #000',
+    boxShadow: globalStyle.boxShadow,
     position: 'fixed',
     top: globalStyle.marginTop,
     left: musicStripDistanceLeft
@@ -26,7 +26,7 @@ export var musicStripStyle = {
 export var homeButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.homeButtonWidth,
-    boxShadow: '3px 3px 5px #000',
+    boxShadow: globalStyle.boxShadow,
     borderRadius: '15px',
     position: 'fixed',
     top: globalStyle.marginTop,
@@ -36,7 +36,7 @@ export var homeButtonStyle = {
 export var loginButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.loginButtonWidth,
-    boxShadow: '3px 3px 5px #000',
+    boxShadow: globalStyle.boxShadow,
     borderRadius: '15px',
     position:'fixed',
     top:globalStyle.marginTop,

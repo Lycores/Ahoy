@@ -7,7 +7,7 @@ const playListStyle = {
     marginButton: globalStyle.marginButton,
     height: '100%',
     width: globalStyle.playlistWidth,
-    boxShadow: "3px 3px 5px #000",
+    boxShadow: globalStyle.boxShadow,
     borderRadius: borderRadius
 }
 

@@ -3,7 +3,7 @@ import './App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight} from './headBannerStyleSheet.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight} from './topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
 import foldAnyContainer from './setService.js'
 import playListStyle from './playlistStyleSheet'

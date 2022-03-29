@@ -1,4 +1,4 @@
-import globalStyle from './globalStyleSheet'
+import {globalStyle} from './globalStyleSheet'
 
 var footerStyle = {
     height: 200,

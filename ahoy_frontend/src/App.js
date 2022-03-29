@@ -34,7 +34,6 @@ function App() {
   const loginButtonRef = useRef(null);
 
   var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-  var musicStripOffset = 200;
 
   const dictionary = {
     "umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
@@ -54,6 +53,7 @@ function App() {
   const changeGlobalDim = () => {
     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
+
   }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({

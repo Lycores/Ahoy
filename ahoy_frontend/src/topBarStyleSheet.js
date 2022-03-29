@@ -1,4 +1,4 @@
-import globalStyle from './globalStyleSheet'
+import {globalStyle} from './globalStyleSheet'
 import App from './App'
 
 export var musicStripDistanceLeft = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight

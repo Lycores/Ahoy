@@ -53,10 +53,10 @@ export  let maskStyle = {
   }
 
 const Card = React.forwardRef((props, ref) => {
-    const {name, css} = props
+    const {name, css, click} = props
 
     return(
-        <div ref = {ref} className={css}>{name}</div>
+        <div ref = {ref} className={css} onClick={click}>{name}</div>
     )
 })
 

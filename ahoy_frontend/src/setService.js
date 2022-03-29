@@ -8,7 +8,7 @@ const foldAnyContainer = (cardState ,setCardState, foldState, setFoldState, dict
     if(foldUnfold == "fold"){
         setCardState(
             {...cardState, [propertyStyle]: {...cardState[propertyStyle], marginLeft: "50px", marginRight:"50px"}}
-          )
+            )
     
         dictionary[propertyCard2Ref].current.classList.remove("expandLeft")
         dictionary[propertyCard3Ref].current.classList.remove("expandRight")
@@ -21,6 +21,7 @@ const foldAnyContainer = (cardState ,setCardState, foldState, setFoldState, dict
         dictionary[propertyCard3Ref].current.classList.add("expandRight")
         setFoldState({...foldState, [propertyFolded]: false}) 
     }
+
     
 }
 

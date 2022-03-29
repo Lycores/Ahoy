@@ -3,7 +3,7 @@ import './App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle} from './headBannerStyleSheet.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight} from './headBannerStyleSheet.js'
 import * as eh from './eventHandler.js'
 import foldAnyContainer from './setService.js'
 import playListStyle from './playlistStyleSheet'
@@ -52,7 +52,7 @@ function App() {
 
   const changeGlobalDim = () => {
     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripOffset})
+    setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
   }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({

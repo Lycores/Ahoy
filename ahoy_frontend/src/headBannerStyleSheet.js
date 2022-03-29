@@ -1,37 +1,40 @@
+import globalStyle from './globalStyleSheet'
+import App from './App'
+
+export var musicStripDistanceLeft = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
+export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
+
+var musicStripWidth = "calc(100% - " +  (musicStripDistanceLeft + musicStripDistanceRight).toString() + "px)";
+console.log(musicStripWidth)
+
 export const musicStripStyle = {
-    height: '70px',
-    width: 'calc(100% - 200px)',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    height: globalStyle.headerItemHeight,
+    width: musicStripWidth,
     borderRadius: '15px',
     boxShadow: '3px 3px 5px #000',
     position: 'fixed',
-    top: '5px',
-    left: '100px'
+    top: globalStyle.marginTop,
+    left: musicStripDistanceLeft
 }
 
 export const homeButtonStyle = {
-    height: '70px',
-    width: '70px',
-    marginLeft:'10px',
-    marginRight: '20px',
+    height: globalStyle.headerItemHeight,
+    width: globalStyle.homeButtonWidth,
     boxShadow: '3px 3px 5px #000',
     borderRadius: '15px',
     position: 'fixed',
-    top:'5px',
-    left:'10px'
+    top: globalStyle.marginTop,
+    left: globalStyle.marginLeft
 }
 
 export const loginButtonStyle = {
-    height: '70px',
-    width: '70px',
-    marginLeft:'20px',
-    marginRight:'10px',
+    height: globalStyle.headerItemHeight,
+    width: globalStyle.loginButtonWidth,
     boxShadow: '3px 3px 5px #000',
     borderRadius: '15px',
     position:'fixed',
-    top:'5px',
-    right:'10px'
+    top:globalStyle.marginTop,
+    right:globalStyle.marginRight
     // '&::after': clearfix
 }
 

@@ -17,16 +17,29 @@ const RemoveDisplayNonePlayList = (allState, setFunc) => {
     setFunc({...allState, display:'block'})
 }
 
+const RemoveDisplayNoneAlbumList = (allState, setFunc) => {
+    console.log(allState)
+    console.log(setFunc)
+    setFunc({...allState, display:'block'})
+}
+
+const RemoveDisplayNoneMainBody = (allState, setFunc) => {
+    console.log(allState)
+    console.log(setFunc)
+    setFunc({...allState, display:'block'})
+}
+
 export const homeButtonClicked = () => {
     console.log("111")
 }
 
-export const musicStripClicked = (allCardState, setCardFunc, allPlaylistState, setPlaylistFunc) => {
+export const musicStripClicked = (allCardState, setCardFunc, playlistState, setPlaylistFunc, albumListState, setAlbumListFunc, mainBodyState, setMainBodyFunc) => {
     return () => {
         DisplayNoneAllCard(allCardState, setCardFunc)
-        RemoveDisplayNonePlayList(allPlaylistState, setPlaylistFunc)
+        RemoveDisplayNoneMainBody(mainBodyState, setMainBodyFunc)
+        RemoveDisplayNonePlayList(playlistState, setPlaylistFunc)
+        RemoveDisplayNoneAlbumList(albumListState, setAlbumListFunc)
     }
-    
 }
 
 export const loginButtonClicked = () => {

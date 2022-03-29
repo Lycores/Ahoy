@@ -17,17 +17,6 @@ const RemoveDisplayNonePlayList = (allState, setFunc) => {
     setFunc({...allState, display:'block'})
 }
 
-
-export const changeSizeOfMusicStrip = (allState, setFunc)=> {
-    return () => {      
-        let widthOfWindow = window.innerWidth
-        console.log(widthOfWindow)
-        let widthOfMusicStrip = widthOfWindow - 200
-        setFunc({...allState, width: widthOfMusicStrip})
-    }
-    
-}
-
 export const homeButtonClicked = () => {
     console.log("111")
 }

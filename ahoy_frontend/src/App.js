@@ -31,6 +31,10 @@ function App() {
   const homeButtonRef = useRef(null);
   const musicStripRef = useRef(null);
   const loginButtonRef = useRef(null);
+
+  var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+  var musicStripOffset = 200;
+
   const dictionary = {
     "umbrellaCard2Ref": umbrellaCard2Ref, "umbrellaCard3Ref":umbrellaCard3Ref,
     "downCoatCard2Ref": downCoatCard2Ref, "downCoatCard3Ref": downCoatCard3Ref, 
@@ -44,6 +48,11 @@ function App() {
     
       foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked, foldUnfold)
     }
+  }
+
+  const changeGlobalDim = () => {
+    globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+    setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripOffset})
   }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({
@@ -61,7 +70,7 @@ function App() {
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
-    window.addEventListener('resize', eh.changeSizeOfMusicStrip);
+    window.addEventListener('resize', changeGlobalDim);
     
   }, [])
 

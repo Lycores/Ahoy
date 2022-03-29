@@ -11,6 +11,13 @@ const DisplayNoneAllCard = (allState, setFunc) => {
     })
 }
 
+const RemoveDisplayNonePlayList = (allState, setFunc) => {
+    console.log(allState)
+    console.log(setFunc)
+    setFunc({...allState, display:'block'})
+}
+
+
 export const changeSizeOfMusicStrip = (allState, setFunc)=> {
     return () => {      
         let widthOfWindow = window.innerWidth
@@ -25,9 +32,10 @@ export const homeButtonClicked = () => {
     console.log("111")
 }
 
-export const musicStripClicked = (allState, setFunc) => {
+export const musicStripClicked = (allCardState, setCardFunc, allPlaylistState, setPlaylistFunc) => {
     return () => {
-        DisplayNoneAllCard(allState, setFunc)
+        DisplayNoneAllCard(allCardState, setCardFunc)
+        RemoveDisplayNonePlayList(allPlaylistState, setPlaylistFunc)
     }
     
 }

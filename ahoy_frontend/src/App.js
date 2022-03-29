@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
-import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './card.js';
+import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle} from './headBanner.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle} from './headBannerStyleSheet.js'
 import * as eh from './eventHandler.js'
 import foldAnyContainer from './setService.js'
+import playListStyle from './playlistStyleSheet'
 const url = '/api'
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
   let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
+  let [playListStyleState, setplayListStyleState] = useState(playListStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
@@ -68,9 +70,11 @@ function App() {
       <div className="App-header">
         <div id="head">
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={eh.musicStripClicked(allCardsContainersState, setAllCardsContainersState)} />
+          <div style={musicStripStyleState} onClick={eh.musicStripClicked(
+            allCardsContainersState, setAllCardsContainersState, playListStyleState, setplayListStyleState)} />
           <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
+        <div style={playListStyleState} />
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  onClick={
           foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"): foldCardContainer("umbrella", "fold")}>

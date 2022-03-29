@@ -8,7 +8,8 @@ export const globalStyle = {
     homeButtonWidth:70,
     loginButtonWidth:70,
     boxShadow: '3px 3px 5px #000',
-    borderRadius: 20
+    borderRadius: 20,
+    playlistWidth: 200
 }
 
 export const borderRadius = "20px"

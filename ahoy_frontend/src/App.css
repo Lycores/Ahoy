@@ -3,12 +3,14 @@
   --borderRadius: 20px;
 }
 
+body{
+  background-color: #efeeee;
+  color: 'slategrey';
+}
 
 .App-Container {
-  background-color: white;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
   height: 100vh;
 }
 

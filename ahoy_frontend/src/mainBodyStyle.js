@@ -7,8 +7,7 @@ const mainBodyStyle={
     display:'none',
     height: albumListHeight,
     flexWrap: 'nowrap',
-    alignItems: 'stretch',
-
+    alignItems: 'stretch'
 }
 
 export default mainBodyStyle

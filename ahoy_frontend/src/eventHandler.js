@@ -26,7 +26,7 @@ const RemoveDisplayNoneAlbumList = (allState, setFunc) => {
 const RemoveDisplayNoneMainBody = (allState, setFunc) => {
     console.log(allState)
     console.log(setFunc)
-    setFunc({...allState, display:'block'})
+    setFunc({...allState, display:'flex'})
 }
 
 export const homeButtonClicked = () => {

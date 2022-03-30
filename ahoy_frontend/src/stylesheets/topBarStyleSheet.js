@@ -12,6 +12,12 @@ export var topBarStyle = {
     height: globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
 }
 
+const headerStyleReusable = {
+    borderRadius: '15px',
+    position: 'fixed',
+    cursor: 'pointer'
+}
+
 const spotify = {
     backgroundImage:`url(${spotifyLogo})`,
     backgroundPosition:"center",
@@ -22,34 +28,28 @@ const spotify = {
 export var musicStripStyle = {
     height: globalStyle.headerItemHeight,
     width: musicStripWidth,
-    borderRadius: '15px',
     boxShadow: globalStyle.boxShadow,
-    position: 'fixed',
     top: globalStyle.marginTop,
     left: musicStripDistanceLeft,
-    cursor: 'pointer'
+    ...headerStyleReusable
 }
 
 export var homeButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.homeButtonWidth,
     boxShadow: globalStyle.boxShadow,
-    borderRadius: '15px',
-    position: 'fixed',
     top: globalStyle.marginTop,
     left: globalStyle.marginLeft,
-    cursor: 'pointer'
+    ...headerStyleReusable
 }
 
 export var loginButtonStyle = {
     height: globalStyle.headerItemHeight,
     width: globalStyle.loginButtonWidth,
     boxShadow: globalStyle.boxShadow,
-    borderRadius: '15px',
-    position:'fixed',
     top:globalStyle.marginTop,
     right:globalStyle.marginRight,
-    cursor: 'pointer',
+    ...headerStyleReusable,
     ...spotify 
     // '&::after': clearfix
 }

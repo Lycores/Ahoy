@@ -1,11 +1,5 @@
-
-:root{
-  --borderRadius: 20px;
-  --backggroundColor: #efeeee
-}
-
-body{
-  background-color: var(--backggroundColor);
+body {
+  background-color: #efeeee;
   color: 'slategrey';
 }
 
@@ -15,141 +9,153 @@ body{
   height: 100vh;
 }
 
-.container{
-  display:flex;
-  margin:auto;
-  flex-direction: row;
-  justify-content: flex-start;
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-.cardLeftDistance{
-  margin-left:50px;
+.cardLeftDistance {
+  margin-left: 50px;
 }
 
-
-.card-1{
+.card-1 {
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:var(--borderRadius);
-  box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
   position: absolute;
-  z-index:3;
   overflow: hidden;
-  background-color: var(--backggroundColor)
+  -webkit-transition-duration: 2000ms;
+          transition-duration: 2000ms;
+  background-color: #efeeee;
+  z-index: 3;
 }
 
-
-.card-2{
+.card-2 {
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:var(--borderRadius);
-  box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
   position: absolute;
-  left:20px;
-  top:20px;
-  z-index:2;
-  transition-duration: 2000ms;
   overflow: hidden;
-  background-color: var(--backggroundColor)
+  -webkit-transition-duration: 2000ms;
+          transition-duration: 2000ms;
+  background-color: #efeeee;
+  left: 20px;
+  top: 20px;
+  z-index: 2;
 }
 
-.card-3{
+.card-3 {
   /* background-color: aquamarine; */
   width: 200px;
   height: 200px;
-  border-radius:var(--borderRadius);
-  box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
   position: absolute;
-  left:40px;
-  top:40px;
-  z-index:1;
-  transition-duration: 2000ms;
   overflow: hidden;
-  background-color: var(--backggroundColor)
+  -webkit-transition-duration: 2000ms;
+          transition-duration: 2000ms;
+  background-color: #efeeee;
+  left: 40px;
+  top: 40px;
+  z-index: 1;
 }
 
-.expandCard{
+.expandCard {
   margin-right: 300px;
 }
 
-.expandLeft{
-  left:-250px;
-  top:0px;
+.expandLeft {
+  left: -250px;
+  top: 0px;
 }
 
-.expandRight{
-  left:250px;
-  top:0px;
+.expandRight {
+  left: 250px;
+  top: 0px;
 }
 
-.noScrollBar{
-  overflow:hidden
-} 
+.noScrollBar {
+  overflow: hidden;
+}
 
-#umbrella{
+#umbrella {
   background-image: url("./assets/umbrella.png");
-  background-position:center;
   background-size: 80%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#mask{
+#mask {
   background-image: url("./assets/mask.png");
-  background-position:center;
   background-size: 80%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#downCoat{
+#downCoat {
   background-image: url("./assets/downCoat.png");
-  background-position:center;
   background-size: 120%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#sweater{
+#sweater {
   background-image: url("./assets/sweater.png");
-  background-position:center;
   background-size: 110%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 #rainShoes {
   background-image: url("./assets/rainShoes.png");
-  background-position:center;
   background-size: 80%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#cold{
+#cold {
   background-image: url("./assets/cold.png");
-  background-position:center;
   background-size: 80%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#hot{
+#hot {
   background-image: url("./assets/hot.png");
-  background-position:center;
   background-size: 80%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-#cloud{
+#cloud {
   background-image: url("./assets/cloud.png");
-  background-position:center;
   background-size: 100%;
-  background-repeat:no-repeat;
-  cursor:pointer
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .clearfix:after {
@@ -164,3 +170,4 @@ body{
 ::-webkit-scrollbar {
   width: 0 !important;
 }
+/*# sourceMappingURL=App.css.map */

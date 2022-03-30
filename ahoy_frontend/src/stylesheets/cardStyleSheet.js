@@ -3,7 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSnowman } from '@fortawesome/free-solid-svg-icons'
 
-let cardContainer = {
+const cardContainer = {
     width: '200px',
     height: '200px',
     margin: '50px',

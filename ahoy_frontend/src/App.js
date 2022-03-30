@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
-import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './stylesheets/cardStyleSheet.js';
+import Card from './card.js'
+import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './stylesheets/cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
@@ -93,44 +94,44 @@ function App() {
           <Card name="umbrella" css="card-1" click={
           foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"):
            foldCardContainer("umbrella", "fold")}/>
-          <Card ref={umbrellaCard2Ref} name="Good" css="card-2"/>
-          <Card ref={umbrellaCard3Ref} name="Good" css="card-3"/>
+          <Card ref={umbrellaCard2Ref} name="cold" css="card-2"/>
+          <Card ref={umbrellaCard3Ref} name="hot" css="card-3"/>
         </div>
 
         <div ref={downCoatRef} style={allCardsContainersState.downCoatStyle} >
-          <Card  name="downCoatRef" css="card-1" click={
+          <Card  name="downCoat" css="card-1" click={
           foldedState.downCoatFolded? foldCardContainer("downCoat", "unfold"): foldCardContainer("downCoat", "fold")}/>
-          <Card  ref={downCoatCard2Ref} name="downCoatRef" css="card-2"/>
-          <Card  ref={downCoatCard3Ref} name="downCoatRef" css="card-3"/>
+          <Card  ref={downCoatCard2Ref} name="cold" css="card-2"/>
+          <Card  ref={downCoatCard3Ref} name="hot" css="card-3"/>
         </div>
 
         <div ref={sweaterRef} style={allCardsContainersState.sweaterStyle}  >
-          <Card name="sweaterRef" css="card-1" click={
+          <Card name="sweater" css="card-1" click={
           foldedState.sweaterFolded? foldCardContainer("sweater", "unfold"): foldCardContainer("sweater", "fold")}/>
-          <Card ref={sweaterCard2Ref} name="sweaterRef" css="card-2"/>
-          <Card ref={sweaterCard3Ref} name="sweaterRef" css="card-3"/>
+          <Card ref={sweaterCard2Ref} name="cold" css="card-2"/>
+          <Card ref={sweaterCard3Ref} name="hot" css="card-3"/>
         </div>
           
         <div ref={snowBootRef} style={allCardsContainersState.snowBootStyle} >
-          <Card name="snowBootRef" css="card-1" click={
+          <Card name="snowBoot" css="card-1" click={
           foldedState.snowBootFolded? foldCardContainer("snowBoot", "unfold"): foldCardContainer("snowBoot", "fold")}/>
-          <Card ref={snowBootCard2Ref} name="snowBootRef" css="card-2"/>
-          <Card ref={snowBootCard3Ref} name="snowBootRef" css="card-3"/>
+          <Card ref={snowBootCard2Ref} name="cold" css="card-2"/>
+          <Card ref={snowBootCard3Ref} name="hot" css="card-3"/>
         </div>
 
 
         <div ref={rainBootRef} style={allCardsContainersState.rainBootStyle} >
-          <Card name="rainBootRef" css="card-1" click={
+          <Card name="rainShoes" css="card-1" click={
           foldedState.rainBootFolded? foldCardContainer("rainBoot", "unfold"): foldCardContainer("rainBoot", "fold")}/>
-          <Card ref={rainBootCard2Ref} name="rainBootRef" css="card-2"/>
-          <Card ref={rainBootCard3Ref} name="rainBootRef" css="card-3"/>
+          <Card ref={rainBootCard2Ref} name="cold" css="card-2"/>
+          <Card ref={rainBootCard3Ref} name="hot" css="card-3"/>
         </div>
 
         <div ref={maskRef} style={allCardsContainersState.maskStyle} >
-          <Card name="maskRef" css="card-1" click={
+          <Card name="mask" css="card-1" click={
           foldedState.maskFolded? foldCardContainer("mask", "unfold"): foldCardContainer("mask", "fold")}/>
-          <Card ref={maskCard2Ref} name="maskRef" css="card-2"/>
-          <Card ref={maskCard3Ref} name="maskRef" css="card-3"/>
+          <Card ref={maskCard2Ref} name="cloud" css="card-2"/>
+          <Card ref={maskCard3Ref} name="hot" css="card-3"/>
         </div>
        </div>
       </div>

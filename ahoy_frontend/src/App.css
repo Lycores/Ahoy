@@ -1,10 +1,11 @@
 
 :root{
   --borderRadius: 20px;
+  --backggroundColor: #efeeee
 }
 
 body{
-  background-color: #efeeee;
+  background-color: var(--backggroundColor);
   color: 'slategrey';
 }
 
@@ -35,7 +36,7 @@ body{
   position: absolute;
   z-index:3;
   overflow: hidden;
-  color: #000;
+  background-color: var(--backggroundColor)
 }
 
 
@@ -51,7 +52,7 @@ body{
   z-index:2;
   transition-duration: 2000ms;
   overflow: hidden;
-  color: #000;
+  background-color: var(--backggroundColor)
 }
 
 .card-3{
@@ -66,7 +67,7 @@ body{
   z-index:1;
   transition-duration: 2000ms;
   overflow: hidden;
-  color: #000;
+  background-color: var(--backggroundColor)
 }
 
 .expandCard{
@@ -92,8 +93,64 @@ body{
   background-position:center;
   background-size: 80%;
   background-repeat:no-repeat;
+  cursor:pointer
 }
 
+#mask{
+  background-image: url("./assets/mask.png");
+  background-position:center;
+  background-size: 80%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#downCoat{
+  background-image: url("./assets/downCoat.png");
+  background-position:center;
+  background-size: 120%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#sweater{
+  background-image: url("./assets/sweater.png");
+  background-position:center;
+  background-size: 110%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#rainShoes {
+  background-image: url("./assets/rainShoes.png");
+  background-position:center;
+  background-size: 80%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#cold{
+  background-image: url("./assets/cold.png");
+  background-position:center;
+  background-size: 80%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#hot{
+  background-image: url("./assets/hot.png");
+  background-position:center;
+  background-size: 80%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
+
+#cloud{
+  background-image: url("./assets/cloud.png");
+  background-position:center;
+  background-size: 100%;
+  background-repeat:no-repeat;
+  cursor:pointer
+}
 
 .clearfix:after {
   visibility: hidden;

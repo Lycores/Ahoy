@@ -1,6 +1,7 @@
 import {globalStyle} from './globalStyleSheet'
 import App from '../App'
 import spotifyLogo from '../assets/spotify.png'
+import avatar from '../assets/avatar.png'
 
 export var musicStripDistanceLeft = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
 export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
@@ -25,7 +26,8 @@ export var musicStripStyle = {
     boxShadow: globalStyle.boxShadow,
     position: 'fixed',
     top: globalStyle.marginTop,
-    left: musicStripDistanceLeft
+    left: musicStripDistanceLeft,
+    cursor: 'pointer'
 }
 
 export var homeButtonStyle = {
@@ -35,7 +37,8 @@ export var homeButtonStyle = {
     borderRadius: '15px',
     position: 'fixed',
     top: globalStyle.marginTop,
-    left: globalStyle.marginLeft
+    left: globalStyle.marginLeft,
+    cursor: 'pointer'
 }
 
 export var loginButtonStyle = {
@@ -46,6 +49,7 @@ export var loginButtonStyle = {
     position:'fixed',
     top:globalStyle.marginTop,
     right:globalStyle.marginRight,
+    cursor: 'pointer',
     ...spotify 
     // '&::after': clearfix
 }

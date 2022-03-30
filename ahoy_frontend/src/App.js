@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
+import {Helmet} from "react-helmet";
 import Card from './card.js'
 import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './stylesheets/cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
@@ -8,6 +9,7 @@ import * as eh from './eventHandler.js'
 import playListStyle from './stylesheets/playlistStyleSheet'
 import albumListStyle from './stylesheets/albumListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
+
 const url = '/api'
 
 function App() {
@@ -77,6 +79,9 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+      </Helmet>
       <div className="App-Container">
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />

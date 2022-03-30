@@ -1,17 +1,22 @@
 import {globalStyle} from './globalStyleSheet'
 import App from './App'
+import spotifyLogo from './assets/spotify.png'
 
 export var musicStripDistanceLeft = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
 export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
 
 var musicStripWidth = "calc(100% - " +  (musicStripDistanceLeft + musicStripDistanceRight).toString() + "px)";
-console.log(musicStripWidth)
 
 export var topBarStyle = {
     height: globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
 }
 
-
+const spotify = {
+    backgroundImage:`url(${spotifyLogo})`,
+    backgroundPosition:"center",
+    backgroundSize: "80%",
+    backgroundRepeat:"no-repeat"
+  }
 
 export var musicStripStyle = {
     height: globalStyle.headerItemHeight,
@@ -40,7 +45,9 @@ export var loginButtonStyle = {
     borderRadius: '15px',
     position:'fixed',
     top:globalStyle.marginTop,
-    right:globalStyle.marginRight
+    right:globalStyle.marginRight,
+    ...spotify
+    
     // '&::after': clearfix
 }
 

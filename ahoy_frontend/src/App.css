@@ -87,6 +87,14 @@ body{
   overflow:hidden
 } 
 
+#umbrella{
+  background-image: url("./assets/umbrella.png");
+  background-position:center;
+  background-size: 80%;
+  background-repeat:no-repeat;
+}
+
+
 .clearfix:after {
   visibility: hidden;
   display: block;

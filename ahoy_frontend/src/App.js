@@ -94,7 +94,7 @@ function App() {
         
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  >
-          <Card name="Umbrella" css="card-1" click={
+          <Card name="umbrella" css="card-1" click={
           foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"):
            foldCardContainer("umbrella", "fold")}/>
           <Card ref={umbrellaCard2Ref} name="Good" css="card-2"/>

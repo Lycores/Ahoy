@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './stylesheets/cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './topBarStyleSheet.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
 import playListStyle from './stylesheets/playlistStyleSheet'
 import albumListStyle from './stylesheets/albumListStyleSheet'

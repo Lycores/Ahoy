@@ -1,15 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
-import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './cardStyleSheet.js';
+import {Card, umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from './stylesheets/cardStyleSheet.js';
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
-import foldAnyContainer from './setService.js'
-import playListStyle from './playlistStyleSheet'
-import albumListStyle from './albumListStyleSheet'
-import mainBodyStyle from './mainBodyStyle'
-import footerStyle from './footerStyleSheet'
+import playListStyle from './stylesheets/playlistStyleSheet'
+import albumListStyle from './stylesheets/albumListStyleSheet'
+import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 const url = '/api'
 
 function App() {
@@ -45,16 +42,16 @@ function App() {
     "rainBootCard2Ref":rainBootCard2Ref, "rainBootCard3Ref": rainBootCard3Ref,
     "maskCard2Ref":maskCard2Ref, "maskCard3Ref":maskCard3Ref
     }
+
   const foldCardContainer = (componentClicked, foldUnfold) => {
     return (event) => {
-      foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked, foldUnfold)
+      eh.foldAnyContainer(allCardsContainersState, setAllCardsContainersState, foldedState, setFoldedState, dictionary, componentClicked, foldUnfold)
     }
   }
 
   const changeGlobalDim = () => {
     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
-
   }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({
@@ -75,7 +72,6 @@ function App() {
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
     window.addEventListener('resize', changeGlobalDim);
-    
   }, [])
 
   return (

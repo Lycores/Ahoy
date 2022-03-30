@@ -1,4 +1,4 @@
-import {globalStyle} from './globalStyleSheet'
+import {globalStyle} from './stylesheets/globalStyleSheet'
 import App from './App'
 import spotifyLogo from './assets/spotify.png'
 
@@ -46,8 +46,7 @@ export var loginButtonStyle = {
     position:'fixed',
     top:globalStyle.marginTop,
     right:globalStyle.marginRight,
-    ...spotify
-    
+    ...spotify 
     // '&::after': clearfix
 }
 

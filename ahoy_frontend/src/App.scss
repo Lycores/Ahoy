@@ -22,6 +22,7 @@ $backggroundColor: #efeeee;
 body{
   background-color: $backggroundColor;
   color: 'slategrey';
+  
 }
 
 .App-Container {
@@ -29,6 +30,7 @@ body{
   font-size: calc(10px + 2vmin);
   height: 100vh;
   width: 100vw;
+  overflow:hidden;
 }
 
 .container{
@@ -36,6 +38,7 @@ body{
   margin:auto;
   flex-direction: row;
   justify-content: flex-start;
+  overflow: scroll;
 }
 
 .cardLeftDistance{
@@ -43,14 +46,12 @@ body{
 }
 
 .card-1{
-  /* background-color: aquamarine; */
   @include cardContainerReusable;
   z-index:3;
   
 }
 
 .card-2{
-  /* background-color: aquamarine; */
   @include cardContainerReusable;
   left:20px;
   top:20px;
@@ -58,7 +59,6 @@ body{
 }
 
 .card-3{
-  /* background-color: aquamarine; */
   @include cardContainerReusable;
   left:40px;
   top:40px;

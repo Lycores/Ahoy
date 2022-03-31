@@ -91,6 +91,7 @@ function App() {
         </div>
         <div style={mainBodyStyleState}>
           <div style={playlistAreaStyleState} />
+  
           <div style={albumListStyleState} />
         </div>
         

@@ -9,8 +9,7 @@ export const globalStyle = {
     loginButtonWidth:70,
     boxShadow: '18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px rgba(255, 255, 255, 1)',
     borderRadius: 20,
-    playlistAreaWidth: 300,
-    playbackHeight: 50,
+    playlistAreaWidth:300
 }
 
 export const borderRadius = "20px"

@@ -1,6 +1,7 @@
 import {globalStyle, borderRadius} from './globalStyleSheet'
 
 var albumListWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.playlistAreaWidth + globalStyle.marginLeft + globalStyle.marginRight).toString() + "px)"
+
 const albumListStyle = {
     display: 'none',
     marginRight: globalStyle.marginRight,

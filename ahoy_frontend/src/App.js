@@ -76,7 +76,7 @@ function App() {
   let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
   let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
   let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
-  let [playbackBarStyleState, setPlaybackBarStyle] = useState(playbackBarStyle)
+  let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
@@ -108,9 +108,7 @@ function App() {
           <div style={playlistAreaStyleState} >
             <div style={playerStyleState}>
               <div style={playerConatinerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token}  /> }
-                {/* <div style={musicCoverStyleState}></div>
-                <div style={playbackBarStyleState}></div> */}
+                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
               </div>
             </div>
           </div>

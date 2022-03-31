@@ -89,7 +89,7 @@ function WebPlayback(props) {
                 </div>
                 <div style={playbackBarStyleState}>
                     <div style={backStyle} onClick={() => {player.previousTrack()}}/>
-                    <div style={startStyle} onClick={() => {player.togglePlay()}}/>
+                    {is_paused?<div style={startStyle} onClick={() => {player.togglePlay()}}/>:<div style={pauseStyle} onClick={() => {player.togglePlay()}}/>}
                     <div style={nextStyle} onClick={() => {player.nextTrack()}}/>
                 </div>
             </>

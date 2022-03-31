@@ -6,7 +6,7 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
-import playListStyle from './stylesheets/playlistStyleSheet'
+import playListStyle from './stylesheets/playlistAreaStyleSheet'
 import albumListStyle from './stylesheets/albumListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 

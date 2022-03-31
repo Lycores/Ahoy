@@ -9,7 +9,7 @@ export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeBu
 var musicStripWidth = "calc(100% - " +  (musicStripDistanceLeft + musicStripDistanceRight).toString() + "px)";
 
 export var topBarStyle = {
-    height: globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
+    height: globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginBottom
 }
 
 const headerStyleReusable = {

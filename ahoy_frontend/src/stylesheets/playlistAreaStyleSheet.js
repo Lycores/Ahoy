@@ -18,20 +18,24 @@ export var playerConatinerStyle = {
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
     marginTop: globalStyle.marginTop,
-    marginButton: globalStyle.marginButton
+    marginBottom: globalStyle.marginBottom,
 }
 
 export var playerStyle = {
-    height: "auto",
-    width: globalStyle.playlistAreaWidth
+    width: globalStyle.playlistAreaWidth,
+    boxShadow: globalStyle.boxShadow,
+    bottom: 0,
+    position: "absolute",
+    borderRadius: globalStyle.borderRadius
 }
 
 export const playlistAreaStyle = {
     display: 'none',
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
-    marginButton: globalStyle.marginButton,
+    marginBottom: globalStyle.marginBottom,
     height: '100%',
     width: globalStyle.playlistAreaWidth,
-    boxShadow: globalStyle.boxShadow
+    boxShadow: globalStyle.boxShadow,
+    position: "relative" 
 }

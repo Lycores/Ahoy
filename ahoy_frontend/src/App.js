@@ -6,7 +6,7 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
-import {playlistAreaStyle} from './stylesheets/playlistAreaStyleSheet'
+import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle} from './stylesheets/playlistAreaStyleSheet'
 import musicListStyle from './stylesheets/musicListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 
@@ -71,6 +71,10 @@ function App() {
   let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
   let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
   let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
+  let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
+  let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
+  let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
+  let [playbackBarStyleState, setPlaybackBarStyle] = useState(playbackBarStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
@@ -90,7 +94,14 @@ function App() {
           <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
         <div style={mainBodyStyleState}>
-          <div style={playlistAreaStyleState} />
+          <div style={playlistAreaStyleState} >
+            <div style={playerStyleState}>
+              <div style={playerConatinerStyleState}>
+                <div style={musicCoverStyleState}></div>
+                <div style={playbackBarStyleState}></div>
+              </div>
+            </div>
+          </div>
           <div style={musicListStyleState} />
         </div>
         

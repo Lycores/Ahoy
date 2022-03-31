@@ -5,7 +5,7 @@ var musicListWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.play
 const musicListStyle = {
     display: 'none',
     marginRight: globalStyle.marginRight,
-    marginButton: globalStyle.marginButton,
+    marginBottom: globalStyle.marginBottom,
     height: '100%',
     width: musicListWidth,
     boxShadow: globalStyle.boxShadow,

@@ -1,8 +1,8 @@
 import {globalStyle} from './globalStyleSheet'
 
-var MainBodyDistanceTop = globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
-var musicListDistanceButton = globalStyle.marginButton 
-var musicListHeight = "calc(100% - " +  (MainBodyDistanceTop + musicListDistanceButton).toString() + "px)";
+var MainBodyDistanceTop = globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginBottom
+var musicListDistanceBottom = globalStyle.marginBottom 
+var musicListHeight = "calc(100% - " +  (MainBodyDistanceTop + musicListDistanceBottom).toString() + "px)";
 
 const mainBodyStyle={
     display:'none',

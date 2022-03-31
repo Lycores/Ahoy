@@ -3,30 +3,30 @@ import {globalStyle, playListAreaStyle, borderRadius} from './globalStyleSheet'
 
 var musicCoverSize = 250
 
-var musicCoverStyle = {
+export var musicCoverStyle = {
     height: musicCoverSize,
     width: musicCoverSize
 }
 
-var playbackBarStyle = {
+export var playbackBarStyle = {
     width: musicCoverSize,
     height: 100,
     marginTop: 20
 } 
 
-var playerConatiner = {
+export var playerConatinerStyle = {
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
     marginTop: globalStyle.marginTop,
     marginButton: globalStyle.marginButton
 }
 
-var player = {
+export var playerStyle = {
     height: "auto",
     width: globalStyle.playlistAreaWidth
 }
 
-const playlistAreaStyle = {
+export const playlistAreaStyle = {
     display: 'none',
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
@@ -35,10 +35,3 @@ const playlistAreaStyle = {
     width: globalStyle.playlistAreaWidth,
     boxShadow: globalStyle.boxShadow
 }
-
-
-
-
-
-
-export default playlistAreaStyle

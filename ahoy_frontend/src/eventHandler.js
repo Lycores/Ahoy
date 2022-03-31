@@ -17,7 +17,7 @@ const RemoveDisplayNonePlayList = (allState, setFunc) => {
     setFunc({...allState, display:'block'})
 }
 
-const RemoveDisplayNoneplaylistDetail = (allState, setFunc) => {
+const RemoveDisplayNoneMusicList = (allState, setFunc) => {
     console.log(allState)
     console.log(setFunc)
     setFunc({...allState, display:'block'})
@@ -33,12 +33,12 @@ export const homeButtonClicked = () => {
     console.log("111")
 }
 
-export const musicStripClicked = (allCardState, setCardFunc, playlistState, setPlaylistFunc, playlistDetailState, setPlaylistDetailFunc, mainBodyState, setMainBodyFunc) => {
+export const musicStripClicked = (allCardState, setCardFunc, playlistState, setPlaylistFunc, musicListState, setMusicListFunc, mainBodyState, setMainBodyFunc) => {
     return () => {
         DisplayNoneAllCard(allCardState, setCardFunc)
         RemoveDisplayNoneMainBody(mainBodyState, setMainBodyFunc)
         RemoveDisplayNonePlayList(playlistState, setPlaylistFunc)
-        RemoveDisplayNoneplaylistDetail(playlistDetailState, setPlaylistDetailFunc)
+        RemoveDisplayNoneMusicList(musicListState, setMusicListFunc)
     }
 }
 

@@ -6,7 +6,7 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
-import playListStyle from './stylesheets/playlistAreaStyleSheet'
+import playlistAreaStyle from './stylesheets/playlistAreaStyleSheet'
 import albumListStyle from './stylesheets/albumListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 
@@ -69,7 +69,7 @@ function App() {
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
   let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-  let [playListStyleState, setplayListStyleState] = useState(playListStyle)
+  let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
   let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
 
   useEffect(() => {
@@ -86,11 +86,11 @@ function App() {
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
           <div style={musicStripStyleState} onClick={eh.musicStripClicked(
-            allCardsContainersState, setAllCardsContainersState, playListStyleState, setplayListStyleState, albumListStyleState, setAlbumListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
+            allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, albumListStyleState, setAlbumListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
           <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
         <div style={mainBodyStyleState}>
-          <div style={playListStyleState} />
+          <div style={playlistAreaStyleState} />
           <div style={albumListStyleState} />
         </div>
         

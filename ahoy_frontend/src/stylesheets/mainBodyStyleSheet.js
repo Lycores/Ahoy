@@ -1,12 +1,12 @@
 import {globalStyle} from './globalStyleSheet'
 
 var MainBodyDistanceTop = globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginButton
-var albumListDistanceButton = globalStyle.marginButton 
-var albumListHeight = "calc(100% - " +  (MainBodyDistanceTop + albumListDistanceButton).toString() + "px)";
+var playlistDetailDistanceButton = globalStyle.marginButton 
+var playListDetailHeight = "calc(100% - " +  (MainBodyDistanceTop + playlistDetailDistanceButton).toString() + "px)";
 
 const mainBodyStyle={
     display:'none',
-    height: albumListHeight,
+    height: playListDetailHeight,
     flexWrap: 'nowrap',
     alignItems: 'stretch'
 }

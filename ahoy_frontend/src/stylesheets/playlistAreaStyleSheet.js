@@ -1,15 +1,15 @@
 import {globalStyle, playListAreaStyle, borderRadius} from './globalStyleSheet'
 
 
-var albumCoverSize = 250
+var musicCoverSize = 250
 
-var albumCoverStyle = {
-    height: albumCoverSize,
-    width: albumCoverSize
+var musicCoverStyle = {
+    height: musicCoverSize,
+    width: musicCoverSize
 }
 
 var playbackBarStyle = {
-    width: albumCoverSize,
+    width: musicCoverSize,
     height: 100,
     marginTop: 20
 } 

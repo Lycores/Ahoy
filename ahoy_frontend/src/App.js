@@ -7,7 +7,7 @@ import requestDesktopData from './allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from './stylesheets/topBarStyleSheet.js'
 import * as eh from './eventHandler.js'
 import playlistAreaStyle from './stylesheets/playlistAreaStyleSheet'
-import albumListStyle from './stylesheets/albumListStyleSheet'
+import playlistDetailStyle from './stylesheets/playlistDetailStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 
 const url = '/api'
@@ -70,7 +70,7 @@ function App() {
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
   let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
   let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
-  let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
+  let [playlistDetailStyleState, setPlaylistDetailStyleState] = useState(playlistDetailStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
@@ -86,13 +86,12 @@ function App() {
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
           <div style={musicStripStyleState} onClick={eh.musicStripClicked(
-            allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, albumListStyleState, setAlbumListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
+            allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, playlistDetailStyleState, setPlaylistDetailStyleState, mainBodyStyleState, setMainBodyStyleState)} />
           <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
         </div>
         <div style={mainBodyStyleState}>
           <div style={playlistAreaStyleState} />
-  
-          <div style={albumListStyleState} />
+          <div style={playlistDetailStyleState} />
         </div>
         
        <div className="container cardLeftDistance">

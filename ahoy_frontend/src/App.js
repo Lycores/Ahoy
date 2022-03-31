@@ -9,6 +9,7 @@ import * as eh from './eventHandler.js'
 import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle} from './stylesheets/playlistAreaStyleSheet'
 import musicListStyle from './stylesheets/musicListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
+import WebPlayback from './WebPlayback'
 
 const url = '/api'
 
@@ -65,6 +66,7 @@ function App() {
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
 
+  const [token, setToken] = useState('');
   let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
@@ -79,6 +81,13 @@ function App() {
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
     window.addEventListener('resize', changeGlobalDim);
+    async function getToken() {
+      const response = await fetch('/auth/token');
+      const json = await response.json();
+      setToken(json.access_token);
+    }
+
+    getToken();
   }, [])
 
   return (
@@ -91,14 +100,17 @@ function App() {
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
           <div style={musicStripStyleState} onClick={eh.musicStripClicked(
             allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, musicListStyleState, setMusicListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
-          <div style={loginButtonStyleState} onClick={eh.loginButtonClicked} />
+            <a href="/auth/login">
+              <div style={loginButtonStyleState}/>
+            </a>
         </div>
         <div style={mainBodyStyleState}>
           <div style={playlistAreaStyleState} >
             <div style={playerStyleState}>
               <div style={playerConatinerStyleState}>
-                <div style={musicCoverStyleState}></div>
-                <div style={playbackBarStyleState}></div>
+                { (token === '') ? <></> : <WebPlayback token={token}  /> }
+                {/* <div style={musicCoverStyleState}></div>
+                <div style={playbackBarStyleState}></div> */}
               </div>
             </div>
           </div>

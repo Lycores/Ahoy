@@ -3,7 +3,6 @@ import {globalStyle, borderRadius} from './globalStyleSheet'
 var musicListWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.playlistAreaWidth + globalStyle.marginLeft + globalStyle.marginRight).toString() + "px)"
 
 const musicListStyle = {
-    display: 'none',
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,
     height: '100%',

@@ -5,7 +5,7 @@ var musicListDistanceBottom = globalStyle.marginBottom
 var musicListHeight = "calc(100% - " +  (MainBodyDistanceTop + musicListDistanceBottom).toString() + "px)";
 
 const mainBodyStyle={
-    display:'none',
+    display:'flex',
     height: musicListHeight,
     flexWrap: 'nowrap',
     alignItems: 'stretch'

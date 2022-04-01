@@ -98,7 +98,7 @@ function HomePage() {
       <div className="App-Container">
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={navigate('/playlist')} />
+          <div style={musicStripStyleState} onClick={() => {navigate('/playlist')}} />
             <a href="/auth/login">
               <div style={loginButtonStyleState}/>
             </a>

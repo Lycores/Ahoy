@@ -1,9 +1,6 @@
 import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
-import Card from '../card.js'
-import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from '../stylesheets/cardStyleSheet.js';
-import requestDesktopData from '../allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
 import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle} from '../stylesheets/playlistAreaStyleSheet'
@@ -14,27 +11,6 @@ import {BrowserRouter, useNavigate} from 'react-router-dom'
 const url = '/api'
 
 function PlaylistPage() {
-  const umbrellaRef = useRef(null)
-  const downCoatRef = useRef(null)
-  const sweaterRef = useRef(null)
-  const snowBootRef = useRef(null)
-  const rainBootRef = useRef(null)
-  const maskRef = useRef(null)
-  const umbrellaCard2Ref = useRef(null);
-  const umbrellaCard3Ref = useRef(null);
-  const downCoatCard2Ref = useRef(null);
-  const downCoatCard3Ref = useRef(null);
-  const sweaterCard2Ref = useRef(null);
-  const sweaterCard3Ref = useRef(null);
-  const snowBootCard2Ref = useRef(null);
-  const snowBootCard3Ref = useRef(null);
-  const rainBootCard2Ref = useRef(null);
-  const rainBootCard3Ref = useRef(null);
-  const maskCard2Ref = useRef(null);
-  const maskCard3Ref = useRef(null);
-  const homeButtonRef = useRef(null);
-  const musicStripRef = useRef(null);
-  const loginButtonRef = useRef(null);
 
   var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 

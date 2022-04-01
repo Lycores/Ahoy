@@ -6,10 +6,6 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from '../allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
-import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle} from '../stylesheets/playlistAreaStyleSheet'
-import musicListStyle from '../stylesheets/musicListStyleSheet'
-import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
-import WebPlayback from '../WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
 
 const url = '/api'
@@ -33,9 +29,6 @@ function HomePage() {
   const rainBootCard3Ref = useRef(null);
   const maskCard2Ref = useRef(null);
   const maskCard3Ref = useRef(null);
-  const homeButtonRef = useRef(null);
-  const musicStripRef = useRef(null);
-  const loginButtonRef = useRef(null);
 
   var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -71,9 +64,6 @@ function HomePage() {
   let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
-  let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-  let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
-  let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)

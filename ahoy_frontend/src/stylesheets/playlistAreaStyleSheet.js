@@ -69,7 +69,6 @@ export var playerStyle = {
 }
 
 export const playlistAreaStyle = {
-    display: 'none',
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,

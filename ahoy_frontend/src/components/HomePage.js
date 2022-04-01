@@ -10,6 +10,7 @@ import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, 
 import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../WebPlayback'
+import {BrowserRouter, useNavigate} from 'react-router-dom'
 
 const url = '/api'
 
@@ -73,10 +74,6 @@ function HomePage() {
   let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
   let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
   let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
-  let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-  let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
-  let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
-  let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
 
   useEffect(() => {
     setInterval(()=>{requestDesktopData(url)}, 200000)
@@ -90,6 +87,9 @@ function HomePage() {
     getToken();
   }, [])
 
+  const navigate = useNavigate()
+
+
   return (
     <div>
       <Helmet>
@@ -98,21 +98,10 @@ function HomePage() {
       <div className="App-Container">
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={eh.musicStripClicked(
-            allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, musicListStyleState, setMusicListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
+          <div style={musicStripStyleState} onClick={navigate('/playlist')} />
             <a href="/auth/login">
               <div style={loginButtonStyleState}/>
             </a>
-        </div>
-        <div style={mainBodyStyleState}>
-          <div style={playlistAreaStyleState} >
-            <div style={playerStyleState}>
-              <div style={playerConatinerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
-              </div>
-            </div>
-          </div>
-          <div style={musicListStyleState} />
         </div>
         
        <div className="container cardLeftDistance">

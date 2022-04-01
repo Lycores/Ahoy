@@ -4,9 +4,8 @@ const requestDesktopData = async (url) => {
         .then(response => response.json())
         .then(json => {
             return json;
-        })
-        console.log(res)}
-    catch(e){
+            })
+        }catch(e){
         console.log(e)
     }
 }

@@ -44,7 +44,7 @@ function PlaylistPage(props) {
       <div className="App-Container">
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={() => {navigate('/')}} />
+          <div style={musicStripStyleState} onClick={() => {navigate('/index')}} />
             <a href="/auth/login">
               <div style={loginButtonStyleState}/>
             </a>

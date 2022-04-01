@@ -11,6 +11,7 @@ import {BrowserRouter, useNavigate} from 'react-router-dom'
 const url = '/api'
 
 function HomePage() {
+
   const umbrellaRef = useRef(null)
   const downCoatRef = useRef(null)
   const sweaterRef = useRef(null)
@@ -60,21 +61,12 @@ function HomePage() {
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
 
-  const [token, setToken] = useState('');
   let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
   let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
 
   useEffect(() => {
-    setInterval(()=>{requestDesktopData(url)}, 200000)
     window.addEventListener('resize', changeGlobalDim);
-    async function getToken() {
-      const response = await fetch('/auth/token');
-      const json = await response.json();
-      setToken(json.access_token);
-    }
-
-    getToken();
   }, [])
 
   const navigate = useNavigate()

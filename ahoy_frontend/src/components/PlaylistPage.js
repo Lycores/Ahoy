@@ -10,7 +10,8 @@ import WebPlayback from '../WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
 const url = '/api'
 
-function PlaylistPage() {
+function PlaylistPage(props) {
+    const {token} = props
 
   var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -18,8 +19,6 @@ function PlaylistPage() {
     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
   }
-
-  const [token, setToken] = useState('');
 
   let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
   let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
@@ -32,16 +31,8 @@ function PlaylistPage() {
   let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
   let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
 
-  useEffect(() => {
-    // setInterval(()=>{requestDesktopData(url)}, 200000)
+  useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim);
-    async function getToken() {
-      const response = await fetch('/auth/token');
-      const json = await response.json();
-      setToken(json.access_token);
-    }
-
-    getToken();
   }, [])
 
   const navigate = useNavigate()

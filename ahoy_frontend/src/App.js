@@ -10,6 +10,9 @@ import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, 
 import musicListStyle from './stylesheets/musicListStyleSheet'
 import mainBodyStyle from './stylesheets/mainBodyStyleSheet'
 import WebPlayback from './WebPlayback'
+import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
+import HomePage from './components/HomePage';
+import PlaylistPage from './components/PlaylistPage';
 
 const url = '/api'
 
@@ -91,77 +94,12 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <Helmet>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
-      </Helmet>
-      <div className="App-Container">
-        <div style={topBarStyle}>
-          <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={eh.musicStripClicked(
-            allCardsContainersState, setAllCardsContainersState, playlistAreaStyleState, setplaylistAreaStyleState, musicListStyleState, setMusicListStyleState, mainBodyStyleState, setMainBodyStyleState)} />
-            <a href="/auth/login">
-              <div style={loginButtonStyleState}/>
-            </a>
-        </div>
-        <div style={mainBodyStyleState}>
-          <div style={playlistAreaStyleState} >
-            <div style={playerStyleState}>
-              <div style={playerConatinerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
-              </div>
-            </div>
-          </div>
-          <div style={musicListStyleState} />
-        </div>
-        
-       <div className="container cardLeftDistance">
-        <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  >
-          <Card name="umbrella" css="card-1" click={
-          foldedState.umbrellaFolded? foldCardContainer("umbrella", "unfold"):
-           foldCardContainer("umbrella", "fold")}/>
-          <Card ref={umbrellaCard2Ref} name="cold" css="card-2"/>
-          <Card ref={umbrellaCard3Ref} name="hot" css="card-3"/>
-        </div>
-
-        <div ref={downCoatRef} style={allCardsContainersState.downCoatStyle} >
-          <Card  name="downCoat" css="card-1" click={
-          foldedState.downCoatFolded? foldCardContainer("downCoat", "unfold"): foldCardContainer("downCoat", "fold")}/>
-          <Card  ref={downCoatCard2Ref} name="cold" css="card-2"/>
-          <Card  ref={downCoatCard3Ref} name="hot" css="card-3"/>
-        </div>
-
-        <div ref={sweaterRef} style={allCardsContainersState.sweaterStyle}  >
-          <Card name="sweater" css="card-1" click={
-          foldedState.sweaterFolded? foldCardContainer("sweater", "unfold"): foldCardContainer("sweater", "fold")}/>
-          <Card ref={sweaterCard2Ref} name="cold" css="card-2"/>
-          <Card ref={sweaterCard3Ref} name="hot" css="card-3"/>
-        </div>
-          
-        <div ref={snowBootRef} style={allCardsContainersState.snowBootStyle} >
-          <Card name="snowBoot" css="card-1" click={
-          foldedState.snowBootFolded? foldCardContainer("snowBoot", "unfold"): foldCardContainer("snowBoot", "fold")}/>
-          <Card ref={snowBootCard2Ref} name="cold" css="card-2"/>
-          <Card ref={snowBootCard3Ref} name="hot" css="card-3"/>
-        </div>
-
-
-        <div ref={rainBootRef} style={allCardsContainersState.rainBootStyle} >
-          <Card name="rainShoes" css="card-1" click={
-          foldedState.rainBootFolded? foldCardContainer("rainBoot", "unfold"): foldCardContainer("rainBoot", "fold")}/>
-          <Card ref={rainBootCard2Ref} name="cold" css="card-2"/>
-          <Card ref={rainBootCard3Ref} name="hot" css="card-3"/>
-        </div>
-
-        <div ref={maskRef} style={allCardsContainersState.maskStyle} >
-          <Card name="mask" css="card-1" click={
-          foldedState.maskFolded? foldCardContainer("mask", "unfold"): foldCardContainer("mask", "fold")}/>
-          <Card ref={maskCard2Ref} name="cloud" css="card-2"/>
-          <Card ref={maskCard3Ref} name="hot" css="card-3"/>
-        </div>
-       </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>} ></Route>
+        <Route path="/playlist" element={<PlaylistPage/>} ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

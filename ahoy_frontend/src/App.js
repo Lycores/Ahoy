@@ -22,8 +22,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WelcomePage/>}></Route>
-        <Route path="/index" element={<HomePage />}></Route>
+        <Route path="/" element={<WelcomePage />}></Route>
+        <Route path="/home" element={<HomePage />}></Route>
         <Route path="/playlist" element={<PlaylistPage token={token}/>}></Route>
       </Routes>
     </BrowserRouter>

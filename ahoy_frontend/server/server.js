@@ -25,6 +25,7 @@ var generateRandomString = function (length) {
 
 var app = express();
 
+//User request login when clicking the spotify logo
 app.get('/auth/login', (req, res) => {
 
   var scope = "streaming user-read-email user-read-private"
@@ -43,8 +44,11 @@ app.get('/auth/login', (req, res) => {
   res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 })
 
+/** after user grant access the information, spotify redirect to [spotify_redirect_uri],
+ * and it was proxyed and sent backed to server side. Server prepare to aquire an
+ * access token after */  
 app.get('/auth/callback', (req, res) => {
-
+  console.log('auth/callback is called')
   var code = req.query.code;
 
   var authOptions = {
@@ -64,7 +68,7 @@ app.get('/auth/callback', (req, res) => {
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       access_token = body.access_token;
-      res.redirect('/index')
+      res.redirect('/home')
     }
   });
 

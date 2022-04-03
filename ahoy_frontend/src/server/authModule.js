@@ -2,7 +2,7 @@ const express = require("express")
 const dotenv = require('dotenv');
 const path = require('path');
 const request = require('request');
-let router = express.Router();
+const router = express.Router();
 const whereIsDotEnv = path.join("../", ".env")
 dotenv.config({ path: whereIsDotEnv })
 

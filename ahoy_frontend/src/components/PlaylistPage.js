@@ -21,7 +21,7 @@ function PlaylistPage(props) {
     }
 
     let requestUserProfile = async () => {
-        const response = await fetch('/getMyPlaylist');
+        const response = await fetch('user/getUserProfile');
         console.log(response.body)
     }
 

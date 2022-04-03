@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const port = 4000
 
 global.access_token = ''
+const userID = ''
 
 dotenv.config()
 
@@ -13,7 +14,7 @@ var spotify_client_secret = "db982d97eaee4b1892ce88d1614b3b73"
 
 var spotify_redirect_uri = 'http://localhost:3000/auth/callback'
 
-var generateRandomString = function (length) {
+const generateRandomString = function (length) {
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -22,6 +23,31 @@ var generateRandomString = function (length) {
   }
   return text;
 };
+
+const requestUserProfile = () => {
+  console.log("requested user profile")
+  var authOptions = {
+    url: 'https://api.spotify.com/v1/me',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + access_token,
+      'Content-Type' : 'application/json'
+    }
+  }
+  request.get(authOptions, function(error, response, body) {
+    console.log("user profile got")
+    console.log(error)
+    console.log(body)
+    console.log(response.statusCode)
+    if (!error && response.statusCode === 200) {
+
+    }
+  });
+
+}
+
+
+
 
 var app = express();
 
@@ -77,6 +103,23 @@ app.get('/auth/callback', (req, res) => {
 app.get('/auth/token', (req, res) => {
   res.json({ access_token: access_token})
 })
+
+
+
+app.get('/getMyPlaylist', (req, res) => {
+    requestUserProfile();
+  
+})
+
+
+
+
+
+
+
+
+
+
 
 app.listen(port, () => {
   console.log("hello")

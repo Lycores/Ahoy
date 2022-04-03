@@ -13,26 +13,33 @@ const url = '/api'
 function PlaylistPage(props) {
     const {token} = props
 
-  var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+    var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
-  const changeGlobalDim = () => {
-    globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
-  }
+    const changeGlobalDim = () => {
+        globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+        setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
+    }
 
-  let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
-  let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
-  let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
-  let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-  let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
-  let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
-  let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-  let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
-  let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
-  let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
+    let requestUserProfile = async () => {
+        const response = await fetch('/getMyPlaylist');
+        console.log(response.body)
+    }
+
+    let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
+    let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
+    let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
+    let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
+    let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
+    let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
+    let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
+    let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
+    let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
+    let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
 
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim);
+    requestUserProfile()
+
   }, [])
 
   const navigate = useNavigate()

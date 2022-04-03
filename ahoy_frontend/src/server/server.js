@@ -1,18 +1,18 @@
 const express = require('express')
 const request = require('request');
 const dotenv = require('dotenv');
+const path = require('path');
 
-const port = 4000
+const whereIsDotEnv = path.join("../", ".env")
+dotenv.config({ path: whereIsDotEnv })
+const host = process.env.REACT_APP_HOST
+const port = process.env.REACT_APP_PORT
 
 global.access_token = ''
 const userID = ''
-
-dotenv.config()
-
-var spotify_client_id = "5d1b7a0e26c34454af2075cd530f3ea4"
-var spotify_client_secret = "db982d97eaee4b1892ce88d1614b3b73"
-
-var spotify_redirect_uri = 'http://localhost:3000/auth/callback'
+var spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID
+var spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET
+var spotify_redirect_uri = process.env.REACT_APP_SPOTIFY_REDIRECT_URI
 
 const generateRandomString = function (length) {
   var text = '';
@@ -123,5 +123,5 @@ app.get('/getMyPlaylist', (req, res) => {
 
 app.listen(port, () => {
   console.log("hello")
-  console.log(`Listening at http://localhost:${port}`)
+  console.log(`Listening at ${host}:${port}`)
 })

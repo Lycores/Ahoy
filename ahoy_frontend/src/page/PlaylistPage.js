@@ -8,6 +8,7 @@ import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
+import UniversalCardComponent from '../components/UniversalCardComponent'
 
 var userId = ''
 
@@ -84,7 +85,9 @@ function PlaylistPage(props) {
               </div>
             </div>
           </div>
-          <div style={musicListStyleState} />
+          <div style={musicListStyleState} >
+            <UniversalCardComponent/>
+          </div>
         </div>
       </div>
     </div>

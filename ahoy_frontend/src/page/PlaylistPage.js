@@ -6,10 +6,10 @@ import * as eh from '../eventHandler.js'
 import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle, albumListStyle} from '../stylesheets/playlistAreaStyleSheet'
 import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
-import WebPlayback from '../WebPlayback'
+import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
 
-const userId = ''
+var userId = ''
 
 const setUserId = (id) => {
   userId = id

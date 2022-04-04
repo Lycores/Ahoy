@@ -1,4 +1,4 @@
-import {globalStyle, playListAreaStyle, borderRadius} from './globalStyleSheet'
+import {globalStyle} from './globalStyleSheet'
 import backButtonUrl from '../assets/back.png'
 import nextButtonUrl from '../assets/next.png'
 import pauseButtonUrl from '../assets/pause.png'

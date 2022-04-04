@@ -1,9 +1,9 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
-import HomePage from './components/HomePage';
-import PlaylistPage from './components/PlaylistPage';
-import WelcomePage from './components/WelcomePage'
+import HomePage from './page/HomePage';
+import PlaylistPage from './page/PlaylistPage';
+import WelcomePage from './page/WelcomePage'
 
 function App() {
 

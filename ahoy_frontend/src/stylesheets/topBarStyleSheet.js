@@ -13,7 +13,7 @@ export var topBarStyle = {
 }
 
 const headerStyleReusable = {
-    borderRadius: '15px',
+    borderRadius: globalStyle.borderRadius,
     position: 'fixed',
     cursor: 'pointer'
 }

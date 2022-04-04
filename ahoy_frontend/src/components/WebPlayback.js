@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { globalStyle } from './stylesheets/globalStyleSheet';
-import  {backStyle, nextStyle, pauseStyle, startStyle}  from './stylesheets/playlistAreaStyleSheet';
+import { globalStyle } from '../stylesheets/globalStyleSheet';
+import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/playlistAreaStyleSheet';
 
 const track = {
     name: "",

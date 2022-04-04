@@ -11,7 +11,7 @@ export const globalStyle = {
     borderRadius: 20,
     playlistAreaWidth:250,
     globalBackgroundColor: "#efeeee",
-    spotifyColor:"1bd760"
+    spotifyColor: "1bd760"
 }
 
-export const borderRadius = "20px"
+export default globalStyle

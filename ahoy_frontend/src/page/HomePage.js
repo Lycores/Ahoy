@@ -1,7 +1,7 @@
 import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
-import Card from '../card.js'
+import Card from '../components/CardComponent.js'
 import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from '../stylesheets/cardStyleSheet.js';
 import requestDesktopData from '../allRequest.js';
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'

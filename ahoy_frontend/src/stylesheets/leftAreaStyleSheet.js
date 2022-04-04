@@ -80,7 +80,7 @@ export var albumListStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
-export const playlistAreaStyle = {
+export const leftAreaStyle = {
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,

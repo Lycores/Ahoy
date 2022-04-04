@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
-import {playbackBarStyle, playerStyle, playlistAreaStyle, playerConatinerStyle, musicCoverStyle, albumListStyle} from '../stylesheets/playlistAreaStyleSheet'
+import {playbackBarStyle, playerStyle, leftAreaStyle, playerConatinerStyle, musicCoverStyle, albumListStyle} from '../stylesheets/leftAreaStyleSheet'
 import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
@@ -46,7 +46,7 @@ function PlaylistPage(props) {
     let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
     let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-    let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(playlistAreaStyle)
+    let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
     let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
     let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)

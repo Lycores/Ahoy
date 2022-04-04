@@ -8,7 +8,28 @@ import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
-const url = '/api'
+
+const userId = ''
+
+const setUserId = (id) => {
+  userId = id
+}
+
+const requestUserProfile = async () => {
+  fetch('user/getUserProfile')
+  .then((response) => {return response.json()})
+  .then((userProfile) => {
+    setUserId(userProfile.id)
+  })
+}
+
+// const getUserCreatedPlaylist = () => {
+//   fetch(`user/getUserCreatedPlaylist?userId=${userId}`)
+// }
+
+const getUserSavedAlbum = () => {
+  fetch(`album/getSavedAlbum`)
+}
 
 function PlaylistPage(props) {
     const {token} = props
@@ -18,11 +39,6 @@ function PlaylistPage(props) {
     const changeGlobalDim = () => {
         globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
         setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
-    }
-
-    let requestUserProfile = async () => {
-        const response = await fetch('user/getUserProfile');
-        console.log(response.body)
     }
 
     let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
@@ -37,9 +53,11 @@ function PlaylistPage(props) {
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
 
   useEffect(() => { 
-    window.addEventListener('resize', changeGlobalDim);
-    requestUserProfile()
-
+    window.addEventListener('resize', changeGlobalDim)
+    if(userId === ''){
+      requestUserProfile()
+    }
+    getUserSavedAlbum()
   }, [])
 
   const navigate = useNavigate()

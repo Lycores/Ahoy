@@ -2,17 +2,21 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/user/getUserProfile',
+    '/auth/**',
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
   ),
   app.use(
-    '/auth/**',
+    '/user/**',
+    createProxyMiddleware({
+      target: 'http://localhost:4000',
+    })
+  ),
+  app.use(
+    '/album/**',
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
   )
-
-  
 };

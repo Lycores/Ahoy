@@ -1,5 +1,5 @@
 import globalStyle from './globalStyleSheet'
-const coverSize = 300
+const coverSize = 200
 const contentWidth = coverSize
 const titleHeight = 30
 const descriptionHeight = 60
@@ -9,7 +9,8 @@ const distanceDescriptionToTitle = 10
 export const coverStyle = {
     width: coverSize,
     height: coverSize,
-    borderRadius: globalStyle.borderRadius
+    borderRadius: globalStyle.borderRadius,
+    boxShadow: globalStyle.boxShadow
 }
 
 export const titleStyle = {
@@ -26,6 +27,9 @@ export const descriptionStyle = {
 
 export const containerStyle = {
     height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
-    padding: 20,
-    margin: globalStyle.margin
+    width: coverSize,
+    padding: globalStyle.padding,
+    margin: globalStyle.margin,
+    boxShadow: globalStyle.boxShadow,
+    borderRadius: globalStyle.borderRadius
 }

@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
-import {playbackBarStyle, playerStyle, leftAreaStyle, playerConatinerStyle, musicCoverStyle, albumListStyle} from '../stylesheets/leftAreaStyleSheet'
+import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/leftAreaStyleSheet'
 import musicListStyle from '../stylesheets/musicListStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
@@ -49,7 +49,6 @@ function PlaylistPage(props) {
     let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
     let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-    let [playerConatinerStyleState, setPlayerConatinerStyleState] = useState(playerConatinerStyle)
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
@@ -80,9 +79,7 @@ function PlaylistPage(props) {
           <div style={playlistAreaStyleState} >
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
-              <div style={playerConatinerStyleState}>
                 { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
-              </div>
             </div>
           </div>
           <div style={musicListStyleState} >

@@ -58,15 +58,9 @@ export var startStyle = {
     backgroundImage: `url(${startButtonUrl})`
 }
 
-export var playerConatinerStyle = {
-    marginLeft: globalStyle.marginLeft,
-    marginRight: globalStyle.marginRight,
-    marginTop: globalStyle.marginTop,
-    marginBottom: globalStyle.marginBottom,
-}
-
 export var playerStyle = {
-    width: globalStyle.playlistAreaWidth,
+    padding: globalStyle.padding,
+    width: musicCoverSize,
     boxShadow: globalStyle.boxShadow,
     bottom: 0,
     position: "absolute",

@@ -8,6 +8,11 @@ import startButtonUrl from '../assets/start.png'
 
 var musicCoverSize = globalStyle.playlistAreaWidth - globalStyle.marginLeft- globalStyle.marginRight
 var playerButtonSize = 40
+var playbackBarHeight = 50
+var playbackBarMarginTop = 20
+var heightOfAlbumList = "calc(100% - " + (playbackBarHeight + playbackBarMarginTop + musicCoverSize + globalStyle.marginTop + 2*globalStyle.marginBottom).toString() + "px)"
+console.log(musicCoverSize)
+console.log(heightOfAlbumList)
 
 export var musicCoverStyle = {
     height: musicCoverSize,
@@ -26,8 +31,8 @@ export var playbackButtonStyle = {
 
 export const playbackBarStyle = {
     width: musicCoverSize,
-    height: 50,
-    marginTop: 20,
+    height: playbackBarHeight,
+    marginTop: playbackBarMarginTop,
     display: 'flex',
     flexWrap: 'nowrap',
     justifyContent: 'space-around'
@@ -68,12 +73,18 @@ export var playerStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
+export var albumListStyle = {
+    width: globalStyle.playlistAreaWidth,
+    boxShadow: globalStyle.boxShadow,
+    height: heightOfAlbumList,
+    borderRadius: globalStyle.borderRadius
+}
+
 export const playlistAreaStyle = {
     marginLeft: globalStyle.marginLeft,
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,
     height: '100%',
     width: globalStyle.playlistAreaWidth,
-    boxShadow: globalStyle.boxShadow,
     position: "relative" 
 }

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import UniversalCardComponent  from './UniversalCardComponent'
+import TrackListComponent from './TrackListComponent'
 function RightAreaComponent(props) {
     var {albumList} = props
     console.log(albumList)

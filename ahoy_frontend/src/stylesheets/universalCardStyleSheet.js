@@ -1,10 +1,10 @@
 import globalStyle from './globalStyleSheet'
 export const coverSize = 190
 const contentWidth = coverSize
-const titleHeight = 30
-const descriptionHeight = 60
-const distanceTitleToCover = 10
-const distanceDescriptionToTitle = 10
+const titleHeight = 40
+const descriptionHeight = 40
+const distanceTitleToCover = 0
+const distanceDescriptionToTitle = 0
 
 export const coverStyle = {
     width: coverSize,

@@ -9,7 +9,8 @@ import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
-import RightAreaComponent from '../components/RightAreaComponent'
+import RightAreaComponentForCards from '../components/RightAreaComponentForCards'
+import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 
 var userId = ''
 var albumList = []
@@ -44,6 +45,7 @@ function PlaylistPage(props) {
     var {state} = useLocation()
     console.log("state are")
     console.log(state)
+    var tracksCollections = state
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -68,7 +70,10 @@ function PlaylistPage(props) {
     if(userId === ''){
       requestUserProfile()
     }
-    getUserSavedAlbum()
+    if(!tracksCollections){
+      getUserSavedAlbum()
+    }
+    
   }, [])
 
   const navigate = useNavigate()
@@ -93,7 +98,8 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            <RightAreaComponent albumList={albumList}/>
+            {(tracksCollections == null) ? <RightAreaComponentForCards albumList={albumList} /> :
+            <RightAreaComponentForTracks tracks={tracksCollections} />}
           </div>
         </div>
       </div>

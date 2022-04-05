@@ -3,7 +3,7 @@ import UniversalCardComponent  from './UniversalCardComponent'
 import TrackListComponent from './TrackListComponent'
 
 
-function RightAreaComponent(props) {
+function RightAreaComponentForCards(props) {
     var {albumList} = props
 
     return(
@@ -24,4 +24,4 @@ function RightAreaComponent(props) {
     
 }
 
-export default RightAreaComponent
+export default RightAreaComponentForCards

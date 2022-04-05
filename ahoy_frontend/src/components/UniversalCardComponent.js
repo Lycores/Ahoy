@@ -12,7 +12,7 @@ function UniversalCardComponent(props) {
         }
     }
     return(
-        <div className="col-md-6  col-lg-4 col-xl-3" onClick={seeDetailOfAlbum(tracks)}>
+        <div className="col-md-6  col-lg-4 col-xl-3" onClick={seeDetailOfAlbum(tracks.items)}>
             <div  style={containerStyle} >
                 <div style={{...coverStyle, backgroundImage:`url(${images[1].url})`, backgroundSize: coverSize}} />
                 <h5>{albumName}</h5>

@@ -1,12 +1,16 @@
 import {coverStyle, titleStyle, descriptionStyle, containerStyle} from '../stylesheets/universalCardStyleSheet.js'
-
-function UniversalCardComponent() {
+import {useState} from 'react'
+function UniversalCardComponent(props) {
+    var {artists,images,albumName,tracks} = props
     return(
-    <div style={containerStyle}>
-        <div style={coverStyle} />
-        <div style={titleStyle}/>
-        <div style={descriptionStyle}/>
-    </div>
+        <div className="col-md-6  col-lg-4 col-xl-3">
+            <div  style={containerStyle} >
+                <div style={{...coverStyle, backgroundImage:`url(${images[1].url})`}} />
+                <h5>{albumName}</h5>
+                <p>{artists[0].name}</p>
+            </div>
+        </div>
+    
     )
     
 }

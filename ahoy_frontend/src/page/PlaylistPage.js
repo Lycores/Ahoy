@@ -9,9 +9,10 @@ import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
+import RightAreaComponent from '../components/RightAreaComponent'
 
 var userId = ''
-
+var albumList = []
 const setUserId = (id) => {
   userId = id
 }
@@ -30,6 +31,12 @@ const requestUserProfile = async () => {
 
 const getUserSavedAlbum = () => {
   fetch(`album/getSavedAlbum`)
+  .then((response) => {return response.json()})
+  .then((json)=>{
+    json.items.forEach((albumObj)=>{
+      albumList.push(albumObj.album)
+    })
+  })
 }
 
 function PlaylistPage(props) {
@@ -83,7 +90,7 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={musicListStyleState} >
-            <UniversalCardComponent/>
+            <RightAreaComponent albumList={albumList}/>
           </div>
         </div>
       </div>

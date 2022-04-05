@@ -7,7 +7,7 @@ import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumList
 import rightAreaStyle from '../stylesheets/rightAreaStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
-import {BrowserRouter, useNavigate} from 'react-router-dom'
+import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponent from '../components/RightAreaComponent'
 
@@ -41,6 +41,9 @@ const getUserSavedAlbum = () => {
 
 function PlaylistPage(props) {
     const {token} = props
+    var {state} = useLocation()
+    console.log("state are")
+    console.log(state)
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 

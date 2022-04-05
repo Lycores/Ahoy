@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import UniversalCardComponent  from './UniversalCardComponent'
 import TrackListComponent from './TrackListComponent'
+
+
 function RightAreaComponent(props) {
     var {albumList} = props
-    console.log(albumList)
-    
+
     return(
         <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
             <div className="row justify-content-start">

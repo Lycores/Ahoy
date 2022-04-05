@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import HomePage from './page/HomePage';
 import PlaylistPage from './page/PlaylistPage';
+import PlaylistPage2 from './page/PlaylistPage2';
 import WelcomePage from './page/WelcomePage'
 
 function App() {

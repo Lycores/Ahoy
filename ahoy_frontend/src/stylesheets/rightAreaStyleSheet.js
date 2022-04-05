@@ -2,7 +2,7 @@ import {globalStyle} from './globalStyleSheet'
 
 var musicListWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.playlistAreaWidth + globalStyle.marginLeft + globalStyle.marginRight).toString() + "px)"
 
-const musicListStyle = {
+const rightAreaStyle = {
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,
     height: '100%',
@@ -11,4 +11,4 @@ const musicListStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
-export default musicListStyle
+export default rightAreaStyle

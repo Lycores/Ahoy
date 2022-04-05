@@ -4,7 +4,7 @@ import {Helmet} from "react-helmet";
 import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
 import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/leftAreaStyleSheet'
-import musicListStyle from '../stylesheets/musicListStyleSheet'
+import rightAreaStyle from '../stylesheets/rightAreaStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
@@ -53,8 +53,8 @@ function PlaylistPage(props) {
     let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
     let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-    let [playlistAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
-    let [musicListStyleState, setMusicListStyleState] = useState(musicListStyle)
+    let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
+    let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
     let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
@@ -83,13 +83,13 @@ function PlaylistPage(props) {
             </a>
         </div>
         <div style={mainBodyStyleState}>
-          <div style={playlistAreaStyleState} >
+          <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
                 { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
             </div>
           </div>
-          <div style={musicListStyleState} >
+          <div style={rightAreaStyleState} >
             <RightAreaComponent albumList={albumList}/>
           </div>
         </div>

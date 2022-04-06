@@ -7,8 +7,14 @@ function UniversalCardComponent(props) {
     
     const seeDetailOfAlbum = (tracks) => {
         return () => {
+            console.log("after album clicked the tracks are")
+            console.log(tracks)
             navigate('/playlist', {
-                state: tracks})
+                state: {
+                    trackCover: images,
+                    tracks: tracks
+                }
+            })
         }
     }
     return(

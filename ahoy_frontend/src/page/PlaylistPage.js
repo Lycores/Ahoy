@@ -44,8 +44,12 @@ function PlaylistPage(props) {
     const {token} = props
     var {state} = useLocation()
     console.log("state are")
+    
+    var trackCover = state.trackCover
+    console.log(trackCover)
+    var tracks = state.tracks
     console.log(state)
-    var tracksCollections = state
+
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -70,7 +74,7 @@ function PlaylistPage(props) {
     if(userId === ''){
       requestUserProfile()
     }
-    if(!tracksCollections){
+    if(!tracks){
       getUserSavedAlbum()
     }
     
@@ -98,8 +102,8 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {(tracksCollections == null) ? <RightAreaComponentForCards albumList={albumList} /> :
-            <RightAreaComponentForTracks tracks={tracksCollections} />}
+            {(tracks == null) ? <RightAreaComponentForCards albumList={albumList} /> :
+            <RightAreaComponentForTracks tracks={tracks} trackCover={trackCover}/>}
           </div>
         </div>
       </div>

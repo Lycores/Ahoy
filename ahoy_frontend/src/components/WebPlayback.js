@@ -15,8 +15,9 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, musicCoverStyleState, playbackBarStyleState} = props
-
+    const {token, musicCoverStyleState, playbackBarStyleState, modifiedTrack} = props
+    console.log(888)
+    console.log(modifiedTrack)
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)
     const [player, setPlayer] = useState(undefined)
@@ -55,8 +56,10 @@ function WebPlayback(props) {
                 if (!state) {
                     return;
                 }
-
+                console.log("playback track is")
+                console.log(state.track_window.current_track)
                 setTrack(state.track_window.current_track);
+                
                 setPaused(state.paused);
 
                 player.getCurrentState().then( state => { 

@@ -12,8 +12,9 @@ function RightAreaComponentForCards(props) {
                 {
                     albumList.map((album, index)=>{
                         return(
-                            <UniversalCardComponent key={index} artists={album.artists} images={album.images}
-                             albumName={album.name} tracks={album.tracks}/>
+                            // <UniversalCardComponent key={index} artists={album.artists} images={album.images}
+                            //  albumName={album.name} tracks={album.tracks}/>
+                            <UniversalCardComponent key={index} album={album}/>
                         )
                     })
                 }            

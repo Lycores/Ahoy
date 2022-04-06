@@ -44,11 +44,11 @@ function PlaylistPage(props) {
     const {token} = props
     var {state} = useLocation()
     console.log("state are")
+    if(state){
+      var album = state.album
+      console.log(album)
+    }
     
-    var trackCover = state.trackCover
-    console.log(trackCover)
-    var tracks = state.tracks
-    console.log(state)
 
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
@@ -68,13 +68,14 @@ function PlaylistPage(props) {
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
+    let [modifiedTrack, setModifiedTrack] = useState(null) 
 
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(userId === ''){
       requestUserProfile()
     }
-    if(!tracks){
+    if(!album){
       getUserSavedAlbum()
     }
     
@@ -98,12 +99,12 @@ function PlaylistPage(props) {
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} /> }
+                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} modifiedTrack={modifiedTrack}/> }
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {(tracks == null) ? <RightAreaComponentForCards albumList={albumList} /> :
-            <RightAreaComponentForTracks tracks={tracks} trackCover={trackCover}/>}
+            {(album == null) ? <RightAreaComponentForCards albumList={albumList} /> :
+            <RightAreaComponentForTracks album={album} setModifiedTrack={setModifiedTrack}/>}
           </div>
         </div>
       </div>

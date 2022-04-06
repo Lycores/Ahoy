@@ -2,27 +2,26 @@ import {coverStyle, titleStyle, descriptionStyle, containerStyle} from '../style
 import {coverSize} from '../stylesheets/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 function UniversalCardComponent(props) {
-    var {artists,images,albumName, tracks} = props
+    var {album} = props
+    // var {artists,images,albumName, tracks} = props
     const navigate = useNavigate()
     
-    const seeDetailOfAlbum = (tracks) => {
+    const seeDetailOfAlbum = () => {
         return () => {
             console.log("after album clicked the tracks are")
-            console.log(tracks)
             navigate('/playlist', {
                 state: {
-                    trackCover: images,
-                    tracks: tracks
+                    album:album
                 }
             })
         }
     }
     return(
-        <div className="col-md-6  col-lg-4 col-xl-3" onClick={seeDetailOfAlbum(tracks.items)}>
+        <div className="col-md-6  col-lg-4 col-xl-3" onClick={seeDetailOfAlbum()}>
             <div  style={containerStyle} >
-                <div style={{...coverStyle, backgroundImage:`url(${images[1].url})`, backgroundSize: coverSize}} />
-                <h5>{albumName}</h5>
-                <p>{artists[0].name}</p>
+                <div style={{...coverStyle, backgroundImage:`url(${album.images[1].url})`, backgroundSize: coverSize}} />
+                <h5>{album.name}</h5>
+                <p>{album.artists[0].name}</p>
             </div>
         </div>
     

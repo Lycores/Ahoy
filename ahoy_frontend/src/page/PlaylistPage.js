@@ -26,10 +26,6 @@ const requestUserProfile = async () => {
   })
 }
 
-// const getUserCreatedPlaylist = () => {
-//   fetch(`user/getUserCreatedPlaylist?userId=${userId}`)
-// }
-
 const getUserSavedAlbum = () => {
   fetch(`album/getSavedAlbum`)
   .then((response) => {return response.json()})

@@ -2,6 +2,7 @@ const express = require("express")
 const dotenv = require('dotenv');
 const path = require('path');
 const request = require('request');
+const axios = require('axios');
 const router = express.Router();
 const whereIsDotEnv = path.join("../", ".env")
 dotenv.config({ path: whereIsDotEnv })
@@ -81,7 +82,8 @@ router.get('/callback', (req, res) => {
       },
       json: true
     };
-  
+      
+
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         global.access_token = body.access_token;

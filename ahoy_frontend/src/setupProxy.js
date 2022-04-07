@@ -18,5 +18,11 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
+  ),
+  app.use(
+    '/player/**',
+    createProxyMiddleware({
+      target: 'http://localhost:4000',
+    })
   )
 };

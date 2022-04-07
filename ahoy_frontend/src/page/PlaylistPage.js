@@ -68,7 +68,7 @@ function PlaylistPage(props) {
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    let [modifiedTrack, setModifiedTrack] = useState(null) 
+    let [modifiedTrackId, setModifiedTrackId] = useState(null) 
 
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
@@ -99,12 +99,12 @@ function PlaylistPage(props) {
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} modifiedTrack={modifiedTrack}/> }
+                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} modifiedTrack={modifiedTrackId}/> }
             </div>
           </div>
           <div style={rightAreaStyleState} >
             {(album == null) ? <RightAreaComponentForCards albumList={albumList} /> :
-            <RightAreaComponentForTracks album={album} setModifiedTrack={setModifiedTrack}/>}
+            <RightAreaComponentForTracks album={album} setModifiedTrack={setModifiedTrackId}/>}
           </div>
         </div>
       </div>

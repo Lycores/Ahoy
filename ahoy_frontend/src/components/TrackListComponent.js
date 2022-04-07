@@ -7,8 +7,14 @@ function TrackListComponent(props){
     console.log(999)
     console.log(track)
 
+    const playTrack = (trackUri) => {
+        return () => {
+            fetch(`/player/PlayTrack?trackUri=${trackUri}`)
+        }
+    }
+
     return (
-        <div style={trackListComponentStyle} >
+        <div style={trackListComponentStyle} onClick={playTrack(track.uri)} >
             <span style={{display:'block'}}>{track.name}</span>
             <span style={{display:'block'}}>{track.artists[0].name}</span>
         </div>

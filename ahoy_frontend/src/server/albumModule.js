@@ -12,8 +12,6 @@ router.get('/getSavedAlbum', (req, res) => {
         }
     }
     request.get(authOptions, function(error, response, body) {
-        console.log("user profile got")
-        console.log(JSON.parse(body))
         
         if (!error && response.statusCode === 200) {
           res.status(200).send(JSON.parse(body))

@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const request = require('request')
 
 router.get('/getUserProfile', (req, res) => {
   let authOptions = {
@@ -11,12 +10,6 @@ router.get('/getUserProfile', (req, res) => {
       'Content-Type' : 'application/json'
     }
   }
-  request.get(authOptions, function(error, response, body) {
-    
-    if (!error && response.statusCode === 200) {
-      res.status(200).send(JSON.parse(body))
-    }
-  })
 })
 
 router.get('/getUserCreatedPlaylist', (req, res) => {

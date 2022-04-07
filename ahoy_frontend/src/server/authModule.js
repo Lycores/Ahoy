@@ -1,7 +1,7 @@
 const express = require("express")
 const dotenv = require('dotenv');
 const path = require('path');
-const request = require('request');
+
 const axios = require('axios');
 const router = express.Router();
 const whereIsDotEnv = path.join("../", ".env")

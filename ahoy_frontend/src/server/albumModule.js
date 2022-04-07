@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const request = require('request')
+
 const axios = require('axios')
 router.get('/getSavedAlbum', (req, res) => {
     let url = 'https://api.spotify.com/v1/me/albums'

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const request = require('request')
+
 const qs = require('qs')
 const { default: axios } = require('axios')
 

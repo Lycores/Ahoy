@@ -1,5 +1,4 @@
 const express = require('express')
-const request = require('request');
 const dotenv = require('dotenv');
 const path = require('path');
 const authModule = require('./authModule.js')

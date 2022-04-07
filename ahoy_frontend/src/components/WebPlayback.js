@@ -15,9 +15,9 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, musicCoverStyleState, playbackBarStyleState, modifiedTrack} = props
-    console.log(888)
-    console.log(modifiedTrack)
+    const {token, musicCoverStyleState, playbackBarStyleState, setDeviceId} = props
+
+
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)
     const [player, setPlayer] = useState(undefined)
@@ -44,6 +44,7 @@ function WebPlayback(props) {
             setPlayer(player);
 
             player.addListener('ready', ({ device_id }) => {
+                setDeviceId(device_id)
                 console.log('Ready with Device ID', device_id);
             });
 

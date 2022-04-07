@@ -5,15 +5,16 @@ const qs = require('qs')
 const { default: axios } = require('axios')
 
 router.get('/PlayTrack', (req, res) => {
-    let trackUri = req.query.trackUri
-    console.log(trackUri)
+    let albumId = req.query.albumId
+    let position = req.query.position
+    let deviceId = req.query.deviceId
 
-    let url = 'https://api.spotify.com/v1/me/player/play'
+    let url = `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`
     let data = JSON.stringify({
-      context_uri: trackUri,
+      context_uri: "spotify:album:" + albumId,
       position_ms: 0,
       offset: {
-        position: 0
+        position: position
       },
     })
 

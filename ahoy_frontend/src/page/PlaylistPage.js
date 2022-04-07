@@ -43,13 +43,9 @@ const getUserSavedAlbum = () => {
 function PlaylistPage(props) {
     const {token} = props
     var {state} = useLocation()
-    console.log("state are")
     if(state){
       var album = state.album
-      console.log(album)
     }
-    
-
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -68,7 +64,7 @@ function PlaylistPage(props) {
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    let [modifiedTrackId, setModifiedTrackId] = useState(null) 
+    const [deviceId, setDeviceId] = useState(null)
 
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
@@ -99,12 +95,12 @@ function PlaylistPage(props) {
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} modifiedTrack={modifiedTrackId}/> }
+                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId}/> }
             </div>
           </div>
           <div style={rightAreaStyleState} >
             {(album == null) ? <RightAreaComponentForCards albumList={albumList} /> :
-            <RightAreaComponentForTracks album={album} setModifiedTrack={setModifiedTrackId}/>}
+            <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
           </div>
         </div>
       </div>

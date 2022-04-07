@@ -11,8 +11,6 @@ var playerButtonSize = 40
 var playbackBarHeight = 50
 var playbackBarMarginTop = 20
 var heightOfAlbumList = "calc(100% - " + (playbackBarHeight + playbackBarMarginTop + musicCoverSize + globalStyle.marginTop + 2*globalStyle.marginBottom).toString() + "px)"
-console.log(musicCoverSize)
-console.log(heightOfAlbumList)
 
 export var musicCoverStyle = {
     height: musicCoverSize,

@@ -3,8 +3,9 @@ import TrackListComponent from './TrackListComponent'
 
 
 function RightAreaComponentForTracks(props) {
-    console.log("props are")
-    var {album} = props
+    console.log("device id are")
+    var {album, deviceId} = props
+    console.log(deviceId)
     // var {tracks, trackCover, setTrack} = props
     var tracks = album.tracks.items
     console.log(tracks)
@@ -14,8 +15,9 @@ function RightAreaComponentForTracks(props) {
             {
                 tracks.map((track, index)=> {
                     return (
-                        // <TrackListComponent key={index} trackName={track.name} artists={track.artists[0].name} />
-                        <TrackListComponent key={index} track={track}/>
+                        
+                        // <TrackListComponent key={index}  track={track} deviceId={deviceId}/>
+                        <TrackListComponent key={index} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
                     )
                 })
             }

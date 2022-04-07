@@ -5,7 +5,8 @@ const trackListComponentStyle = {
     height: 60,
     boxShadow: globalStyle.boxShadow,
     borderRadius: globalStyle.borderRadius,
-    padding: globalStyle.padding
+    padding: globalStyle.padding,
+    cursor: 'pointer'
 
 }
 

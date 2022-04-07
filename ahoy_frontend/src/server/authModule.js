@@ -5,7 +5,9 @@ const request = require('request');
 const axios = require('axios');
 const router = express.Router();
 const whereIsDotEnv = path.join("../", ".env")
+const qs = require('qs')
 dotenv.config({ path: whereIsDotEnv })
+
 
 const UGC_IMAGE_UPLOAD = 'ugc-image-upload'
 const USER_READ_PLAYBACK_STATE = 'user-read-playback-state'
@@ -68,28 +70,23 @@ router.get('/login', (req, res) => {
  * access token after */  
 router.get('/callback', (req, res) => {
     var code = req.query.code;
-  
-    var authOptions = {
-      url: 'https://accounts.spotify.com/api/token',
-      form: {
-        code: code,
-        redirect_uri: spotify_redirect_uri,
-        grant_type: 'authorization_code'
-      },
+    var data =  qs.stringify({
+      code: code,
+      redirect_uri: spotify_redirect_uri,
+      grant_type: 'authorization_code'
+    }) 
+    var url = 'https://accounts.spotify.com/api/token'
+    axios.post(url, data, {
       headers: {
         'Authorization': 'Basic ' + (Buffer.from(spotify_client_id + ':' + spotify_client_secret).toString('base64')),
         'Content-Type' : 'application/x-www-form-urlencoded'
-      },
-      json: true
-    };
-      
-
-    request.post(authOptions, function(error, response, body) {
-      if (!error && response.statusCode === 200) {
-        global.access_token = body.access_token;
-        res.redirect('/home')
       }
-    });
+    }).then((response)=>{
+      if (response.status === 200) {
+          global.access_token = response.data.access_token;
+          res.redirect('/home')
+        }
+    }).catch((error)=>console.log(error)) 
   
   })
 

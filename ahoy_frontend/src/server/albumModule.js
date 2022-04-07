@@ -1,22 +1,22 @@
 const express = require('express')
 const router = express.Router()
 const request = require('request')
-
+const axios = require('axios')
 router.get('/getSavedAlbum', (req, res) => {
-    let authOptions = {
-        url: 'https://api.spotify.com/v1/me/albums',
+    let url = 'https://api.spotify.com/v1/me/albums'
+    
+    axios.get(url, {
         headers: {
-          'Accept': 'application/json',
-          'Authorization': 'Bearer ' + global.access_token,
-          'Content-Type' : 'application/json'
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + global.access_token,
+            'Content-Type' : 'application/json'
         }
-    }
-    request.get(authOptions, function(error, response, body) {
-        
-        if (!error && response.statusCode === 200) {
-          res.status(200).send(JSON.parse(body))
-        }
-    })
+      }).then((response)=>{
+        if (response.status === 200) {
+            res.status(200).send(response.data)
+          }
+      }).catch((error)=>{console.log(error)})
+
 })
 
 module.exports = {router}

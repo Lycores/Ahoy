@@ -21,20 +21,19 @@ router.get('/getUserProfile', (req, res) => {
 
 router.get('/getUserCreatedPlaylist', (req, res) => {
   let userId = req.query.userId
-  let authOptions = {
-    url: `https://api.spotify.com/v1/users/${userId}/playlists`,
+
+  let url = `https://api.spotify.com/v1/users/${userId}/playlists`
+  axios.get(url, {
     headers: {
       'Accept': 'application/json',
       'Authorization': 'Bearer ' + global.access_token,
       'Content-Type' : 'application/json'
     }
-  }
-  request.get(authOptions, function(error, response, body) {
-    
-    if (!error && response.statusCode === 200) {
-      res.status(200).send(JSON.parse(body))
+  }).then((response)=>{
+    if (response.status === 200) {
+        console.log(response)
     }
-  })
+  }).catch((error)=>console.log(error)) 
 
 })
 

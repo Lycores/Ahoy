@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import UniversalCardComponent  from './UniversalCardComponent'
 import TrackListComponent from './TrackListComponent'
-import PlaceHolder from './PlaceHolder'
+import PlaceholderCardComponent from './PlaceholderCardComponent'
 
 function RightAreaComponentForCards(props) {
     var {albumList} = props
@@ -10,7 +10,15 @@ function RightAreaComponentForCards(props) {
         return(
             <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
                 <div className="row justify-content-start">
-                    <PlaceHolder/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    
                 </div>
             </div>   
         )

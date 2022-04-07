@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO,CAAP,mHAAO",
+    "sources": [
+        "placeholderCardComponentStyleSheet.scss"
+    ],
+    "names": [],
+    "file": "placeholderCardComponentStyleSheet.css"
+}

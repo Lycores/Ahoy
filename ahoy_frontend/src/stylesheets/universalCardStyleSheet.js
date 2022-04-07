@@ -10,7 +10,8 @@ export const coverStyle = {
     width: coverSize,
     height: coverSize,
     borderRadius: globalStyle.borderRadius,
-    boxShadow: globalStyle.boxShadow
+    boxShadow: globalStyle.boxShadow,
+    cursor: 'pointer'
 }
 
 export const titleStyle = {

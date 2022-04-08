@@ -1,5 +1,5 @@
-import {coverStyle, titleStyle, descriptionStyle, containerStyle} from '../stylesheets/universalCardStyleSheet.js'
-import {coverSize} from '../stylesheets/universalCardStyleSheet'
+import {coverStyle, titleStyle, descriptionStyle, containerStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet.js'
+import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 function UniversalCardComponent(props) {
     var {album} = props

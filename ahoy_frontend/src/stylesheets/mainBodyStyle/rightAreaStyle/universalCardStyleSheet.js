@@ -1,4 +1,4 @@
-import globalStyle from './globalStyle/globalStyleSheet'
+import globalStyle from '../../globalStyle/globalStyleSheet'
 export const coverSize = 190
 const contentWidth = coverSize
 const titleHeight = 40

@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import TrackListComponent from './TrackListComponent'
-import albumOverviewStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
+import {albumOverviewStyle, coverStyle, albumDescriptionStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 
 function RightAreaComponentForTracks(props) {
@@ -9,20 +9,20 @@ function RightAreaComponentForTracks(props) {
     console.log(deviceId)
     // var {tracks, trackCover, setTrack} = props
     var tracks = album.tracks.items
-    let percentageOfTrackArea = 100 - albumOverviewStyle.height.substring(0, Number(albumOverviewStyle.height.length-1))
-    let heightOfTracks = "calc(" + percentageOfTrackArea.toString() + "%" + " - " + globalStyle.margin.toString() + "px)"
+    let heightOfTracks = `calc(100% - ${albumOverviewStyle.height}px) `
     console.log(heightOfTracks)
 
-    let styleForTrackContainer = {height: heightOfTracks,
-         overflow:'scroll', 
+    let styleForTrackContainer = {
+        height: heightOfTracks,
          boxShadow: globalStyle.boxShadow, 
          borderRadius: globalStyle.borderRadius
         }
     return(
         
-        <div style={{height: '100%'}}>
+        <div style={{height: '100%', overflow: 'scroll'}}>
             <div style={albumOverviewStyle}>
-
+                <div style={coverStyle}></div>
+                <div style={albumDescriptionStyle}></div>
             </div>
             <div style={styleForTrackContainer}>
                 {

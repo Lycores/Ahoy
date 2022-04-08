@@ -1,11 +1,11 @@
 import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyleSheet.js'
+import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyle/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
-import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/leftAreaStyleSheet'
-import rightAreaStyle from '../stylesheets/rightAreaStyleSheet'
-import mainBodyStyle from '../stylesheets/mainBodyStyleSheet'
+import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
+import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
+import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'

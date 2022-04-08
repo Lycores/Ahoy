@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { globalStyle } from '../stylesheets/globalStyleSheet';
-import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/leftAreaStyleSheet';
+import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
+import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
 
 const track = {
     name: "",

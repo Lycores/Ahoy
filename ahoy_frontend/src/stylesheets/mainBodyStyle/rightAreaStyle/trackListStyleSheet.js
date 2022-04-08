@@ -1,4 +1,4 @@
-import globalStyle from './globalStyleSheet'
+import globalStyle from '../../globalStyle/globalStyleSheet'
 
 const trackListComponentStyle = {
     margin: globalStyle.margin,

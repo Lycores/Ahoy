@@ -1,4 +1,4 @@
-import {globalStyle} from './globalStyleSheet'
+import {globalStyle} from '../globalStyle/globalStyleSheet'
 
 var MainBodyDistanceTop = globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginBottom
 var musicListDistanceBottom = globalStyle.marginBottom 

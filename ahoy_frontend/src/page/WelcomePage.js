@@ -1,4 +1,4 @@
-import {globalStyle}  from '../stylesheets/globalStyleSheet'
+import {globalStyle}  from '../stylesheets/globalStyle/globalStyleSheet'
 import spotify from '../assets/spotify_welcome.png'
 import {useNavigate} from 'react-router-dom'
 function WelcomePage() {

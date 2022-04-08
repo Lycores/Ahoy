@@ -1,5 +1,5 @@
 import {useEffect} from 'react'
-import trackListComponentStyle from '../stylesheets/trackListStyleSheet'
+import trackListComponentStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/trackListStyleSheet'
 
 function TrackListComponent(props){
     const {track, albumId, positionInAlbum, deviceId} = props

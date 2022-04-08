@@ -1,7 +1,7 @@
-import {globalStyle} from './globalStyleSheet'
-import App from '../App'
-import spotifyLogo from '../assets/spotify.png'
-import avatar from '../assets/avatar.png'
+import {globalStyle} from '../globalStyle/globalStyleSheet'
+import App from '../../App'
+import spotifyLogo from '../../assets/spotify.png'
+import avatar from '../../assets/avatar.png'
 
 export var musicStripDistanceLeft = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight
 export var musicStripDistanceRight = globalStyle.marginLeft + globalStyle.homeButtonWidth + globalStyle.marginRight

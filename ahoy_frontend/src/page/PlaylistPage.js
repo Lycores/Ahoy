@@ -26,15 +26,7 @@ const requestUserProfile = async () => {
   })
 }
 
-const getUserSavedAlbum = () => {
-  fetch(`album/getSavedAlbum`)
-  .then((response) => {return response.json()})
-  .then((json)=>{
-    json.items.forEach((albumObj)=>{
-      albumList.push(albumObj.album)
-    })
-  })
-}
+
 
 function PlaylistPage(props) {
     const {token} = props
@@ -50,6 +42,17 @@ function PlaylistPage(props) {
         setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
     }
 
+    const getUserSavedAlbum = () => {
+      fetch(`album/getSavedAlbum`)
+      .then((response) => {return response.json()})
+      .then((json)=>{
+        json.items.forEach((albumObj)=>{
+          albumList.push(albumObj.album)
+        })
+        setAlbumListState(albumList)
+      })
+    }
+
     let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
     let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
     let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
@@ -61,6 +64,7 @@ function PlaylistPage(props) {
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     const [deviceId, setDeviceId] = useState(null)
+    var [albumListState, setAlbumListState] = useState(albumList)
 
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
@@ -95,7 +99,7 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {(album == null) ? <RightAreaComponentForCards albumList={albumList} /> :
+            {(album == null) ? <RightAreaComponentForCards albumList={albumListState} /> :
             <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
           </div>
         </div>

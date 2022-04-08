@@ -17,10 +17,12 @@ export const coverStyle = {
     boxShadow: globalStyle.boxShadow,
     margin: globalStyle.margin,
     borderRadius: globalStyle.borderRadius,
+    backgroundImage: ''
 }
 
-export const albumDescriptionStyle = {
 
+
+export const albumDescriptionStyle = {
     height: '100%',
     width: `calc(100% - ${coverStyleSize}px)`,
 }

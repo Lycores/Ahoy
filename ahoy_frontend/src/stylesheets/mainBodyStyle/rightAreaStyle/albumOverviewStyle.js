@@ -6,6 +6,7 @@ export const albumOverviewStyle = {
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,
     height: albumOverviewHeight,
+    backgroundPosition: '-100px'
     
 }
 

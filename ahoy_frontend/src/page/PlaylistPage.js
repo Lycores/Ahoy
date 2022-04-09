@@ -11,6 +11,7 @@ import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForCards from '../components/RightAreaComponentForCards'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
+import tabToHome from '../stylesheets/floatElementStyle/floatStyleSheet'
 
 var userId = ''
 var albumList = []
@@ -79,14 +80,16 @@ function PlaylistPage(props) {
 
   const navigate = useNavigate()
   return (
-    <div>
+    <div >
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
       </Helmet>
+
       <div className="App-Container">
+        <div style={tabToHome} onClick={() => {navigate('/home')}} />
         <div style={topBarStyle}>
           <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={() => {navigate('/home')}} />
+          <div style={musicStripStyleState}  />
             <a href="/auth/login">
               <div style={loginButtonStyleState}/>
             </a>

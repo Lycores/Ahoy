@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import TrackListComponent from './TrackListComponent'
-import {albumOverviewStyle, coverStyle, albumDescriptionStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
+import {albumOverviewStyle, coverStyle, albumDescriptionStyle, backgroundFilterStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {useState, useEffect} from 'react'
 
@@ -21,34 +21,45 @@ function RightAreaComponentForTracks(props) {
     }
 
     var [coverStyleState, setCoverStyleState] = useState(coverStyle)
-
+    var [albumOverviewStyleStyleState, setAlbumOverviewStyleStyleState] = useState(albumOverviewStyle)
 
     useEffect(()=>{
         setCoverStyleState({
             ...coverStyleState,
             backgroundImage: `url(${album.images[0].url})`,
             backgroundSize: 'contain'})
+        setAlbumOverviewStyleStyleState({
+            ...albumOverviewStyleStyleState,
+            backgroundImage: `url(${album.images[0].url})`,
+            backgroundSize: 'cover'
+
+        })
     },[album, deviceId])
         
+        
     return(
-        <div style={{height: '100%', overflow: 'scroll'}}>
-            <div style={albumOverviewStyle}>
-                <div style={coverStyleState}></div>
-                <div style={albumDescriptionStyle}></div>
-            </div>
-            <div style={styleForTrackContainer}>
-                {
-                    tracks.map((track, index)=> {
-                        return (
-                            
-                            // <TrackListComponent key={index}  track={track} deviceId={deviceId}/>
-                            <TrackListComponent key={index} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
-                        )
-                    })
-                }
-            </div>
+        <div style={{height: '100%', overflow: 'scroll' }}>
+                <div style={albumOverviewStyleStyleState}>
+                    <div style={backgroundFilterStyle}>
+                    <div style={coverStyleState}></div>
+                    <div style={albumDescriptionStyle}></div>
+                    </div>
+                    
+                </div>
+                <div style={styleForTrackContainer}>
+                    {
+                        tracks.map((track, index)=> {
+                            return (
+                                
+                                // <TrackListComponent key={index}  track={track} deviceId={deviceId}/>
+                                <TrackListComponent key={index} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
+                            )
+                        })
+                    }
+                </div>
             
-        </div>
+            </div>
+        
         
     )
     

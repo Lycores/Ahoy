@@ -6,9 +6,16 @@ export const albumOverviewStyle = {
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,
     height: albumOverviewHeight,
-    display: 'flex'
+    
 }
 
+export const backgroundFilterStyle = {
+    backdropFilter:'blur(5px)',
+    background:'rgba(255,255,255,0.2)',
+    color:'white',
+    display: 'flex', 
+    width: '100%'
+}
 
 var coverStyleSize = albumOverviewHeight - 2*globalStyle.margin
 export const coverStyle = {
@@ -19,7 +26,6 @@ export const coverStyle = {
     borderRadius: globalStyle.borderRadius,
     backgroundImage: ''
 }
-
 
 
 export const albumDescriptionStyle = {

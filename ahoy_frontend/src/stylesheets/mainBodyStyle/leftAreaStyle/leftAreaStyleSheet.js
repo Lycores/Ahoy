@@ -10,7 +10,8 @@ var musicCoverSize = globalStyle.playlistAreaWidth - globalStyle.marginLeft- glo
 var playerButtonSize = 40
 var playbackBarHeight = 50
 var playbackBarMarginTop = 20
-var heightOfAlbumList = "calc(100% - " + (playbackBarHeight + playbackBarMarginTop + musicCoverSize + globalStyle.marginTop + 2*globalStyle.marginBottom).toString() + "px)"
+var heightOfLibrary = 150
+var heightOfAlbumList = "calc(100% - " + (playbackBarHeight + playbackBarMarginTop + musicCoverSize + 4*globalStyle.margin + heightOfLibrary).toString() + "px)"
 
 export var musicCoverStyle = {
     height: musicCoverSize,
@@ -64,6 +65,13 @@ export var playerStyle = {
     position: "absolute",
     borderRadius: globalStyle.borderRadius
 }
+export var libraryStyle = {
+    width: globalStyle.playlistAreaWidth,
+    boxShadow: globalStyle.boxShadow,
+    height: heightOfLibrary,
+    borderRadius: globalStyle.borderRadius,
+    marginBottom: globalStyle.marginBottom
+}
 
 export var albumListStyle = {
     width: globalStyle.playlistAreaWidth,
@@ -71,6 +79,8 @@ export var albumListStyle = {
     height: heightOfAlbumList,
     borderRadius: globalStyle.borderRadius
 }
+
+
 
 export const leftAreaStyle = {
     marginLeft: globalStyle.marginLeft,

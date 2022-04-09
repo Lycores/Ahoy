@@ -4,10 +4,7 @@ import TrackListComponent from './TrackListComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 
 function RightAreaComponentForAll(props) {
-    console.log(777)
-    console.log(props)
     var {itemList, type} = props
-    console.log(itemList)
     if(itemList.length == 0){
         return(
             <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>

@@ -24,8 +24,6 @@ router.get('/PlayTrack', (req, res) => {
         'Authorization': 'Bearer ' + global.access_token,
         'Content-Type' : 'application/json; charset=utf-8',
       }
-    }).then((response)=> {
-      console.log(response)
     }).catch((error)=>{console.log(error)})
 })
 

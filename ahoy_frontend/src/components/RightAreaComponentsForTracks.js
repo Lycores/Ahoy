@@ -5,15 +5,10 @@ import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {useState, useEffect} from 'react'
 
 function RightAreaComponentForTracks(props) {
-    console.log("device id are")
     var {album, deviceId} = props
-
-    console.log(album)
     // var {tracks, trackCover, setTrack} = props
     var tracks = album.tracks.items
     let heightOfTracks = `calc(100% - ${albumOverviewStyle.height}px) `
-    console.log(heightOfTracks)
-
     let styleForTrackContainer = {
         height: heightOfTracks,
         boxShadow: globalStyle.boxShadow, 

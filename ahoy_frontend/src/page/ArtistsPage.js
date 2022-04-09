@@ -40,12 +40,8 @@ function ArtistsPage(props) {
     const getFollowedArtists = () => {
       fetch(`artists/getFollowedArtists`)
       .then((response) => {
-        console.log(444)
-        console.log(response)
         return response.json()})
       .then((json)=>{
-        console.log(555)
-        console.log(json.artists.items)
         setArtistsListState(json.artists.items)
        
       })

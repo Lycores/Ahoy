@@ -3,15 +3,11 @@ import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCa
 import {useNavigate} from 'react-router-dom'
 function UniversalCardComponent(props) {
     var {item, type} = props
-    console.log("666")
-    console.log(item)
-    console.log(type)
     // var {artists,images,albumName, tracks} = props
     const navigate = useNavigate()
     
     const seeDetailOfAlbum = () => {
         return () => {
-            console.log("after album clicked the tracks are")
             navigate('/playlist', {
                 state: {
                     album:item

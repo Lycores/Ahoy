@@ -57,8 +57,6 @@ function WebPlayback(props) {
                 if (!state) {
                     return;
                 }
-                console.log("playback track is")
-                console.log(state.track_window.current_track)
                 setTrack(state.track_window.current_track);
                 
                 setPaused(state.paused);

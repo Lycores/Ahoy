@@ -102,7 +102,7 @@ function AlbumPage(props) {
           <div style={leftAreaStyleState} >
             <div style={libraryStyle}>
               <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
-              <div style={libraryEntryStyle}>Artists</div>
+              <div style={libraryEntryStyle} onClick={()=>navigate('/artists')}>Artists</div>
               <div style={libraryEntryStyle}>Playlists</div>
               <div style={libraryEntryStyle}></div>
             </div>

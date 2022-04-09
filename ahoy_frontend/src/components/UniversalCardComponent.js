@@ -8,7 +8,7 @@ function UniversalCardComponent(props) {
     
     const seeDetailOfAlbum = () => {
         return () => {
-            navigate('/playlist', {
+            navigate('/album', {
                 state: {
                     album:item
                 }

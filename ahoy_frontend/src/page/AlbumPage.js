@@ -27,7 +27,7 @@ const requestUserProfile = async () => {
 
 
 
-function PlaylistPage(props) {
+function AlbumPage(props) {
     const {token} = props
     var {state} = useLocation()
     if(state){
@@ -101,7 +101,7 @@ function PlaylistPage(props) {
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState} >
             <div style={libraryStyle}>
-              <div style={libraryEntryStyle } onClick={()=>navigate('/playlist')}>Albums</div>
+              <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
               <div style={libraryEntryStyle}>Artists</div>
               <div style={libraryEntryStyle}>Playlists</div>
               <div style={libraryEntryStyle}></div>
@@ -126,4 +126,4 @@ function PlaylistPage(props) {
   );
 }
 
-export default PlaylistPage;
+export default AlbumPage;

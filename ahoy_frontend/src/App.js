@@ -2,7 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import HomePage from './page/HomePage';
-import PlaylistPage from './page/PlaylistPage';
+import AlbumPage from './page/AlbumPage';
 import WelcomePage from './page/WelcomePage'
 import ArtistsPage from './page/ArtistsPage'
 
@@ -26,7 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />}/>
         <Route path="/home" element={<HomePage />}/>
-        <Route path="/playlist" element={<PlaylistPage token={token}/>}/>
+        <Route path="/album" element={<AlbumPage token={token}/>}/>
         <Route path="/artists" element={<ArtistsPage token={token}/> }/>
       </Routes>
     </BrowserRouter>

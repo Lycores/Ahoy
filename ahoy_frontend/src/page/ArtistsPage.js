@@ -7,8 +7,8 @@ import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAre
 import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
-import UniversalCardComponent from '../components/AlbumCardComponent'
-import RightAreaComponentForCards from '../components/RightAreaComponentForAlbums'
+import UniversalCardComponent from '../components/UniversalCardComponent'
+import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import {tabToHomeStyle, searchButtonStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 var userId = ''
@@ -27,7 +27,7 @@ const requestUserProfile = async () => {
 
 
 
-function PlaylistPage(props) {
+function ArtistsPage(props) {
     const {token} = props
     
 
@@ -39,9 +39,15 @@ function PlaylistPage(props) {
 
     const getFollowedArtists = () => {
       fetch(`artists/getFollowedArtists`)
-      .then((response) => {return response.json()})
+      .then((response) => {
+        console.log(444)
+        console.log(response)
+        return response.json()})
       .then((json)=>{
-        setArtistsListState(json.items)
+        console.log(555)
+        console.log(json.artists.items)
+        setArtistsListState(json.artists.items)
+       
       })
     }
 
@@ -96,7 +102,7 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {<RightAreaComponentForCards albumList={artistsListState} />}
+            {<RightAreaComponentForAll itemList={artistsListState} type="artists"/>}
           </div>
         </div>
         <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
@@ -109,4 +115,4 @@ function PlaylistPage(props) {
   );
 }
 
-export default PlaylistPage;
+export default ArtistsPage;

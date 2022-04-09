@@ -7,8 +7,8 @@ import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAre
 import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
-import UniversalCardComponent from '../components/AlbumCardComponent'
-import RightAreaComponentForAlbums from '../components/RightAreaComponentForAlbums'
+import UniversalCardComponent from '../components/UniversalCardComponent'
+import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import {tabToHomeStyle, searchButtonStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 var userId = ''
@@ -106,7 +106,7 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {(album == null) ? <RightAreaComponentForAlbums albumList={albumListState} /> :
+            {(album == null) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
             <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
           </div>
         </div>

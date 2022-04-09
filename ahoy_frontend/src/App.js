@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<WelcomePage />}/>
         <Route path="/home" element={<HomePage />}/>
         <Route path="/playlist" element={<PlaylistPage token={token}/>}/>
-        <Route path="/artists" element={<ArtistsPage/> }/>
+        <Route path="/artists" element={<ArtistsPage token={token}/> }/>
       </Routes>
     </BrowserRouter>
   );

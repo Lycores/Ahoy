@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import UniversalCardComponent  from './AlbumCardComponent'
+import UniversalCardComponent  from './UniversalCardComponent'
 import TrackListComponent from './TrackListComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 
-function RightAreaComponentForCards(props) {
-    var {albumList} = props
-
-    if(albumList.length == 0){
+function RightAreaComponentForAll(props) {
+    console.log(777)
+    console.log(props)
+    var {itemList, type} = props
+    console.log(itemList)
+    if(itemList.length == 0){
         return(
             <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
                 <div className="row justify-content-start">
@@ -31,11 +33,11 @@ function RightAreaComponentForCards(props) {
             <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
                 <div className="row justify-content-start">
                     {
-                        albumList.map((album, index)=>{
+                        itemList.map((album, index)=>{
                             return(
                                 // <UniversalCardComponent key={index} artists={album.artists} images={album.images}
                                 //  albumName={album.name} tracks={album.tracks}/>
-                                <UniversalCardComponent key={index} album={album}/>
+                                <UniversalCardComponent key={index} item={album} type={type}/>
                             )
                         })
                     }            
@@ -45,4 +47,4 @@ function RightAreaComponentForCards(props) {
     }   
 }
 
-export default RightAreaComponentForCards
+export default RightAreaComponentForAll

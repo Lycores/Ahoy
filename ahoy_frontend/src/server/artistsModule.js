@@ -14,7 +14,7 @@ router.get('/getFollowedArtists', (req, res) => {
         }
       }).then((response)=>{
         if (response.status === 200) {
-            console.log(response)
+            console.log(response.data)
             res.send(response.data)
           }
       }).catch((error)=>{console.log(error)})

@@ -2,7 +2,7 @@ import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
 import * as eh from '../eventHandler.js'
-import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
+import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle,libraryStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
@@ -92,6 +92,7 @@ function ArtistsPage(props) {
       <div className="App-Container">
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState} >
+            <div style={libraryStyle}></div>
             <div style={albumListStyleState}></div>
             <div style={playerStyleState}>
                 { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId}/> }

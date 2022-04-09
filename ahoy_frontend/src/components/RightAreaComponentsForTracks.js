@@ -41,8 +41,9 @@ function RightAreaComponentForTracks(props) {
         <div style={{height: '100%', overflow: 'scroll' }}>
                 <div style={albumOverviewStyleStyleState}>
                     <div style={backgroundFilterStyle}>
-                    <div style={coverStyleState}></div>
-                    <div style={albumDescriptionStyle}></div>
+                        <div style={albumDescriptionStyle}></div>
+                        <div style={coverStyleState}></div>
+                        
                     </div>
                     
                 </div>

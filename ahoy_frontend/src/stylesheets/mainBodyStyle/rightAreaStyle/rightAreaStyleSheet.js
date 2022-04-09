@@ -1,12 +1,12 @@
 import {globalStyle} from '../../globalStyle/globalStyleSheet'
 
-var musicListWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.playlistAreaWidth + globalStyle.marginLeft + globalStyle.marginRight).toString() + "px)"
+var rightAreaWidth = "calc(100% - " + (globalStyle.marginLeft + globalStyle.playlistAreaWidth + globalStyle.marginLeft + globalStyle.marginRight).toString() + "px)"
 
 const rightAreaStyle = {
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,
     height: '100%',
-    width: musicListWidth,
+    width: rightAreaWidth,
     boxShadow: globalStyle.boxShadow,
     borderRadius: globalStyle.borderRadius
 }

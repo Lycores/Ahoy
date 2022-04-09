@@ -10,7 +10,7 @@ import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForCards from '../components/RightAreaComponentForCards'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
-import {tabToHome} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToHomeStyle, searchButtonStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 var userId = ''
 var albumList = []
 const setUserId = (id) => {
@@ -51,6 +51,20 @@ function PlaylistPage(props) {
       })
     }
 
+    const extendSearchBar = () => {
+      setSearchButtonStyleState({
+        ...searchButtonStyleState,
+        width: searchButtonMaxWidth
+      })
+    }
+
+    const withdrawSearchBar = () => {
+      setSearchButtonStyleState({
+        ...searchButtonStyleState,
+        width: searchButtonStyle.width
+      })
+    }
+
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
     let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
@@ -60,7 +74,7 @@ function PlaylistPage(props) {
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     const [deviceId, setDeviceId] = useState(null)
     var [albumListState, setAlbumListState] = useState(albumList)
-
+    let [searchButtonStyleState, setSearchButtonStyleState] = useState(searchButtonStyle)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(userId === ''){
@@ -72,6 +86,8 @@ function PlaylistPage(props) {
     
   }, [])
 
+  
+
   const navigate = useNavigate()
   return (
     <div >
@@ -80,7 +96,8 @@ function PlaylistPage(props) {
       </Helmet>
 
       <div className="App-Container">
-        <div style={tabToHome} onClick={() => {navigate('/home')}} />
+        
+        
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
@@ -92,6 +109,11 @@ function PlaylistPage(props) {
             {(album == null) ? <RightAreaComponentForCards albumList={albumListState} /> :
             <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
           </div>
+        </div>
+        <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
+        <div style={searchButtonStyleState} onMouseOver={extendSearchBar}
+        onMouseLeave={withdrawSearchBar}>
+          <input style={{marginLeft: '20px', marginTop:'2px',height: '80%', width:'350px', backgroundColor:'white', outlineStyle: 'none', border: 0, fontSize: '24px', backgroundColor: 'transparent'}}></input>
         </div>
       </div>
     </div>

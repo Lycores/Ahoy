@@ -10,7 +10,7 @@ var musicCoverSize = globalStyle.playlistAreaWidth - globalStyle.marginLeft- glo
 var playerButtonSize = 40
 var playbackBarHeight = 50
 var playbackBarMarginTop = 20
-var heightOfLibrary = 150
+var heightOfLibrary = 180
 var heightOfAlbumList = "calc(100% - " + (playbackBarHeight + playbackBarMarginTop + musicCoverSize + 4*globalStyle.margin + heightOfLibrary).toString() + "px)"
 
 export var musicCoverStyle = {
@@ -70,8 +70,19 @@ export var libraryStyle = {
     boxShadow: globalStyle.boxShadow,
     height: heightOfLibrary,
     borderRadius: globalStyle.borderRadius,
-    marginBottom: globalStyle.marginBottom
+    marginBottom: globalStyle.marginBottom,
+    overflow:'hidden'
 }
+
+export var libraryEntryStyle = {
+    height: '18%',
+    margin:'10px',
+    backgroundColor:'white',
+    cursor:'pointer'
+}
+
+
+
 
 export var albumListStyle = {
     width: globalStyle.playlistAreaWidth,

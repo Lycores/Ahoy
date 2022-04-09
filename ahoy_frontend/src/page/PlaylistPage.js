@@ -10,8 +10,7 @@ import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForCards from '../components/RightAreaComponentForCards'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
-import tabToHome from '../stylesheets/floatElementStyle/floatStyleSheet'
-
+import {tabToHome} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 var userId = ''
 var albumList = []
 const setUserId = (id) => {

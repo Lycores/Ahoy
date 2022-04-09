@@ -6,6 +6,7 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from '../allRequest.js';
 import * as eh from '../eventHandler.js'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
+import {tabToPlaylist} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 
 const url = '/api'
 
@@ -71,7 +72,7 @@ function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
       </Helmet>
       <div className="App-Container">
-
+        <div style={tabToPlaylist} onClick={() => {navigate('/playlist')}}/>
         
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  >

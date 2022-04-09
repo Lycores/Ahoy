@@ -18,6 +18,10 @@ function RightAreaComponentForCards(props) {
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
+                    <PlaceholderCardComponent/>
                     
                 </div>
             </div>   

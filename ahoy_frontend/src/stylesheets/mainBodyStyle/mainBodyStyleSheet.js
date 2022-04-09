@@ -1,12 +1,11 @@
 import {globalStyle} from '../globalStyle/globalStyleSheet'
 
-var MainBodyDistanceTop = globalStyle.marginTop + globalStyle.headerItemHeight + globalStyle.marginBottom
-var musicListDistanceBottom = globalStyle.marginBottom 
-var musicListHeight = "calc(100% - " +  (MainBodyDistanceTop + musicListDistanceBottom).toString() + "px)";
+var mainBodyHeight = "calc(100% - " +  (globalStyle.marginTop + globalStyle.marginBottom).toString() + "px)";
 
 const mainBodyStyle={
+    marginTop:globalStyle.margin,
     display:'flex',
-    height: musicListHeight,
+    height: mainBodyHeight,
     flexWrap: 'nowrap',
     alignItems: 'stretch'
 }

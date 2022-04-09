@@ -1,7 +1,6 @@
 import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyle/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
 import {playbackBarStyle, playerStyle, leftAreaStyle, musicCoverStyle, albumListStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
@@ -40,7 +39,6 @@ function PlaylistPage(props) {
 
     const changeGlobalDim = () => {
         globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-        setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
     }
 
     const getUserSavedAlbum = () => {
@@ -54,9 +52,6 @@ function PlaylistPage(props) {
       })
     }
 
-    let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
-    let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
-    let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
     let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
@@ -87,13 +82,6 @@ function PlaylistPage(props) {
 
       <div className="App-Container">
         <div style={tabToHome} onClick={() => {navigate('/home')}} />
-        <div style={topBarStyle}>
-          <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState}  />
-            <a href="/auth/login">
-              <div style={loginButtonStyleState}/>
-            </a>
-        </div>
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>

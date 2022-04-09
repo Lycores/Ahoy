@@ -4,7 +4,6 @@ import {Helmet} from "react-helmet";
 import Card from '../components/CardComponent.js'
 import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle, maskStyle} from '../stylesheets/cardStyleSheet.js';
 import requestDesktopData from '../allRequest.js';
-import {musicStripStyle, homeButtonStyle, loginButtonStyle, musicStripDistanceLeft, musicStripDistanceRight, topBarStyle} from '../stylesheets/topBarStyle/topBarStyleSheet.js'
 import * as eh from '../eventHandler.js'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
 
@@ -50,7 +49,6 @@ function HomePage() {
 
   const changeGlobalDim = () => {
     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    setMusicStripWidthState({...musicStripStyleState, width: globalDim.globalWidth - musicStripDistanceLeft - musicStripDistanceRight})
   }
   
   let [allCardsContainersState, setAllCardsContainersState] = useState({
@@ -60,10 +58,6 @@ function HomePage() {
   let [foldedState, setFoldedState] = useState({
     umbrellaFolded:true, downCoatFolded:true, sweaterFolded:true, snowBootFolded:true, rainBootFolded:true, maskFolded:true
   })
-
-  let [musicStripStyleState, setMusicStripWidthState]  = useState(musicStripStyle)
-  let [homeButtonStyleState, sethomeButtonStyleState] = useState(homeButtonStyle)
-  let [loginButtonStyleState, setLoginButtonStyleState] = useState(loginButtonStyle)
 
   useEffect(() => {
     window.addEventListener('resize', changeGlobalDim);
@@ -77,13 +71,7 @@ function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
       </Helmet>
       <div className="App-Container">
-        <div style={topBarStyle}>
-          <div style={homeButtonStyleState} onClick={eh.homeButtonClicked} />
-          <div style={musicStripStyleState} onClick={() => {navigate('/playlist')}} />
-            <a href="/auth/login">
-              <div style={loginButtonStyleState}/>
-            </a>
-        </div>
+
         
        <div className="container cardLeftDistance">
         <div ref={umbrellaRef}   style={allCardsContainersState.umbrellaStyle}  >

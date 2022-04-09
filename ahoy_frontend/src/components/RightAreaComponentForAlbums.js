@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import UniversalCardComponent  from './UniversalCardComponent'
+import UniversalCardComponent  from './AlbumCardComponent'
 import TrackListComponent from './TrackListComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 

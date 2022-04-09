@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import HomePage from './page/HomePage';
 import PlaylistPage from './page/PlaylistPage';
 import WelcomePage from './page/WelcomePage'
+import ArtistsPage from './page/ArtistsPage'
 
 function App() {
 
@@ -23,9 +24,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WelcomePage />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
-        <Route path="/playlist" element={<PlaylistPage token={token}/>}></Route>
+        <Route path="/" element={<WelcomePage />}/>
+        <Route path="/home" element={<HomePage />}/>
+        <Route path="/playlist" element={<PlaylistPage token={token}/>}/>
+        <Route path="/artists" element={<ArtistsPage/> }/>
       </Routes>
     </BrowserRouter>
   );

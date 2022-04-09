@@ -8,11 +8,11 @@ import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/AlbumCardComponent'
-import RightAreaComponentForAlbums from '../components/RightAreaComponentForAlbums'
+import RightAreaComponentForCards from '../components/RightAreaComponentForAlbums'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import {tabToHomeStyle, searchButtonStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 var userId = ''
-var albumList = []
+var artistsList = []
 const setUserId = (id) => {
   userId = id
 }
@@ -29,10 +29,7 @@ const requestUserProfile = async () => {
 
 function PlaylistPage(props) {
     const {token} = props
-    var {state} = useLocation()
-    if(state){
-      var album = state.album
-    }
+    
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -40,14 +37,11 @@ function PlaylistPage(props) {
         globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     }
 
-    const getUserSavedAlbum = () => {
-      fetch(`album/getSavedAlbum`)
+    const getFollowedArtists = () => {
+      fetch(`artists/getFollowedArtists`)
       .then((response) => {return response.json()})
       .then((json)=>{
-        json.items.forEach((albumObj)=>{
-          albumList.push(albumObj.album)
-        })
-        setAlbumListState(albumList)
+        setArtistsListState(json.items)
       })
     }
 
@@ -73,16 +67,14 @@ function PlaylistPage(props) {
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     const [deviceId, setDeviceId] = useState(null)
-    var [albumListState, setAlbumListState] = useState(albumList)
+    var [artistsListState, setArtistsListState] = useState(artistsList)
     let [searchButtonStyleState, setSearchButtonStyleState] = useState(searchButtonStyle)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(userId === ''){
       requestUserProfile()
     }
-    if(!album){
-      getUserSavedAlbum()
-    }
+      getFollowedArtists()
     
   }, [])
 
@@ -96,8 +88,6 @@ function PlaylistPage(props) {
       </Helmet>
 
       <div className="App-Container">
-        
-        
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState} >
             <div style={albumListStyleState}></div>
@@ -106,8 +96,7 @@ function PlaylistPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {(album == null) ? <RightAreaComponentForAlbums albumList={albumListState} /> :
-            <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
+            {<RightAreaComponentForCards albumList={artistsListState} />}
           </div>
         </div>
         <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />

@@ -37,5 +37,24 @@ export const containerStyle = {
     marginTop:20,
     marginBottom: 20,
     cursor: 'pointer'
+}
 
+export const cardTitleStyle = {
+    display: 'block',
+    whiteSpace:'nowrap',
+    overflow:'hidden',
+    textOverflow:'ellipsis',
+    fontSize:'x-large',
+    marginLeft:'7px',
+    marginTop:'10px'
+}
+
+export const cardSubtitleStyle = {
+    display: 'block',
+    whiteSpace:'nowrap',
+    overflow:'hidden',
+    textOverflow:'ellipsis',
+    fontSize:'medium',
+    marginLeft:'7px',
+    marginTop:'10px'
 }

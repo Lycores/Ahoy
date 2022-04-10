@@ -25,7 +25,8 @@ function RightAreaComponentForTracks(props) {
         })
         setAlbumOverviewStyleStyleState({
             ...albumOverviewStyleStyleState,
-            backgroundImage: `url(${album.images[0].url})`
+            backgroundImage: `url(${album.images[0].url})`,
+            backgroundSize: 'cover'
         })
     },[album, deviceId])
         

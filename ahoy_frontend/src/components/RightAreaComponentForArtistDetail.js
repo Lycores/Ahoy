@@ -31,6 +31,7 @@ function RightAreaComponentForArtistDetail(props){
         setArtistOverviewStyleState({
             ...artistOverviewStyleState,
             backgroundImage: `url(${artist.images[0].url})`,
+            backgroundSize: 'cover'
         })
         let artistTopTrack = getArtistTopTrack().tracks
         setArtistTopTrackState(artistTopTrack)

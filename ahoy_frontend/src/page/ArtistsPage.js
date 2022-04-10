@@ -11,7 +11,7 @@ import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
-import {tabToHomeStyle, searchBarStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToHomeStyle, searchBarStyleForDesktopOrTablet, searchBarMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 
 var artistsList = []
 
@@ -41,14 +41,14 @@ function ArtistsPage(props) {
     const extendSearchBar = () => {
       setSearchBarStyleState({
         ...searchBarStyleState,
-        width: searchButtonMaxWidth
+        width: searchBarMaxWidth
       })
     }
 
     const withdrawSearchBar = () => {
       setSearchBarStyleState({
         ...searchBarStyleState,
-        width: searchBarStyle.width
+        width: searchBarStyleForDesktopOrTablet.width
       })
     }
 
@@ -61,7 +61,7 @@ function ArtistsPage(props) {
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     let [deviceId, setDeviceId] = useState(null)
     var [artistsListState, setArtistsListState] = useState(artistsList)
-    let [searchBarStyleState, setSearchBarStyleState] = useState(searchBarStyle)
+    let [searchBarStyleState, setSearchBarStyleState] = useState(searchBarStyleForDesktopOrTablet)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(!artist){

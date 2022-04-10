@@ -31,17 +31,30 @@ export const tabToPlaylistStyle = {
     cursor: 'pointer'
 }
 
-const searchButtonHeight = 50
-const searchButtonWidth = 150
-export const searchButtonMaxWidth = 400
+const searchBarHeight = 50
+const searchBarWidth = 150
+export const searchBarMaxWidth = 400
 const searchBarToTop = searchBarToParentContainer + globalStyle.margin
-const searchBarToLeft = globalStyle.playlistAreaWidth + 2*globalStyle.margin + searchBarToParentContainer
-export const searchBarStyle = {
+const searchBarToLeftForDesktopOrTablet = globalStyle.playlistAreaWidth + 2*globalStyle.margin + searchBarToParentContainer
+const searchBarToLeftForMobile = 2*globalStyle.margin + searchBarToParentContainer
+export const searchBarStyleForDesktopOrTablet = {
     position:'fixed',
     top:searchBarToTop, 
-    left:searchBarToLeft, 
-    width: searchButtonWidth,
-    height: searchButtonHeight,
+    left:searchBarToLeftForDesktopOrTablet, 
+    width: searchBarWidth,
+    height: searchBarHeight,
+    backgroundColor:'white',
+    borderRadius: '50px 50px 50px 50px',
+    cursor: 'pointer',
+    transitionDuration: '500ms'
+}
+
+export const searchBarStyleForMobile = {
+    position:'fixed',
+    top:searchBarToTop, 
+    left:searchBarToLeftForMobile, 
+    width: searchBarWidth,
+    height: searchBarHeight,
     backgroundColor:'white',
     borderRadius: '50px 50px 50px 50px',
     cursor: 'pointer',

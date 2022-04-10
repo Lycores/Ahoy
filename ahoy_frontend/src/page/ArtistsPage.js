@@ -58,6 +58,7 @@ function ArtistsPage(props) {
         ...searchBarStyleStateForDesktopOrTablet,
         width: searchBarStyleForDesktopOrTablet.width
       })
+      searchBarInputRef.current.blur()
     }
 
     const withdrawSearchBarForMobile = () => {
@@ -65,6 +66,7 @@ function ArtistsPage(props) {
         ...searchBarStyleStateForMobile,
         width: searchBarStyleForMobile.width
       })
+      searchBarInputRef.current.blur()
     }
 
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
@@ -78,6 +80,8 @@ function ArtistsPage(props) {
     var [artistsListState, setArtistsListState] = useState(artistsList)
     let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
     let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
+
+    const searchBarInputRef = useRef(null)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(!artist){
@@ -121,14 +125,14 @@ function ArtistsPage(props) {
         <DesktopOrTablet>
           <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
           onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
-            <input style={searchBarInputStyle}></input>
+            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
           </div>
         </DesktopOrTablet>
 
         <Mobile>
           <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
           onMouseLeave={withdrawSearchBarForMobile}>
-            <input style={searchBarInputStyle}></input>
+            <input ef={searchBarInputRef} style={searchBarInputStyle}></input>
           </div>
         </Mobile>
         

@@ -70,6 +70,7 @@ function AlbumPage(props) {
         ...searchBarStyleStateForDesktopOrTablet,
         width: searchBarStyleForDesktopOrTablet.width
       })
+      searchBarInputRef.current.blur()
     }
 
     const withdrawSearchBarForMobile = () => {
@@ -77,6 +78,7 @@ function AlbumPage(props) {
         ...searchBarStyleStateForMobile,
         width: searchBarStyleForMobile.width
       })
+      searchBarInputRef.current.blur()
     }
 
 
@@ -91,6 +93,8 @@ function AlbumPage(props) {
     var [albumListState, setAlbumListState] = useState(albumList)
     let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
     let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
+
+    const searchBarInputRef = useRef(null)
     useEffect(() => { 
       window.addEventListener('resize', changeGlobalDim)
       if(userId === ''){
@@ -136,14 +140,14 @@ function AlbumPage(props) {
         <DesktopOrTablet>
           <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
           onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
-            <input style={searchBarInputStyle}></input>
+            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
           </div>
         </DesktopOrTablet>
         
         <Mobile>
           <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
           onMouseLeave={withdrawSearchBarForMobile}>
-            <input style={searchBarInputStyle}></input>
+            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
           </div>
         </Mobile>
       </div>

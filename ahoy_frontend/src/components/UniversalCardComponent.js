@@ -28,8 +28,8 @@ function UniversalCardComponent(props) {
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToAlbumPage}>
                 <div  style={containerStyle} >
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
-                    <h5>{item.name}</h5>
-                    <p>{item.artists[0].name}</p>
+                    <span>{item.name}</span>
+                    <span>{item.artists[0].name}</span>
                 </div>
             </div>
         

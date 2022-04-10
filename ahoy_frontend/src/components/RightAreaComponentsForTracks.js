@@ -10,7 +10,6 @@ function RightAreaComponentForTracks(props) {
     var tracks = album.tracks.items
     let heightOfTracks = `calc(100% - ${albumOverviewStyle.height}px) `
     let styleForTrackContainer = {
-        height: heightOfTracks,
         boxShadow: globalStyle.boxShadow, 
         borderRadius: globalStyle.borderRadius
     }
@@ -32,7 +31,7 @@ function RightAreaComponentForTracks(props) {
         
         
     return(
-        <div style={{height: '100%', overflow: 'scroll' }}>
+        <div style={{height: '100%', overflow: 'scroll'}}>
                 <div style={albumOverviewStyleStyleState}>
                     <div style={backgroundFilterStyle}>
                         <div style={albumDescriptionStyle}></div>

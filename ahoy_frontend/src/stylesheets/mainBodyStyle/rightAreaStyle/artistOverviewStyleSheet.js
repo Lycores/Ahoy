@@ -4,7 +4,6 @@ const artistOverviewHeight = 300
 export const artistOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
-    boxShadow: globalStyle.boxShadow,
     height: artistOverviewHeight,
     backgroundPosition: '-100px',
 
@@ -23,9 +22,8 @@ var coverStyleSize = artistOverviewHeight - 2*globalStyle.margin
 export const coverStyle = {
     height: coverStyleSize,
     width: coverStyleSize,
-    boxShadow: globalStyle.boxShadow,
     margin: globalStyle.margin,
-    borderRadius: globalStyle.borderRadius
+    borderRadius: globalStyle.borderRadius,
 }
 
 export const artistDescriptionStyle = {

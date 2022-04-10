@@ -23,7 +23,7 @@ export const coverStyle = {
     height: coverStyleSize,
     width: coverStyleSize,
     margin: globalStyle.margin,
-    borderRadius: globalStyle.borderRadius,
+    borderRadius: globalStyle.borderRadius
 }
 
 

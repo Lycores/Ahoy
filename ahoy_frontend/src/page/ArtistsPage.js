@@ -11,7 +11,8 @@ import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
-import {tabToHomeStyle, searchBarStyleForDesktopOrTablet, searchBarMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToHomeStyle, searchBarStyleForDesktopOrTablet, searchBarMaxWidth, searchBarStyleForMobile, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
 var artistsList = []
 
@@ -38,17 +39,31 @@ function ArtistsPage(props) {
       })
     }
 
-    const extendSearchBar = () => {
-      setSearchBarStyleState({
-        ...searchBarStyleState,
+    const extendSearchBarForDesktopOrTablet = () => {
+      setSearchBarStyleStateForDesktopOrTablet({
+        ...searchBarStyleStateForDesktopOrTablet,
         width: searchBarMaxWidth
       })
     }
 
-    const withdrawSearchBar = () => {
-      setSearchBarStyleState({
-        ...searchBarStyleState,
+    const extendSearchBarForMobile = () => {
+      setSearchBarStyleStateForMobile({
+        ...searchBarStyleStateForMobile,
+        width: searchBarMaxWidth
+      })
+    }
+
+    const withdrawSearchBarForDesktopOrTablet = () => {
+      setSearchBarStyleStateForDesktopOrTablet({
+        ...searchBarStyleStateForDesktopOrTablet,
         width: searchBarStyleForDesktopOrTablet.width
+      })
+    }
+
+    const withdrawSearchBarForMobile = () => {
+      setSearchBarStyleStateForMobile({
+        ...searchBarStyleStateForMobile,
+        width: searchBarStyleForMobile.width
       })
     }
 
@@ -61,14 +76,13 @@ function ArtistsPage(props) {
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     let [deviceId, setDeviceId] = useState(null)
     var [artistsListState, setArtistsListState] = useState(artistsList)
-    let [searchBarStyleState, setSearchBarStyleState] = useState(searchBarStyleForDesktopOrTablet)
+    let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
+    let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
     if(!artist){
       getFollowedArtists()
     }
-      
-    
   }, [])
 
   
@@ -82,28 +96,42 @@ function ArtistsPage(props) {
 
       <div className="App-Container">
         <div style={mainBodyStyleState}>
-          <div style={leftAreaStyleState} >
-            <div style={libraryStyle}>
-              <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
-              <div style={libraryEntryStyle} onClick={()=>navigate('/artists')}>Artists</div>
-              <div style={libraryEntryStyle}>Playlists</div>
-              <div style={libraryEntryStyle}></div>
+          <DesktopOrTablet>
+            <div style={leftAreaStyleState} >
+              <div style={libraryStyle}>
+                <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
+                <div style={libraryEntryStyle} onClick={()=>navigate('/artists')}>Artists</div>
+                <div style={libraryEntryStyle}>Playlists</div>
+                <div style={libraryEntryStyle}></div>
+              </div>
+              <div style={albumListStyleState}></div>
+              <div style={playerStyleState}>
+                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId}/> }
+              </div>
             </div>
-            <div style={albumListStyleState}></div>
-            <div style={playerStyleState}>
-                { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId}/> }
-            </div>
-          </div>
+          </DesktopOrTablet>
+          
           <div style={rightAreaStyleState} >
             {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
              <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile}/>}
           </div>
         </div>
         <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
-        <div style={searchBarStyleState} onMouseOver={extendSearchBar}
-        onMouseLeave={withdrawSearchBar}>
-          <input style={{marginLeft: '20px', marginTop:'2px',height: '80%', width:'350px', backgroundColor:'white', outlineStyle: 'none', border: 0, fontSize: '24px', backgroundColor: 'transparent'}}></input>
-        </div>
+
+        <DesktopOrTablet>
+          <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
+          onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
+            <input style={searchBarInputStyle}></input>
+          </div>
+        </DesktopOrTablet>
+
+        <Mobile>
+          <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
+          onMouseLeave={withdrawSearchBarForMobile}>
+            <input style={searchBarInputStyle}></input>
+          </div>
+        </Mobile>
+        
       </div>
     </div>
   );

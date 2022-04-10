@@ -10,7 +10,7 @@ import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
-import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 var userId = ''
@@ -136,14 +136,14 @@ function AlbumPage(props) {
         <DesktopOrTablet>
           <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
           onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
-            <input style={{marginLeft: '20px', marginTop:'2px',height: '80%', width:'350px', outlineStyle: 'none', border: 0, fontSize: '24px', backgroundColor: 'transparent'}}></input>
+            <input style={searchBarInputStyle}></input>
           </div>
         </DesktopOrTablet>
         
         <Mobile>
           <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
           onMouseLeave={withdrawSearchBarForMobile}>
-            <input style={{marginLeft: '20px', marginTop:'2px',height: '80%', width:'350px', outlineStyle: 'none', border: 0, fontSize: '24px', backgroundColor: 'transparent'}}></input>
+            <input style={searchBarInputStyle}></input>
           </div>
         </Mobile>
       </div>

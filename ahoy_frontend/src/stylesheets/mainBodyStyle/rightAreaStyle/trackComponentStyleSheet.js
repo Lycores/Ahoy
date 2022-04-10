@@ -1,6 +1,6 @@
 import globalStyle from '../../globalStyle/globalStyleSheet'
 
-const trackEntryComponentStyle = {
+export const trackEntryComponentStyle = {
     margin: globalStyle.margin,
     height: 50,
     borderRadius: globalStyle.borderRadius,
@@ -9,4 +9,9 @@ const trackEntryComponentStyle = {
 
 }
 
-export default trackEntryComponentStyle
+export const styleForTrackContainer = {
+    boxShadow: globalStyle.boxShadow, 
+    borderRadius: globalStyle.borderRadius,
+    margin: globalStyle.margin
+}
+

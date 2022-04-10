@@ -1,5 +1,5 @@
 import {useEffect} from 'react'
-import trackEntryComponentStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/trackListStyleSheet'
+import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 
 function TrackEntryComponent(props){
     const {track, albumId, positionInAlbum, deviceId} = props

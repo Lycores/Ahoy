@@ -6,7 +6,8 @@ export const artistOverviewStyle = {
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,
     height: artistOverviewHeight,
-    backgroundPosition: '-100px'
+    backgroundPosition: '-100px',
+
 }
 
 export const backgroundFilterStyle = {
@@ -14,7 +15,8 @@ export const backgroundFilterStyle = {
     background:'rgba(255,255,255,0.2)',
     color:'white',
     display: 'flex', 
-    width: '100%'
+    width: '100%',
+    borderRadius: globalStyle.borderRadius
 }
 
 var coverStyleSize = artistOverviewHeight - 2*globalStyle.margin
@@ -23,8 +25,7 @@ export const coverStyle = {
     width: coverStyleSize,
     boxShadow: globalStyle.boxShadow,
     margin: globalStyle.margin,
-    borderRadius: globalStyle.borderRadius,
-    backgroundImage: ''
+    borderRadius: globalStyle.borderRadius
 }
 
 export const artistDescriptionStyle = {

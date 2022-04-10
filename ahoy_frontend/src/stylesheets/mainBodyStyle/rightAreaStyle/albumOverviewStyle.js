@@ -4,7 +4,6 @@ const albumOverviewHeight = 300
 export const albumOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
-    boxShadow: globalStyle.boxShadow,
     height: albumOverviewHeight,
     backgroundPosition: '-100px',
     
@@ -23,7 +22,6 @@ var coverStyleSize = albumOverviewHeight - 2*globalStyle.margin
 export const coverStyle = {
     height: coverStyleSize,
     width: coverStyleSize,
-    boxShadow: globalStyle.boxShadow,
     margin: globalStyle.margin,
     borderRadius: globalStyle.borderRadius,
 }

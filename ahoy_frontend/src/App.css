@@ -1,6 +1,8 @@
 body {
-  background-color: #efeeee;
-  color: 'slategrey';
+  background-color: #e1e7ef;
+  font-family: 'Helvetica';
+  color: #66727C;
+  font-weight: 600;
 }
 
 .App-Container {
@@ -33,13 +35,13 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 20px;
-  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
-          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+  -webkit-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
   position: absolute;
   overflow: hidden;
   -webkit-transition-duration: 2000ms;
           transition-duration: 2000ms;
-  background-color: #efeeee;
+  background-color: #e1e7ef;
   z-index: 3;
 }
 
@@ -47,13 +49,13 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 20px;
-  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
-          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+  -webkit-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
   position: absolute;
   overflow: hidden;
   -webkit-transition-duration: 2000ms;
           transition-duration: 2000ms;
-  background-color: #efeeee;
+  background-color: #e1e7ef;
   left: 20px;
   top: 20px;
   z-index: 2;
@@ -63,13 +65,13 @@ body {
   width: 200px;
   height: 200px;
   border-radius: 20px;
-  -webkit-box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
-          box-shadow: 18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px white;
+  -webkit-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
+          box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
   position: absolute;
   overflow: hidden;
   -webkit-transition-duration: 2000ms;
           transition-duration: 2000ms;
-  background-color: #efeeee;
+  background-color: #e1e7ef;
   left: 40px;
   top: 40px;
   z-index: 1;

@@ -34,7 +34,7 @@ export const tabToPlaylistStyle = {
 const searchButtonHeight = 50
 const searchButtonWidth = 150
 export const searchButtonMaxWidth = 400
-const searchBarToTop = searchBarToParentContainer
+const searchBarToTop = searchBarToParentContainer + globalStyle.margin
 const searchBarToLeft = globalStyle.playlistAreaWidth + 2*globalStyle.margin + searchBarToParentContainer
 export const searchBarStyle = {
     position:'fixed',

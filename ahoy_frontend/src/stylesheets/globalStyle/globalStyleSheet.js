@@ -9,10 +9,10 @@ export const globalStyle = {
     headerItemHeight: 70,
     homeButtonWidth:70,
     loginButtonWidth:70,
-    boxShadow: '18px 18px 30px rgba(0, 0, 0, 0.2), -18px -18px 30px rgba(255, 255, 255, 1)',
+    boxShadow: '20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff',
     borderRadius: 20,
     playlistAreaWidth:250,
-    globalBackgroundColor: "#efeeee",
+    globalBackgroundColor: "#e1e7ef",
     spotifyColor: "1bd760"
 }
 

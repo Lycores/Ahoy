@@ -1,6 +1,6 @@
 import globalStyle from '../../globalStyle/globalStyleSheet'
 
-const trackListComponentStyle = {
+const trackEntryComponentStyle = {
     margin: globalStyle.margin,
     height: 50,
     borderRadius: globalStyle.borderRadius,
@@ -9,4 +9,4 @@ const trackListComponentStyle = {
 
 }
 
-export default trackListComponentStyle
+export default trackEntryComponentStyle

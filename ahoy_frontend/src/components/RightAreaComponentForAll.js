@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import UniversalCardComponent  from './UniversalCardComponent'
-import TrackListComponent from './TrackListComponent'
+import TrackEntryComponent from './TrackEntryComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 
 function RightAreaComponentForAll(props) {

@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import TrackListComponent from './TrackListComponent'
+import TrackEntryComponent from './TrackEntryComponent'
 import {albumOverviewStyle, coverStyle, albumDescriptionStyle, backgroundFilterStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {useState, useEffect} from 'react'
@@ -45,8 +45,8 @@ function RightAreaComponentForTracks(props) {
                         tracks.map((track, index)=> {
                             return (
                                 
-                                // <TrackListComponent key={index}  track={track} deviceId={deviceId}/>
-                                <TrackListComponent key={index} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
+                                
+                                <TrackEntryComponent key={index} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
                             )
                         })
                     }

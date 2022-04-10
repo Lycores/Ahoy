@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
-import trackListComponentStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/trackListStyleSheet'
+import trackEntryComponentStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/trackListStyleSheet'
 
-function TrackListComponent(props){
+function TrackEntryComponent(props){
     const {track, albumId, positionInAlbum, deviceId} = props
 
     const playTrack = () => {
@@ -11,11 +11,11 @@ function TrackListComponent(props){
     }
 
     return (
-        <div style={trackListComponentStyle} onClick={playTrack()} >
+        <div style={trackEntryComponentStyle} onClick={playTrack()} >
             <span style={{display:'block'}}>{track.name}</span>
             <span style={{display:'block'}}>{track.artists[0].name}</span>
         </div>
     )
 }
 
-export default TrackListComponent
+export default TrackEntryComponent

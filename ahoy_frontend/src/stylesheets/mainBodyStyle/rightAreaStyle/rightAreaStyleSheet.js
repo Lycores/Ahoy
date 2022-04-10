@@ -6,9 +6,10 @@ const rightAreaStyle = {
     marginRight: globalStyle.marginRight,
     marginBottom: globalStyle.marginBottom,
     height: '100%',
-    width: rightAreaWidth,
+    // width: 'rightAreaWidth',
     boxShadow: globalStyle.boxShadow,
-    borderRadius: globalStyle.borderRadius
+    borderRadius: globalStyle.borderRadius,
+    flexGrow: 1
 }
 
 export default rightAreaStyle

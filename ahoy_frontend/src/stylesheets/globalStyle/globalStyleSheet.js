@@ -10,6 +10,7 @@ export const globalStyle = {
     homeButtonWidth:70,
     loginButtonWidth:70,
     boxShadow: '20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff',
+    boxShadowForInput: 'inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff',
     borderRadius: 20,
     playlistAreaWidth:250,
     globalBackgroundColor: "#e1e7ef",

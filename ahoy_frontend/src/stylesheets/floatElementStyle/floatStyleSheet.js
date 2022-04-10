@@ -43,10 +43,10 @@ export const searchBarStyleForDesktopOrTablet = {
     left:searchBarToLeftForDesktopOrTablet, 
     width: searchBarWidth,
     height: searchBarHeight,
-    backgroundColor:'white',
     borderRadius: '50px 50px 50px 50px',
     cursor: 'pointer',
-    transitionDuration: '500ms'
+    transitionDuration: '500ms',
+    boxShadow: globalStyle.boxShadowForInput
 }
 
 export const searchBarStyleForMobile = {
@@ -54,9 +54,9 @@ export const searchBarStyleForMobile = {
     top:searchBarToTop, 
     left:searchBarToLeftForMobile, 
     width: searchBarWidth,
-    height: searchBarHeight,
-    backgroundColor:'white',
+    height: searchBarHeight,  
     borderRadius: '50px 50px 50px 50px',
     cursor: 'pointer',
-    transitionDuration: '500ms'
+    transitionDuration: '500ms',
+    boxShadow: globalStyle.boxShadowForInput
 }

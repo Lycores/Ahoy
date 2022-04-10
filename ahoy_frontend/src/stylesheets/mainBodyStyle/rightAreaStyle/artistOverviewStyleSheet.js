@@ -1,13 +1,12 @@
 import globalStyle from '../../globalStyle/globalStyleSheet'
 
-const albumOverviewHeight = 300
-export const albumOverviewStyle = {
+const artistOverviewHeight = 300
+export const artistOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,
-    height: albumOverviewHeight,
+    height: artistOverviewHeight,
     backgroundPosition: '-100px'
-    
 }
 
 export const backgroundFilterStyle = {
@@ -18,17 +17,17 @@ export const backgroundFilterStyle = {
     width: '100%'
 }
 
-var coverStyleSize = albumOverviewHeight - 2*globalStyle.margin
+var coverStyleSize = artistOverviewHeight - 2*globalStyle.margin
 export const coverStyle = {
     height: coverStyleSize,
     width: coverStyleSize,
     boxShadow: globalStyle.boxShadow,
     margin: globalStyle.margin,
     borderRadius: globalStyle.borderRadius,
+    backgroundImage: ''
 }
 
-
-export const albumDescriptionStyle = {
+export const artistDescriptionStyle = {
     height: '100%',
     width: `calc(100% - ${coverStyleSize}px)`,
 }

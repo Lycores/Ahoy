@@ -6,19 +6,26 @@ function UniversalCardComponent(props) {
     // var {artists,images,albumName, tracks} = props
     const navigate = useNavigate()
     
-    const seeDetailOfAlbum = () => {
-        return () => {
-            navigate('/album', {
-                state: {
-                    album:item
-                }
-            })
-        }
+    const goToAlbumPage = () => {   
+        navigate('/album', {
+            state: {
+                album:item
+            }
+        })
     }
+
+    const goToArtistPage = () => {
+        navigate('/artists', {
+            state: {
+                artist:item
+            }
+        })
+    }
+
 
     if(type == 'album'){
         return(
-            <div className="col-md-6  col-lg-4 col-xl-3" onClick={seeDetailOfAlbum()}>
+            <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToAlbumPage}>
                 <div  style={containerStyle} >
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
                     <h5>{item.name}</h5>
@@ -30,7 +37,7 @@ function UniversalCardComponent(props) {
     }
     if(type == 'artists'){
         return(
-            <div className="col-md-6  col-lg-4 col-xl-3" >
+            <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToArtistPage}>
                 <div  style={containerStyle} >
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
                     <h5>{item.name}</h5>

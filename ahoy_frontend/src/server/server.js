@@ -11,7 +11,6 @@ dotenv.config({ path: whereIsDotEnv })
 const host = process.env.REACT_APP_HOST
 const port = process.env.REACT_APP_PORT
 
-const userID = ''
 global.access_token = ''
 
 var app = express()

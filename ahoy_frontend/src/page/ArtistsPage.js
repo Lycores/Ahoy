@@ -10,26 +10,17 @@ import {BrowserRouter, useNavigate, useLocation} from 'react-router-dom'
 import UniversalCardComponent from '../components/UniversalCardComponent'
 import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
-import {tabToHomeStyle, searchButtonStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
-var userId = ''
+import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
+import {tabToHomeStyle, searchBarStyle, searchButtonMaxWidth} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+
 var artistsList = []
-const setUserId = (id) => {
-  userId = id
-}
-
-const requestUserProfile = async () => {
-  fetch('user/getUserProfile')
-  .then((response) => {return response.json()})
-  .then((userProfile) => {
-    setUserId(userProfile.id)
-  })
-}
-
-
 
 function ArtistsPage(props) {
-    const {token} = props
-    
+    const {token, userProfile} = props
+    var {state} = useLocation()
+    if(state){
+      var artist = state.artist
+    }
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -48,16 +39,16 @@ function ArtistsPage(props) {
     }
 
     const extendSearchBar = () => {
-      setSearchButtonStyleState({
-        ...searchButtonStyleState,
+      setSearchBarStyleState({
+        ...searchBarStyleState,
         width: searchButtonMaxWidth
       })
     }
 
     const withdrawSearchBar = () => {
-      setSearchButtonStyleState({
-        ...searchButtonStyleState,
-        width: searchButtonStyle.width
+      setSearchBarStyleState({
+        ...searchBarStyleState,
+        width: searchBarStyle.width
       })
     }
 
@@ -68,15 +59,15 @@ function ArtistsPage(props) {
     let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
     let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    const [deviceId, setDeviceId] = useState(null)
+    let [deviceId, setDeviceId] = useState(null)
     var [artistsListState, setArtistsListState] = useState(artistsList)
-    let [searchButtonStyleState, setSearchButtonStyleState] = useState(searchButtonStyle)
+    let [searchBarStyleState, setSearchBarStyleState] = useState(searchBarStyle)
   useEffect(() => { 
     window.addEventListener('resize', changeGlobalDim)
-    if(userId === ''){
-      requestUserProfile()
-    }
+    if(!artist){
       getFollowedArtists()
+    }
+      
     
   }, [])
 
@@ -104,11 +95,12 @@ function ArtistsPage(props) {
             </div>
           </div>
           <div style={rightAreaStyleState} >
-            {<RightAreaComponentForAll itemList={artistsListState} type="artists"/>}
+            {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
+             <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile}/>}
           </div>
         </div>
         <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
-        <div style={searchButtonStyleState} onMouseOver={extendSearchBar}
+        <div style={searchBarStyleState} onMouseOver={extendSearchBar}
         onMouseLeave={withdrawSearchBar}>
           <input style={{marginLeft: '20px', marginTop:'2px',height: '80%', width:'350px', backgroundColor:'white', outlineStyle: 'none', border: 0, fontSize: '24px', backgroundColor: 'transparent'}}></input>
         </div>

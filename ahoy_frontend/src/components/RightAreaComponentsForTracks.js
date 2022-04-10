@@ -21,13 +21,11 @@ function RightAreaComponentForTracks(props) {
     useEffect(()=>{
         setCoverStyleState({
             ...coverStyleState,
-            backgroundImage: `url(${album.images[0].url})`,
-            backgroundSize: 'contain'})
+            backgroundImage: `url(${album.images[1].url})`
+        })
         setAlbumOverviewStyleStyleState({
             ...albumOverviewStyleStyleState,
-            backgroundImage: `url(${album.images[0].url})`,
-            backgroundSize: 'cover'
-
+            backgroundImage: `url(${album.images[0].url})`
         })
     },[album, deviceId])
         

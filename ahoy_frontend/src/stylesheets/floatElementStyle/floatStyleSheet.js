@@ -35,8 +35,8 @@ const searchButtonHeight = 50
 const searchButtonWidth = 150
 export const searchButtonMaxWidth = 400
 const searchBarToTop = globalStyle.margin + searchBarToParentContainer
-const searchBarToLeft = globalStyle.playlistAreaWidth + 2*globalStyle.margin + searchBarToParentContainer
-export const searchButtonStyle = {
+const searchBarToLeft = globalStyle.playlistAreaWidth + 3*globalStyle.margin + searchBarToParentContainer
+export const searchBarStyle = {
     position:'fixed',
     top:searchBarToTop, 
     left:searchBarToLeft, 

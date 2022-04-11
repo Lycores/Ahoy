@@ -87,8 +87,7 @@ function AlbumPage(props) {
     let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
     let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-    let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
-    let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
+
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
     const [deviceId, setDeviceId] = useState(null)
     var [albumListState, setAlbumListState] = useState(albumList)
@@ -125,7 +124,7 @@ function AlbumPage(props) {
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} deviceId={deviceId} setDeviceId={setDeviceId} /> }
+                  { (token === '') ? <></> : <WebPlayback token={token} deviceId={deviceId} setDeviceId={setDeviceId} /> }
               </div>
             </div>
           </DesktopOrTablet>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
 import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
-
+import {playbackBarStyle, musicCoverStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 const track = {
     name: "",
     album: {
@@ -15,14 +15,13 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, musicCoverStyleState, playbackBarStyleState, deviceId, setDeviceId} = props
+    const {token, deviceId, setDeviceId} = props
 
 
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)
     const [player, setPlayer] = useState(undefined)
     const [current_track, setTrack] = useState(track)
-
     const ToggleButtonRef = useRef(null)
 
     useEffect(() => {
@@ -77,8 +76,8 @@ function WebPlayback(props) {
     if (!is_active) { 
         return (
             <>
-                <div style={musicCoverStyleState}/>
-                <div style={playbackBarStyleState}>
+                <div style={musicCoverStyle}/>
+                <div style={playbackBarStyle}>
                     <div style={backStyle} />
                     <div style={startStyle} />
                     <div style={nextStyle} />
@@ -89,10 +88,10 @@ function WebPlayback(props) {
         
         return (
             <>
-                <div style={musicCoverStyleState}>
-                    <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleState.height, width: musicCoverStyleState.width, objectFit: 'cover'}} />
+                <div style={musicCoverStyle}>
+                    <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}} />
                 </div>
-                <div style={playbackBarStyleState}>
+                <div style={playbackBarStyle}>
                     <div style={backStyle} onClick={() => {player.previousTrack()}}/>
                     {is_paused?<div style={startStyle} onClick={() => {player.togglePlay()}}/>:<div style={pauseStyle} onClick={() => {player.togglePlay()}}/>}
                     <div style={nextStyle} onClick={() => {player.nextTrack()}}/>

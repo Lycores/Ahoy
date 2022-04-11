@@ -13,10 +13,12 @@ export const tabToHomeStyle = {
     right:'0px', 
     width: tabToHomeWidth,
     height: tabToHomeHeight,
-    backgroundColor:'white',
+    backgroundColor: globalStyle.globalBackgroundColor,
     ZIndex:99,
     borderRadius: '50px 0 0 50px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    boxShadow: globalStyle.boxShadow,
+    opacity:0.9
 }
 
 export const tabToPlaylistStyle = {
@@ -25,10 +27,12 @@ export const tabToPlaylistStyle = {
     left:'0px', 
     width: tabToPlaylistWidth,
     height: tabToPlaylistHeight,
-    backgroundColor:'white',
+    backgroundColor:globalStyle.globalBackgroundColor,
     ZIndex:99,
     borderRadius: '0 50px 50px 0',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    boxShadow: globalStyle.boxShadow,
+    opacity:0.9
 }
 
 const searchBarHeight = 50

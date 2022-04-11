@@ -87,7 +87,7 @@ function WebPlayback(props) {
         return (
             <>
                 <div style={musicCoverStyleState}>
-                    <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius}} />
+                    <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleState.height, width: musicCoverStyleState.width, objectFit: 'cover'}} />
                 </div>
                 <div style={playbackBarStyleState}>
                     <div style={backStyle} onClick={() => {player.previousTrack()}}/>

@@ -103,8 +103,7 @@ function AlbumPage(props) {
       if(!album){
         getUserSavedAlbum()
       }
-      
-    }, [])
+    }, [userId, album, token])
 
   const navigate = useNavigate()
   return (
@@ -125,7 +124,7 @@ function AlbumPage(props) {
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId}/> }
+                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId} /> }
               </div>
             </div>
           </DesktopOrTablet>

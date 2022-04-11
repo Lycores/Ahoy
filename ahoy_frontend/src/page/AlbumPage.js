@@ -125,7 +125,7 @@ function AlbumPage(props) {
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} setDeviceId={setDeviceId} /> }
+                  { (token === '') ? <></> : <WebPlayback token={token} musicCoverStyleState={musicCoverStyleState} playbackBarStyleState= {playbackBarStyleState} deviceId={deviceId} setDeviceId={setDeviceId} /> }
               </div>
             </div>
           </DesktopOrTablet>

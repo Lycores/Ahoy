@@ -3,6 +3,7 @@ import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaSt
 
 function TrackEntryComponent(props){
     const {track, albumId, positionInAlbum, deviceId} = props
+    console.log(deviceId)
 
     const playTrack = () => {
         return () => {

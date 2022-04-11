@@ -3,7 +3,7 @@ import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, cove
 import TrackListComponent from "./TrackListComponent"
 function RightAreaComponentForArtistDetail(props){
     let {artist, userProfile, deviceId} = props
-    
+    console.log("this is RightAreaComponentForArtistDetail", deviceId)
     // console.log(artist)
     const getArtistTopTrack = () => {
         fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfile.country}`)

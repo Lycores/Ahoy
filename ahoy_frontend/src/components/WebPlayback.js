@@ -15,7 +15,7 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, musicCoverStyleState, playbackBarStyleState, setDeviceId} = props
+    const {token, musicCoverStyleState, playbackBarStyleState, deviceId, setDeviceId} = props
 
 
     const [is_paused, setPaused] = useState(false)
@@ -44,8 +44,11 @@ function WebPlayback(props) {
             setPlayer(player);
 
             player.addListener('ready', ({ device_id }) => {
-                setDeviceId(device_id)
-                console.log('Ready with Device ID', device_id);
+                if(device_id != deviceId){
+                    setDeviceId(device_id)
+                    console.log('Ready with Device ID', device_id);
+                }
+                
             });
 
             player.addListener('not_ready', ({ device_id }) => {

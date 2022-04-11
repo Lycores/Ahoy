@@ -34,7 +34,7 @@ function TrackListComponent(props){
                 {
                     tracks.map((track, index)=> {
                         return (
-                            <TrackEntryComponent key={index} track={track} albumId={track.album.id} positionInAlbum={track.track_number} deviceId={deviceId}/>
+                            <TrackEntryComponent key={index} track={track} albumId={track.album.id} positionInAlbum={track.track_number-1} deviceId={deviceId}/>
                         )
                     })
                 }

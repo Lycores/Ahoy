@@ -117,7 +117,7 @@ function ArtistsPage(props) {
           
           <div style={rightAreaStyleState} >
             {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
-             <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile}/>}
+             <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile} deviceId={deviceId}/>}
           </div>
         </div>
         <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />

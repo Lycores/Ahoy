@@ -1,17 +1,17 @@
 import { useEffect, useState} from "react"
 import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/artistOverviewStyleSheet'
+import TrackListComponent from "./TrackListComponent"
 function RightAreaComponentForArtistDetail(props){
-    let {artist, userProfile} = props
-    console.log(artist)
-
-    const getArtistTopTrack = async() => {
-        let topTrack = await fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfile.country}`)
+    let {artist, userProfile, deviceId} = props
+    
+    // console.log(artist)
+    const getArtistTopTrack = () => {
+        fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfile.country}`)
         .then((response)=>{
-            let json = response.json()
-            return json
+            return response.json()
+        }).then((json)=>{
+            setArtistTopTrackState(json)
         })
-        console.log(topTrack)
-        return topTrack
     }
 
     const getArtistAlbums = async () => {
@@ -33,15 +33,24 @@ function RightAreaComponentForArtistDetail(props){
             backgroundImage: `url(${artist.images[0].url})`,
             backgroundSize: 'cover'
         })
-        let artistTopTrack = getArtistTopTrack().tracks
-        setArtistTopTrackState(artistTopTrack)
-        let artistAlbums = getArtistAlbums().items
-        setArtistAlbumsState(artistAlbums)
+
+        getArtistTopTrack()
+        
+        // setArtistTopTrackState(artistTopTrack)
+        // let artistAlbums = getArtistAlbums()
+        // setArtistAlbumsState(artistAlbums)
+        // artistTopTrack.forEach((track)=>{
+        //     let albumId = track.album.id
+        //     fetch(`/album/getAlbum?albumId=${albumId}`).then((response)=> {
+        //         console.log(response)
+        //     })
+        // })
+
         
     },[artist, userProfile])
 
-    var [artistTopTrackState, setArtistTopTrackState] = useState('')
-    var [artistAlbumsState, setArtistAlbumsState] = useState('')
+    var [artistTopTrackState, setArtistTopTrackState] = useState(null)
+    var [artistAlbumsState, setArtistAlbumsState] = useState(null)
     var [artistOverviewStyleState, setArtistOverviewStyleState] = useState(artistOverviewStyle)
     var [coverStyleState, setCoverStyleState] = useState(coverStyle)
 
@@ -51,7 +60,7 @@ function RightAreaComponentForArtistDetail(props){
                 <div style={backgroundFilterStyle}>
                     <div style={artistDescriptionStyle}></div>
                     <div style={coverStyleState}></div>
-
+                    <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState}/>
                 </div>
             </div>
         </div>

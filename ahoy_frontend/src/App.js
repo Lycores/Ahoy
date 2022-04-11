@@ -18,12 +18,9 @@ function App() {
   }
 
   async function getUserProfile() {
-    console.log('gotogetuserprofile')
     let response = await fetch('/user/getUserProfile');
     let json = await response.json();
     setUserProfile(json)
-    console.log("userProfile is")
-    console.log(json)
   }
 
   useEffect(() => {

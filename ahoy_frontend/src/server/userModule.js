@@ -14,7 +14,8 @@ router.get('/getUserProfile', (req, res) => {
         if (response.status === 200) {
             res.send(response.data)
           }
-      }).catch((error)=>{console.log(error)})
+      }).catch((error)=>{
+        console.log("an error happened at  /user/getUserProfile")})
 })
 
 router.get('/getUserCreatedPlaylist', (req, res) => {
@@ -31,7 +32,8 @@ router.get('/getUserCreatedPlaylist', (req, res) => {
     if (response.status === 200) {
         console.log(response)
     }
-  }).catch((error)=>console.log(error)) 
+  }).catch((error)=>{
+    console.log('an error happened at  /user/getUserCreatedPlaylist')}) 
 
 })
 

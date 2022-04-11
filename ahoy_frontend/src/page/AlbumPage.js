@@ -42,7 +42,8 @@ function AlbumPage(props) {
 
     const getUserSavedAlbum = () => {
       fetch(`album/getSavedAlbum`)
-      .then((response) => {return response.json()})
+      .then((response) => {
+        return response.json()})
       .then((json)=>{
         json.items.forEach((albumObj)=>{
           albumList.push(albumObj.album)

@@ -24,7 +24,8 @@ router.get('/PlayTrack', (req, res) => {
         'Authorization': 'Bearer ' + global.access_token,
         'Content-Type' : 'application/json; charset=utf-8',
       }
-    }).catch((error)=>{console.log(error)})
+    }).catch((error)=>{
+      console.log("an error happened at /player/PlayTrack")})
 })
 
 module.exports = {router}

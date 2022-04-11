@@ -14,14 +14,14 @@ router.get('/getFollowedArtists', (req, res) => {
         if (response.status === 200) {
             res.send(response.data)
           }
-      }).catch((error)=>{console.log(error)})
+      }).catch((error)=>{
+          console.log("an error happened at /artists/getFollowedArtists")
+      })
 })
 
 router.get('/getArtistTopTrack', (req, res) => {
     let artistId = req.query.artistId
     let market = req.query.market
-    console.log(111)
-    console.log(artistId)
     let url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=${market}`
     
     axios.get(url, {
@@ -31,11 +31,11 @@ router.get('/getArtistTopTrack', (req, res) => {
             'Content-Type' : 'application/json'
         }
       }).then((response)=>{
-        //   console.log(response)
         if (response.status === 200) {
             res.send(response.data)
           }
-      }).catch((error)=>{console.log(error)})
+      }).catch((error)=>{
+          console.log("an error happened at /artists/getArtistTopTrack")})
 })
 
 router.get('/getArtistAlbums', (req, res) => {
@@ -50,11 +50,11 @@ router.get('/getArtistAlbums', (req, res) => {
             'Content-Type' : 'application/json'
         }
       }).then((response)=>{
-          console.log(response)
         if (response.status === 200) {
           res.send(response.data) 
         }
-      }).catch((error)=>{console.log(error)})
+      }).catch((error)=>{
+          console.log("an error happened at /artists/getArtistAlbums")})
 })
 
 

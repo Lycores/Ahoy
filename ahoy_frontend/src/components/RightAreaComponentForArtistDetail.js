@@ -60,9 +60,9 @@ function RightAreaComponentForArtistDetail(props){
                 <div style={backgroundFilterStyle}>
                     <div style={artistDescriptionStyle}></div>
                     <div style={coverStyleState}></div>
-                    <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState}/>
                 </div>
             </div>
+            <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState}/>
         </div>
     )
 }

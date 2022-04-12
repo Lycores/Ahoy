@@ -15,7 +15,7 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, deviceId, setDeviceId} = props
+    const {token, setDeviceId} = props
 
 
     const [is_paused, setPaused] = useState(false)
@@ -43,10 +43,8 @@ function WebPlayback(props) {
             setPlayer(player);
 
             player.addListener('ready', ({ device_id }) => {
-                if(device_id != deviceId){
                     setDeviceId(device_id)
                     console.log('Ready with Device ID', device_id);
-                }
                 
             });
 
@@ -71,7 +69,7 @@ function WebPlayback(props) {
 
             player.connect();
         };
-    }, []);
+    }, [token, setDeviceId]);
 
     if (!is_active) { 
         return (

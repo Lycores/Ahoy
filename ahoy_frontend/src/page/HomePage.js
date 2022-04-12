@@ -119,7 +119,7 @@ function HomePage() {
           <Card ref={maskCard3Ref} name="hot" css="card-3"/>
         </div>
        </div>
-       <div style={tabToPlaylistStyle} onClick={() => {navigate('/album')}}/>
+       <div style={tabToPlaylistStyle} onClick={() => {navigate('/traditional/album')}}/>
       </div>
     </div>
   );

@@ -15,14 +15,11 @@ import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 import AlbumPage from './AlbumPage'
 
-var userId = ''
 function TraditionalMusicPlayerPage(props){
     const {token, deviceId, setDeviceId} = props
     console.log(token)
-
-    const setUserId = (id) => {
-        userId = id
-    }
+    console.log(deviceId)
+    console.log(setDeviceId)
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -30,13 +27,6 @@ function TraditionalMusicPlayerPage(props){
         globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     }
 
-    const requestUserProfile = async () => {
-        fetch('user/getUserProfile')
-        .then((response) => {return response.json()})
-        .then((userProfile) => {
-          setUserId(userProfile.id)
-        })
-    }
     const extendSearchBarForDesktopOrTablet = () => {
         setSearchBarStyleStateForDesktopOrTablet({
           ...searchBarStyleStateForDesktopOrTablet,
@@ -82,12 +72,10 @@ function TraditionalMusicPlayerPage(props){
 
     useEffect(() => { 
         window.addEventListener('resize', changeGlobalDim)
-        if(userId === ''){
-          requestUserProfile()
-        }
-        console.log(userId)
-
-        
+        // if(!userId){
+        //   requestUserProfile()
+        // }
+        // console.log(userId)
       }, [])
 
 
@@ -110,7 +98,7 @@ function TraditionalMusicPlayerPage(props){
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} c={deviceId} setDeviceId={setDeviceId} /> }
+                  { (token === '') ? <></> : <WebPlayback token={token} setDeviceId={setDeviceId} /> }
               </div>
             </div>
           </DesktopOrTablet>
@@ -122,7 +110,7 @@ function TraditionalMusicPlayerPage(props){
           <Outlet/>
 
         </div>
-        <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
+        <div style={tabToHomeStyle} onClick={() => {navigate('traditional/home')}} />
 
         <DesktopOrTablet>
           <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}

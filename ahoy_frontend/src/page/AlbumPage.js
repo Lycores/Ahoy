@@ -14,8 +14,6 @@ import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
-var albumList = []
-
 // const requestUserProfile = async () => {
 //   fetch('user/getUserProfile')
 //   .then((response) => {return response.json()})
@@ -27,16 +25,19 @@ var albumList = []
 function AlbumPage(props) {
     const {token, deviceId} = props
     console.log("AlbumPage", token, deviceId)
+    var albumList = []
     var {state} = useLocation()
+    var album = null
     if(state){
-      var album = state.album
+      album = state.album
     }
 
     const getUserSavedAlbum = () => {
-      fetch(`album/getSavedAlbum`)
-      .then((response) => {
-        return response.json()})
+      fetch('album/getSavedAlbum').then((response) => {
+        return response.json()
+      })
       .then((json)=>{
+        console.log(111)
         json.items.forEach((albumObj)=>{
           albumList.push(albumObj.album)
         })
@@ -50,10 +51,11 @@ function AlbumPage(props) {
     var [albumListState, setAlbumListState] = useState(albumList)
 
     useEffect(() => { 
+      console.log("album is", album)
       if(!album){
         getUserSavedAlbum()
       }
-    }, [album, token])
+    }, [album, deviceId, token])
 
   return (     
       <div style={rightAreaStyleState} >

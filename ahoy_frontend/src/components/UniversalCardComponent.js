@@ -7,7 +7,7 @@ function UniversalCardComponent(props) {
     const navigate = useNavigate()
     
     const goToAlbumPage = () => {   
-        navigate('/album', {
+        navigate('/traditional/album', {
             state: {
                 album:item
             }
@@ -15,7 +15,7 @@ function UniversalCardComponent(props) {
     }
 
     const goToArtistPage = () => {
-        navigate('/artists', {
+        navigate('/traditional/artists', {
             state: {
                 artist:item
             }

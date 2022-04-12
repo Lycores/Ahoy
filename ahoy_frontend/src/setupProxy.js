@@ -8,13 +8,13 @@ module.exports = function(app) {
     })
   ),
   app.use(
-    '/user/**',
+    '/traditional/user/**',
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
   ),
   app.use(
-    '/album/**',
+    '/traditional/album/**',
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
@@ -26,7 +26,7 @@ module.exports = function(app) {
     })
   ),
   app.use(
-    '/artists/**',
+    '/traditional/artists/**',
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })

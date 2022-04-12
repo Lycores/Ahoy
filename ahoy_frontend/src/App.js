@@ -9,19 +9,20 @@ import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
 function App() {
 
   var [token, setToken] = useState(null);
-  var [userProfile, setUserProfile] = useState(null)
-  const [deviceId, setDeviceId] = useState(null)
+  // var [userProfile, setUserProfile] = useState(null)
+  var [deviceId, setDeviceId] = useState(null)
+
   async function getToken() {
     let response = await fetch('/auth/token');
     let json = await response.json();
     setToken(json.access_token);
   }
 
-  async function getUserProfile() {
-    let response = await fetch('/user/getUserProfile');
-    let json = await response.json();
-    setUserProfile(json)
-  }
+  // async function getUserProfile() {
+  //   let response = await fetch('/user/getUserProfile');
+  //   let json = await response.json();
+  //   setUserProfile(json)
+  // }
 
   // const getNecessaryInfo = ()=> {
   //   if(!token || !userProfile){
@@ -43,10 +44,10 @@ function App() {
     if(!token){
       getToken();
     }
-    if(token && !userProfile){
-      getUserProfile()
-    }
-  }, [token])
+    // if(!userProfile){
+    //   getUserProfile()
+    // }
+  }, [])
 
   return (
     // <BrowserRouter>

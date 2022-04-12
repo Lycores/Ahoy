@@ -83,8 +83,9 @@ router.get('/callback', (req, res) => {
       }
     }).then((response)=>{
       if (response.status === 200) {
+        console.log(response.data.access_token)
           global.access_token = response.data.access_token;
-          res.redirect('/home')
+          res.redirect('/traditional/album')
         }
     }).catch((error)=>console.log(error)) 
   

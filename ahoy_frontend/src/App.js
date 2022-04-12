@@ -5,12 +5,12 @@ import HomePage from './page/HomePage';
 import AlbumPage from './page/AlbumPage';
 import WelcomePage from './page/WelcomePage'
 import ArtistsPage from './page/ArtistsPage'
-
+import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
 function App() {
 
-  var [token, setToken] = useState('');
-  var [userProfile, setUserProfile] = useState('')
-
+  var [token, setToken] = useState(null);
+  var [userProfile, setUserProfile] = useState(null)
+  const [deviceId, setDeviceId] = useState(null)
   async function getToken() {
     let response = await fetch('/auth/token');
     let json = await response.json();
@@ -23,23 +23,48 @@ function App() {
     setUserProfile(json)
   }
 
+  // const getNecessaryInfo = ()=> {
+  //   if(!token || !userProfile){
+  //     fetch('/auth/token').then((response)=> {
+  //       return response.json()
+  //     }).then((json)=>{
+  //       setUserProfile(json)
+  //     }).then(()=>{
+  //       let response = await fetch('/user/getUserProfile')
+  //       let json = await response.json();
+  //       setUserProfile(json)
+  //     })
+  //   }
+    
+  // }
+
   useEffect(() => {
-    if(token === ''){
+
+    if(!token){
       getToken();
     }
-    if(userProfile === ''){
+    if(token && !userProfile){
       getUserProfile()
     }
-  }, [])
+  }, [token])
 
   return (
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<WelcomePage />}/>
+    //     <Route path="/home" element={<HomePage />}/>
+    //     <Route path="/album" element={<AlbumPage token={token}/>}/>
+    //     <Route path="/artists" element={<ArtistsPage token={token} userProfile={userProfile}/> }/>
+    //   </Routes>
+    // </BrowserRouter>
+
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<WelcomePage />}/>
-        <Route path="/home" element={<HomePage />}/>
-        <Route path="/album" element={<AlbumPage token={token}/>}/>
-        <Route path="/artists" element={<ArtistsPage token={token} userProfile={userProfile}/> }/>
-      </Routes>
+    <Routes>
+      <Route path="/" element={<WelcomePage />}/>
+      <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} deviceId={deviceId} setDeviceId={setDeviceId}/>}>
+        <Route exact path="album" element={<AlbumPage token={token} deviceId={deviceId}/>}/>
+      </Route>
+    </Routes>
     </BrowserRouter>
   );
 }

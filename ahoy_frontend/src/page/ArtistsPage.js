@@ -93,50 +93,9 @@ function ArtistsPage(props) {
 
   const navigate = useNavigate()
   return (
-    <div >
-      <Helmet>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
-      </Helmet>
-
-      <div className="App-Container">
-        <div style={mainBodyStyleState}>
-          <DesktopOrTablet>
-            <div style={leftAreaStyleState} >
-              <div style={libraryStyle}>
-                <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
-                <div style={libraryEntryStyle} onClick={()=>navigate('/artists')}>Artists</div>
-                <div style={libraryEntryStyle}>Playlists</div>
-                <div style={libraryEntryStyle}></div>
-              </div>
-              <div style={albumListStyleState}></div>
-              <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} deviceId={deviceId} setDeviceId={setDeviceId} />}
-              </div>
-            </div>
-          </DesktopOrTablet>
-          
-          <div style={rightAreaStyleState} >
-            {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
-             <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile} deviceId={deviceId}/>}
-          </div>
-        </div>
-        <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
-
-        <DesktopOrTablet>
-          <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
-          onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
-            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
-          </div>
-        </DesktopOrTablet>
-
-        <Mobile>
-          <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
-          onMouseLeave={withdrawSearchBarForMobile}>
-            <input ef={searchBarInputRef} style={searchBarInputStyle}></input>
-          </div>
-        </Mobile>
-        
-      </div>
+    <div style={rightAreaStyleState} >
+      {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
+        <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile} deviceId={deviceId}/>}
     </div>
   );
 }

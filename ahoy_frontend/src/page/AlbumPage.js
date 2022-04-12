@@ -13,31 +13,23 @@ import RightAreaComponentForTracks from '../components/RightAreaComponentsForTra
 import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
-var userId = ''
-var albumList = []
-const setUserId = (id) => {
-  userId = id
-}
 
-const requestUserProfile = async () => {
-  fetch('user/getUserProfile')
-  .then((response) => {return response.json()})
-  .then((userProfile) => {
-    setUserId(userProfile.id)
-  })
-}
+var albumList = []
+
+// const requestUserProfile = async () => {
+//   fetch('user/getUserProfile')
+//   .then((response) => {return response.json()})
+//   .then((userProfile) => {
+//     setUserId(userProfile.id)
+//   })
+// }
 
 function AlbumPage(props) {
-    const {token} = props
+    const {token, deviceId} = props
+    console.log("AlbumPage", token, deviceId)
     var {state} = useLocation()
     if(state){
       var album = state.album
-    }
-
-    var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-
-    const changeGlobalDim = () => {
-        globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
     }
 
     const getUserSavedAlbum = () => {
@@ -52,105 +44,22 @@ function AlbumPage(props) {
       })
     }
 
-    const extendSearchBarForDesktopOrTablet = () => {
-        setSearchBarStyleStateForDesktopOrTablet({
-          ...searchBarStyleStateForDesktopOrTablet,
-          width: searchBarMaxWidth
-        })
-    }
 
-    const extendSearchBarForMobile = () => {
-      setSearchBarStyleStateForMobile({
-        ...searchBarStyleStateForMobile,
-        width: searchBarMaxWidth
-      })
-    }
-
-    const withdrawSearchBarForDesktopOrTablet = () => {
-      setSearchBarStyleStateForDesktopOrTablet({
-        ...searchBarStyleStateForDesktopOrTablet,
-        width: searchBarStyleForDesktopOrTablet.width
-      })
-      searchBarInputRef.current.blur()
-    }
-
-    const withdrawSearchBarForMobile = () => {
-      setSearchBarStyleStateForMobile({
-        ...searchBarStyleStateForMobile,
-        width: searchBarStyleForMobile.width
-      })
-      searchBarInputRef.current.blur()
-    }
-
-
-    let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-    let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
-    let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-
-    let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    const [deviceId, setDeviceId] = useState(null)
+ 
     var [albumListState, setAlbumListState] = useState(albumList)
-    let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
-    let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
 
-    const searchBarInputRef = useRef(null)
     useEffect(() => { 
-      window.addEventListener('resize', changeGlobalDim)
-      if(userId === ''){
-        requestUserProfile()
-      }
       if(!album){
         getUserSavedAlbum()
       }
-    }, [userId, album, token])
+    }, [album, token])
 
-  const navigate = useNavigate()
-  return (
-    <div >
-      <Helmet>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
-      </Helmet>
-
-      <div className="App-Container"> 
-        <div style={mainBodyStyleState}>
-          <DesktopOrTablet>
-            <div style={leftAreaStyleState} >
-              <div style={libraryStyle}>
-                <div style={libraryEntryStyle } onClick={()=>navigate('/album')}>Albums</div>
-                <div style={libraryEntryStyle} onClick={()=>navigate('/artists')}>Artists</div>
-                <div style={libraryEntryStyle}>Playlists</div>
-                <div style={libraryEntryStyle}></div>
-              </div>
-              <div style={albumListStyleState}></div>
-              <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} deviceId={deviceId} setDeviceId={setDeviceId} /> }
-              </div>
-            </div>
-          </DesktopOrTablet>
-          
-          <div style={rightAreaStyleState} >
-            {(album == null) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
-            <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
-          </div>
-        </div>
-        <div style={tabToHomeStyle} onClick={() => {navigate('/home')}} />
-
-        <DesktopOrTablet>
-          <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}
-          onMouseLeave={withdrawSearchBarForDesktopOrTablet}>
-            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
-          </div>
-        </DesktopOrTablet>
-        
-        <Mobile>
-          <div style={searchBarStyleStateForMobile} onMouseOver={extendSearchBarForMobile}
-          onMouseLeave={withdrawSearchBarForMobile}>
-            <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
-          </div>
-        </Mobile>
+  return (     
+      <div style={rightAreaStyleState} >
+        {(album == null) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
+        <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
       </div>
-    </div>
   );
 }
 

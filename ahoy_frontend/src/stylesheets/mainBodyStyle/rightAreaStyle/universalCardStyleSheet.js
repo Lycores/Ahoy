@@ -11,8 +11,8 @@ export const coverStyle = {
     height: coverSize,
     borderRadius: globalStyle.borderRadius,
     boxShadow: globalStyle.boxShadow,
-    
 }
+
 
 export const titleStyle = {
     height: titleHeight,
@@ -29,6 +29,19 @@ export const descriptionStyle = {
 export const containerStyle = {
     height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
     width: coverSize,
+    padding: globalStyle.padding,
+    margin: globalStyle.margin,
+    boxShadow: globalStyle.boxShadow,
+    borderRadius: globalStyle.borderRadius,
+    margin:'auto',
+    marginTop:20,
+    marginBottom: 20,
+    cursor: 'pointer'
+}
+
+export const containerStyleForPlaceHolder = {
+    height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle + globalStyle.margin*2,
+    width: coverSize+ globalStyle.margin*2,
     padding: globalStyle.padding,
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,

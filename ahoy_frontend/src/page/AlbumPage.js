@@ -24,7 +24,6 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
 function AlbumPage(props) {
     const {token, deviceId} = props
-    console.log("AlbumPage", token, deviceId)
     var albumList = []
     var {state} = useLocation()
     var album = null

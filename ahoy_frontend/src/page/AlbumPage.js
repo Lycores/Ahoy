@@ -23,16 +23,17 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 // }
 
 function AlbumPage(props) {
-    const {token, deviceId} = props
+    var {token, deviceId} = props
     var albumList = []
-    var {state} = useLocation()
     var album = null
+    var {state} = useLocation()
     if(state){
       album = state.album
     }
 
     const getUserSavedAlbum = () => {
-      fetch('album/getSavedAlbum').then((response) => {
+      fetch('album/getSavedAlbum')
+      .then((response) => {
         return response.json()
       })
       .then((json)=>{
@@ -44,9 +45,7 @@ function AlbumPage(props) {
       })
     }
 
-
-    let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
- 
+    var [rightAreaStyleState, setRightAreaStyleState] = useState(rightAreaStyle)
     var [albumListState, setAlbumListState] = useState(albumList)
 
     useEffect(() => { 

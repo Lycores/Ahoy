@@ -17,9 +17,6 @@ import AlbumPage from './AlbumPage'
 
 function TraditionalMusicPlayerPage(props){
     const {token, deviceId, setDeviceId} = props
-    console.log(token)
-    console.log(deviceId)
-    console.log(setDeviceId)
 
     var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 

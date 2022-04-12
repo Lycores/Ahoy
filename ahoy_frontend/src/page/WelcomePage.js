@@ -18,15 +18,11 @@ function WelcomePage() {
         backgroundSize: '80%'
     }
 
-    const navigate = useNavigate()
-
     return(
         <div style={backgroundStyle}>
             <a href="/auth/login">
                 <div style={welcomeImage}/>
-            </a>
-            
-          
+            </a>      
         </div>
     )
 }

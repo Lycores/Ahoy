@@ -9,7 +9,7 @@ import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
 function App() {
 
   var [token, setToken] = useState(null);
-  // var [userProfile, setUserProfile] = useState(null)
+  var [userProfile, setUserProfile] = useState(null)
   var [deviceId, setDeviceId] = useState(null)
 
   async function getToken() {
@@ -18,11 +18,11 @@ function App() {
     setToken(json.access_token);
   }
 
-  // async function getUserProfile() {
-  //   let response = await fetch('/user/getUserProfile');
-  //   let json = await response.json();
-  //   setUserProfile(json)
-  // }
+  async function getUserProfile() {
+    let response = await fetch('/user/getUserProfile');
+    let json = await response.json();
+    setUserProfile(json)
+  }
 
   // const getNecessaryInfo = ()=> {
   //   if(!token || !userProfile){
@@ -44,9 +44,9 @@ function App() {
     if(!token){
       getToken();
     }
-    // if(!userProfile){
-    //   getUserProfile()
-    // }
+    if(!userProfile){
+      getUserProfile()
+    }
   }, [])
 
   return (
@@ -64,6 +64,7 @@ function App() {
       <Route path="/" element={<WelcomePage />}/>
       <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} deviceId={deviceId} setDeviceId={setDeviceId}/>}>
         <Route exact path="album" element={<AlbumPage token={token} deviceId={deviceId}/>}/>
+        <Route exact path="artists" element={<ArtistsPage token={token} userProfile={userProfile} deviceId={deviceId}/> }/>
       </Route>
     </Routes>
     </BrowserRouter>

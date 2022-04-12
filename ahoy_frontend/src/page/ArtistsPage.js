@@ -14,84 +14,39 @@ import RightAreaComponentForArtistDetail from '../components/RightAreaComponentF
 import {tabToHomeStyle, searchBarStyleForDesktopOrTablet, searchBarMaxWidth, searchBarStyleForMobile, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
-var artistsList = []
+
 
 function ArtistsPage(props) {
-    const {token, userProfile} = props
+    var {token, userProfile, deviceId} = props
+    console.log(props)
+    var artistsList = []
+    var artist = null
     var {state} = useLocation()
     if(state){
       var artist = state.artist
     }
 
-    var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-
-    const changeGlobalDim = () => {
-        globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    }
-
     const getFollowedArtists = () => {
-      fetch(`artists/getFollowedArtists`)
+      console.log("get followed art")
+      fetch('artists/getFollowedArtists')
       .then((response) => {
-        return response.json()})
+        return response.json()
+      })
       .then((json)=>{
+        console.log(444,json)
         setArtistsListState(json.artists.items)
-       
       })
     }
 
-    const extendSearchBarForDesktopOrTablet = () => {
-      setSearchBarStyleStateForDesktopOrTablet({
-        ...searchBarStyleStateForDesktopOrTablet,
-        width: searchBarMaxWidth
-      })
-    }
-
-    const extendSearchBarForMobile = () => {
-      setSearchBarStyleStateForMobile({
-        ...searchBarStyleStateForMobile,
-        width: searchBarMaxWidth
-      })
-    }
-
-    const withdrawSearchBarForDesktopOrTablet = () => {
-      setSearchBarStyleStateForDesktopOrTablet({
-        ...searchBarStyleStateForDesktopOrTablet,
-        width: searchBarStyleForDesktopOrTablet.width
-      })
-      searchBarInputRef.current.blur()
-    }
-
-    const withdrawSearchBarForMobile = () => {
-      setSearchBarStyleStateForMobile({
-        ...searchBarStyleStateForMobile,
-        width: searchBarStyleForMobile.width
-      })
-      searchBarInputRef.current.blur()
-    }
-
-    let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
-    let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
-    let [rightAreaStyleState, setMusicListStyleState] = useState(rightAreaStyle)
-    let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
-    let [musicCoverStyleState, setMusicCoverStyleState] = useState(musicCoverStyle)
-    let [playbackBarStyleState, setPlaybackBarStyleState] = useState(playbackBarStyle)
-    let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    let [deviceId, setDeviceId] = useState(null)
+    var [rightAreaStyleState, setRightAreaStyleState] = useState(rightAreaStyle)
     var [artistsListState, setArtistsListState] = useState(artistsList)
-    let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
-    let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
-
-    const searchBarInputRef = useRef(null)
   useEffect(() => { 
-    window.addEventListener('resize', changeGlobalDim)
     if(!artist){
       getFollowedArtists()
     }
-  }, [])
 
-  
+  }, [artist, deviceId, token])
 
-  const navigate = useNavigate()
   return (
     <div style={rightAreaStyleState} >
       {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:

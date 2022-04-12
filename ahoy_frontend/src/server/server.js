@@ -19,7 +19,7 @@ app.use("/auth", authModule.router)
 app.use("/user", userModule.router)
 app.use("/traditional/album", albumModule.router)
 app.use("/player", playerModule.router)
-app.use("/artists", artistsModule.router)
+app.use("/traditional/artists", artistsModule.router)
 
 app.listen(port, () => {
   console.log("hello")

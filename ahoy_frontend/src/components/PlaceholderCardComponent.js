@@ -2,7 +2,7 @@ import {coverStyle, titleStyle, descriptionStyle, containerStyle} from '../style
 import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
-
+import React from 'react'
 function PlaceholderCardComponent() {
     return(
         <div className="col-md-6  col-lg-4 col-xl-3" >
@@ -17,4 +17,4 @@ function PlaceholderCardComponent() {
     
 }
 
-export default PlaceholderCardComponent
+export default React.memo(PlaceholderCardComponent)

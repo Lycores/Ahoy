@@ -1,6 +1,7 @@
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import TrackEntryComponent from './TrackEntryComponent'
 import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
+import React from 'react'
 function TrackListComponent(props){
     var {album, deviceId, artistTopTrack} = props
     // if(album){
@@ -47,5 +48,5 @@ function TrackListComponent(props){
     
 }
 
-export default TrackListComponent
+export default React.memo(TrackListComponent)
 

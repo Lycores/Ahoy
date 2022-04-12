@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+import React, {useEffect} from 'react'
 import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 
 function TrackEntryComponent(props){
@@ -18,4 +18,4 @@ function TrackEntryComponent(props){
     )
 }
 
-export default TrackEntryComponent
+export default React.memo(TrackEntryComponent)

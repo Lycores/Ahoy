@@ -16,7 +16,7 @@ const track = {
 
 function WebPlayback(props) {
     const {token, setDeviceId} = props
-
+    console.log('WebPlayback', token)
 
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)
@@ -69,7 +69,7 @@ function WebPlayback(props) {
 
             player.connect();
         };
-    }, [token, setDeviceId]);
+    },[token]);
 
     if (!is_active) { 
         return (

@@ -3,6 +3,7 @@ import TrackEntryComponent from './TrackEntryComponent'
 import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 function TrackListComponent(props){
     var {album, deviceId, artistTopTrack} = props
+    console.log('TrackListComponent', deviceId)
     // if(album){
     //     var tracks = album.tracks.items
     // }

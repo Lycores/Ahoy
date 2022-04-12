@@ -13,15 +13,23 @@ function App() {
   var [deviceId, setDeviceId] = useState(null)
 
   async function getToken() {
-    let response = await fetch('/auth/token');
-    let json = await response.json();
-    setToken(json.access_token);
+    fetch('/auth/token').then((response)=>{
+      return response.json()
+    }).then((json)=>{
+      setToken(json.access_token)
+    })
   }
 
   async function getUserProfile() {
-    let response = await fetch('/user/getUserProfile');
-    let json = await response.json();
-    setUserProfile(json)
+    fetch('/user/getUserProfile')
+    .then((response)=>{
+      return response.json()
+    }).then((json)=>{
+      setUserProfile(json)
+      console.log(json)
+    })
+    
+    
   }
 
   // const getNecessaryInfo = ()=> {

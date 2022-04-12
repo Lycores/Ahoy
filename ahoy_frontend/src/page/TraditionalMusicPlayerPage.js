@@ -47,9 +47,6 @@ function TraditionalMusicPlayerPage(props){
       searchBarInputRef.current.blur()
     }
 
-    
-    
-
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
     let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)

@@ -99,4 +99,4 @@ function WebPlayback(props) {
     }
 }
 
-export default WebPlayback
+export default React.memo(WebPlayback) 

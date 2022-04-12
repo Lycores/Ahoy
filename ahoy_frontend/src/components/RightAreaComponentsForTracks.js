@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap-grid.css';
 import TrackEntryComponent from './TrackEntryComponent'
 import {albumOverviewStyle, coverStyle, albumDescriptionStyle, backgroundFilterStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
-import {useState, useEffect} from 'react'
+import React,{useState, useEffect} from 'react'
 import TrackListComponent from './TrackListComponent'
 
 function RightAreaComponentForTracks(props) {
@@ -45,4 +45,4 @@ function RightAreaComponentForTracks(props) {
     
 }
 
-export default RightAreaComponentForTracks
+export default React.memo(RightAreaComponentForTracks)

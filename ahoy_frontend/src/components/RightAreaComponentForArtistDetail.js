@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react"
+import React,{ useEffect, useState} from "react"
 import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/artistOverviewStyleSheet'
 import TrackListComponent from "./TrackListComponent"
 function RightAreaComponentForArtistDetail(props){
@@ -66,4 +66,4 @@ function RightAreaComponentForArtistDetail(props){
     )
 }
 
-export default RightAreaComponentForArtistDetail
+export default React.memo(RightAreaComponentForArtistDetail)

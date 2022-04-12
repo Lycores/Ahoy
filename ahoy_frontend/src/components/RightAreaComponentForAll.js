@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap-grid.css';
 import UniversalCardComponent  from './UniversalCardComponent'
 import TrackEntryComponent from './TrackEntryComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
-
+import React from 'react'
 function RightAreaComponentForAll(props) {
     var {itemList, type} = props
     console.log('RightAreaComponentForAll', itemList)
@@ -45,4 +45,4 @@ function RightAreaComponentForAll(props) {
     }   
 }
 
-export default RightAreaComponentForAll
+export default React.memo(RightAreaComponentForAll)

@@ -18,15 +18,11 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
 function ArtistsPage(props) {
     var {token, userProfile, deviceId} = props
-    console.log(userProfile)
-    console.log(props)
+
     var artistsList = []
     var artist = null
     var {state} = useLocation()
     if(state){
-      console.log(555)
-      console.log(deviceId)
-      
       var artist = state.artist
     }
 

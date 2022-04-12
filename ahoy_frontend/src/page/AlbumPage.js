@@ -37,7 +37,6 @@ function AlbumPage(props) {
         return response.json()
       })
       .then((json)=>{
-        console.log(111)
         json.items.forEach((albumObj)=>{
           albumList.push(albumObj.album)
         })

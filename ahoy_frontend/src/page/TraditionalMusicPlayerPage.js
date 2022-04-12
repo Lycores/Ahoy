@@ -18,11 +18,11 @@ import AlbumPage from './AlbumPage'
 function TraditionalMusicPlayerPage(props){
     const {token, deviceId, setDeviceId} = props
 
-    var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+    // var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
-    const changeGlobalDim = () => {
-        globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    }
+    // const changeGlobalDim = () => {
+    //     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
+    // }
 
     const extendSearchBarForDesktopOrTablet = () => {
         setSearchBarStyleStateForDesktopOrTablet({
@@ -68,7 +68,7 @@ function TraditionalMusicPlayerPage(props){
     const searchBarInputRef = useRef(null)
 
     useEffect(() => { 
-        window.addEventListener('resize', changeGlobalDim)
+        // window.addEventListener('resize', changeGlobalDim)
         // if(!userId){
         //   requestUserProfile()
         // }

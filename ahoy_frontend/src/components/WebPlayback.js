@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef} from 'react';
 import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
 import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
 import {playbackBarStyle, musicCoverStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
+
 const track = {
     name: "",
     album: {
@@ -16,7 +17,6 @@ const track = {
 
 function WebPlayback(props) {
     const {token, setDeviceId} = props
-    console.log('WebPlayback', token)
 
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)

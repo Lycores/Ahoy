@@ -26,7 +26,6 @@ function App() {
       return response.json()
     }).then((json)=>{
       setUserProfile(json)
-      console.log(json)
     })
     
     

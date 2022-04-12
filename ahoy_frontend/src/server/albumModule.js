@@ -4,7 +4,6 @@ const router = express.Router()
 const axios = require('axios')
 router.get('/getSavedAlbum', (req, res) => {
     let url = 'https://api.spotify.com/v1/me/albums'
-    console.log(9999)
     axios.get(url, {
         headers: {
             'Accept': 'application/json',
@@ -23,9 +22,6 @@ router.get('/getSavedAlbum', (req, res) => {
 router.get('/getAlbum', (req, res) => {
   let albumId = req.query.albumId
   let market = req.query.market
-  console.log("++++++++++++++++++++++++++++++++++++++++++++")
-  console.log(albumId)
-  console.log(market)
   let url = `https://api.spotify.com/v1/albums/${albumId}?market=${market}`
 
   axios.get(url, {
@@ -45,9 +41,6 @@ router.get('/getAlbum', (req, res) => {
 router.get('/getSeveralAlbums', (req, res) => {
   let albumIds = req.query.albumIds
   let market = req.query.market
-  console.log("++++++++++++++++++++++++++++++++++++++++++++")
-  console.log(albumIds)
-  console.log(market)
   let url = `https://api.spotify.com/v1/albums?ids=${albumIds}&market=${market}`
 
   axios.get(url, {

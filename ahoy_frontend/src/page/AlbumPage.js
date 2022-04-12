@@ -40,7 +40,8 @@ function AlbumPage(props) {
         json.items.forEach((albumObj)=>{
           albumList.push(albumObj.album)
         })
-        setAlbumListState(albumList)
+        setAlbumListState([...albumList])
+        console.log(albumList)
       })
     }
 

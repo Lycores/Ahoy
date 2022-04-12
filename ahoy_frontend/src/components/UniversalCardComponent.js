@@ -1,6 +1,7 @@
 import {coverStyle, titleStyle, descriptionStyle, containerStyle, cardTitleStyle, cardSubtitleStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet.js'
 import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
+import React from 'react'
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
@@ -51,4 +52,4 @@ function UniversalCardComponent(props) {
     
 }
 
-export default UniversalCardComponent
+export default React.memo(UniversalCardComponent)

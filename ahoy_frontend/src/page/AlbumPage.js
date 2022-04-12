@@ -54,4 +54,4 @@ function AlbumPage(props) {
   );
 }
 
-export default AlbumPage;
+export default AlbumPage

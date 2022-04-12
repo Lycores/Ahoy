@@ -57,7 +57,7 @@ function AlbumPage(props) {
 
   return (     
       <div style={rightAreaStyleState} >
-        {(album == null) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
+        {(!album) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
         <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
       </div>
   );

@@ -95,7 +95,7 @@ function TraditionalMusicPlayerPage(props){
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (token === '') ? <></> : <WebPlayback token={token} setDeviceId={setDeviceId} /> }
+                  { (!token) ? <></> : <WebPlayback token={token} setDeviceId={setDeviceId} /> }
               </div>
             </div>
           </DesktopOrTablet>

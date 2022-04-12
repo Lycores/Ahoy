@@ -53,7 +53,7 @@ function ArtistsPage(props) {
 
   return (
     <div style={rightAreaStyleState} >
-      {(artist == null) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
+      {(!artist) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
         <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile} deviceId={deviceId}/>}
     </div>
   );

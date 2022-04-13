@@ -4,7 +4,6 @@ const axios = require('axios')
 
 router.get('/getFollowedArtists', (req, res) => {
     let url = 'https://api.spotify.com/v1/me/following?type=artist&limit=40'
-    console.log(8888)
     axios.get(url, {
         headers: {
             'Accept': 'application/json',

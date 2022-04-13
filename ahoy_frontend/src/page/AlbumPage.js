@@ -2,7 +2,7 @@ import '../App.css';
 import {useEffect, useState} from 'react';
 import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
-import RightAreaComponentForAll from '../components/RightAreaComponentForAll'
+import RightAreaComponentForAll from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 
 // const requestUserProfile = async () => {

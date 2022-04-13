@@ -33,20 +33,6 @@ function App() {
     
   }
 
-  // const getNecessaryInfo = ()=> {
-  //   if(!token || !userProfile){
-  //     fetch('/auth/token').then((response)=> {
-  //       return response.json()
-  //     }).then((json)=>{
-  //       setUserProfile(json)
-  //     }).then(()=>{
-  //       let response = await fetch('/user/getUserProfile')
-  //       let json = await response.json();
-  //       setUserProfile(json)
-  //     })
-  //   }
-    
-  // }
 
   useEffect(() => {
 
@@ -59,14 +45,6 @@ function App() {
   }, [])
 
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="/" element={<WelcomePage />}/>
-    //     <Route path="/home" element={<HomePage />}/>
-    //     <Route path="/album" element={<AlbumPage token={token}/>}/>
-    //     <Route path="/artists" element={<ArtistsPage token={token} userProfile={userProfile}/> }/>
-    //   </Routes>
-    // </BrowserRouter>
 
   <BrowserRouter>
     <Routes>

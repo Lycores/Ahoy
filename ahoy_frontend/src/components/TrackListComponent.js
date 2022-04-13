@@ -19,7 +19,6 @@ function TrackListComponent(props){
 
     if(album){
         var tracks = album.tracks.items
-        console.log(tracks)
         renderQueue.push(
             <div style={styleForTrackContainer}>
                 {

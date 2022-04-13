@@ -32,7 +32,6 @@ function AlbumPage(props) {
           albumList.push(albumObj.album)
         })
         setAlbumListState([...albumList])
-        console.log(albumList)
       })
     }
 

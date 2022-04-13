@@ -22,7 +22,6 @@ function ArtistsPage(props) {
         return response.json()
       })
       .then((json)=>{
-        console.log(444,json)
         setArtistsListState(json.artists.items)
       })
     }

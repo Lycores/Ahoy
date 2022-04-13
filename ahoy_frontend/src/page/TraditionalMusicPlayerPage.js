@@ -57,15 +57,6 @@ function TraditionalMusicPlayerPage(props){
 
     const searchBarInputRef = useRef(null)
 
-    useEffect(() => { 
-        // window.addEventListener('resize', changeGlobalDim)
-        // if(!userId){
-        //   requestUserProfile()
-        // }
-        // console.log(userId)
-      }, [])
-
-
     const navigate = useNavigate()
     return (
         <div >

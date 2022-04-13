@@ -5,7 +5,6 @@ import {userProfileState} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
-    // console.log(artist)
     const userProfile = useRecoilValue(userProfileState)
 
     const getArtistTopTrack = () => {

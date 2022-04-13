@@ -30,13 +30,13 @@ export const containerStyle = {
     height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
     width: coverSize,
     padding: globalStyle.padding,
-    margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,
     borderRadius: globalStyle.borderRadius,
     margin:'auto',
-    marginTop:20,
+    marginTop:50,
     marginBottom: 20,
     cursor: 'pointer'
+
 }
 
 export const containerStyleForPlaceHolder = {
@@ -47,7 +47,7 @@ export const containerStyleForPlaceHolder = {
     boxShadow: globalStyle.boxShadow,
     borderRadius: globalStyle.borderRadius,
     margin:'auto',
-    marginTop:20,
+    marginTop:50,
     marginBottom: 20,
     cursor: 'pointer'
 }

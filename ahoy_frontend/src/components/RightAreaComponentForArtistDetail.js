@@ -1,9 +1,13 @@
 import React,{ useEffect, useState} from "react"
 import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/artistOverviewStyleSheet'
 import TrackListComponent from "./TrackListComponent"
+import {userProfileState} from '../recoilInfo'
+import {useRecoilValue} from 'recoil'
 function RightAreaComponentForArtistDetail(props){
-    let {artist, userProfile, deviceId} = props
+    let {artist} = props
     // console.log(artist)
+    const userProfile = useRecoilValue(userProfileState)
+
     const getArtistTopTrack = () => {
         fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfile.country}`)
         .then((response)=>{
@@ -63,7 +67,7 @@ function RightAreaComponentForArtistDetail(props){
                     <div style={coverStyleState}></div>
                 </div>
             </div>
-            <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>
+            <TrackListComponent artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>
         </div>
     )
 }

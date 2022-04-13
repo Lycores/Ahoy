@@ -2,11 +2,11 @@ import '../App.css';
 import {useEffect, useState} from 'react';
 import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
-import RightAreaComponentForAll from '../components/RightAreaComponentForCardPresent'
+import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
 
 function ArtistsPage(props) {
-    var {token, userProfile, deviceId} = props
+    var {token} = props
 
     var artistsList = []
     var artist = null
@@ -34,12 +34,12 @@ function ArtistsPage(props) {
       getFollowedArtists()
     }
 
-  }, [artist, deviceId, token])
+  }, [token])
 
   return (
     <div style={rightAreaStyleState} >
-      {(!artist) ? <RightAreaComponentForAll itemList={artistsListState} type="artists"/>:
-        <RightAreaComponentForArtistDetail artist={artist} userProfile={userProfile} deviceId={deviceId}/>}
+      {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
+        <RightAreaComponentForArtistDetail artist={artist}/>}
     </div>
   );
 }

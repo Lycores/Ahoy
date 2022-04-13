@@ -6,7 +6,7 @@ import React,{useState, useEffect} from 'react'
 import TrackListComponent from './TrackListComponent'
 
 function RightAreaComponentForTracks(props) {
-    var {album, deviceId} = props
+    var {album} = props
     // var {tracks, trackCover, setTrack} = props
     
     let heightOfTracks = `calc(100% - ${albumOverviewStyle.height}px) `
@@ -25,7 +25,7 @@ function RightAreaComponentForTracks(props) {
             backgroundImage: `url(${album.images[0].url})`,
             backgroundSize: 'cover'
         })
-    },[album, deviceId])
+    },[album])
         
         
     return(
@@ -37,7 +37,7 @@ function RightAreaComponentForTracks(props) {
                     
                 </div>
             </div>
-            <TrackListComponent album={album} deviceId={deviceId}/>
+            <TrackListComponent album={album}/>
         </div>
         
         

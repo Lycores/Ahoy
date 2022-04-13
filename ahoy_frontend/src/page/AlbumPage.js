@@ -2,7 +2,7 @@ import '../App.css';
 import {useEffect, useState} from 'react';
 import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
-import RightAreaComponentForAll from '../components/RightAreaComponentForCardPresent'
+import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 
 // const requestUserProfile = async () => {
@@ -14,7 +14,7 @@ import RightAreaComponentForTracks from '../components/RightAreaComponentsForTra
 // }
 
 function AlbumPage(props) {
-    var {token, deviceId} = props
+    var {token} = props
     var albumList = []
     var album = null
     var {state} = useLocation()
@@ -44,12 +44,12 @@ function AlbumPage(props) {
       if(!album){
         getUserSavedAlbum()
       }
-    }, [album, deviceId, token])
+    }, [token])
 
   return (     
       <div style={rightAreaStyleState} >
-        {(!album) ? <RightAreaComponentForAll itemList={albumListState} type="album"/> :
-        <RightAreaComponentForTracks album={album} deviceId={deviceId}/>}
+        {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
+        <RightAreaComponentForTracks album={album}/>}
       </div>
   );
 }

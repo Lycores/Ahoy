@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react'
 import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
-
+import {deviceIdState} from '../recoilInfo'
+import {useRecoilValue} from 'recoil'
 function TrackEntryComponent(props){
-    const {track, albumId, positionInAlbum, deviceId} = props
+    const {track, albumId, positionInAlbum} = props
+    const deviceId =  useRecoilValue(deviceIdState)
 
     const playTrack = () => {
         return () => {

@@ -5,7 +5,6 @@ import React from 'react'
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
-    console.log('UniversalCardComponent', item)
     const navigate = useNavigate()
     
     const goToAlbumPage = () => {   

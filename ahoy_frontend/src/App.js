@@ -6,11 +6,13 @@ import AlbumPage from './page/AlbumPage';
 import WelcomePage from './page/WelcomePage'
 import ArtistsPage from './page/ArtistsPage'
 import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
+import { userProfileState} from './recoilInfo'
+import {useRecoilState} from 'recoil'
 function App() {
 
   var [token, setToken] = useState(null);
-  var [userProfile, setUserProfile] = useState(null)
-  var [deviceId, setDeviceId] = useState(null)
+  var [userProfile, setUserProfile] = useRecoilState(userProfileState)
+  // var [deviceId, setDeviceId] = useState(null)
 
   async function getToken() {
     fetch('/auth/token').then((response)=>{
@@ -66,15 +68,16 @@ function App() {
     //   </Routes>
     // </BrowserRouter>
 
-    <BrowserRouter>
+  <BrowserRouter>
     <Routes>
       <Route path="/" element={<WelcomePage />}/>
-      <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} deviceId={deviceId} setDeviceId={setDeviceId}/>}>
-        <Route exact path="album" element={<AlbumPage token={token} deviceId={deviceId}/>}/>
-        <Route exact path="artists" element={<ArtistsPage token={token} userProfile={userProfile} deviceId={deviceId}/> }/>
+      <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} />}>
+        <Route exact path="album" element={<AlbumPage token={token} />}/>
+        <Route exact path="artists" element={<ArtistsPage token={token} /> }/>
       </Route>
     </Routes>
     </BrowserRouter>
+    
   );
 }
 

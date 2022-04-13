@@ -9,7 +9,7 @@ import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
 function TraditionalMusicPlayerPage(props){
-    const {token, deviceId, setDeviceId} = props
+    const {token} = props
 
     // var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 
@@ -85,7 +85,7 @@ function TraditionalMusicPlayerPage(props){
               </div>
               <div style={albumListStyleState}></div>
               <div style={playerStyleState}>
-                  { (!token) ? <></> : <WebPlayback token={token} setDeviceId={setDeviceId} /> }
+                  { (!token) ? <></> : <WebPlayback token={token}/> }
               </div>
             </div>
           </DesktopOrTablet>

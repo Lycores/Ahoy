@@ -4,7 +4,7 @@ import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaSty
 import React from 'react'
 import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
 function TrackListComponent(props){
-    var {album, deviceId, artistTopTrack, artistAlbums} = props
+    var {album, artistTopTrack, artistAlbums} = props
     
     // if(album){
     //     var tracks = album.tracks.items
@@ -25,7 +25,7 @@ function TrackListComponent(props){
                 {
                     tracks.map((track, index)=> {
                         return (
-                            <TrackEntryComponent key={track.id} track={track} albumId={album.id} positionInAlbum={index} deviceId={deviceId}/>
+                            <TrackEntryComponent key={track.id} track={track} albumId={album.id} positionInAlbum={index} />
                         )
                     })
                 }
@@ -39,7 +39,7 @@ function TrackListComponent(props){
                     {
                         tracks.map((track, index)=> {
                             return (
-                                <TrackEntryComponent key={track.id} track={track} albumId={track.album.id} positionInAlbum={track.track_number-1} deviceId={deviceId}/>
+                                <TrackEntryComponent key={track.id} track={track} albumId={track.album.id} positionInAlbum={track.track_number-1}/>
                             )
                         })
                     }

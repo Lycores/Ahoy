@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef} from 'react';
 import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
 import  {backStyle, nextStyle, pauseStyle, startStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
 import {playbackBarStyle, musicCoverStyle}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
-
+import {useRecoilState} from 'recoil'
+import {deviceIdState} from '../recoilInfo'
 const track = {
     name: "",
     album: {
@@ -16,14 +17,15 @@ const track = {
 }
 
 function WebPlayback(props) {
-    const {token, setDeviceId} = props
+    const {token} = props
 
     const [is_paused, setPaused] = useState(false)
     const [is_active, setActive] = useState(false)
     const [player, setPlayer] = useState(undefined)
     const [current_track, setTrack] = useState(track)
     const ToggleButtonRef = useRef(null)
-
+    
+    const [deviceId, setDevicedId] = useRecoilState(deviceIdState)
     useEffect(() => {
 
         const script = document.createElement("script");
@@ -43,7 +45,7 @@ function WebPlayback(props) {
             setPlayer(player);
 
             player.addListener('ready', ({ device_id }) => {
-                    setDeviceId(device_id)
+                    setDevicedId(device_id)
                     console.log('Ready with Device ID', device_id);
                 
             });
@@ -99,4 +101,4 @@ function WebPlayback(props) {
     }
 }
 
-export default React.memo(WebPlayback) 
+export default React.memo(WebPlayback)

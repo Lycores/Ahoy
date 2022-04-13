@@ -3,7 +3,7 @@ import UniversalCardComponent  from './UniversalCardComponent'
 import TrackEntryComponent from './TrackEntryComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import React from 'react'
-function RightAreaComponentForAll(props) {
+function RightAreaComponentForCardPresent(props) {
     var {itemList, type} = props
     console.log('RightAreaComponentForAll', itemList)
     if(itemList.length == 0){
@@ -45,4 +45,4 @@ function RightAreaComponentForAll(props) {
     }   
 }
 
-export default React.memo(RightAreaComponentForAll)
+export default React.memo(RightAreaComponentForCardPresent)

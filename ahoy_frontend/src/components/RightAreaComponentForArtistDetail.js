@@ -14,12 +14,14 @@ function RightAreaComponentForArtistDetail(props){
     }
 
     const getArtistAlbums = async () => {
-        let artistAlbums = await fetch(`/artists/getArtistAlbums?artistId=${artist.id}&market=${userProfile.country}`)
+        fetch(`/artists/getArtistAlbums?artistId=${artist.id}&market=${userProfile.country}`)
         .then((response)=>{
-            let json = response.json()
-            return json
+            return response.json()
+        }).then((json)=>{
+            console.log('getArtistAlbums', json)
+            setArtistAlbumsState(json)
         })
-        return artistAlbums
+
     }
 
     useEffect(()=>{
@@ -34,7 +36,7 @@ function RightAreaComponentForArtistDetail(props){
         })
 
         getArtistTopTrack()
-        
+        getArtistAlbums()
         // setArtistTopTrackState(artistTopTrack)
         // let artistAlbums = getArtistAlbums()
         // setArtistAlbumsState(artistAlbums)
@@ -61,7 +63,7 @@ function RightAreaComponentForArtistDetail(props){
                     <div style={coverStyleState}></div>
                 </div>
             </div>
-            <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState}/>
+            <TrackListComponent deviceId={deviceId} artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>
         </div>
     )
 }

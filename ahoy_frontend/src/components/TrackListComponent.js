@@ -2,8 +2,9 @@ import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import TrackEntryComponent from './TrackEntryComponent'
 import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 import React from 'react'
+import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
 function TrackListComponent(props){
-    var {album, deviceId, artistTopTrack} = props
+    var {album, deviceId, artistTopTrack, artistAlbums} = props
     // if(album){
     //     var tracks = album.tracks.items
     // }
@@ -12,6 +13,7 @@ function TrackListComponent(props){
     //     var tracks = artistTopTrack.tracks
     // }
     
+    var renderQueue = []
     
 
     if(album){
@@ -27,7 +29,9 @@ function TrackListComponent(props){
                 }
             </div>
         )
-    }else if(artistTopTrack){
+    }
+
+    if(artistTopTrack){
         var tracks = artistTopTrack.tracks
         return(
             <div style={styleForTrackContainer}>
@@ -45,6 +49,15 @@ function TrackListComponent(props){
             <></>
         )
     }
+
+
+    // if(artistAlbums){
+    //     <RightAreaComponentForCardPresent itemList={} type="album"/>
+    // }else{
+    //     return(
+    //         <></>
+    //     )
+    // }
     
 }
 

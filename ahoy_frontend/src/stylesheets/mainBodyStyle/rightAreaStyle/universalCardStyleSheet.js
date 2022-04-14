@@ -34,7 +34,7 @@ export const containerStyle = {
     borderRadius: globalStyle.borderRadius,
     margin:'auto',
     marginTop:50,
-    marginBottom: 20,
+    marginBottom:50,
     cursor: 'pointer'
 
 }
@@ -48,7 +48,7 @@ export const containerStyleForPlaceHolder = {
     borderRadius: globalStyle.borderRadius,
     margin:'auto',
     marginTop:50,
-    marginBottom: 20,
+    marginBottom:50,
     cursor: 'pointer'
 }
 

@@ -6,6 +6,7 @@ import React,{useState, useEffect} from 'react'
 import TrackListComponent from './TrackListComponent'
 
 function RightAreaComponentForTracks(props) {
+    
     var {album} = props
     // var {tracks, trackCover, setTrack} = props
     

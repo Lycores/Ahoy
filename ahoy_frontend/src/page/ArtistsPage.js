@@ -1,9 +1,10 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
-import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
+import {rightAreaStyleForDesktopOrTablet,  rightAreaStyleForMobile } from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
+import { DesktopOrTablet, Mobile} from '../MediaQuery';
 
 function ArtistsPage(props) {
     var {token} = props
@@ -26,7 +27,7 @@ function ArtistsPage(props) {
       })
     }
 
-    var [rightAreaStyleState, setRightAreaStyleState] = useState(rightAreaStyle)
+
     var [artistsListState, setArtistsListState] = useState(artistsList)
   useEffect(() => { 
     if(!artist){
@@ -36,10 +37,20 @@ function ArtistsPage(props) {
   }, [token])
 
   return (
-    <div style={rightAreaStyleState} >
+    <>
+    <DesktopOrTablet>
+      <div style={rightAreaStyleForDesktopOrTablet} >
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
         <RightAreaComponentForArtistDetail artist={artist}/>}
-    </div>
+      </div>
+    </DesktopOrTablet>
+    <Mobile>
+    <div style={rightAreaStyleForMobile} >
+      {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
+        <RightAreaComponentForArtistDetail artist={artist}/>}
+      </div>
+    </Mobile>
+  </>
   );
 }
 

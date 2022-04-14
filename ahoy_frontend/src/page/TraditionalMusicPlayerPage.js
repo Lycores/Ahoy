@@ -7,6 +7,7 @@ import WebPlayback from '../components/WebPlayback'
 import {useNavigate, Outlet} from 'react-router-dom'
 import {tabToHomeStyle, tabToExpandNavBarStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
+import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 
 function TraditionalMusicPlayerPage(props){
     const {token} = props
@@ -27,7 +28,7 @@ function TraditionalMusicPlayerPage(props){
     const extendSearchBarForMobile = () => {
       setSearchBarStyleStateForMobile({
         ...searchBarStyleStateForMobile,
-        width: searchBarMaxWidth
+        width: window.innerWidth - 2*(3*globalStyle.margin)
       })
     }
 
@@ -84,10 +85,9 @@ function TraditionalMusicPlayerPage(props){
           <Outlet/>
 
         </div>
-
-        <div style={tabToHomeStyle} onClick={() => {navigate('traditional/home')}} />
         <Mobile>
-        <div style={tabToExpandNavBarStyle}/>
+        <div style={tabToHomeStyle} onClick={() => {navigate(1)}} />
+        <div style={tabToExpandNavBarStyle} onClick={()=>{navigate(-1)}}/>
         </Mobile>
 
         <DesktopOrTablet>

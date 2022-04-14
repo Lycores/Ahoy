@@ -94,9 +94,7 @@ export var albumListStyle = {
 
 
 export const leftAreaStyle = {
-    marginLeft: globalStyle.marginLeft,
-    marginRight: globalStyle.marginRight,
-    marginBottom: globalStyle.marginBottom,
+    margin: globalStyle.margin,
     height: '100%',
     width: globalStyle.playlistAreaWidth,
     position: "relative" 

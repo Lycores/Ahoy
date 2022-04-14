@@ -1,9 +1,10 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
-import rightAreaStyle from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
+import {rightAreaStyleForDesktopOrTablet, rightAreaStyleForMobile} from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
+import { DesktopOrTablet, Mobile} from '../MediaQuery';
 
 // const requestUserProfile = async () => {
 //   fetch('user/getUserProfile')
@@ -35,7 +36,6 @@ function AlbumPage(props) {
       })
     }
 
-    var [rightAreaStyleState, setRightAreaStyleState] = useState(rightAreaStyle)
     var [albumListState, setAlbumListState] = useState(albumList)
 
     useEffect(() => { 
@@ -45,11 +45,22 @@ function AlbumPage(props) {
       }
     }, [token])
 
-  return (     
-      <div style={rightAreaStyleState} >
-        {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-        <RightAreaComponentForTracks album={album}/>}
-      </div>
+  return (
+    <>
+      <DesktopOrTablet>
+        <div style={rightAreaStyleForDesktopOrTablet} >
+          {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
+            <RightAreaComponentForTracks album={album}/>}
+        </div>
+      </DesktopOrTablet>
+      <Mobile>
+        <div style={rightAreaStyleForMobile} >
+          {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
+            <RightAreaComponentForTracks album={album}/>}
+        </div>
+      </Mobile>
+    </>
+      
   );
 }
 

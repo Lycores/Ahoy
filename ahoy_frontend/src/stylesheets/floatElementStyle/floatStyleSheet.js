@@ -68,7 +68,7 @@ export const searchBarStyleForDesktopOrTablet = {
 export const searchBarStyleForMobile = {
     position:'fixed',
     top:searchBarToTop, 
-    left:searchBarToLeftForMobile, 
+    left:searchBarToLeftForMobile - globalStyle.margin, 
     width: searchBarWidth,
     height: searchBarHeight,  
     borderRadius: '50px 50px 50px 50px',

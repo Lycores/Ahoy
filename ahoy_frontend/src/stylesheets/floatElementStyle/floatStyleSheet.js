@@ -1,18 +1,16 @@
 import globalStyle from "../globalStyle/globalStyleSheet"
 import {leftAreaStyle} from '../mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
-const tabToHomeHeight = 100
-const tabToHomeWidth = 50
-const tabToPlaylistHeight = 100
-const tabToPlaylistWidth = 50
+const commonHeight = 100
+const commonWidth = 50
 //if you want to modify position of search bar change this
 const searchBarToParentContainer = 20
 
 export const tabToHomeStyle = {
     position:'fixed', 
-    top:`calc(50% - ${tabToHomeHeight/2}px`, 
+    top:`calc(50% - ${commonHeight/2}px`, 
     right:'0px', 
-    width: tabToHomeWidth,
-    height: tabToHomeHeight,
+    width: commonWidth,
+    height: commonHeight,
     backgroundColor: globalStyle.globalBackgroundColor,
     ZIndex:99,
     borderRadius: '50px 0 0 50px',
@@ -21,12 +19,26 @@ export const tabToHomeStyle = {
     opacity:0.9
 }
 
-export const tabToPlaylistStyle = {
+export const tabToTraditionalMusicPlayerStyle = {
     position:'fixed', 
-    top:`calc(50% - ${tabToPlaylistHeight/2}px`, 
+    top:`calc(50% - ${commonHeight/2}px`, 
     left:'0px', 
-    width: tabToPlaylistWidth,
-    height: tabToPlaylistHeight,
+    width: commonWidth,
+    height: commonHeight,
+    backgroundColor:globalStyle.globalBackgroundColor,
+    ZIndex:99,
+    borderRadius: '0 50px 50px 0',
+    cursor: 'pointer',
+    boxShadow: globalStyle.boxShadow,
+    opacity:0.9
+}
+
+export const tabToExpandNavBarStyle = {
+    position:'fixed', 
+    top:`calc(50% - ${commonHeight/2}px`, 
+    left:'0px', 
+    width: commonWidth,
+    height: commonHeight,
     backgroundColor:globalStyle.globalBackgroundColor,
     ZIndex:99,
     borderRadius: '0 50px 50px 0',

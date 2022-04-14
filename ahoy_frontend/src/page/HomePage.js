@@ -6,7 +6,7 @@ import {umbrellaStyle, downCoatStyle, sweaterStyle, snowBootStyle, rainBootStyle
 import requestDesktopData from '../allRequest.js';
 import * as eh from '../eventHandler.js'
 import {BrowserRouter, useNavigate} from 'react-router-dom'
-import {tabToPlaylistStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToTraditionalMusicPlayerStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 
 const url = '/api'
 
@@ -119,7 +119,7 @@ function HomePage() {
           <Card ref={maskCard3Ref} name="hot" css="card-3"/>
         </div>
        </div>
-       <div style={tabToPlaylistStyle} onClick={() => {navigate('/traditional/album')}}/>
+       <div style={tabToTraditionalMusicPlayerStyle} onClick={() => {navigate('/traditional/album')}}/>
       </div>
     </div>
   );

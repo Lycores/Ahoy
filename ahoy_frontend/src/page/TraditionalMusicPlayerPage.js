@@ -5,7 +5,7 @@ import {playerStyle, leftAreaStyle, albumListStyle, libraryStyle, libraryEntrySt
 import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {useNavigate, Outlet} from 'react-router-dom'
-import {tabToHomeStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
+import {tabToHomeStyle, tabToExpandNavBarStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 
 function TraditionalMusicPlayerPage(props){
@@ -81,14 +81,14 @@ function TraditionalMusicPlayerPage(props){
             </div>
           </DesktopOrTablet>
 
-          {/* <Routes>
-            <Route path="/traditional/album" element={<AlbumPage token={token} deviceId={deviceId}/>}/>
-            <Route path="/artists" element={<ArtistsPage token={token} userProfile={userProfile}/> }/>
-          </Routes> */}
           <Outlet/>
 
         </div>
+
         <div style={tabToHomeStyle} onClick={() => {navigate('traditional/home')}} />
+        <Mobile>
+        <div style={tabToExpandNavBarStyle}/>
+        </Mobile>
 
         <DesktopOrTablet>
           <div style={searchBarStyleStateForDesktopOrTablet} onMouseOver={extendSearchBarForDesktopOrTablet}

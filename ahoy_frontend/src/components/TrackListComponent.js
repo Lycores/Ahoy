@@ -5,6 +5,9 @@ import React, { useEffect, useState } from 'react'
 import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
 import {userProfileState} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
+import PlaceholderCardComponent from './PlaceholderCardComponent'
+import PlaceholderTrackEntryComponent from './PlaceholderTrackEntryComponent'
+import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
 function TrackListComponent(props){
     var {album, artistTopTrack, artistAlbums} = props
     var renderQueue = []
@@ -64,7 +67,12 @@ function TrackListComponent(props){
                 </div>
             )
         }else{
-            renderQueue.push(<div key="artistTopTrackFalse"/>)       
+            for(var i = 0; i < 10; i++){
+                renderQueue.push(
+                    <PlaceholderTrackEntryComponent/>
+                )  
+            }
+                 
         }
 
         if(artistAlbums){
@@ -76,7 +84,21 @@ function TrackListComponent(props){
             )
         }else{
             return(
-                renderQueue.push(<div key="artistAlbumsFalse"/>)
+                renderQueue.push(
+                    <div style={{margin: globalStyle.margin, borderRadius: globalStyle.borderRadius, boxShadow:globalStyle.boxShadow}}>
+                         <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
+                            <div className="row justify-content-start">
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                                <PlaceholderCardComponent/>
+                            </div> 
+                        </div>
+                    </div>
+                )
             )
         }
     }

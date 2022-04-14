@@ -21,7 +21,6 @@ function RightAreaComponentForArtistDetail(props){
         .then((response)=>{
             return response.json()
         }).then((json)=>{
-            console.log('getArtistAlbums', json)
             setArtistAlbumsState(json)
         })
 

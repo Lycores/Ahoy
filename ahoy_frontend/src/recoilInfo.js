@@ -1,15 +1,20 @@
 import {atom} from 'recoil'
-export var tokenState = atom({
+export var tokenRecoil = atom({
     key: "token",
     default: null
   })
   
-export var deviceIdState = atom({
+export var deviceIdRecoil = atom({
     key: "deviceId",
     default: null
   })
   
-export var userProfileState = atom({
+export var userProfileRecoil = atom({
     key: "userProfile",
     default: null
   })
+
+export var recentlyPlayedRecoil = atom({
+    key: "lastTimePlayed",
+    default: null
+})

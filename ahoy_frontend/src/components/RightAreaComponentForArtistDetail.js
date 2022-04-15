@@ -1,14 +1,14 @@
 import React,{ useEffect, useState} from "react"
 import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/artistOverviewStyleSheet'
 import TrackListComponent from "./TrackListComponent"
-import {userProfileState} from '../recoilInfo'
+import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
-    const userProfile = useRecoilValue(userProfileState)
+    const userProfileState = useRecoilValue(userProfileRecoil)
 
     const getArtistTopTrack = () => {
-        fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfile.country}`)
+        fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`)
         .then((response)=>{
             return response.json()
         }).then((json)=>{
@@ -17,7 +17,7 @@ function RightAreaComponentForArtistDetail(props){
     }
 
     const getArtistAlbums = async () => {
-        fetch(`/artists/getArtistAlbums?artistId=${artist.id}&market=${userProfile.country}`)
+        fetch(`/artists/getArtistAlbums?artistId=${artist.id}&market=${userProfileState.country}`)
         .then((response)=>{
             return response.json()
         }).then((json)=>{
@@ -50,7 +50,7 @@ function RightAreaComponentForArtistDetail(props){
         // })
 
         
-    },[artist, userProfile])
+    },[artist, userProfileState])
 
     var [artistTopTrackState, setArtistTopTrackState] = useState(null)
     var [artistAlbumsState, setArtistAlbumsState] = useState(null)

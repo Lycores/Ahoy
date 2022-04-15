@@ -3,7 +3,7 @@ import TrackEntryComponent from './TrackEntryComponent'
 import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 import React, { useEffect, useState } from 'react'
 import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
-import {userProfileState} from '../recoilInfo'
+import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import PlaceholderTrackEntryComponent from './PlaceholderTrackEntryComponent'
@@ -30,7 +30,7 @@ function TrackListComponent(props){
         }
         
     }
-    const userProfile = useRecoilValue(userProfileState)
+    const userProfileState = useRecoilValue(userProfileRecoil)
     
     useEffect(()=>{
         if(album){
@@ -39,7 +39,7 @@ function TrackListComponent(props){
                 tracks = album.tracks.items
                 setTracksState(tracks)
             }catch{
-                fetch(`/album/getAlbum?albumId=${album.id}&market=${userProfile.country}`)
+                fetch(`/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}`)
                 .then((response)=>{
                     return response.json()
                 }).then((json)=>{

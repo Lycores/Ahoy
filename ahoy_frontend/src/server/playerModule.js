@@ -28,4 +28,25 @@ router.get('/PlayTrack', (req, res) => {
       console.log("an error happened at /player/PlayTrack")})
 })
 
+router.get('/getRecentlyPlayed', (req, res)=>{
+  let url = `https://api.spotify.com/v1/me/player/recently-played?limit=1`
+
+  console.log('getRecentlyPlayed')
+  axios.get(url ,{
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': 'Bearer ' + global.access_token,
+      'Content-Type' : 'application/json',
+    }
+  }).then((response)=>{
+    if(response.status === 200){
+      res.status(200).send(response.data)
+    }
+  }).
+  catch((error)=>{
+    console.log(error)
+    console.log("an error happened at /player/getRecentlyPlayed")})
+
+})
+
 module.exports = {router}

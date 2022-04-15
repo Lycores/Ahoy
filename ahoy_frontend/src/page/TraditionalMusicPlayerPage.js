@@ -8,6 +8,10 @@ import {useNavigate, Outlet} from 'react-router-dom'
 import {tabToHomeStyle, tabToExpandNavBarStyle, searchBarStyleForDesktopOrTablet,searchBarStyleForMobile, searchBarMaxWidth, searchBarInputStyle} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
+import {recentlyPlayedRecoil} from '../recoilInfo'
+import {useRecoilState} from 'recoil'
+
+
 
 function TraditionalMusicPlayerPage(props){
     const {token} = props
@@ -54,7 +58,20 @@ function TraditionalMusicPlayerPage(props){
     let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
     let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
     let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
-   
+    let [recentlyPlayedState, setRecentlyPlayedState] =  useRecoilState(recentlyPlayedRecoil)
+    
+    useEffect(()=>{
+      if(recentlyPlayedState == null){
+        fetch('/player/getRecentlyPlayed')
+        .then((response)=>{
+          return response.json()
+        }).then((json)=>{
+          console.log(1111111)
+          console.log(json)
+          setRecentlyPlayedState(json.items[0].track)
+        })
+      }
+    }, [])
 
     const searchBarInputRef = useRef(null)
 

@@ -6,12 +6,12 @@ import AlbumPage from './page/AlbumPage';
 import WelcomePage from './page/WelcomePage'
 import ArtistsPage from './page/ArtistsPage'
 import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
-import { userProfileState} from './recoilInfo'
+import { userProfileRecoil} from './recoilInfo'
 import {useRecoilState} from 'recoil'
 function App() {
 
   var [token, setToken] = useState(null);
-  var [userProfile, setUserProfile] = useRecoilState(userProfileState)
+  var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
   // var [deviceId, setDeviceId] = useState(null)
 
   async function getToken() {
@@ -27,7 +27,7 @@ function App() {
     .then((response)=>{
       return response.json()
     }).then((json)=>{
-      setUserProfile(json)
+      setUserProfileState(json)
     })
     
     
@@ -39,7 +39,7 @@ function App() {
     if(!token){
       getToken();
     }
-    if(!userProfile){
+    if(!userProfileState){
       getUserProfile()
     }
   }, [])

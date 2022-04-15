@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
 import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
-import {deviceIdState} from '../recoilInfo'
+import {deviceIdRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 function TrackEntryComponent(props){
     const {track, albumId, positionInAlbum} = props
-    const deviceId =  useRecoilValue(deviceIdState)
+    const deviceIdState =  useRecoilValue(deviceIdRecoil)
 
     const playTrack = () => {
         return () => {
-            fetch(`/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceId}`)
+            fetch(`/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`)
         }
     }
 

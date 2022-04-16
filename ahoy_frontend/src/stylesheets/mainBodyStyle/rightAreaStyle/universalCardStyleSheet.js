@@ -40,8 +40,8 @@ export const containerStyle = {
 }
 
 export const containerStyleForPlaceHolder = {
-    height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle + globalStyle.margin*2,
-    width: coverSize+ globalStyle.margin*2,
+    height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
+    width: coverSize,
     padding: globalStyle.padding,
     margin: globalStyle.margin,
     boxShadow: globalStyle.boxShadow,

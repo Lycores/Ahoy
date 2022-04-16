@@ -5,8 +5,8 @@ import React from 'react'
 function PlaceholderCardComponent() {
     return(
         <div className="col-md-6  col-lg-4 col-xl-3" >
-            <div style={containerStyleForPlaceHolder} className="ph-item">
-                <div style={{...coverStyle, backgroundSize: coverSize}} className="ph-picture"/>
+            <div style={containerStyleForPlaceHolder} >
+                <div style={{...coverStyle, backgroundSize: coverSize}} className="ph-item"/>
             </div>
         </div>
     )  

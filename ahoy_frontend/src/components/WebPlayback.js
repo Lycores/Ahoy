@@ -91,7 +91,7 @@ function WebPlayback(props) {
             return (
                 <>
                     <div style={musicCoverStyle}>
-                        <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
+                        <img src={recentlyPlayedState.album.images[1].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
                     </div>
                     <div style={playbackBarStyle} >
                         <div style={backStyle} />
@@ -113,13 +113,12 @@ function WebPlayback(props) {
                 </>
             );
         }
-        
     } else {
         
         return (
             <>
                 <div style={musicCoverStyle}>
-                    <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
+                    <img src={current_track.album.images[1].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
                 </div>
                 <div style={playbackBarStyle}>
                     <div style={backStyle} onClick={() => {player.previousTrack()}}/>

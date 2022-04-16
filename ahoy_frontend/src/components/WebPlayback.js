@@ -103,7 +103,7 @@ function WebPlayback(props) {
         }else{
             return (
                 <>
-                    <div style={musicCoverStyle}>
+                    <div style={{...musicCoverStyle, padding:'0px', marginBottom: '0px'}} className="ph-item">
                     </div>
                     <div style={playbackBarStyle} >
                         <div style={backStyle} />

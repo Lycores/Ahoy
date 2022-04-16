@@ -1,6 +1,6 @@
 import globalStyle from '../../globalStyle/globalStyleSheet'
-
-const albumOverviewHeight = 300
+import {searchBarStyleForDesktopOrTablet} from '../../floatElementStyle/floatStyleSheet'
+const albumOverviewHeight = 410
 export const albumOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
@@ -18,12 +18,14 @@ export const backgroundFilterStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
-var coverStyleSize = albumOverviewHeight - 2*globalStyle.margin
+var coverStyleSize = albumOverviewHeight - 3*globalStyle.margin - searchBarStyleForDesktopOrTablet.height
 export const coverStyle = {
     height: coverStyleSize,
     width: coverStyleSize,
     margin: globalStyle.margin,
-    borderRadius: globalStyle.borderRadius
+    marginTop: globalStyle.margin*2 + searchBarStyleForDesktopOrTablet.height,
+    borderRadius: globalStyle.borderRadius,
+    backgroundSize: 'cover'
 }
 
 

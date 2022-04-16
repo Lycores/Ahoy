@@ -41,13 +41,14 @@ function RightAreaComponentForTracks(props) {
         <div style={{height: '100%', overflow: 'scroll'}}>
             <div ref={albumOverviewRef} style={albumOverviewStyleState}>
                 <div style={backgroundFilterStyle}>
+                    <div style={coverStyleState}></div>
                     <DesktopOrTablet>
                         <div style={albumDescriptionStyle}>
-                            <div style={{fontSize: '400%', width:'100%', marginTop:'100px', textAlign:'right', whiteSpace:'nowrap'}}>{album.name}</div>
+                            <div style={{fontSize: '400%', width:'100%', marginTop:'100px', textAlign:'left', whiteSpace:'nowrap'}}>{album.name}</div>
                         </div>
                     </DesktopOrTablet>
                     
-                    <div style={coverStyleState}></div>
+                    
                     
                 </div>
             </div>

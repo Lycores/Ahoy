@@ -13,5 +13,6 @@ export const styleForTrackContainer = {
     boxShadow: globalStyle.boxShadow, 
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin
+    
 }
 

@@ -105,7 +105,7 @@ function WebPlayback(props) {
                         <div style={playerStyleForMobile}>
                             <div style={{display: 'flex'}}>
                                 <div style={musicCoverStyleForMobile} >
-                                    <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
+                                    <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: '10px', height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
                                 </div>
                                 <div style={backStyleForMobile} />
                                 <div style={startStyleForMobile} onClick={recentlyPlayedStart}/>

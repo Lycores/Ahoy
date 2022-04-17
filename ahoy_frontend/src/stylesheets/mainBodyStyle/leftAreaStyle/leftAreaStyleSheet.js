@@ -102,10 +102,14 @@ export var playerStyleForDesktopOrTablet = {
 
 export var playerStyleForMobile = {
     position: 'fixed',
-    width:'100%',
+    width:'auto',
     height: '100px',
     bottom: '0px',
-    backgroundColor: 'black'
+    backgroundColor: 'white',
+    left:10,
+    right:10,
+    bottom: 10,
+    borderRadius: globalStyle.borderRadius
 }
 export var libraryStyle = {
     margin: globalStyle.margin,

@@ -81,7 +81,7 @@ function TraditionalMusicPlayerPage(props){
 
       <div className="App-Container"> 
         <div style={mainBodyStyleState}>
-          
+            
             <div style={leftAreaStyleState} >
               <DesktopOrTablet>
                 <div style={libraryStyle}>
@@ -93,7 +93,7 @@ function TraditionalMusicPlayerPage(props){
                 <div style={albumListStyleState}/>
               </DesktopOrTablet>
 
-              <DesktopOrTablet>
+              {/* <DesktopOrTablet>
                 <div style={playerStyleForDesktopOrTablet}>
                     { (!token) ? <></> : <WebPlayback token={token}/> }
                 </div>
@@ -103,7 +103,21 @@ function TraditionalMusicPlayerPage(props){
                 <div style={playerStyleForMobile}>
                     { (!token) ? <></> : <WebPlayback token={token}/> }
                 </div>
-              </Mobile>
+              </Mobile> */}
+
+              { (!token) ? 
+              <>
+                <DesktopOrTablet>
+                  <div style={playerStyleForDesktopOrTablet}/>
+                </DesktopOrTablet>
+                
+                <Mobile>
+                  <div style={playerStyleForMobile}/>
+                </Mobile>
+              </> 
+              : <WebPlayback token={token}/> }
+
+
             </div>
 
           <Outlet/>

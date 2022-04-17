@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
 import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
-import  {backStyle, nextStyle, pauseStyle, startStyle, backStyleForMobile, nextStyleForMobile, pauseStyleForMobile, startStyleForMobile}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
+import {backStyle, nextStyle, pauseStyle, startStyle, backStyleForMobile, nextStyleForMobile, pauseStyleForMobile, startStyleForMobile, playerStyleForMobile, playerStyleForDesktopOrTablet}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
 import {playbackBarStyle, musicCoverStyle, musicCoverStyleForMobile}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 import {useRecoilState} from 'recoil'
 import {deviceIdRecoil, recentlyPlayedRecoil} from '../recoilInfo'
@@ -90,23 +90,27 @@ function WebPlayback(props) {
             return (
                 <>
                     <DesktopOrTablet>
-                        <div style={musicCoverStyle}>
-                            <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
-                        </div>
-                        <div style={playbackBarStyle} >
-                            <div style={backStyle} />
-                            <div style={startStyle} onClick={recentlyPlayedStart} />
-                            <div style={nextStyle} />
+                        <div style={playerStyleForDesktopOrTablet}>
+                            <div style={musicCoverStyle}>
+                                <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
+                            </div>
+                            <div style={playbackBarStyle} >
+                                <div style={backStyle} />
+                                <div style={startStyle} onClick={recentlyPlayedStart} />
+                                <div style={nextStyle} />
+                            </div>
                         </div>
                     </DesktopOrTablet>
                     <Mobile>
-                        <div style={{display: 'flex'}}>
-                            <div style={musicCoverStyleForMobile} >
-                                <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
+                        <div style={playerStyleForMobile}>
+                            <div style={{display: 'flex'}}>
+                                <div style={musicCoverStyleForMobile} >
+                                    <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
+                                </div>
+                                <div style={backStyleForMobile} />
+                                <div style={startStyleForMobile} onClick={recentlyPlayedStart}/>
+                                <div style={nextStyleForMobile} />
                             </div>
-                            <div style={backStyleForMobile} />
-                            <div style={startStyleForMobile} onClick={recentlyPlayedStart}/>
-                            <div style={nextStyleForMobile} />
                         </div>
                     </Mobile>
                 </> 
@@ -116,21 +120,25 @@ function WebPlayback(props) {
             return (
                 <>
                     <DesktopOrTablet>
-                        <div style={{...musicCoverStyle, padding:'0px', marginBottom: '0px'}} className="ph-item">
-                        </div>
-                        <div style={playbackBarStyle} >
-                            <div style={backStyle} />
-                            <div style={startStyle} />
-                            <div style={nextStyle} />
+                        <div style={playerStyleForDesktopOrTablet}>
+                            <div style={{...musicCoverStyle, padding:'0px', marginBottom: '0px'}} className="ph-item">
+                            </div>
+                            <div style={playbackBarStyle} >
+                                <div style={backStyle} />
+                                <div style={startStyle} />
+                                <div style={nextStyle} />
+                            </div>
                         </div>
                     </DesktopOrTablet>
                     <Mobile>
-                        <div style={{display: 'flex'}}>
-                            <div style={{...musicCoverStyleForMobile, padding:'0px', marginBottom: '0px'}} className="ph-item">
+                        <div style={playerStyleForMobile}>
+                            <div style={{display: 'flex'}}>
+                                <div style={{...musicCoverStyleForMobile, padding:'0px', marginBottom: '0px'}} className="ph-item">
+                                </div>
+                                <div style={backStyleForMobile} />
+                                <div style={startStyleForMobile} />
+                                <div style={nextStyleForMobile} />
                             </div>
-                            <div style={backStyleForMobile} />
-                            <div style={startStyleForMobile} />
-                            <div style={nextStyleForMobile} />
                         </div>
                     </Mobile>
                     
@@ -141,29 +149,33 @@ function WebPlayback(props) {
         return (
             <>  
                 <DesktopOrTablet>
-                    <div style={musicCoverStyle}>
-                        <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
-                    </div>
-                    <div style={playbackBarStyle}>
-                        <div style={backStyle} onClick={() => {player.previousTrack()}}/>
-                        {
-                            is_paused?<div style={startStyle} onClick={() => {player.togglePlay()}}/>
-                            :<div style={pauseStyle} onClick={() => {player.togglePlay()}}/>
-                        }
-                        <div style={nextStyle} onClick={() => {player.nextTrack()}}/>
+                    <div style={playerStyleForDesktopOrTablet}>
+                        <div style={musicCoverStyle}>
+                            <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
+                        </div>
+                        <div style={playbackBarStyle}>
+                            <div style={backStyle} onClick={() => {player.previousTrack()}}/>
+                            {
+                                is_paused?<div style={startStyle} onClick={() => {player.togglePlay()}}/>
+                                :<div style={pauseStyle} onClick={() => {player.togglePlay()}}/>
+                            }
+                            <div style={nextStyle} onClick={() => {player.nextTrack()}}/>
+                        </div>
                     </div>
                 </DesktopOrTablet>
                 <Mobile>
-                    <div style={{display: 'flex'}}>
-                        <div style={musicCoverStyleForMobile} >
-                            <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
+                    <div style={playerStyleForMobile}>
+                        <div style={{display: 'flex'}}>
+                            <div style={musicCoverStyleForMobile} >
+                                <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
+                            </div>
+                            <div style={backStyleForMobile} onClick={() => {player.previousTrack()}}/>
+                            {
+                                is_paused?<div style={startStyleForMobile} onClick={() => {player.togglePlay()}}/>
+                                :<div style={pauseStyleForMobile} onClick={() => {player.togglePlay()}}/>
+                            }
+                            <div style={nextStyleForMobile} onClick={() => {player.nextTrack()}}/>
                         </div>
-                        <div style={backStyleForMobile} onClick={() => {player.previousTrack()}}/>
-                        {
-                            is_paused?<div style={startStyleForMobile} onClick={() => {player.togglePlay()}}/>
-                            :<div style={pauseStyleForMobile} onClick={() => {player.togglePlay()}}/>
-                        }
-                        <div style={nextStyleForMobile} onClick={() => {player.nextTrack()}}/>
                     </div>
                 </Mobile>
                 

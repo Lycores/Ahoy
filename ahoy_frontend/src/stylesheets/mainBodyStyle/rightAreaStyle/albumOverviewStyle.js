@@ -17,10 +17,10 @@ export const backgroundFilterStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
-var coverStyleSize = albumOverviewHeight - 3*globalStyle.margin - searchBarStyleForDesktopOrTablet.height
 export const coverStyle = {
     height: 'clamp(200px, 25vw, 300px)',
     width: 'clamp(200px, 25vw, 300px)',
+    minWidth: '200px',
     margin: globalStyle.margin,
     marginTop: globalStyle.margin*2 + searchBarStyleForDesktopOrTablet.height,
     borderRadius: globalStyle.borderRadius,
@@ -30,5 +30,4 @@ export const coverStyle = {
 
 export const albumDescriptionStyle = {
     height: '100%',
-    width: `calc(100% - ${coverStyleSize}px)`,
 }

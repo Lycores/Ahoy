@@ -5,8 +5,8 @@ import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import React,{useState, useEffect, useRef} from 'react'
 import TrackListComponent from './TrackListComponent'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
-import '../stylesheets/css/typography.css'
-import styled from "styled-components"
+// import '../stylesheets/css/typography.css'
+// import styled from "styled-components"
 
 function RightAreaComponentForTracks(props) {
     
@@ -23,7 +23,7 @@ function RightAreaComponentForTracks(props) {
     // const changeWidthOfTitleAndSubtitle= ()=> {
     //     widthOfTitleAndSubtitle  = albumOverviewRef.current.offsetWidth
     // }
-    
+
     useEffect(()=>{
         setCoverStyleState({
             ...coverStyleState,
@@ -46,7 +46,7 @@ function RightAreaComponentForTracks(props) {
                     <div style={coverStyleState}></div>
                     <DesktopOrTablet>
                         <div style={albumDescriptionStyle}>
-                            <div style={{ width:'100%', marginTop:'100px', textAlign:'left'}} className="title">{album.name}</div>
+                            <div style={{ width:'100%', marginTop:'100px', textAlign:'left', fontSize:'clamp(40px, 6vw, 80px)'}}>{album.name}</div>
                         </div>
                     </DesktopOrTablet>
                     

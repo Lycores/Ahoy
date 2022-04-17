@@ -4,15 +4,15 @@ export const trackEntryComponentStyle = {
     margin: globalStyle.margin,
     height: 50,
     borderRadius: globalStyle.borderRadius,
-    padding: globalStyle.padding,
-    cursor: 'pointer'
-
+    cursor: 'pointer',
+    display: 'flex'
 }
 
 export const styleForTrackContainer = {
     boxShadow: globalStyle.boxShadow, 
     borderRadius: globalStyle.borderRadius,
-    margin: globalStyle.margin
+    margin: globalStyle.margin,
+    overflow: 'hidden'
     
 }
 

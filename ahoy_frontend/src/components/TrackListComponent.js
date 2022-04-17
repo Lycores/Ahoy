@@ -21,7 +21,7 @@ function TrackListComponent(props){
                     {
                         tracksState.map((track, index)=> {
                             return (
-                                <TrackEntryComponent key={track.id} track={track} albumId={album.id} positionInAlbum={index} />
+                                <TrackEntryComponent key={track.id} track={track} albumId={album.id} positionInAlbum={index} images={album.images}/>
                             )
                         })
                     }
@@ -60,7 +60,7 @@ function TrackListComponent(props){
                     {
                         tracks.map((track, index)=> {
                             return (
-                                <TrackEntryComponent key={track.id} track={track} albumId={track.album.id} positionInAlbum={track.track_number-1}/>
+                                <TrackEntryComponent key={track.id} track={track} albumId={track.album.id} positionInAlbum={track.track_number-1} images={track.album.images} />
                             )
                         })
                     }

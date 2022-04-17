@@ -1,7 +1,7 @@
 import '../App.css';
 import {useEffect, useRef, useState} from 'react';
 import {Helmet} from "react-helmet";
-import {playerStyle, leftAreaStyle, albumListStyle, libraryStyle, libraryEntryStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
+import {playerStyleForDesktopOrTablet, playerStyleForMobile, leftAreaStyle, albumListStyle, libraryStyle, libraryEntryStyle} from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 import mainBodyStyle from '../stylesheets/mainBodyStyle/mainBodyStyleSheet'
 import WebPlayback from '../components/WebPlayback'
 import {useNavigate, Outlet} from 'react-router-dom'
@@ -55,7 +55,6 @@ function TraditionalMusicPlayerPage(props){
     let [mainBodyStyleState, setMainBodyStyleState] = useState(mainBodyStyle)
     let [leftAreaStyleState, setplaylistAreaStyleState] = useState(leftAreaStyle)
     let [albumListStyleState, setAlbumListStyleState] = useState(albumListStyle)
-    let [playerStyleState, setPlayerStyleState] = useState(playerStyle)
     let [searchBarStyleStateForDesktopOrTablet, setSearchBarStyleStateForDesktopOrTablet] = useState(searchBarStyleForDesktopOrTablet)
     let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] = useState(searchBarStyleForMobile)
     let [recentlyPlayedState, setRecentlyPlayedState] =  useRecoilState(recentlyPlayedRecoil)
@@ -94,9 +93,17 @@ function TraditionalMusicPlayerPage(props){
                 <div style={albumListStyleState}/>
               </DesktopOrTablet>
 
-              <div style={playerStyleState}>
-                  { (!token) ? <></> : <WebPlayback token={token}/> }
-              </div>
+              <DesktopOrTablet>
+                <div style={playerStyleForDesktopOrTablet}>
+                    { (!token) ? <></> : <WebPlayback token={token}/> }
+                </div>
+              </DesktopOrTablet>
+              
+              <Mobile>
+                <div style={playerStyleForMobile}>
+                    { (!token) ? <></> : <WebPlayback token={token}/> }
+                </div>
+              </Mobile>
             </div>
 
           <Outlet/>

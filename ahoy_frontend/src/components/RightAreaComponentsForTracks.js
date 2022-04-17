@@ -18,12 +18,6 @@ function RightAreaComponentForTracks(props) {
     var [coverStyleState, setCoverStyleState] = useState(coverStyle)
     var [albumOverviewStyleState, setAlbumOverviewStyleStyleState] = useState(albumOverviewStyle)
 
-    const albumOverviewRef =  useRef(null)
-    // const widthOfTitleAndSubtitle = albumOverviewRef.current.offsetWidth
-    // const changeWidthOfTitleAndSubtitle= ()=> {
-    //     widthOfTitleAndSubtitle  = albumOverviewRef.current.offsetWidth
-    // }
-
     useEffect(()=>{
         setCoverStyleState({
             ...coverStyleState,
@@ -34,24 +28,18 @@ function RightAreaComponentForTracks(props) {
             backgroundImage: `url(${album.images[0].url})`,
             backgroundSize: 'cover'
         })
-        // window.addEventListener('resize', changeWidthOfTitleAndSubtitle);
-        console.log(albumOverviewRef.current.offsetWidth)
+
     },[album])
         
         
     return(
         <div style={{height: '100%', overflow: 'scroll'}}>
-            <div ref={albumOverviewRef} style={albumOverviewStyleState}>
+            <div style={albumOverviewStyleState}>
                 <div style={backgroundFilterStyle}>
-                    <div style={coverStyleState}></div>
-                    {/* <DesktopOrTablet> */}
-                        <div style={albumDescriptionStyle}>
-                            <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{album.name}</div>
-                        </div>
-                    {/* </DesktopOrTablet> */}
-                    
-                    
-                    
+                    <div style={coverStyleState}/>
+                    <div style={albumDescriptionStyle}>
+                        <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{album.name}</div>
+                    </div>
                 </div>
             </div>
             <TrackListComponent album={album}/>

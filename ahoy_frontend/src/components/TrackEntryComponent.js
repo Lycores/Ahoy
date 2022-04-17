@@ -5,7 +5,6 @@ import {useRecoilValue} from 'recoil'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet'
 function TrackEntryComponent(props){
     const {track, albumId, positionInAlbum, images} = props
-    console.log(images[2])
     const deviceIdState =  useRecoilValue(deviceIdRecoil)
 
     const playTrack = () => {

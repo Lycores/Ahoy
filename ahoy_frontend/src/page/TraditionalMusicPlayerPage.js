@@ -66,8 +66,6 @@ function TraditionalMusicPlayerPage(props){
         .then((response)=>{
           return response.json()
         }).then((json)=>{
-          console.log(1111111)
-          console.log(json)
           setRecentlyPlayedState(json.items[0].track)
         })
       }

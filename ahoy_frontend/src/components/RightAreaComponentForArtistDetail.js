@@ -5,6 +5,7 @@ import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
+    console.log(artist)
     const userProfileState = useRecoilValue(userProfileRecoil)
 
     const getArtistTopTrack = () => {
@@ -61,8 +62,11 @@ function RightAreaComponentForArtistDetail(props){
         <div style={{height: '100%', overflow: 'scroll' }}>
             <div style={artistOverviewStyleState}>
                 <div style={backgroundFilterStyle}>
-                    <div style={artistDescriptionStyle}></div>
-                    <div style={coverStyleState}></div>
+                    <div style={coverStyleState}/>
+                    <div style={artistDescriptionStyle}>
+                        <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{artist.name}</div>
+                    </div>
+                    
                 </div>
             </div>
             <TrackListComponent artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>

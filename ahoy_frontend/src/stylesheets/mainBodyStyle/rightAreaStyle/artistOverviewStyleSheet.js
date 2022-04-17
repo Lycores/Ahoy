@@ -1,12 +1,10 @@
 import globalStyle from '../../globalStyle/globalStyleSheet'
+import {searchBarStyleForDesktopOrTablet} from '../../floatElementStyle/floatStyleSheet'
 
-const artistOverviewHeight = 300
 export const artistOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
-    height: artistOverviewHeight,
-    backgroundPosition: '-100px',
-
+    backgroundPosition: '-100px'
 }
 
 export const backgroundFilterStyle = {
@@ -18,15 +16,16 @@ export const backgroundFilterStyle = {
     borderRadius: globalStyle.borderRadius
 }
 
-var coverStyleSize = artistOverviewHeight - 2*globalStyle.margin
 export const coverStyle = {
-    height: coverStyleSize,
-    width: coverStyleSize,
+    height: 'clamp(200px, 25vw, 300px)',
+    width: 'clamp(200px, 25vw, 300px)',
+    minWidth: '200px',
     margin: globalStyle.margin,
+    marginTop: globalStyle.margin*2 + searchBarStyleForDesktopOrTablet.height,
     borderRadius: globalStyle.borderRadius,
+    backgroundSize: 'cover'
 }
 
 export const artistDescriptionStyle = {
     height: '100%',
-    width: `calc(100% - ${coverStyleSize}px)`,
 }

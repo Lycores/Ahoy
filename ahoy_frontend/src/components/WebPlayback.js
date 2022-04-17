@@ -37,8 +37,6 @@ function WebPlayback(props) {
         let positionInAlbum =  recentlyPlayedState.track_number - 1
         fetch(`/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`)   
     }
-    console.log(recentlyPlayedState)
-    console.log(recentlyPlayedLoaded)
     useEffect(() => {
         
         const script = document.createElement("script");

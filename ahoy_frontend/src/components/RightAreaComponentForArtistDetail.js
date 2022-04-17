@@ -5,7 +5,6 @@ import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
-    console.log(artist)
     const userProfileState = useRecoilValue(userProfileRecoil)
 
     const getArtistTopTrack = () => {
@@ -40,17 +39,6 @@ function RightAreaComponentForArtistDetail(props){
 
         getArtistTopTrack()
         getArtistAlbums()
-        // setArtistTopTrackState(artistTopTrack)
-        // let artistAlbums = getArtistAlbums()
-        // setArtistAlbumsState(artistAlbums)
-        // artistTopTrack.forEach((track)=>{
-        //     let albumId = track.album.id
-        //     fetch(`/album/getAlbum?albumId=${albumId}`).then((response)=> {
-        //         console.log(response)
-        //     })
-        // })
-
-        
     },[artist, userProfileState])
 
     var [artistTopTrackState, setArtistTopTrackState] = useState(null)

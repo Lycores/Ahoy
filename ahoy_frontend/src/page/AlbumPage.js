@@ -39,7 +39,6 @@ function AlbumPage(props) {
     var [albumListState, setAlbumListState] = useState(albumList)
 
     useEffect(() => { 
-      console.log("album is", album)
       if(!album){
         getUserSavedAlbum()
       }

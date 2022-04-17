@@ -6,6 +6,7 @@ import React,{useState, useEffect, useRef} from 'react'
 import TrackListComponent from './TrackListComponent'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
 import '../stylesheets/css/typography.css'
+import styled from "styled-components"
 
 function RightAreaComponentForTracks(props) {
     
@@ -22,7 +23,7 @@ function RightAreaComponentForTracks(props) {
     // const changeWidthOfTitleAndSubtitle= ()=> {
     //     widthOfTitleAndSubtitle  = albumOverviewRef.current.offsetWidth
     // }
-
+    
     useEffect(()=>{
         setCoverStyleState({
             ...coverStyleState,

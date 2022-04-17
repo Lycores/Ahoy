@@ -4,7 +4,6 @@ const albumOverviewHeight = 410
 export const albumOverviewStyle = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
-    height: albumOverviewHeight,
     backgroundPosition: '-100px',
     
 }
@@ -20,8 +19,8 @@ export const backgroundFilterStyle = {
 
 var coverStyleSize = albumOverviewHeight - 3*globalStyle.margin - searchBarStyleForDesktopOrTablet.height
 export const coverStyle = {
-    height: coverStyleSize,
-    width: coverStyleSize,
+    height: 'clamp(200px, 25vw, 300px)',
+    width: 'clamp(200px, 25vw, 300px)',
     margin: globalStyle.margin,
     marginTop: globalStyle.margin*2 + searchBarStyleForDesktopOrTablet.height,
     borderRadius: globalStyle.borderRadius,

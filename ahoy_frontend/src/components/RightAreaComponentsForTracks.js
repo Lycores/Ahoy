@@ -44,11 +44,11 @@ function RightAreaComponentForTracks(props) {
             <div ref={albumOverviewRef} style={albumOverviewStyleState}>
                 <div style={backgroundFilterStyle}>
                     <div style={coverStyleState}></div>
-                    <DesktopOrTablet>
+                    {/* <DesktopOrTablet> */}
                         <div style={albumDescriptionStyle}>
-                            <div style={{ width:'100%', marginTop:'100px', textAlign:'left', fontSize:'clamp(40px, 6vw, 80px)'}}>{album.name}</div>
+                            <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{album.name}</div>
                         </div>
-                    </DesktopOrTablet>
+                    {/* </DesktopOrTablet> */}
                     
                     
                     

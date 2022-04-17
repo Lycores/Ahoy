@@ -109,7 +109,8 @@ export var playerStyleForMobile = {
     left:10,
     right:10,
     bottom: 10,
-    borderRadius: globalStyle.borderRadius
+    borderRadius: globalStyle.borderRadius,
+    zIndex: 5
 }
 export var libraryStyle = {
     margin: globalStyle.margin,

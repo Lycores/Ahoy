@@ -13,6 +13,6 @@ export const styleForTrackContainer = {
     borderRadius: globalStyle.borderRadius,
     margin: globalStyle.margin,
     overflow: 'hidden'
-    
+
 }
 

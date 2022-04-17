@@ -5,6 +5,7 @@ import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import React,{useState, useEffect, useRef} from 'react'
 import TrackListComponent from './TrackListComponent'
 import {DesktopOrTablet, Mobile} from '../MediaQuery'
+import '../stylesheets/css/typography.css'
 
 function RightAreaComponentForTracks(props) {
     
@@ -44,7 +45,7 @@ function RightAreaComponentForTracks(props) {
                     <div style={coverStyleState}></div>
                     <DesktopOrTablet>
                         <div style={albumDescriptionStyle}>
-                            <div style={{fontSize: '400%', width:'100%', marginTop:'100px', textAlign:'left', whiteSpace:'nowrap'}}>{album.name}</div>
+                            <div style={{ width:'100%', marginTop:'100px', textAlign:'left'}} className="title">{album.name}</div>
                         </div>
                     </DesktopOrTablet>
                     

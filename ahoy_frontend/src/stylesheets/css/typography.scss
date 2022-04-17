@@ -1,0 +1,5 @@
+@import '../../../node_modules/rfs/scss';
+
+.title{
+    @include font-size(5rem)
+}

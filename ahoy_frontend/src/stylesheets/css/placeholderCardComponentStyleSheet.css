@@ -14,6 +14,12 @@
   border-radius: 2px;
 }
 
+.ph-picture {
+  width: 100%;
+  height: 120px;
+  background-color: #e1e7ef !important;
+}
+
 .ph-item ::before {
   -webkit-box-sizing: content-box !important;
           box-sizing: content-box !important;

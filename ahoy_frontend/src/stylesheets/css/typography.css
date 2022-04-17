@@ -1,0 +1,10 @@
+.title {
+  font-size: calc(1.625rem + 4.5vw);
+}
+
+@media (min-width: 1200px) {
+  .title {
+    font-size: 5rem;
+  }
+}
+/*# sourceMappingURL=typography.css.map */

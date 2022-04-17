@@ -94,9 +94,10 @@ export var playerStyleForDesktopOrTablet = {
     padding: globalStyle.padding,
     width: musicCoverSize,
     boxShadow: globalStyle.boxShadow,
-    bottom: 0,
+    bottom: '-10px',
     position: "absolute",
-    borderRadius: globalStyle.borderRadius
+    borderRadius: globalStyle.borderRadius,
+    left: globalStyle.margin
 }
 
 export var playerStyleForMobile = {
@@ -107,11 +108,11 @@ export var playerStyleForMobile = {
     backgroundColor: 'black'
 }
 export var libraryStyle = {
+    margin: globalStyle.margin,
     width: globalStyle.playlistAreaWidth,
     boxShadow: globalStyle.boxShadow,
     height: heightOfLibrary,
     borderRadius: globalStyle.borderRadius,
-    marginBottom: globalStyle.marginBottom,
     overflow:'hidden'
 }
 
@@ -126,6 +127,7 @@ export var libraryEntryStyle = {
 
 
 export var albumListStyle = {
+    margin: globalStyle.margin,
     width: globalStyle.playlistAreaWidth,
     boxShadow: globalStyle.boxShadow,
     height: heightOfAlbumList,
@@ -135,8 +137,6 @@ export var albumListStyle = {
 
 
 export const leftAreaStyle = {
-    margin: globalStyle.margin,
     height: '100%',
-    width: globalStyle.playlistAreaWidth,
     position: "relative" 
 }

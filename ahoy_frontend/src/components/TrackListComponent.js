@@ -14,7 +14,11 @@ function TrackListComponent(props){
     var [tracksState, setTracksState] = useState([])
     const loadTrackList = () => {
         if(tracksState.length == 0){
-            renderQueue.push(<></>)
+            for(var i = 0; i < 10; i++){
+                renderQueue.push(
+                    <PlaceholderTrackEntryComponent/>
+                )  
+            }
         }else{
             renderQueue.push(
                 <div style={styleForTrackContainer}>
@@ -83,7 +87,7 @@ function TrackListComponent(props){
             
             )
         }else{
-            return(
+            
                 renderQueue.push(
                     <div style={{margin: globalStyle.margin, borderRadius: globalStyle.borderRadius, boxShadow:globalStyle.boxShadow}}>
                          <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
@@ -99,7 +103,7 @@ function TrackListComponent(props){
                         </div>
                     </div>
                 )
-            )
+            
         }
     }
     return renderQueue   

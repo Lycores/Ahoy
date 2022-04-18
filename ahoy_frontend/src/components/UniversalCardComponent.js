@@ -60,7 +60,6 @@ function UniversalCardComponent(props) {
                     <div style={artistsNameStyle}>{item.name}</div>
                 </div>
             </div>
-        
         )
     }
     

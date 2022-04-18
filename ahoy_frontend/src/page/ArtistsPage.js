@@ -28,10 +28,10 @@ function ArtistsPage(props) {
 
 
     var [artistsListState, setArtistsListState] = useState(artistsList)
-  useEffect(() => { 
-    if(!artist){
-      getFollowedArtists()
-    }
+    useEffect(() => { 
+      if(!artist){
+        getFollowedArtists()
+      }
 
   }, [token])
 

@@ -1,4 +1,4 @@
-import {coverStyle, titleStyle, descriptionStyle, containerStyle, cardTitleStyle, cardSubtitleStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet.js'
+import {coverStyle, titleStyle, descriptionStyle, containerStyle, cardTitleStyle, cardSubtitleStyle, artistsNameStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet.js'
 import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
@@ -41,7 +41,7 @@ function UniversalCardComponent(props) {
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToArtistPage}>
                 <div  style={containerStyle} >
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
-                    <h5>{item.name}</h5>
+                    <div style={artistsNameStyle}>{item.name}</div>
                 </div>
             </div>
         

@@ -38,7 +38,7 @@ function RightAreaComponentForTracks(props) {
                 <div style={backgroundFilterStyle}>
                     <div style={coverStyleState}/>
                     <div style={albumDescriptionStyle}>
-                        <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{album.name}</div>
+                        <div style={{ width:'100%', marginTop:'clamp(130px, 17.5vw, 200px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{album.name}</div>
                     </div>
                 </div>
             </div>

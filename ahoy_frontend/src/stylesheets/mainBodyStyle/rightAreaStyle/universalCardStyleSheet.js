@@ -62,6 +62,14 @@ export const cardTitleStyle = {
     marginTop:'10px'
 }
 
+export const artistsNameStyle = {
+    overflow:'hidden',
+    textOverflow:'ellipsis',
+    fontSize:'x-large',
+    marginLeft:'7px',
+    marginTop:'10px'
+}
+
 export const cardSubtitleStyle = {
     display: 'block',
     whiteSpace:'nowrap',

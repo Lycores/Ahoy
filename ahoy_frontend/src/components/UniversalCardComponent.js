@@ -4,7 +4,16 @@ import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
 
-
+const PlaylistNameStyle = styled.div`
+    margin-left:7px;
+    margin-top:10px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: x-large;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+`
 
 function UniversalCardComponent(props) {
     var {item, type} = props
@@ -57,7 +66,7 @@ function UniversalCardComponent(props) {
                 <div  style={containerStyle} >
                     {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
                     :<div style={{...coverStyle, backgroundImage:`url(${item.images[0].url})`, backgroundSize: coverSize}} />}
-                    <div style={artistsNameStyle}>{item.name}</div>
+                    <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
                 </div>
             </div>
         )

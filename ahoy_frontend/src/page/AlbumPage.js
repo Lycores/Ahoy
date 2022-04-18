@@ -6,14 +6,6 @@ import RightAreaComponentForCardpresent from '../components/RightAreaComponentFo
 import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 
-// const requestUserProfile = async () => {
-//   fetch('user/getUserProfile')
-//   .then((response) => {return response.json()})
-//   .then((userProfile) => {
-//     setUserId(userProfile.id)
-//   })
-// }
-
 function AlbumPage(props) {
     var {token} = props
     var albumList = []

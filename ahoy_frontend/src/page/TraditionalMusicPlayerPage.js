@@ -87,7 +87,7 @@ function TraditionalMusicPlayerPage(props){
                 <div style={libraryStyle}>
                   <div style={libraryEntryStyle } onClick={()=>navigate('/traditional/album')}>Albums</div>
                   <div style={libraryEntryStyle} onClick={()=>navigate('/traditional/artists')}>Artists</div>
-                  <div style={libraryEntryStyle}>Playlists</div>
+                  <div style={libraryEntryStyle} onClick={()=>navigate('/traditional/playlist')}>Playlist</div>
                   <div style={libraryEntryStyle}></div>
                 </div>
                 <div style={albumListStyleState}/>

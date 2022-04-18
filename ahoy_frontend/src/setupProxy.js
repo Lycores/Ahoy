@@ -60,5 +60,17 @@ module.exports = function(app) {
     createProxyMiddleware({
       target: 'http://localhost:4000',
     })
+  ),
+  app.use(
+    '/playlist/**',
+    createProxyMiddleware({
+      target: 'http://localhost:4000',
+    })
+  ),
+  app.use(
+    '/traditional/playlist/**',
+    createProxyMiddleware({
+      target: 'http://localhost:4000',
+    })
   )
 };

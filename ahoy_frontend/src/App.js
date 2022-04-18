@@ -5,6 +5,7 @@ import HomePage from './page/HomePage';
 import AlbumPage from './page/AlbumPage';
 import WelcomePage from './page/WelcomePage'
 import ArtistsPage from './page/ArtistsPage'
+import PlaylistPage from './page/PlaylistPage'
 import TraditionalMusicPlayerPage from './page/TraditionalMusicPlayerPage'
 import { userProfileRecoil} from './recoilInfo'
 import {useRecoilState} from 'recoil'
@@ -52,6 +53,7 @@ function App() {
       <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} />}>
         <Route exact path="album" element={<AlbumPage token={token} />}/>
         <Route exact path="artists" element={<ArtistsPage token={token} /> }/>
+        <Route exact path="playlist" element={<PlaylistPage token={token} /> }/>
       </Route>
     </Routes>
     </BrowserRouter>

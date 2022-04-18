@@ -30,11 +30,11 @@ function RightAreaComponentForCardPresent(props) {
             <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
                 <div className="row justify-content-start">
                     {
-                        itemList.map((album, index)=>{
+                        itemList.map((item, index)=>{
                             return(
                                 // <UniversalCardComponent key={index} artists={album.artists} images={album.images}
                                 //  albumName={album.name} tracks={album.tracks}/>
-                                <UniversalCardComponent key={index} item={album} type={type}/>
+                                <UniversalCardComponent key={index} item={item} type={type}/>
                             )
                         })
                     }            

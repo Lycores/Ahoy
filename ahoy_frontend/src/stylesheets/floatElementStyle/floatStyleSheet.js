@@ -74,8 +74,7 @@ export const searchBarStyleForMobile = {
     borderRadius: '50px 50px 50px 50px',
     cursor: 'pointer',
     transitionDuration: '500ms',
-    boxShadow: globalStyle.boxShadowForInput,
-    
+    boxShadow: globalStyle.boxShadowForInput
 }
 
 export const searchBarInputStyle = {
@@ -89,5 +88,8 @@ export const searchBarInputStyle = {
     backgroundColor: 'transparent',
     whiteSpace:'nowrap',
     overflow:'hidden',
-    textOverflow:'ellipsis'
+    textOverflow:'ellipsis',
+    color: '#66727C',
+    fontSize: '20px',
+    fontWeight: 'bold'
 }

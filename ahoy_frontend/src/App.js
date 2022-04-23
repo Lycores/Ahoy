@@ -31,10 +31,7 @@ function App() {
     }).then((json)=>{
       setUserProfileState(json)
     })
-    
-    
   }
-
 
   useEffect(() => {
 
@@ -48,18 +45,18 @@ function App() {
 
   return (
 
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<WelcomePage />}/>
-      <Route element={<RouteProtector token={token}/>}>
-        <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} />}>
-          <Route exact path="album" element={<AlbumPage token={token} />}/>
-          <Route exact path="artists" element={<ArtistsPage token={token} /> }/>
-          <Route exact path="playlist" element={<PlaylistPage token={token} /> }/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WelcomePage />}/>
+        <Route element={<RouteProtector token={token}/>}>
+          <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} />}>
+            <Route exact path="album" element={<AlbumPage token={token} />}/>
+            <Route exact path="artists" element={<ArtistsPage token={token} /> }/>
+            <Route exact path="playlist" element={<PlaylistPage token={token} /> }/>
+          </Route>
         </Route>
-      </Route>
-    </Routes>
-    </BrowserRouter>
+      </Routes>
+      </BrowserRouter>
     
   );
 }

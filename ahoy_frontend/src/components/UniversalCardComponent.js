@@ -18,6 +18,7 @@ const PlaylistNameStyle = styled.div`
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
+    console.log(item)
     const navigate = useNavigate()
     
     const goToAlbumPage = () => {   
@@ -32,6 +33,14 @@ function UniversalCardComponent(props) {
         navigate('/traditional/artists', {
             state: {
                 artist:item
+            }
+        })
+    }
+
+    const goToPlaylistPage = () => {
+        navigate('/traditional/playlist', {
+            state:{
+                playlist:item
             }
         })
     }
@@ -63,7 +72,7 @@ function UniversalCardComponent(props) {
     if(type == 'playlist'){
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" >
-                <div  style={containerStyle} >
+                <div  style={containerStyle} onClick={goToPlaylistPage}>
                     {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
                     :<div style={{...coverStyle, backgroundImage:`url(${item.images[0].url})`, backgroundSize: coverSize}} />}
                     <PlaylistNameStyle>{item.name}</PlaylistNameStyle>

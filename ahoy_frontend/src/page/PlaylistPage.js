@@ -11,6 +11,13 @@ function PlaylistPage(props) {
 
     var playlist = null
     var playlistList = []
+    var {state} = useLocation()
+    if(state){
+      var playlist = state.playlist
+      console.log(playlist)
+    }
+
+
     const getMyPlaylist = () =>{
         fetch('/playlist/getMyPlaylists')
         .then((response)=>{

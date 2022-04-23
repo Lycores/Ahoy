@@ -58,9 +58,6 @@ function App() {
           <Route exact path="playlist" element={<PlaylistPage token={token} /> }/>
         </Route>
       </Route>
-      
-      
-     
     </Routes>
     </BrowserRouter>
     

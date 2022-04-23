@@ -26,13 +26,13 @@ export const RightAreaCoverStyle = styled.div`
     width: 100%;
     border-radius: calc(var(--global-border-radius));
     background-size: cover;
-    background-image: url(${props => props.backgroundImage});
+    background-image: url(${props => props.imageUrl});
 `  
 
 export const RightAreaOverviewStyle  = styled.div`
     border-radius: var(--global-border-radius);
     margin: var(--global-margin);
-    background-image: url(${props => props.backgroundImage});
+    background-image: url(${props => props.imageUrl});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0px, -100px;

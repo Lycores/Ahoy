@@ -23,10 +23,10 @@ function RightAreaComponentForAlbum(props) {
          
     return(
         <RightAreaContainerStyle>
-            <RightAreaOverviewStyle backgroundImage={albumOverviewBackgroundImageState}>
+            <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>
                 <BackgroundFilterStyle >
                 <RightAreaCoverContainerStyle>
-                    <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                    <RightAreaCoverStyle imageUrl={coverBackgroundImageState}/>
                 </RightAreaCoverContainerStyle>
                 <DescriptionStyle>
                     <AlbumNameStyle>

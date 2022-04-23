@@ -13,7 +13,6 @@ const ArtistNameStyle = styled.div`
     font-size:clamp(30px, 6vw, 80px);
 `
 
-
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
     const userProfileState = useRecoilValue(userProfileRecoil)
@@ -34,20 +33,10 @@ function RightAreaComponentForArtistDetail(props){
         }).then((json)=>{
             setArtistAlbumsState(json)
         })
-
     }
 
     useEffect(()=>{
-        // setCoverStyleState({
-        //     ...coverStyleState,
-        //     backgroundImage: `url(${artist.images[1].url})`,
-        // })
         setCoverBackgroundImageState(artist.images[1].url)
-        // setArtistOverviewStyleState({
-        //     ...artistOverviewStyleState,
-        //     backgroundImage: `url(${artist.images[0].url})`,
-        //     backgroundSize: 'cover'
-        // })
         setArtistOverviewBackgroundImageState(artist.images[0].url)
         getArtistTopTrack()
         getArtistAlbums()
@@ -55,8 +44,6 @@ function RightAreaComponentForArtistDetail(props){
 
     var [artistTopTrackState, setArtistTopTrackState] = useState(null)
     var [artistAlbumsState, setArtistAlbumsState] = useState(null)
-    // var [artistOverviewStyleState, setArtistOverviewStyleState] = useState(artistOverviewStyle)
-    // var [coverStyleState, setCoverStyleState] = useState(coverStyle)
     var [coverBackgroundImageState, setCoverBackgroundImageState] = useState('')
     var [artistOverviewBackgroundImageState, setArtistOverviewBackgroundImageState] = useState('')
 

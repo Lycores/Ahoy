@@ -21,24 +21,24 @@ export const RightAreaCoverContainerStyle = styled.div`
 `
 
 export const RightAreaCoverStyle = styled.div`
-padding-bottom: 100%;
-width: 100%;
-border-radius: calc(var(--global-border-radius));
-background-size: cover;
-background-image: url(${props => props.backgroundImage});
+    padding-bottom: 100%;
+    width: 100%;
+    border-radius: calc(var(--global-border-radius));
+    background-size: cover;
+    background-image: url(${props => props.backgroundImage});
 `  
 
 export const RightAreaOverviewStyle  = styled.div`
-border-radius: var(--global-border-radius);
-margin: var(--global-margin);
-background-image: url(${props => props.backgroundImage});
-background-repeat: no-repeat;
-background-size: cover;
-background-position: 0px, -100px;
+    border-radius: var(--global-border-radius);
+    margin: var(--global-margin);
+    background-image: url(${props => props.backgroundImage});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px, -100px;
 `
 
 export const DescriptionStyle = styled.div`
-height: 100%;
+    height: 100%;
 `
 
 export const CardContainerStyle = styled.div`

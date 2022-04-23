@@ -8,6 +8,22 @@ import {useRecoilValue} from 'recoil'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import PlaceholderTrackEntryComponent from './PlaceholderTrackEntryComponent'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
+import styled from 'styled-components'
+import {RightAreaContainerStyle} from './ReusableStyleComponent'
+
+const StyleForTrackContainer = styled.div`
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-radius); 
+    margin: var(--global-margin);
+    overflow: hidden;
+`
+const CommonContainer = styled.div`
+    margin: var(--global-margin); 
+    border-radius: var(--global-border-radius); 
+    box-shadow: var(--global-box-shadow);
+`
+
+
 function TrackListComponent(props){
     var {album, artistTopTrack, artistAlbums} = props
     var renderQueue = []
@@ -21,7 +37,7 @@ function TrackListComponent(props){
             }
         }else{
             renderQueue.push(
-                <div style={styleForTrackContainer}>
+                <StyleForTrackContainer>
                     {
                         tracksState.map((track, index)=> {
                             return (
@@ -29,7 +45,7 @@ function TrackListComponent(props){
                             )
                         })
                     }
-                </div>
+                </StyleForTrackContainer>
             )
         }
         
@@ -60,7 +76,7 @@ function TrackListComponent(props){
         if(artistTopTrack){
             var tracks = artistTopTrack.tracks
             renderQueue.push(
-                <div style={styleForTrackContainer}>
+                <StyleForTrackContainer>
                     {
                         tracks.map((track, index)=> {
                             return (
@@ -68,7 +84,7 @@ function TrackListComponent(props){
                             )
                         })
                     }
-                </div>
+                </StyleForTrackContainer>
             )
         }else{
             for(var i = 0; i < 10; i++){
@@ -89,8 +105,8 @@ function TrackListComponent(props){
         }else{
             
                 renderQueue.push(
-                    <div style={{margin: globalStyle.margin, borderRadius: globalStyle.borderRadius, boxShadow:globalStyle.boxShadow}}>
-                         <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
+                    <CommonContainer>
+                         <RightAreaContainerStyle>
                             <div className="row justify-content-start">
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
@@ -100,8 +116,8 @@ function TrackListComponent(props){
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
                             </div> 
-                        </div>
-                    </div>
+                        </RightAreaContainerStyle>
+                    </CommonContainer>
                 )
             
         }

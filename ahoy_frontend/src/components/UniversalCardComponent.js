@@ -3,7 +3,7 @@ import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCa
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
-import { ContainerStyle, CardCoverStyle} from './ReusableStyleComponent.js'
+import { GridSpaceStyle, CardContainerStyle, CardCoverStyle, AlbumNameStyle, ArtistsNameStyle} from './ReusableStyleComponent.js'
 const PlaylistNameStyle = styled.div`
     margin-left:7px;
     margin-top:10px;
@@ -48,36 +48,36 @@ function UniversalCardComponent(props) {
 
     if(type == 'album'){
         return(
-            <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToAlbumPage}>
-                <ContainerStyle>
+            <GridSpaceStyle onClick={goToAlbumPage}>
+                <CardContainerStyle>
                     <CardCoverStyle imageUrl={item.images[1].url}/>
-                    <span style={cardTitleStyle}>{item.name}</span>
+                    <AlbumNameStyle>{item.name}</AlbumNameStyle>
                     <span style={cardSubtitleStyle}>{item.artists[0].name}</span>
-                </ContainerStyle>
-            </div>
+                </CardContainerStyle>
+            </GridSpaceStyle>
         
         )
     }
     if(type == 'artists'){
         return(
-            <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToArtistPage}>
-                <ContainerStyle>
+            <GridSpaceStyle onClick={goToArtistPage}>
+                <CardContainerStyle>
                     <CardCoverStyle imageUrl={item.images[1].url}/>
-                    <div style={artistsNameStyle}>{item.name}</div>
-                </ContainerStyle>
-            </div>
+                    <ArtistsNameStyle>{item.name}</ArtistsNameStyle>
+                </CardContainerStyle>
+            </GridSpaceStyle>
         
         )
     }
     if(type == 'playlist'){
         return(
-            <div className="col-md-6  col-lg-4 col-xl-3" >
-                <ContainerStyle>
+            <GridSpaceStyle>
+                <CardContainerStyle>
                     {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
                     :<CardCoverStyle imageUrl={item.images[0].url}/>}
                     <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
-                </ContainerStyle>
-            </div>
+                </CardContainerStyle>
+            </GridSpaceStyle>
         )
     }
     

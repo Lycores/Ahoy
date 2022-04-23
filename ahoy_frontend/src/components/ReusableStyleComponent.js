@@ -20,6 +20,23 @@ export const RightAreaCoverContainerStyle = styled.div`
     margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));  
 `
 
+export const AlbumNameStyle = styled.div`
+    display: block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:x-large;
+    margin-left:7px;
+    margin-top:10px;
+`
+
+export const ArtistsNameStyle = styled.div`
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:x-large;
+    margin-left:7px;
+    margin-top:10px;
+`
 export const RightAreaCoverStyle = styled.div`
 padding-bottom: 100%;
 width: 100%;
@@ -41,7 +58,7 @@ export const DescriptionStyle = styled.div`
 height: 100%;
 `
 
-export const ContainerStyle = styled.div`
+export const CardContainerStyle = styled.div`
     height: 270px;
     width: 190px;
     padding: var(--global-padding);
@@ -61,4 +78,6 @@ export const CardCoverStyle = styled.div`
     background-image: url(${props=>props.imageUrl}); 
     background-size: 190px;
 `
-
+export const GridSpaceStyle = styled.div.attrs({
+    className:"col-md-6  col-lg-4 col-xl-3"
+})``

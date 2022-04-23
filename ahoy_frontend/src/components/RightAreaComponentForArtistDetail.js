@@ -54,8 +54,7 @@ function RightAreaComponentForArtistDetail(props){
                 <BackgroundFilterStyle>
                     <RightAreaCoverContainerStyle>
                         <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
-                    </RightAreaCoverContainerStyle>
-                    
+                    </RightAreaCoverContainerStyle>     
                     <DescriptionStyle>
                         <ArtistNameStyle>
                             {artist.name}

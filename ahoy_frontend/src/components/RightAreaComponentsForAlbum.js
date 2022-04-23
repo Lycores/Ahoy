@@ -34,8 +34,6 @@ function RightAreaComponentForAlbum(props) {
                 <RightAreaCoverContainerStyle>
                     <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
                 </RightAreaCoverContainerStyle>
-                
-                
                 <DescriptionStyle>
                     <AlbumNameStyle>
                         {album.name}

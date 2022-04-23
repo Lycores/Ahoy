@@ -62,7 +62,7 @@ function UniversalCardComponent(props) {
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToArtistPage}>
                 <ContainerStyle>
-                    <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
+                    <CardCoverStyle imageUrl={item.images[1].url}/>
                     <div style={artistsNameStyle}>{item.name}</div>
                 </ContainerStyle>
             </div>
@@ -74,7 +74,7 @@ function UniversalCardComponent(props) {
             <div className="col-md-6  col-lg-4 col-xl-3" >
                 <ContainerStyle>
                     {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
-                    :<div style={{...coverStyle, backgroundImage:`url(${item.images[0].url})`, backgroundSize: coverSize}} />}
+                    :<CardCoverStyle imageUrl={item.images[0].url}/>}
                     <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
                 </ContainerStyle>
             </div>

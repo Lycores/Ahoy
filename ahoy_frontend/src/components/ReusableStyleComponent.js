@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const RightAreaContainerStyle = styled.div`
-height: 100%;
-overflow: scroll;
+    height: 100%;
+    overflow: scroll;
 `
 
 export const BackgroundFilterStyle = styled.div`

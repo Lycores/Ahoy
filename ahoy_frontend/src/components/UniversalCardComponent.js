@@ -32,6 +32,17 @@ const ArtistsNameStyle = styled.div`
     margin-left:7px;
     margin-top:10px;
 `
+
+const ArtistFromAlbumStyle = styled.span`
+    display: block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    font-size:medium;
+    margin-left:7px;
+    margin-top:5px;
+
+`
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
@@ -69,7 +80,8 @@ function UniversalCardComponent(props) {
                 <CardContainerStyle>
                     <CardCoverStyle imageUrl={item.images[1].url}/>
                     <AlbumNameStyle>{item.name}</AlbumNameStyle>
-                    <span style={cardSubtitleStyle}>{item.artists[0].name}</span>
+                    <ArtistFromAlbumStyle></ArtistFromAlbumStyle>
+                    <ArtistFromAlbumStyle>{item.artists[0].name}</ArtistFromAlbumStyle>
                 </CardContainerStyle>
             </GridSpaceStyle>
         

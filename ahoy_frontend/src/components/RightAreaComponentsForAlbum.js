@@ -8,7 +8,7 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 // import '../stylesheets/css/typography.css'
 // import styled from "styled-components"
 
-function RightAreaComponentForTracks(props) {
+function RightAreaComponentForAlbum(props) {
     
     var {album} = props
     // var {tracks, trackCover, setTrack} = props
@@ -50,4 +50,4 @@ function RightAreaComponentForTracks(props) {
     
 }
 
-export default React.memo(RightAreaComponentForTracks)
+export default React.memo(RightAreaComponentForAlbum)

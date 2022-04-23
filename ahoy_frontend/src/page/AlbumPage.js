@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {rightAreaStyleForDesktopOrTablet, rightAreaStyleForMobile} from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
-import RightAreaComponentForTracks from '../components/RightAreaComponentsForTracks'
+import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbum'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 
 function AlbumPage(props) {
@@ -41,13 +41,13 @@ function AlbumPage(props) {
       <DesktopOrTablet>
         <div style={rightAreaStyleForDesktopOrTablet} >
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponentForTracks album={album}/>}
+            <RightAreaComponentForAlbum album={album}/>}
         </div>
       </DesktopOrTablet>
       <Mobile>
         <div style={rightAreaStyleForMobile} >
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponentForTracks album={album}/>}
+            <RightAreaComponentForAlbum album={album}/>}
         </div>
       </Mobile>
     </>

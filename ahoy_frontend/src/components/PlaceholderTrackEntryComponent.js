@@ -1,12 +1,28 @@
 import React from 'react'
-import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
+import styled from 'styled-components'
+
+const TrackEntryComponentStyle = styled.div.attrs({
+    className: "ph-item"
+})`
+    margin: var(--global-margin);
+    height: 50px;
+    border-radius: var(--global-border-radius);
+    cursor: pointer;
+    display: flex;
+`
+
+const PlaceholderRow = styled.div.attrs({
+    className: "ph-row"
+})``
+
+
 function PlaceholderTrackEntryComponent(){
 
     return (
-        <div style={trackEntryComponentStyle} className="ph-item" >
-            <div className="ph-row" />
-        </div>
+        <TrackEntryComponentStyle>
+            <PlaceholderRow/>
+        </TrackEntryComponentStyle>
     )
 }
 

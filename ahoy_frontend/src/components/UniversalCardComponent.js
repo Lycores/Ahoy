@@ -3,7 +3,7 @@ import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCa
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
-import { GridSpaceStyle, CardContainerStyle, CardCoverStyle, AlbumNameStyle, ArtistsNameStyle} from './ReusableStyleComponent.js'
+import { GridSpaceStyle, CardContainerStyle, CardCoverStyle} from './ReusableStyleComponent.js'
 const PlaylistNameStyle = styled.div`
     margin-left:7px;
     margin-top:10px;
@@ -15,6 +15,23 @@ const PlaylistNameStyle = styled.div`
     -webkit-box-orient: vertical; 
 `
 
+const AlbumNameStyle = styled.div`
+    display: block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:x-large;
+    margin-left:7px;
+    margin-top:10px;
+`
+
+const ArtistsNameStyle = styled.div`
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size:x-large;
+    margin-left:7px;
+    margin-top:10px;
+`
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props

@@ -6,9 +6,10 @@ import {RightAreaContainerStyle, BackgroundFilterStyle, RightAreaCoverStyle, Rig
 
 const AlbumNameStyle = styled.div`
     width:100%;
-    margin-top:clamp(130px, 17.5vw, 200px);
+    margin-top:clamp(100px, 15vw, 180px);
     text-align:left; 
-    font-size:clamp(30px, 6vw, 80px);
+    font-size:clamp(30px, 5vw, 100px);
+    -webkit-line-clamp: 3;
 `
 
 function RightAreaComponentForAlbum(props) {

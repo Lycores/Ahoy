@@ -46,8 +46,22 @@ const MusicPlayerCoverStyleForDesktopOrTablet = styled.div`
     width: 230px;
     box-shadow: var(--global-box-shadow);
     border-radius: var(--global-border-radius);
+    background-image: url(${props=>props.imageUrl});
+    background-size: cover;
 `
 
+const PlaybackBarStyle = styled.div`
+    width: 230px;
+    height: 50px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+`
+
+const FlexStyle = styled.div`
+    display: 'flex';
+`
 
 function WebPlayback(props) {
     var {token} = props
@@ -123,26 +137,24 @@ function WebPlayback(props) {
                 <>
                     <DesktopOrTablet>
                         <PlayerStyleForDesktopOrTablet>
-                            <MusicPlayerCoverStyleForDesktopOrTablet>
-                                <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
-                            </MusicPlayerCoverStyleForDesktopOrTablet>
-                            <div style={playbackBarStyle} >
+                            <MusicPlayerCoverStyleForDesktopOrTablet imageUrl={recentlyPlayedState.album.images[0].url}/>
+                            <PlaybackBarStyle >
                                 <div style={backStyle} />
                                 <div style={startStyle} onClick={recentlyPlayedStart} />
                                 <div style={nextStyle} />
-                            </div>
+                            </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
-                            <div style={{display: 'flex'}}>
+                            <FlexStyle>
                                 <div style={musicCoverStyleForMobile} >
                                     <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: '10px', height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
                                 </div>
                                 <div style={backStyleForMobile} />
                                 <div style={startStyleForMobile} onClick={recentlyPlayedStart}/>
                                 <div style={nextStyleForMobile} />
-                            </div>
+                            </FlexStyle>
                         </PlayerStyleForMobile>
                     </Mobile>
                 </> 
@@ -164,13 +176,13 @@ function WebPlayback(props) {
                     </DesktopOrTablet>
                     <Mobile>
                         <div style={playerStyleForMobile}>
-                            <div style={{display: 'flex'}}>
+                            <FlexStyle>
                                 <div style={{...musicCoverStyleForMobile, padding:'0px', marginBottom: '0px'}} className="ph-item">
                                 </div>
                                 <div style={backStyleForMobile} />
                                 <div style={startStyleForMobile} />
                                 <div style={nextStyleForMobile} />
-                            </div>
+                            </FlexStyle>
                         </div>
                     </Mobile>
                     

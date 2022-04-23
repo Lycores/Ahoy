@@ -3,12 +3,20 @@ import UniversalCardComponent  from './UniversalCardComponent'
 import TrackEntryComponent from './TrackEntryComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import React from 'react'
+import styled from 'styled-components'
+import {RightAreaContainerStyle} from './ReusableStyleComponent'
+
+const GridStyle = styled.div.attrs({
+    className: "row justify-content-start"
+})``
+
 function RightAreaComponentForCardPresent(props) {
     var {itemList, type} = props
+
     if(itemList.length == 0){
         return(
-            <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
-                <div className="row justify-content-start">
+            <RightAreaContainerStyle>
+                <GridStyle >
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
@@ -20,15 +28,14 @@ function RightAreaComponentForCardPresent(props) {
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
                     <PlaceholderCardComponent/>
-                    <PlaceholderCardComponent/>
-                    
-                </div>
-            </div>   
+                    <PlaceholderCardComponent/>    
+                </GridStyle>
+            </RightAreaContainerStyle>  
         )
     }else{
         return(
-            <div style={{height: '100%', overflowY: 'scroll', overflowX: "hidden"}}>
-                <div className="row justify-content-start">
+            <RightAreaContainerStyle>
+                <GridStyle>
                     {
                         itemList.map((item, index)=>{
                             return(
@@ -38,8 +45,8 @@ function RightAreaComponentForCardPresent(props) {
                             )
                         })
                     }            
-                </div>
-            </div>      
+                </GridStyle>
+            </RightAreaContainerStyle>    
         )
     }   
 }

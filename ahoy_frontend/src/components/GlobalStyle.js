@@ -7,7 +7,7 @@ body{
     --global-margin-left: 10;
     --global-margin-right: 10;
     --global-margin-bottom: 10;
-    --global-padding: 10;
+    --global-padding: 10px;
     --global-component-distance: 10;
     --global-header-item-height: 70;
     --global-home-button-width:70;
@@ -18,8 +18,8 @@ body{
     --global-playlist-area-width:250;
     --global-background-color: #e1e7ef;
     --global-spotify-color: 1bd760;
-    --global-mobile-max: 600;
-    --global-desktop-or-tablet-min: 601;
+    --global-mobile-max: 600px;
+    --global-desktop-or-tablet-min: 601px;
     --search-bar-height: 50px;
     --search-bar-width: 150px;
 }

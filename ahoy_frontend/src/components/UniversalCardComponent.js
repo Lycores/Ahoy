@@ -3,7 +3,7 @@ import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCa
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
-
+import { ContainerStyle } from './ReusableStyleComponent.js'
 const PlaylistNameStyle = styled.div`
     margin-left:7px;
     margin-top:10px;
@@ -49,11 +49,11 @@ function UniversalCardComponent(props) {
     if(type == 'album'){
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToAlbumPage}>
-                <div  style={containerStyle} >
+                <ContainerStyle>
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
                     <span style={cardTitleStyle}>{item.name}</span>
                     <span style={cardSubtitleStyle}>{item.artists[0].name}</span>
-                </div>
+                </ContainerStyle>
             </div>
         
         )
@@ -61,10 +61,10 @@ function UniversalCardComponent(props) {
     if(type == 'artists'){
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToArtistPage}>
-                <div  style={containerStyle} >
+                <ContainerStyle>
                     <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
                     <div style={artistsNameStyle}>{item.name}</div>
-                </div>
+                </ContainerStyle>
             </div>
         
         )
@@ -72,11 +72,11 @@ function UniversalCardComponent(props) {
     if(type == 'playlist'){
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" >
-                <div  style={containerStyle} onClick={goToPlaylistPage}>
+                <ContainerStyle>
                     {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
                     :<div style={{...coverStyle, backgroundImage:`url(${item.images[0].url})`, backgroundSize: coverSize}} />}
                     <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
-                </div>
+                </ContainerStyle>
             </div>
         )
     }

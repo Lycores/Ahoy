@@ -26,31 +26,17 @@ export const descriptionStyle = {
     width: contentWidth
 }
 
-export const containerStyle = {
-    height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
-    width: coverSize,
-    padding: globalStyle.padding,
-    boxShadow: globalStyle.boxShadow,
-    borderRadius: globalStyle.borderRadius,
-    margin:'auto',
-    marginTop:50,
-    marginBottom:50,
-    cursor: 'pointer'
-
-}
-
-export const containerStyleForPlaceHolder = {
-    height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
-    width: coverSize,
-    padding: globalStyle.padding,
-    margin: globalStyle.margin,
-    boxShadow: globalStyle.boxShadow,
-    borderRadius: globalStyle.borderRadius,
-    margin:'auto',
-    marginTop:50,
-    marginBottom:50,
-    cursor: 'pointer'
-}
+// export const containerStyleForPlaceHolder = {
+//     height: coverSize + titleHeight + descriptionHeight + distanceTitleToCover + distanceDescriptionToTitle,
+//     width: coverSize,
+//     padding: globalStyle.padding,
+//     boxShadow: globalStyle.boxShadow,
+//     borderRadius: globalStyle.borderRadius,
+//     margin:'auto',
+//     marginTop:50,
+//     marginBottom:50,
+//     cursor: 'pointer'
+// }
 
 export const cardTitleStyle = {
     display: 'block',

@@ -1,13 +1,14 @@
-import {coverSize, coverStyle, containerStyleForPlaceHolder} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
+import {coverSize, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
 import React from 'react'
+import {ContainerStyle} from './ReusableStyleComponent'
 function PlaceholderCardComponent() {
     return(
         <div className="col-md-6  col-lg-4 col-xl-3" >
-            <div style={containerStyleForPlaceHolder} >
+            <ContainerStyle>
                 <div style={{...coverStyle, backgroundSize: coverSize}} className="ph-item"/>
-            </div>
+            </ContainerStyle>
         </div>
     )  
 }

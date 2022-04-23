@@ -41,3 +41,15 @@ export const DescriptionStyle = styled.div`
 height: 100%;
 `
 
+export const ContainerStyle = styled.div`
+    height: 270px;
+    width: 190px;
+    padding: var(--global-padding);
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-radius);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom:50px;
+    cursor: pointer;
+`
+

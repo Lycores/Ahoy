@@ -1,0 +1,37 @@
+import styled from "styled-components"
+
+export const RightAreaContainerStyle = styled.div`
+height: 100%;
+overflow: scroll;
+`
+
+export const BackgroundFilterStyle = styled.div`
+    backdrop-filter:blur(5px);
+    background:rgba(255,255,255,0.2);
+    color:white;
+    display: flex; 
+    width: 100%;
+    border-radius: var(--global-border-radius);
+`
+
+export const RightAreaCoverStyle = styled.div`
+height: clamp(200px, 25vw, 300px);
+width: clamp(200px, 25vw, 300px);
+min-width: 200px;
+margin: var(--global-margin);
+margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));
+border-radius: calc(var(--global-border-radius));
+background-size: cover;
+background-image: url(${props => props.backgroundImage});
+`  
+
+export const RightAreaOverviewStyle  = styled.div`
+border-radius: var(--global-border-radius);
+margin: var(--global-margin);
+background-position: -100px;
+background-image: url(${props => props.backgroundImage});
+`
+
+export const DescriptionStyle = styled.div`
+height: 100%;
+`

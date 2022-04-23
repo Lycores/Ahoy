@@ -8,40 +8,14 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 import {searchBarHeight} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 // import '../stylesheets/css/typography.css'
 import styled from "styled-components"
+import {RightAreaContainerStyle, BackgroundFilterStyle, RightAreaCoverStyle, RightAreaOverviewStyle, DescriptionStyle} from './ReusableStyleComponent'
 
-const AlbumOverviewStyle  = styled.div`
-    border-radius: var(--global-border-radius);
-    margin: var(--global-margin);
-    background-position: -100px;
-    background-image: url(${props => props.backgroundImage});
-`
-const BackgroundFilterStyle = styled.div`
-    backdrop-filter:blur(5px);
-    background:rgba(255,255,255,0.2);
-    color:white;
-    display: flex; 
-    width: 100%;
-    border-radius: var(--global-border-radius);
-`
-const AlbumDescriptionStyle = styled.div`
-    height: 100%;
-`
 const AlbumNameStyle = styled.div`
     width:100%;
     margin-top:clamp(130px, 17.5vw, 200px);
     text-align:left; 
     font-size:clamp(30px, 6vw, 80px);
 `
-const CoverStyle = styled.div`
-    height: clamp(200px, 25vw, 300px);
-    width: clamp(200px, 25vw, 300px);
-    min-width: 200px;
-    margin: var(--global-margin);
-    margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));
-    border-radius: calc(var(--global-border-radius));
-    background-size: cover;
-    background-image: url(${props => props.backgroundImage});
-`  
 
 function RightAreaComponentForAlbum(props) {
     var {album} = props
@@ -54,21 +28,19 @@ function RightAreaComponentForAlbum(props) {
     },[album])
          
     return(
-        <div style={{height: '100%', overflow: 'scroll'}}>
-            <AlbumOverviewStyle backgroundImage={albumOverviewBackgroundImageState}>
+        <RightAreaContainerStyle>
+            <RightAreaOverviewStyle backgroundImage={albumOverviewBackgroundImageState}>
                 <BackgroundFilterStyle >
-                <CoverStyle backgroundImage={coverBackgroundImageState}/>
-                    <AlbumDescriptionStyle>
-                        <AlbumNameStyle>
-                            {album.name}
-                        </AlbumNameStyle>
-                    </AlbumDescriptionStyle>
+                <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                <DescriptionStyle>
+                    <AlbumNameStyle>
+                        {album.name}
+                    </AlbumNameStyle>
+                </DescriptionStyle>
                 </BackgroundFilterStyle>
-            </AlbumOverviewStyle>
+            </RightAreaOverviewStyle>
             <TrackListComponent album={album}/>
-        </div>
-        
-        
+        </RightAreaContainerStyle>   
     )
     
 }

@@ -53,3 +53,12 @@ export const ContainerStyle = styled.div`
     cursor: pointer;
 `
 
+export const CardCoverStyle = styled.div`
+    width: 190px;
+    height: 190px;
+    border-radius: var(--global-border-radius);
+    box-shadow: var(--global-box-shadow);
+    background-image: url(${props=>props.imageUrl}); 
+    background-size: 190px;
+`
+

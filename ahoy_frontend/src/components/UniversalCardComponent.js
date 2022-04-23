@@ -3,7 +3,7 @@ import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCa
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'
-import { ContainerStyle } from './ReusableStyleComponent.js'
+import { ContainerStyle, CardCoverStyle} from './ReusableStyleComponent.js'
 const PlaylistNameStyle = styled.div`
     margin-left:7px;
     margin-top:10px;
@@ -50,7 +50,7 @@ function UniversalCardComponent(props) {
         return(
             <div className="col-md-6  col-lg-4 col-xl-3" onClick={goToAlbumPage}>
                 <ContainerStyle>
-                    <div style={{...coverStyle, backgroundImage:`url(${item.images[1].url})`, backgroundSize: coverSize}} />
+                    <CardCoverStyle imageUrl={item.images[1].url}/>
                     <span style={cardTitleStyle}>{item.name}</span>
                     <span style={cardSubtitleStyle}>{item.artists[0].name}</span>
                 </ContainerStyle>

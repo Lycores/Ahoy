@@ -8,7 +8,7 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 import {searchBarHeight} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
 // import '../stylesheets/css/typography.css'
 import styled from "styled-components"
-import {RightAreaContainerStyle, BackgroundFilterStyle, RightAreaCoverStyle, RightAreaOverviewStyle, DescriptionStyle} from './ReusableStyleComponent'
+import {RightAreaContainerStyle, BackgroundFilterStyle, RightAreaCoverStyle, RightAreaOverviewStyle, DescriptionStyle, RightAreaCoverContainerStyle} from './ReusableStyleComponent'
 
 const AlbumNameStyle = styled.div`
     width:100%;
@@ -31,7 +31,11 @@ function RightAreaComponentForAlbum(props) {
         <RightAreaContainerStyle>
             <RightAreaOverviewStyle backgroundImage={albumOverviewBackgroundImageState}>
                 <BackgroundFilterStyle >
-                <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                <RightAreaCoverContainerStyle>
+                    <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                </RightAreaCoverContainerStyle>
+                
+                
                 <DescriptionStyle>
                     <AlbumNameStyle>
                         {album.name}

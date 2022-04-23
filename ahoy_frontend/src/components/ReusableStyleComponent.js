@@ -70,13 +70,25 @@ export const CardContainerStyle = styled.div`
     cursor: pointer;
 `
 
-export const CardCoverStyle = styled.div`
+export const CardCoverStyle = styled.div.attrs(props=>({
+    className: props.class
+}))`
     width: 190px;
     height: 190px;
     border-radius: var(--global-border-radius);
     box-shadow: var(--global-box-shadow);
     background-image: url(${props=>props.imageUrl}); 
     background-size: 190px;
+`
+
+export const TrackEntryComponentStyle = styled.div.attrs(props=>({
+    className: props.class
+}))`
+    margin: var(--global-margin);
+    height: 50px;
+    border-radius: var(--global-border-radius);
+    cursor: pointer;
+    display: flex;
 `
 export const GridSpaceStyle = styled.div.attrs({
     className:"col-md-6  col-lg-4 col-xl-3"

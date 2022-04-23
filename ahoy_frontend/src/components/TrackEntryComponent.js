@@ -1,17 +1,10 @@
 import React, {useEffect} from 'react'
-import {trackEntryComponentStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 import {deviceIdRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet'
 import styled from 'styled-components'
+import {TrackEntryComponentStyle} from './ReusableStyleComponent'
 
-const TrackEntryComponentStyle = styled.div`
-    margin: var(--global-margin);
-    height: 50px;
-    border-radius: var(--global-border-radius);
-    cursor: pointer;
-    display: flex;
-`
 
 const TrackImageStyle = styled.div`
     height:50px; 

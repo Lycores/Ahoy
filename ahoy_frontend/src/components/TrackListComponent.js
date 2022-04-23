@@ -1,6 +1,5 @@
 import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import TrackEntryComponent from './TrackEntryComponent'
-import {styleForTrackContainer} from  '../stylesheets/mainBodyStyle/rightAreaStyle/trackComponentStyleSheet'
 import React, { useEffect, useState } from 'react'
 import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
 import {userProfileRecoil} from '../recoilInfo'
@@ -9,7 +8,7 @@ import PlaceholderCardComponent from './PlaceholderCardComponent'
 import PlaceholderTrackEntryComponent from './PlaceholderTrackEntryComponent'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
 import styled from 'styled-components'
-import {RightAreaContainerStyle} from './ReusableStyleComponent'
+import {GridStyle, RightAreaContainerStyle} from './ReusableStyleComponent'
 
 const StyleForTrackContainer = styled.div`
     box-shadow: var(--global-box-shadow);
@@ -22,8 +21,6 @@ const CommonContainer = styled.div`
     border-radius: var(--global-border-radius); 
     box-shadow: var(--global-box-shadow);
 `
-
-
 function TrackListComponent(props){
     var {album, artistTopTrack, artistAlbums} = props
     var renderQueue = []
@@ -50,8 +47,7 @@ function TrackListComponent(props){
         }
         
     }
-    const userProfileState = useRecoilValue(userProfileRecoil)
-    
+    const userProfileState = useRecoilValue(userProfileRecoil) 
     useEffect(()=>{
         if(album){
             let tracks = null
@@ -66,8 +62,7 @@ function TrackListComponent(props){
                     setTracksState(json.tracks.items)
                 })
             }
-        }
-        
+        }    
     },[])
     
     if(album){
@@ -91,23 +86,20 @@ function TrackListComponent(props){
                 renderQueue.push(
                     <PlaceholderTrackEntryComponent/>
                 )  
-            }
-                 
+            }        
         }
-
         if(artistAlbums){
             renderQueue.push(
-                <div style={{margin: globalStyle.margin, borderRadius: globalStyle.borderRadius, boxShadow:globalStyle.boxShadow}}>
+                <CommonContainer>
                     <RightAreaComponentForCardPresent itemList={artistAlbums.items} type="album" key="artistAlbumsTrue"/>
-                </div>
+                </CommonContainer>
             
             )
         }else{
-            
                 renderQueue.push(
                     <CommonContainer>
                          <RightAreaContainerStyle>
-                            <div className="row justify-content-start">
+                            <GridStyle>
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
@@ -115,11 +107,10 @@ function TrackListComponent(props){
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
                                 <PlaceholderCardComponent/>
-                            </div> 
+                            </GridStyle> 
                         </RightAreaContainerStyle>
                     </CommonContainer>
                 )
-            
         }
     }
     return renderQueue   

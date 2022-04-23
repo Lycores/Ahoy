@@ -76,3 +76,7 @@ export const TrackEntryComponentStyle = styled.div.attrs(props=>({
 export const GridSpaceStyle = styled.div.attrs({
     className:"col-md-6  col-lg-4 col-xl-3"
 })``
+
+export const GridStyle = styled.div.attrs({
+    className: "row justify-content-start"
+})``

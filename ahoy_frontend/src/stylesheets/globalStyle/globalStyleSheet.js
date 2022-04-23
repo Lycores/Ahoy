@@ -16,7 +16,9 @@ export const globalStyle = {
     globalBackgroundColor: "#e1e7ef",
     spotifyColor: "1bd760",
     mobileMax: 600,
-    desktopOrTabletMin: 601
+    desktopOrTabletMin: 601,
+    searchBarHeight: 50,
+    searchBarWidth: 150
 }
 
 export default globalStyle

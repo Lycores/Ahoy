@@ -3,6 +3,9 @@ import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, cove
 import TrackListComponent from "./TrackListComponent"
 import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
+
+
+
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
     const userProfileState = useRecoilValue(userProfileRecoil)

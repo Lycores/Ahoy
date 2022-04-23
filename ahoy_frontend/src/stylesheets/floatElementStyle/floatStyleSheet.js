@@ -47,8 +47,8 @@ export const tabToExpandNavBarStyle = {
     opacity:0.9
 }
 
-const searchBarHeight = 50
-const searchBarWidth = 150
+export const searchBarHeight = 50
+export const searchBarWidth = 150
 export const searchBarMaxWidth = 400
 const searchBarToTop = searchBarToParentContainer + globalStyle.margin
 const searchBarToLeftForDesktopOrTablet = globalStyle.playlistAreaWidth + 2*globalStyle.margin + searchBarToParentContainer
@@ -58,7 +58,7 @@ export const searchBarStyleForDesktopOrTablet = {
     top:searchBarToTop, 
     left:searchBarToLeftForDesktopOrTablet, 
     width: searchBarWidth,
-    height: searchBarHeight,
+    height: `${searchBarHeight}px`,
     borderRadius: '50px 50px 50px 50px',
     cursor: 'pointer',
     transitionDuration: '500ms',

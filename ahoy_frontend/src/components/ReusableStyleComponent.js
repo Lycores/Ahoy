@@ -13,6 +13,9 @@ export const BackgroundFilterStyle = styled.div`
     width: 100%;
     border-radius: var(--global-border-radius);
 `
+// export const RightAreaCoverContainerStyle = styled.div`
+//     width: clamp(200px, 25vw, 300px);
+// `
 
 export const RightAreaCoverStyle = styled.div`
 height: clamp(200px, 25vw, 300px);

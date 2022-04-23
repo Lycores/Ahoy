@@ -3,7 +3,15 @@ import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, cove
 import TrackListComponent from "./TrackListComponent"
 import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
+import styled from "styled-components"
+import {RightAreaContainerStyle, RightAreaOverviewStyle, BackgroundFilterStyle, RightAreaCoverStyle, DescriptionStyle} from './ReusableStyleComponent'
 
+const ArtistNameStyle = styled.div`
+    width:100%;
+    margin-top:clamp(130px, 17.5vw, 200px);
+    text-align:left; 
+    font-size:clamp(30px, 6vw, 80px);
+`
 
 
 function RightAreaComponentForArtistDetail(props){
@@ -30,38 +38,43 @@ function RightAreaComponentForArtistDetail(props){
     }
 
     useEffect(()=>{
-        setCoverStyleState({
-            ...coverStyleState,
-            backgroundImage: `url(${artist.images[1].url})`,
-        })
-        setArtistOverviewStyleState({
-            ...artistOverviewStyleState,
-            backgroundImage: `url(${artist.images[0].url})`,
-            backgroundSize: 'cover'
-        })
-
+        // setCoverStyleState({
+        //     ...coverStyleState,
+        //     backgroundImage: `url(${artist.images[1].url})`,
+        // })
+        setCoverBackgroundImageState(artist.images[1].url)
+        // setArtistOverviewStyleState({
+        //     ...artistOverviewStyleState,
+        //     backgroundImage: `url(${artist.images[0].url})`,
+        //     backgroundSize: 'cover'
+        // })
+        setArtistOverviewBackgroundImageState(artist.images[0].url)
         getArtistTopTrack()
         getArtistAlbums()
     },[artist, userProfileState])
 
     var [artistTopTrackState, setArtistTopTrackState] = useState(null)
     var [artistAlbumsState, setArtistAlbumsState] = useState(null)
-    var [artistOverviewStyleState, setArtistOverviewStyleState] = useState(artistOverviewStyle)
-    var [coverStyleState, setCoverStyleState] = useState(coverStyle)
+    // var [artistOverviewStyleState, setArtistOverviewStyleState] = useState(artistOverviewStyle)
+    // var [coverStyleState, setCoverStyleState] = useState(coverStyle)
+    var [coverBackgroundImageState, setCoverBackgroundImageState] = useState('')
+    var [artistOverviewBackgroundImageState, setArtistOverviewBackgroundImageState] = useState('')
+
 
     return (
-        <div style={{height: '100%', overflow: 'scroll' }}>
-            <div style={artistOverviewStyleState}>
-                <div style={backgroundFilterStyle}>
-                    <div style={coverStyleState}/>
-                    <div style={artistDescriptionStyle}>
-                        <div style={{ width:'100%', marginTop:'clamp(70px, 10vw, 130px)', textAlign:'left', fontSize:'clamp(30px, 6vw, 80px)'}}>{artist.name}</div>
-                    </div>
-                    
-                </div>
-            </div>
+        <RightAreaContainerStyle>
+            <RightAreaOverviewStyle backgroundImage={artistOverviewBackgroundImageState}>
+                <BackgroundFilterStyle>
+                    <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                    <DescriptionStyle>
+                        <ArtistNameStyle>
+                            {artist.name}
+                        </ArtistNameStyle>
+                    </DescriptionStyle>
+                </BackgroundFilterStyle>
+            </RightAreaOverviewStyle>
             <TrackListComponent artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>
-        </div>
+        </RightAreaContainerStyle>
     )
 }
 

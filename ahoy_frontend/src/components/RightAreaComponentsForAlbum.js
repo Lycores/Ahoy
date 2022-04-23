@@ -11,9 +11,6 @@ import {DesktopOrTablet, Mobile} from '../MediaQuery'
 function RightAreaComponentForAlbum(props) {
     
     var {album} = props
-    // var {tracks, trackCover, setTrack} = props
-    
-    let heightOfTracks = `calc(100% - ${albumOverviewStyle.height}px) `
 
     var [coverStyleState, setCoverStyleState] = useState(coverStyle)
     var [albumOverviewStyleState, setAlbumOverviewStyleStyleState] = useState(albumOverviewStyle)

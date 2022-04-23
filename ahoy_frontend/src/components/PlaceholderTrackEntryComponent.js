@@ -1,8 +1,13 @@
 import React from 'react'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'
 import styled from 'styled-components'
+import {TrackEntryComponentStyle} from './ReusableStyleComponent'
 
-const TrackEntryComponentStyle = styled.div.attrs({
+const PlaceholderRow = styled.div.attrs({
+    className: "ph-row"
+})``
+
+const PlaceholderTrackEntryComponentStyle = styled.div.attrs({
     className: "ph-item"
 })`
     margin: var(--global-margin);
@@ -12,17 +17,12 @@ const TrackEntryComponentStyle = styled.div.attrs({
     display: flex;
 `
 
-const PlaceholderRow = styled.div.attrs({
-    className: "ph-row"
-})``
-
-
 function PlaceholderTrackEntryComponent(){
 
     return (
-        <TrackEntryComponentStyle>
+        <PlaceholderTrackEntryComponentStyle class="ph-item">
             <PlaceholderRow/>
-        </TrackEntryComponentStyle>
+        </PlaceholderTrackEntryComponentStyle>
     )
 }
 

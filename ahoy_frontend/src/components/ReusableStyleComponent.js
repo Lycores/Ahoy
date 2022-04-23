@@ -40,3 +40,4 @@ background-position: 0px, -100px;
 export const DescriptionStyle = styled.div`
 height: 100%;
 `
+

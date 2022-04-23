@@ -13,16 +13,16 @@ export const BackgroundFilterStyle = styled.div`
     width: 100%;
     border-radius: var(--global-border-radius);
 `
-// export const RightAreaCoverContainerStyle = styled.div`
-//     width: clamp(200px, 25vw, 300px);
-// `
+export const RightAreaCoverContainerStyle = styled.div`
+    width: clamp(200px, 25vw, 300px);
+    min-width: 200px;
+    margin: var(--global-margin);
+    margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));  
+`
 
 export const RightAreaCoverStyle = styled.div`
-height: clamp(200px, 25vw, 300px);
-width: clamp(200px, 25vw, 300px);
-min-width: 200px;
-margin: var(--global-margin);
-margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));
+padding-bottom: 100%;
+width: 100%;
 border-radius: calc(var(--global-border-radius));
 background-size: cover;
 background-image: url(${props => props.backgroundImage});
@@ -31,8 +31,10 @@ background-image: url(${props => props.backgroundImage});
 export const RightAreaOverviewStyle  = styled.div`
 border-radius: var(--global-border-radius);
 margin: var(--global-margin);
-background-position: -100px;
 background-image: url(${props => props.backgroundImage});
+background-repeat: no-repeat;
+background-size: cover;
+background-position: 0px, -100px;
 `
 
 export const DescriptionStyle = styled.div`

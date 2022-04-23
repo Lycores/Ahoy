@@ -4,11 +4,11 @@ import TrackListComponent from "./TrackListComponent"
 import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
 import styled from "styled-components"
-import {RightAreaContainerStyle, RightAreaOverviewStyle, BackgroundFilterStyle, RightAreaCoverStyle, DescriptionStyle} from './ReusableStyleComponent'
+import {RightAreaContainerStyle, RightAreaOverviewStyle, BackgroundFilterStyle, RightAreaCoverStyle, DescriptionStyle, RightAreaCoverContainerStyle} from './ReusableStyleComponent'
 
 const ArtistNameStyle = styled.div`
     width:100%;
-    margin-top:clamp(130px, 17.5vw, 200px);
+    margin-top:clamp(100px, 12.5vw, 150px);
     text-align:left; 
     font-size:clamp(30px, 6vw, 80px);
 `
@@ -65,7 +65,10 @@ function RightAreaComponentForArtistDetail(props){
         <RightAreaContainerStyle>
             <RightAreaOverviewStyle backgroundImage={artistOverviewBackgroundImageState}>
                 <BackgroundFilterStyle>
-                    <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                    <RightAreaCoverContainerStyle>
+                        <RightAreaCoverStyle backgroundImage={coverBackgroundImageState}/>
+                    </RightAreaCoverContainerStyle>
+                    
                     <DescriptionStyle>
                         <ArtistNameStyle>
                             {artist.name}

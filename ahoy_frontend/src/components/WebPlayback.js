@@ -41,13 +41,17 @@ const PlayerStyleForMobile = styled.div`
 
 `
 
-const MusicPlayerCoverStyleForDesktopOrTablet = styled.div`
+const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props)=>({
+    className: props.class
+}))`
     height: 230px;
     width: 230px;
     box-shadow: var(--global-box-shadow);
     border-radius: var(--global-border-radius);
     background-image: url(${props=>props.imageUrl});
     background-size: cover;
+    padding: 0px;
+    margin-bottom: 0px;
 `
 
 const PlaybackBarStyle = styled.div`
@@ -61,6 +65,38 @@ const PlaybackBarStyle = styled.div`
 
 const FlexStyle = styled.div`
     display: 'flex';
+`
+
+const PlaybackButtonStyle = styled.div`
+    height: 40px;
+    width: 40px;
+    background-size: 90%;
+    box-shadow: var(--global-box-shadow);
+`
+
+const MusicCoverStyleForMobile = styled.div`
+    height: 80px;
+    width: 80px;
+    margin: var(--global-margin);
+    background-image: url(${props=>props.imageUrl});
+    background-size: cover;
+    border-radius: var(--global-border-radius);
+`
+
+const BackStyle = styled(PlaybackButtonStyle)`
+    background-image: url(${props=>props.imageUrl});
+`
+
+const StartStyle = styled(PlaybackButtonStyle)`
+    background-image: url(${props=>props.imageUrl});
+`
+
+const NextStyle = styled(PlaybackButtonStyle)`
+    background-image: url(${props=>props.imageUrl});
+`
+
+const PauseStyle = styled(PlaybackButtonStyle)`
+    background-image: url(${props=>props.imageUrl});
 `
 
 function WebPlayback(props) {
@@ -139,21 +175,19 @@ function WebPlayback(props) {
                         <PlayerStyleForDesktopOrTablet>
                             <MusicPlayerCoverStyleForDesktopOrTablet imageUrl={recentlyPlayedState.album.images[0].url}/>
                             <PlaybackBarStyle >
-                                <div style={backStyle} />
-                                <div style={startStyle} onClick={recentlyPlayedStart} />
-                                <div style={nextStyle} />
+                                <BackStyle/>
+                                <StartStyle onClick={recentlyPlayedStart} />
+                                <NextStyle />
                             </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
                             <FlexStyle>
-                                <div style={musicCoverStyleForMobile} >
-                                    <img src={recentlyPlayedState.album.images[0].url} style={{width: '100%', borderRadius: '10px', height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
-                                </div>
-                                <div style={backStyleForMobile} />
-                                <div style={startStyleForMobile} onClick={recentlyPlayedStart}/>
-                                <div style={nextStyleForMobile} />
+                                <MusicCoverStyleForMobile imageUrl={recentlyPlayedState.album.images[0].url}/>
+                                <BackStyle/>
+                                <StartStyle onClick={recentlyPlayedStart} />
+                                <NextStyle />
                             </FlexStyle>
                         </PlayerStyleForMobile>
                     </Mobile>
@@ -164,18 +198,17 @@ function WebPlayback(props) {
             return (
                 <>
                     <DesktopOrTablet>
-                        <div style={playerStyleForDesktopOrTablet}>
-                            <div style={{...musicCoverStyle, padding:'0px', marginBottom: '0px'}} className="ph-item">
-                            </div>
+                        <PlayerStyleForDesktopOrTablet>
+                            <MusicPlayerCoverStyleForDesktopOrTablet class="ph-item"/>
                             <div style={playbackBarStyle} >
                                 <div style={backStyle} />
                                 <div style={startStyle} />
                                 <div style={nextStyle} />
                             </div>
-                        </div>
+                        </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
-                        <div style={playerStyleForMobile}>
+                        <PlayerStyleForMobile>
                             <FlexStyle>
                                 <div style={{...musicCoverStyleForMobile, padding:'0px', marginBottom: '0px'}} className="ph-item">
                                 </div>
@@ -183,7 +216,7 @@ function WebPlayback(props) {
                                 <div style={startStyleForMobile} />
                                 <div style={nextStyleForMobile} />
                             </FlexStyle>
-                        </div>
+                        </PlayerStyleForMobile>
                     </Mobile>
                     
                 </>

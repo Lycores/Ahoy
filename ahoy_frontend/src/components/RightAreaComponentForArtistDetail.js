@@ -1,5 +1,4 @@
 import React,{ useEffect, useState} from "react"
-import {artistOverviewStyle, backgroundFilterStyle, artistDescriptionStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/artistOverviewStyleSheet'
 import TrackListComponent from "./TrackListComponent"
 import {userProfileRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'

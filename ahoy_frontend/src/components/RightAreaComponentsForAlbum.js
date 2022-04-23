@@ -1,12 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-grid.css';
-import TrackEntryComponent from './TrackEntryComponent'
-import {albumOverviewStyle, coverStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/albumOverviewStyle'
-import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import React,{useState, useEffect, useRef} from 'react'
 import TrackListComponent from './TrackListComponent'
-import {DesktopOrTablet, Mobile} from '../MediaQuery'
-import {searchBarHeight} from '../stylesheets/floatElementStyle/floatStyleSheet.js'
-// import '../stylesheets/css/typography.css'
 import styled from "styled-components"
 import {RightAreaContainerStyle, BackgroundFilterStyle, RightAreaCoverStyle, RightAreaOverviewStyle, DescriptionStyle, RightAreaCoverContainerStyle} from './ReusableStyleComponent'
 

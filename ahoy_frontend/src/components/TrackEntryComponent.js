@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {deviceIdRecoil} from '../recoilInfo'
 import {useRecoilValue} from 'recoil'
-import globalStyle from '../stylesheets/globalStyle/globalStyleSheet'
 import styled from 'styled-components'
 import {TrackEntryComponentStyle} from './ReusableStyleComponent'
 

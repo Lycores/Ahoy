@@ -20,23 +20,6 @@ export const RightAreaCoverContainerStyle = styled.div`
     margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));  
 `
 
-export const AlbumNameStyle = styled.div`
-    display: block;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-    font-size:x-large;
-    margin-left:7px;
-    margin-top:10px;
-`
-
-export const ArtistsNameStyle = styled.div`
-    overflow:hidden;
-    text-overflow:ellipsis;
-    font-size:x-large;
-    margin-left:7px;
-    margin-top:10px;
-`
 export const RightAreaCoverStyle = styled.div`
 padding-bottom: 100%;
 width: 100%;

@@ -28,6 +28,7 @@
     "react-scripts": "5.0.0",
     "recoil": "^0.7.1",
     "rfs": "^9.0.6",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

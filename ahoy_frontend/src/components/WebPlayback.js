@@ -5,7 +5,11 @@ import {playbackBarStyle, musicCoverStyle, musicCoverStyleForMobile}  from '../s
 import {useRecoilState} from 'recoil'
 import {deviceIdRecoil, recentlyPlayedRecoil} from '../recoilInfo'
 import { DesktopOrTablet, Mobile } from '../MediaQuery';
-import styled from 'styled-components'
+import styled from "styled-components"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPause, faPlay, faBackwardStep, faForwardStep} from '@fortawesome/free-solid-svg-icons'
+
+
 const track = {
     name: "",
     album: {
@@ -41,7 +45,7 @@ const PlayerStyleForMobile = styled.div`
 
 `
 
-const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props)=>({
+const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs(props=>({
     className: props.class
 }))`
     height: 230px;
@@ -67,13 +71,6 @@ const FlexStyle = styled.div`
     display: 'flex';
 `
 
-const PlaybackButtonStyle = styled.div`
-    height: 40px;
-    width: 40px;
-    background-size: 90%;
-    box-shadow: var(--global-box-shadow);
-`
-
 const MusicCoverStyleForMobile = styled.div`
     height: 80px;
     width: 80px;
@@ -81,22 +78,16 @@ const MusicCoverStyleForMobile = styled.div`
     background-image: url(${props=>props.imageUrl});
     background-size: cover;
     border-radius: var(--global-border-radius);
+    padding: 0px;
+    margin-bottom: 0px;
 `
 
-const BackStyle = styled(PlaybackButtonStyle)`
-    background-image: url(${props=>props.imageUrl});
-`
-
-const StartStyle = styled(PlaybackButtonStyle)`
-    background-image: url(${props=>props.imageUrl});
-`
-
-const NextStyle = styled(PlaybackButtonStyle)`
-    background-image: url(${props=>props.imageUrl});
-`
-
-const PauseStyle = styled(PlaybackButtonStyle)`
-    background-image: url(${props=>props.imageUrl});
+const BackStyle = styled.div`
+    height: 60px;
+    width: 60px;
+    box-shadow: var(--global-box-shadow);
+    background-image: url('/Users/rcmao/Desktop/ahoy/Ahoy/ahoy_frontend/src/assets/pause.png');
+    background-size: contain;
 `
 
 function WebPlayback(props) {
@@ -175,9 +166,9 @@ function WebPlayback(props) {
                         <PlayerStyleForDesktopOrTablet>
                             <MusicPlayerCoverStyleForDesktopOrTablet imageUrl={recentlyPlayedState.album.images[0].url}/>
                             <PlaybackBarStyle >
-                                <BackStyle/>
-                                <StartStyle onClick={recentlyPlayedStart} />
-                                <NextStyle />
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={recentlyPlayedStart} />
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg" />
                             </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
@@ -185,9 +176,9 @@ function WebPlayback(props) {
                         <PlayerStyleForMobile>
                             <FlexStyle>
                                 <MusicCoverStyleForMobile imageUrl={recentlyPlayedState.album.images[0].url}/>
-                                <BackStyle/>
-                                <StartStyle onClick={recentlyPlayedStart} />
-                                <NextStyle />
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={recentlyPlayedStart} />
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
                             </FlexStyle>
                         </PlayerStyleForMobile>
                     </Mobile>
@@ -200,21 +191,20 @@ function WebPlayback(props) {
                     <DesktopOrTablet>
                         <PlayerStyleForDesktopOrTablet>
                             <MusicPlayerCoverStyleForDesktopOrTablet class="ph-item"/>
-                            <div style={playbackBarStyle} >
-                                <div style={backStyle} />
-                                <div style={startStyle} />
-                                <div style={nextStyle} />
-                            </div>
+                            <PlaybackBarStyle>
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
+                            </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
                             <FlexStyle>
-                                <div style={{...musicCoverStyleForMobile, padding:'0px', marginBottom: '0px'}} className="ph-item">
-                                </div>
-                                <div style={backStyleForMobile} />
-                                <div style={startStyleForMobile} />
-                                <div style={nextStyleForMobile} />
+                                <MusicCoverStyleForMobile class="ph-item"/>
+                                    <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
+                                    <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
+                                    <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
                             </FlexStyle>
                         </PlayerStyleForMobile>
                     </Mobile>
@@ -226,34 +216,30 @@ function WebPlayback(props) {
         return (
             <>  
                 <DesktopOrTablet>
-                    <div style={playerStyleForDesktopOrTablet}>
-                        <div style={musicCoverStyle}>
-                            <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyle.height, width: musicCoverStyle.width, objectFit: 'cover'}}/>
-                        </div>
-                        <div style={playbackBarStyle}>
-                            <div style={backStyle} onClick={() => {player.previousTrack()}}/>
+                    <PlayerStyleForDesktopOrTablet>
+                        <MusicPlayerCoverStyleForDesktopOrTablet imageUrl={current_track.album.images[0].url}/>
+                        <PlaybackBarStyle>
+                            <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg" onClick={() => {player.previousTrack()}}/>
                             {
-                                is_paused?<div style={startStyle} onClick={() => {player.togglePlay()}}/>
-                                :<div style={pauseStyle} onClick={() => {player.togglePlay()}}/>
+                                is_paused?<FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
+                                :<FontAwesomeIcon icon={faPause} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
                             }
-                            <div style={nextStyle} onClick={() => {player.nextTrack()}}/>
-                        </div>
-                    </div>
+                            <FontAwesomeIcon icon={faForwardStep}color="#1bd760" size="lg" onClick={() => {player.nextTrack()}}/>
+                        </PlaybackBarStyle>
+                    </PlayerStyleForDesktopOrTablet>
                 </DesktopOrTablet>
                 <Mobile>
-                    <div style={playerStyleForMobile}>
-                        <div style={{display: 'flex'}}>
-                            <div style={musicCoverStyleForMobile} >
-                                <img src={current_track.album.images[0].url} style={{width: '100%', borderRadius: globalStyle.borderRadius, height: musicCoverStyleForMobile.height, width: musicCoverStyleForMobile.width, objectFit: 'cover'}}/>
-                            </div>
-                            <div style={backStyleForMobile} onClick={() => {player.previousTrack()}}/>
+                    <PlayerStyleForMobile>
+                        <FlexStyle>
+                            <MusicCoverStyleForMobile imageUrl={current_track.album.images[0].url}/>
+                            <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg" onClick={() => {player.previousTrack()}}/>
                             {
-                                is_paused?<div style={startStyleForMobile} onClick={() => {player.togglePlay()}}/>
-                                :<div style={pauseStyleForMobile} onClick={() => {player.togglePlay()}}/>
+                                is_paused?<FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
+                                :<FontAwesomeIcon icon={faPause} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
                             }
-                            <div style={nextStyleForMobile} onClick={() => {player.nextTrack()}}/>
-                        </div>
-                    </div>
+                            <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg" onClick={() => {player.nextTrack()}}/>
+                        </FlexStyle>
+                    </PlayerStyleForMobile>
                 </Mobile>
                 
             </>

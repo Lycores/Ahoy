@@ -246,14 +246,21 @@ function WebPlayback(props) {
                     <PlayerStyleForMobile>
                        
                             <MusicCoverStyleForMobile imageUrl={current_track.album.images[0].url}/>
-                            <VerticallyCentredStyle>
-                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="3x" onClick={() => {player.previousTrack()}}/>
+                            <VerticallyCentredStyleForOthers>
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="2x" onClick={() => {player.previousTrack()}}/>
+                            </VerticallyCentredStyleForOthers>
+
+                            <VerticallyCentredStyleForPlayAndPause>
                                 {
                                     is_paused?<FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="3x" onClick={() => {player.togglePlay()}}/>
                                     :<FontAwesomeIcon icon={faCirclePause} color="#1bd760" size="3x" onClick={() => {player.togglePlay()}}/>
                                 }
-                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="3x" onClick={() => {player.nextTrack()}}/>
-                            </VerticallyCentredStyle>
+                            </VerticallyCentredStyleForPlayAndPause>
+                            <VerticallyCentredStyleForOthers>
+                            <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="2x" onClick={() => {player.nextTrack()}}/>
+                            </VerticallyCentredStyleForOthers>
+                                
+                    
                     </PlayerStyleForMobile>
                 </Mobile>
                 

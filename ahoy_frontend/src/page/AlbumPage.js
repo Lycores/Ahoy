@@ -5,7 +5,7 @@ import RightAreaComponentForCardpresent from '../components/RightAreaComponentFo
 import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbum'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
-
+import RightAreaComponent from '../components/RightAreaComponent';
 function AlbumPage(props) {
     var {token} = props
     var albumList = []
@@ -41,13 +41,13 @@ function AlbumPage(props) {
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponentForAlbum album={album}/>}
+            <RightAreaComponent album={album}/>}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponentForAlbum album={album}/>}
+            <RightAreaComponent album={album}/>}
         </RightAreaStyleForMobile>
       </Mobile>
     </>

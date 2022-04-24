@@ -5,7 +5,7 @@ import RightAreaComponentForCardPresent from '../components/RightAreaComponentFo
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
-
+import RightAreaComponent from '../components/RightAreaComponent';
 function ArtistsPage(props) {
     var {token} = props
 
@@ -38,13 +38,13 @@ function ArtistsPage(props) {
     <DesktopOrTablet>
       <RightAreaStyleForDesktopOrTablet >
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
-        <RightAreaComponentForArtistDetail artist={artist}/>}
+        <RightAreaComponent artist={artist}/>}
       </RightAreaStyleForDesktopOrTablet>
     </DesktopOrTablet>
     <Mobile>
     <RightAreaStyleForMobile>
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
-        <RightAreaComponentForArtistDetail artist={artist}/>}
+        <RightAreaComponent artist={artist}/>}
       </RightAreaStyleForMobile>
     </Mobile>
   </>

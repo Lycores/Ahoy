@@ -1,10 +1,10 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
-import {rightAreaStyleForDesktopOrTablet, rightAreaStyleForMobile} from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbum'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
+import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 
 function AlbumPage(props) {
     var {token} = props
@@ -39,16 +39,16 @@ function AlbumPage(props) {
   return (
     <>
       <DesktopOrTablet>
-        <div style={rightAreaStyleForDesktopOrTablet} >
+        <RightAreaStyleForDesktopOrTablet>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
             <RightAreaComponentForAlbum album={album}/>}
-        </div>
+        </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
-        <div style={rightAreaStyleForMobile} >
+        <RightAreaStyleForMobile>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
             <RightAreaComponentForAlbum album={album}/>}
-        </div>
+        </RightAreaStyleForMobile>
       </Mobile>
     </>
       

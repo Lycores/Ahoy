@@ -81,3 +81,23 @@ export const GridSpaceStyle = styled.div.attrs({
 export const GridStyle = styled.div.attrs({
     className: "row justify-content-start"
 })``
+
+export const RightAreaStyleForDesktopOrTablet = styled.div`
+    margin: var(--global-margin);
+    margin-left: 0px;
+    height: 100%;
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-radius);
+    flex-grow: 1;
+`  
+export const RightAreaStyleForMobile = styled.div`
+    margin: var(--global-margin);
+    height: 100%;
+    box-shadow: var(--global-box-shadow);
+    border-radius: var(--global-border-radius);
+    flex-grow: 1;
+
+`
+    
+
+    

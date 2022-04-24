@@ -1,10 +1,10 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
-import {rightAreaStyleForDesktopOrTablet,  rightAreaStyleForMobile } from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
+import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 
 function ArtistsPage(props) {
     var {token} = props
@@ -36,16 +36,16 @@ function ArtistsPage(props) {
   return (
     <>
     <DesktopOrTablet>
-      <div style={rightAreaStyleForDesktopOrTablet} >
+      <RightAreaStyleForDesktopOrTablet >
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
         <RightAreaComponentForArtistDetail artist={artist}/>}
-      </div>
+      </RightAreaStyleForDesktopOrTablet>
     </DesktopOrTablet>
     <Mobile>
-    <div style={rightAreaStyleForMobile} >
+    <RightAreaStyleForMobile>
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
         <RightAreaComponentForArtistDetail artist={artist}/>}
-      </div>
+      </RightAreaStyleForMobile>
     </Mobile>
   </>
   );

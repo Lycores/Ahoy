@@ -1,9 +1,9 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
-import {rightAreaStyleForDesktopOrTablet, rightAreaStyleForMobile} from '../stylesheets/mainBodyStyle/rightAreaStyle/rightAreaStyleSheet'
 import {useLocation} from 'react-router-dom'
 import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
+import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 
 function PlaylistPage(props) {
     var {token} = props
@@ -35,16 +35,16 @@ function PlaylistPage(props) {
   return (
     <>
       <DesktopOrTablet>
-        <div style={rightAreaStyleForDesktopOrTablet} >
+        <RightAreaStyleForDesktopOrTablet >
           {(!playlist) ? <RightAreaComponentForCardpresent itemList={playlistListState} type="playlist"/> :
             <></>}
-        </div>
+        </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
-        <div style={rightAreaStyleForMobile} >
+        <RightAreaStyleForMobile>
           {(!playlist) ? <RightAreaComponentForCardpresent itemList={playlistListState} type="playlist"/> :
             <></>}
-        </div>
+        </RightAreaStyleForMobile>
       </Mobile>
     </>
       

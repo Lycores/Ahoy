@@ -10,7 +10,7 @@ const PlaceholderRow = styled.div.attrs({
 function PlaceholderTrackEntryComponent(){
 
     return (
-        <TrackEntryComponentStyle class="ph-item">
+        <TrackEntryComponentStyle skeleton="ph-item">
             <PlaceholderRow/>
         </TrackEntryComponentStyle>
     )

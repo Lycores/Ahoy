@@ -66,7 +66,7 @@ export const CardCoverStyle = styled.div.attrs(props=>({
 `
 
 export const TrackEntryComponentStyle = styled.div.attrs(props=>({
-    className: props.class
+    className: props.skeleton
 }))`
     margin: var(--global-margin);
     height: 50px;

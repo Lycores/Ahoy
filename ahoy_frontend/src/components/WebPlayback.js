@@ -65,7 +65,9 @@ const PlaybackBarStyle = styled.div`
     justify-content: space-around;
 `
 
-const MusicCoverStyleForMobile = styled.div`
+const MusicCoverStyleForMobile = styled.div.attrs(props=>({
+    className: props.skeleton
+}))`
     height: 80px;
     width: 80px;
     min-width:80px;
@@ -210,7 +212,7 @@ function WebPlayback(props) {
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
-                            <MusicCoverStyleForMobile class="ph-item"/>
+                            <MusicCoverStyleForMobile skeleton="ph-item"/>
                             <VerticallyCentredStyleForOthers>
                                 <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="2x"/>
                             </VerticallyCentredStyleForOthers>

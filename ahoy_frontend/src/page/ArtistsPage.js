@@ -13,8 +13,11 @@ function ArtistsPage(props) {
     var artist = null
     var {state} = useLocation()
     if(state){
-      var artist = state.artist
+      var artist = state.artist 
     }
+    console.log("state is", state)
+    console.log("artist is", artist)
+    console.log("token is", token)
 
     const getFollowedArtists = () => {
       fetch('artists/getFollowedArtists')
@@ -25,8 +28,6 @@ function ArtistsPage(props) {
         setArtistsListState(json.artists.items)
       })
     }
-
-
     var [artistsListState, setArtistsListState] = useState(artistsList)
     useEffect(() => { 
       if(!artist){

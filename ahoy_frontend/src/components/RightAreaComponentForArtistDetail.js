@@ -15,7 +15,7 @@ const ArtistNameStyle = styled.div`
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
     const userProfileState = useRecoilValue(userProfileRecoil)
-
+    console.log('userProfileState', userProfileState)
     const getArtistTopTrack = () => {
         fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`)
         .then((response)=>{

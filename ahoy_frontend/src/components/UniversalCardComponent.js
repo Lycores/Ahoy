@@ -46,7 +46,6 @@ const ArtistFromAlbumStyle = styled.span`
 function UniversalCardComponent(props) {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
-    console.log(item)
     const navigate = useNavigate()
     
     const goToAlbumPage = () => {   

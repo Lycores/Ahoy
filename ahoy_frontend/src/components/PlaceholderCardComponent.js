@@ -5,7 +5,7 @@ function PlaceholderCardComponent() {
     return(
         <GridSpaceStyle>
             <CardContainerStyle>
-                <CardCoverStyle class="ph-item"/>
+                <CardCoverStyle skeleton="ph-item"/>
             </CardContainerStyle>
         </GridSpaceStyle>
     )  

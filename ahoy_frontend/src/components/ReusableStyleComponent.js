@@ -55,7 +55,7 @@ export const CardContainerStyle = styled.div`
 `
 
 export const CardCoverStyle = styled.div.attrs(props=>({
-    className: props.class
+    className: props.skeleton
 }))`
     width: 190px;
     height: 190px;

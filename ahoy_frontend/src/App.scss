@@ -87,53 +87,53 @@ body{
   overflow:hidden
 } 
 
-#umbrella{
-  background-image: url("./assets/umbrella.png");
-  background-size: 80%;
-  @include itemCardReusable;
-}
+// #umbrella{
+//   background-image: url("./assets/umbrella.png");
+//   background-size: 80%;
+//   @include itemCardReusable;
+// }
 
-#mask{
-  background-image: url("./assets/mask.png");
-  background-size: 80%;
-  @include itemCardReusable;
-}
+// #mask{
+//   background-image: url("./assets/mask.png");
+//   background-size: 80%;
+//   @include itemCardReusable;
+// }
 
-#downCoat{
-  background-image: url("./assets/downCoat.png");
-  background-size: 120%;
-  @include itemCardReusable;
-}
+// #downCoat{
+//   background-image: url("./assets/downCoat.png");
+//   background-size: 120%;
+//   @include itemCardReusable;
+// }
 
-#sweater{
-  background-image: url("./assets/sweater.png");
-  background-size: 110%;
-  @include itemCardReusable;
-}
+// #sweater{
+//   background-image: url("./assets/sweater.png");
+//   background-size: 110%;
+//   @include itemCardReusable;
+// }
 
-#rainShoes {
-  background-image: url("./assets/rainShoes.png");
-  background-size: 80%;
-  @include itemCardReusable;
-}
+// #rainShoes {
+//   background-image: url("./assets/rainShoes.png");
+//   background-size: 80%;
+//   @include itemCardReusable;
+// }
 
-#cold{
-  background-image: url("./assets/cold.png");
-  background-size: 80%;
-  @include itemCardReusable;
-}
+// #cold{
+//   background-image: url("./assets/cold.png");
+//   background-size: 80%;
+//   @include itemCardReusable;
+// }
 
-#hot{
-  background-image: url("./assets/hot.png");
-  background-size: 80%;
-  @include itemCardReusable;
-}
+// #hot{
+//   background-image: url("./assets/hot.png");
+//   background-size: 80%;
+//   @include itemCardReusable;
+// }
 
-#cloud{
-  background-image: url("./assets/cloud.png");
-  background-size: 100%;
-  @include itemCardReusable;
-}
+// #cloud{
+//   background-image: url("./assets/cloud.png");
+//   background-size: 100%;
+//   @include itemCardReusable;
+// }
 
 .clearfix:after {
   visibility: hidden;

@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef} from 'react';
-import { globalStyle } from '../stylesheets/globalStyle/globalStyleSheet';
-import {backStyle, nextStyle, pauseStyle, startStyle, backStyleForMobile, nextStyleForMobile, pauseStyleForMobile, startStyleForMobile, playerStyleForMobile, playerStyleForDesktopOrTablet}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet';
-import {playbackBarStyle, musicCoverStyle, musicCoverStyleForMobile}  from '../stylesheets/mainBodyStyle/leftAreaStyle/leftAreaStyleSheet'
 import {useRecoilState} from 'recoil'
 import {deviceIdRecoil, recentlyPlayedRecoil} from '../recoilInfo'
 import { DesktopOrTablet, Mobile } from '../MediaQuery';
@@ -46,7 +43,7 @@ const PlayerStyleForMobile = styled.div`
 `
 
 const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs(props=>({
-    className: props.class
+    className: props.skeleton
 }))`
     height: 230px;
     width: 230px;
@@ -190,7 +187,7 @@ function WebPlayback(props) {
                 <>
                     <DesktopOrTablet>
                         <PlayerStyleForDesktopOrTablet>
-                            <MusicPlayerCoverStyleForDesktopOrTablet class="ph-item"/>
+                            <MusicPlayerCoverStyleForDesktopOrTablet skeleton="ph-item"/>
                             <PlaybackBarStyle>
                                 <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
                                 <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
@@ -202,9 +199,9 @@ function WebPlayback(props) {
                         <PlayerStyleForMobile>
                             <FlexStyle>
                                 <MusicCoverStyleForMobile class="ph-item"/>
-                                    <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
-                                    <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
-                                    <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
                             </FlexStyle>
                         </PlayerStyleForMobile>
                     </Mobile>

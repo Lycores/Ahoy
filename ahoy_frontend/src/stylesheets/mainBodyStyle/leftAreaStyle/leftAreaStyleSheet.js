@@ -1,8 +1,5 @@
 import {globalStyle} from '../../globalStyle/globalStyleSheet'
-import backButtonUrl from '../../../assets/back.png'
-import nextButtonUrl from '../../../assets/next.png'
-import pauseButtonUrl from '../../../assets/pause.png'
-import startButtonUrl from '../../../assets/start.png'
+
 
 var musicCoverSize = globalStyle.playlistAreaWidth - globalStyle.marginLeft- globalStyle.marginRight
 var playerButtonSize = 40
@@ -41,52 +38,6 @@ export const playbackBarStyle = {
     justifyContent: 'space-around'
 }
 
-export var backStyle = {
-    ...playbackButtonStyle,
-    backgroundImage: `url(${backButtonUrl})`
-}
-
-export var nextStyle = {
-    ...playbackButtonStyle,
-    backgroundImage: `url(${nextButtonUrl})`
-}
-
-export var pauseStyle = {
-    ...playbackButtonStyle,
-    backgroundImage: `url(${pauseButtonUrl})`
-}
-
-export var startStyle = {
-    ...playbackButtonStyle,
-    backgroundImage: `url(${startButtonUrl})`
-}
-
-export var backStyleForMobile = {
-    height: '80px',
-    width: '80px',
-    matgin: '10px',
-    backgroundImage: `url(${backButtonUrl})`
-}
-export var nextStyleForMobile = {
-    height: '80px',
-    width: '80px',
-    matgin: '10px',
-    backgroundImage: `url(${nextButtonUrl})`
-}
-
-export var startStyleForMobile = {
-    height: '80px',
-    width: '80px',
-    matgin: '10px',
-    backgroundImage: `url(${startButtonUrl})`
-}
-
-export var pauseStyleForMobile = {
-    height: '80px',
-    width: '80px',
-    matgin: '10px',
-    backgroundImage: `url(${pauseButtonUrl})`
-}
 
 
 

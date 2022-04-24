@@ -13,7 +13,6 @@ function PlaylistPage(props) {
     var {state} = useLocation()
     if(state){
       var playlist = state.playlist
-      console.log(playlist)
     }
 
 
@@ -22,7 +21,6 @@ function PlaylistPage(props) {
         .then((response)=>{
             return response.json()
         }).then((json)=>{
-            console.log(json)
             setPlaylistListState(json.items)
         })
     }

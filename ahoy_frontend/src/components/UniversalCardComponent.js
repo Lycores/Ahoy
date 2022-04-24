@@ -101,7 +101,7 @@ function UniversalCardComponent(props) {
         return(
             <GridSpaceStyle>
                 <CardContainerStyle>
-                    {item.images.length == 0 ? <div style={{...coverStyle, backgroundSize: coverSize}} />
+                    {item.images.length == 0 ? <CardCoverStyle/>
                     :<CardCoverStyle imageUrl={item.images[0].url}/>}
                     <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
                 </CardContainerStyle>

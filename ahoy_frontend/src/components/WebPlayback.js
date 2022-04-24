@@ -89,16 +89,11 @@ const BackStyle = styled.div`
 
 function WebPlayback(props) {
     var {token} = props
-
-    
+      
     var [is_paused, setPaused] = useState(false)
     var [is_active, setActive] = useState(false)
     var [player, setPlayer] = useState(undefined)
     var [current_track, setTrack] = useState(track)
-    var [isInitiated, setIsInitiated] = useState(true)
-    var [recentlyPlayedLoaded, setRecentlyPlayedLoaded] = useState(false)
-
-    const ToggleButtonRef = useRef(null)
     
     var [deviceIdState, setDevicedIdState] = useRecoilState(deviceIdRecoil)
     var [recentlyPlayedState, setRecentlyPlayedState] = useRecoilState(recentlyPlayedRecoil)

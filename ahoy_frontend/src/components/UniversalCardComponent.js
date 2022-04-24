@@ -1,5 +1,3 @@
-import {coverStyle, titleStyle, descriptionStyle, containerStyle, cardTitleStyle, cardSubtitleStyle, artistsNameStyle} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet.js'
-import {coverSize} from '../stylesheets/mainBodyStyle/rightAreaStyle/universalCardStyleSheet'
 import {useNavigate} from 'react-router-dom'
 import React from 'react'
 import styled from 'styled-components'

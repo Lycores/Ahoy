@@ -4,7 +4,7 @@ import {deviceIdRecoil, recentlyPlayedRecoil} from '../recoilInfo'
 import { DesktopOrTablet, Mobile } from '../MediaQuery';
 import styled from "styled-components"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPause, faPlay, faBackwardStep, faForwardStep} from '@fortawesome/free-solid-svg-icons'
+import { faCirclePause, faCirclePlay, faBackwardStep, faForwardStep} from '@fortawesome/free-solid-svg-icons'
 
 
 const track = {
@@ -39,6 +39,7 @@ const PlayerStyleForMobile = styled.div`
     bottom: 10px;
     border-radius: var(--global-border-radius);
     z-index: 5;
+    display: flex;
 
 `
 
@@ -64,13 +65,10 @@ const PlaybackBarStyle = styled.div`
     justify-content: space-around;
 `
 
-const FlexStyle = styled.div`
-    display: 'flex';
-`
-
 const MusicCoverStyleForMobile = styled.div`
     height: 80px;
     width: 80px;
+    min-width:80px;
     margin: var(--global-margin);
     background-image: url(${props=>props.imageUrl});
     background-size: cover;
@@ -87,9 +85,24 @@ const BackStyle = styled.div`
     background-size: contain;
 `
 
+const VerticallyCentredStyleForPlayAndPause  = styled.div`
+    margin: 20px;
+`
+
+const VerticallyCentredStyleForOthers  = styled.div`
+    margin: 30px;
+`
+
+const VerticallyCentredStyle  = styled.div`
+    height:50px;
+    justify-content: space-around;
+    width: 100%;
+    margin: 20px;
+`
+
 function WebPlayback(props) {
     var {token} = props
-      
+
     var [is_paused, setPaused] = useState(false)
     var [is_active, setActive] = useState(false)
     var [player, setPlayer] = useState(undefined)
@@ -159,19 +172,24 @@ function WebPlayback(props) {
                             <MusicPlayerCoverStyleForDesktopOrTablet imageUrl={recentlyPlayedState.album.images[0].url}/>
                             <PlaybackBarStyle >
                                 <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
-                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={recentlyPlayedStart} />
+                                <FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="lg" onClick={recentlyPlayedStart} />
                                 <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg" />
                             </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
-                            <FlexStyle>
                                 <MusicCoverStyleForMobile imageUrl={recentlyPlayedState.album.images[0].url}/>
-                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
-                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={recentlyPlayedStart} />
-                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
-                            </FlexStyle>
+                                    <VerticallyCentredStyleForOthers>
+                                        <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="2x"/>
+                                    </VerticallyCentredStyleForOthers>
+                                    <VerticallyCentredStyleForPlayAndPause>
+                                        <FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="3x" onClick={recentlyPlayedStart} />
+                                    </VerticallyCentredStyleForPlayAndPause>
+                                    <VerticallyCentredStyleForOthers>
+                                        <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="2x"/>
+                                    </VerticallyCentredStyleForOthers>
+                                
                         </PlayerStyleForMobile>
                     </Mobile>
                 </> 
@@ -185,19 +203,23 @@ function WebPlayback(props) {
                             <MusicPlayerCoverStyleForDesktopOrTablet skeleton="ph-item"/>
                             <PlaybackBarStyle>
                                 <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
-                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
+                                <FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="lg"/>
                                 <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
                             </PlaybackBarStyle>
                         </PlayerStyleForDesktopOrTablet>
                     </DesktopOrTablet>
                     <Mobile>
                         <PlayerStyleForMobile>
-                            <FlexStyle>
-                                <MusicCoverStyleForMobile class="ph-item"/>
-                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg"/>
-                                <FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg"/>
-                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg"/>
-                            </FlexStyle>
+                            <MusicCoverStyleForMobile class="ph-item"/>
+                            <VerticallyCentredStyleForOthers>
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="2x"/>
+                            </VerticallyCentredStyleForOthers>
+                            <VerticallyCentredStyleForPlayAndPause>
+                                <FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="3x"/>
+                            </VerticallyCentredStyleForPlayAndPause>
+                            <VerticallyCentredStyleForOthers>
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="2x"/>
+                            </VerticallyCentredStyleForOthers>
                         </PlayerStyleForMobile>
                     </Mobile>
                     
@@ -213,8 +235,8 @@ function WebPlayback(props) {
                         <PlaybackBarStyle>
                             <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg" onClick={() => {player.previousTrack()}}/>
                             {
-                                is_paused?<FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
-                                :<FontAwesomeIcon icon={faPause} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
+                                is_paused?<FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
+                                :<FontAwesomeIcon icon={faCirclePause} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
                             }
                             <FontAwesomeIcon icon={faForwardStep}color="#1bd760" size="lg" onClick={() => {player.nextTrack()}}/>
                         </PlaybackBarStyle>
@@ -222,15 +244,16 @@ function WebPlayback(props) {
                 </DesktopOrTablet>
                 <Mobile>
                     <PlayerStyleForMobile>
-                        <FlexStyle>
+                       
                             <MusicCoverStyleForMobile imageUrl={current_track.album.images[0].url}/>
-                            <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="lg" onClick={() => {player.previousTrack()}}/>
-                            {
-                                is_paused?<FontAwesomeIcon icon={faPlay} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
-                                :<FontAwesomeIcon icon={faPause} color="#1bd760" size="lg" onClick={() => {player.togglePlay()}}/>
-                            }
-                            <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="lg" onClick={() => {player.nextTrack()}}/>
-                        </FlexStyle>
+                            <VerticallyCentredStyle>
+                                <FontAwesomeIcon icon={faBackwardStep} color="#1bd760" size="3x" onClick={() => {player.previousTrack()}}/>
+                                {
+                                    is_paused?<FontAwesomeIcon icon={faCirclePlay} color="#1bd760" size="3x" onClick={() => {player.togglePlay()}}/>
+                                    :<FontAwesomeIcon icon={faCirclePause} color="#1bd760" size="3x" onClick={() => {player.togglePlay()}}/>
+                                }
+                                <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="3x" onClick={() => {player.nextTrack()}}/>
+                            </VerticallyCentredStyle>
                     </PlayerStyleForMobile>
                 </Mobile>
                 

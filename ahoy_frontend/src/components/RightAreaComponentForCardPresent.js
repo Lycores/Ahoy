@@ -3,11 +3,7 @@ import UniversalCardComponent  from './UniversalCardComponent'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import React from 'react'
 import styled from 'styled-components'
-import {RightAreaContainerStyle} from './ReusableStyleComponent'
-
-const GridStyle = styled.div.attrs({
-    className: "row justify-content-start"
-})``
+import {RightAreaContainerStyle, GridStyle} from './ReusableStyleComponent'
 
 function RightAreaComponentForCardPresent(props) {
     var {itemList, type} = props

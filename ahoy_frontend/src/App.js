@@ -13,7 +13,7 @@ import RouteProtector from './components/RouteProtector'
 function App() {
 
   var [token, setToken] = useState(null);
-  var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
+  // var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
   // var [deviceId, setDeviceId] = useState(null)
 
   async function getToken() {
@@ -29,7 +29,8 @@ function App() {
     .then((response)=>{
       return response.json()
     }).then((json)=>{
-      setUserProfileState(json)
+      // setUserProfileState(json)
+      localStorage.setItem("userProfile", JSON.stringify(json))
     })
   }
 
@@ -38,9 +39,8 @@ function App() {
     if(!token){
       getToken();
     }
-    if(!userProfileState){
-      getUserProfile()
-    }
+    getUserProfile()
+    
   }, [])
 
   return (

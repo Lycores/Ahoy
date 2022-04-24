@@ -47,7 +47,7 @@ function TrackListComponent(props){
         }
         
     }
-    const userProfileState = useRecoilValue(userProfileRecoil) 
+    const userProfileState = JSON.parse(localStorage.getItem("userProfile"))
     useEffect(()=>{
         if(album){
             let tracks = null

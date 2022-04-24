@@ -15,9 +15,6 @@ function ArtistsPage(props) {
     if(state){
       var artist = state.artist 
     }
-    console.log("state is", state)
-    console.log("artist is", artist)
-    console.log("token is", token)
 
     const getFollowedArtists = () => {
       fetch('artists/getFollowedArtists')

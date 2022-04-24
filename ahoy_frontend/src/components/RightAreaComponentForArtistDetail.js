@@ -1,7 +1,5 @@
 import React,{ useEffect, useState} from "react"
 import TrackListComponent from "./TrackListComponent"
-import {userProfileRecoil} from '../recoilInfo'
-import {useRecoilValue} from 'recoil'
 import styled from "styled-components"
 import {RightAreaContainerStyle, RightAreaOverviewStyle, BackgroundFilterStyle, RightAreaCoverStyle, DescriptionStyle, RightAreaCoverContainerStyle} from './ReusableStyleComponent'
 
@@ -14,8 +12,7 @@ const ArtistNameStyle = styled.div`
 
 function RightAreaComponentForArtistDetail(props){
     let {artist} = props
-    const userProfileState = useRecoilValue(userProfileRecoil)
-    console.log('userProfileState', userProfileState)
+    const userProfileState = JSON.parse(localStorage.getItem("userProfile"))
     const getArtistTopTrack = () => {
         fetch(`/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`)
         .then((response)=>{
@@ -39,7 +36,7 @@ function RightAreaComponentForArtistDetail(props){
         setArtistOverviewBackgroundImageState(artist.images[0].url)
         getArtistTopTrack()
         getArtistAlbums()
-    },[artist, userProfileState])
+    },[artist])
 
     var [artistTopTrackState, setArtistTopTrackState] = useState(null)
     var [artistAlbumsState, setArtistAlbumsState] = useState(null)

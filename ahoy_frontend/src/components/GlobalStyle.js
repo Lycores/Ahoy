@@ -20,7 +20,7 @@ body{
     --global-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
     --global-box-shadow-for-input: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
     --global-border-radius: 20px;
-    --global-playlist-area-width:250;
+    --global-playlist-area-width:250px;
     --global-background-color: #e1e7ef;
     --global-spotify-color: 1bd760;
     --global-mobile-max: 600px;

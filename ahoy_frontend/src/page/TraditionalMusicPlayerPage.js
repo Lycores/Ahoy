@@ -80,7 +80,7 @@ const BackwardButton = styled.div`
   left: 0px;
   width: 50px;
   height: 100px;
-  background-color: var(--global-background-color);
+  background-color: #d0dae6;
   z-index: 99;
   border-radius: 0 50px 50px 0;
   cursor: pointer;
@@ -94,7 +94,7 @@ const ForwardButton = styled.div`
   right: 0px;
   width: 50px;
   height: 100px;
-  background-color: var(--global-background-color);
+  background-color: #d0dae6;
   z-index: 99;
   border-radius: 50px 0 0 50px;
   cursor: pointer;

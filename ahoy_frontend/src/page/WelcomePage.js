@@ -1,6 +1,5 @@
 import { globalStyle } from "../stylesheets/globalStyle/globalStyleSheet";
 import spotify from "../assets/spotify_welcome.png";
-import { useNavigate } from "react-router-dom";
 function WelcomePage() {
   const backgroundStyle = {
     backgroundColor: globalStyle.globalBackgroundColor,

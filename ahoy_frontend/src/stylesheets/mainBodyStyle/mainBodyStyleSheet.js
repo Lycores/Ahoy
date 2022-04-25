@@ -1,12 +1,15 @@
-import {globalStyle} from '../globalStyle/globalStyleSheet'
+import { globalStyle } from "../globalStyle/globalStyleSheet";
 
-var mainBodyHeight = "calc(100% - " +  (globalStyle.marginTop + globalStyle.marginBottom).toString() + "px)";
+var mainBodyHeight =
+  "calc(100% - " +
+  (globalStyle.marginTop + globalStyle.marginBottom).toString() +
+  "px)";
 
-const mainBodyStyle={
-    display:'flex',
-    height: mainBodyHeight,
-    flexWrap: 'nowrap',
-    alignItems: 'stretch'
-}
+const mainBodyStyle = {
+  display: "flex",
+  height: mainBodyHeight,
+  flexWrap: "nowrap",
+  alignItems: "stretch",
+};
 
-export default mainBodyStyle
+export default mainBodyStyle;

@@ -49,7 +49,7 @@ export const tabToExpandNavBarStyle = {
 
 export const searchBarHeight = 50;
 export const searchBarWidth = 150;
-export const searchBarMaxWidth = 400;
+
 const searchBarToTop = searchBarToParentContainer + globalStyle.margin;
 const searchBarToLeftForDesktopOrTablet =
   globalStyle.playlistAreaWidth +
@@ -79,21 +79,4 @@ export const searchBarStyleForMobile = {
   cursor: "pointer",
   transitionDuration: "500ms",
   boxShadow: globalStyle.boxShadowForInput,
-};
-
-export const searchBarInputStyle = {
-  marginLeft: "20px",
-  marginTop: "2px",
-  height: "80%",
-  width: "80%",
-  outlineStyle: "none",
-  border: 0,
-  fontSize: "24px",
-  backgroundColor: "transparent",
-  whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  color: "#66727C",
-  fontSize: "20px",
-  fontWeight: "bold",
 };

@@ -5,7 +5,6 @@ import RightAreaComponentForCardPresent from '../components/RightAreaComponentFo
 import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbum'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
-import RightAreaComponent from '../components/RightAreaComponent';
 function AlbumPage() {
     let token = JSON.parse(localStorage.getItem('token'))
     var albumList = []

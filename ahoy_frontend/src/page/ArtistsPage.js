@@ -5,8 +5,8 @@ import RightAreaComponentForCardPresent from '../components/RightAreaComponentFo
 import RightAreaComponentForArtistDetail from '../components/RightAreaComponentForArtistDetail'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
-import RightAreaComponent from '../components/RightAreaComponent';
 import React from 'react'
+
 function ArtistsPage() {
   let token = JSON.parse(localStorage.getItem('token'))
 

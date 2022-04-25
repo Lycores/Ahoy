@@ -1,9 +1,6 @@
-import globalStyle from '../stylesheets/globalStyle/globalStyleSheet';
 import TrackEntryComponent from './TrackEntryComponent'
 import React, { useEffect, useState } from 'react'
 import RightAreaComponentForCardPresent from './RightAreaComponentForCardPresent';
-import {userProfileRecoil} from '../recoilInfo'
-import {useRecoilValue} from 'recoil'
 import PlaceholderCardComponent from './PlaceholderCardComponent'
 import PlaceholderTrackEntryComponent from './PlaceholderTrackEntryComponent'
 import '../stylesheets/css/placeholderCardComponentStyleSheet.css'

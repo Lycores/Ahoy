@@ -16,12 +16,6 @@ import {useRecoilState} from 'recoil'
 function TraditionalMusicPlayerPage(){
   let token = JSON.parse(localStorage.getItem('token'))
 
-    // var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-
-    // const changeGlobalDim = () => {
-    //     globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
-    // }
-
     const extendSearchBarForDesktopOrTablet = () => {
         setSearchBarStyleStateForDesktopOrTablet({
           ...searchBarStyleStateForDesktopOrTablet,
@@ -105,8 +99,6 @@ function TraditionalMusicPlayerPage(){
                 </Mobile>
               </> 
               : <WebPlayback/> }
-
-
             </div>
 
           <Outlet/>

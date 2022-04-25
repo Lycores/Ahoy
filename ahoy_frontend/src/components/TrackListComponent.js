@@ -21,20 +21,24 @@ const CommonContainer = styled.div`
     border-radius: var(--global-border-radius); 
     box-shadow: var(--global-box-shadow);
 `
+
+var increaseKey = 999
 const TrackListComponent = React.memo((props)=>{
     var {album, artistTopTrack, artistAlbums} = props
     var renderQueue = []
     var [tracksState, setTracksState] = useState([])
     const loadTrackList = () => {
+        
         if(tracksState.length == 0){
             for(var i = 0; i < 10; i++){
                 renderQueue.push(
-                    <PlaceholderTrackEntryComponent/>
+                    <PlaceholderTrackEntryComponent  key={increaseKey+i}/>
                 )  
             }
+            increaseKey+= 10
         }else{
             renderQueue.push(
-                <StyleForTrackContainer>
+                <StyleForTrackContainer key={increaseKey+1}>
                     {
                         tracksState.map((track, index)=> {
                             return (
@@ -44,6 +48,7 @@ const TrackListComponent = React.memo((props)=>{
                     }
                 </StyleForTrackContainer>
             )
+            increaseKey++
         }
         
     }
@@ -71,7 +76,7 @@ const TrackListComponent = React.memo((props)=>{
         if(artistTopTrack){
             var tracks = artistTopTrack.tracks
             renderQueue.push(
-                <StyleForTrackContainer>
+                <StyleForTrackContainer key={increaseKey+1}>
                     {
                         tracks.map((track, index)=> {
                             return (
@@ -81,23 +86,27 @@ const TrackListComponent = React.memo((props)=>{
                     }
                 </StyleForTrackContainer>
             )
+            increaseKey++
         }else{
             for(var i = 0; i < 10; i++){
                 renderQueue.push(
-                    <PlaceholderTrackEntryComponent/>
+                    <PlaceholderTrackEntryComponent key={increaseKey+i}/>
                 )  
-            }        
+            }
+            increaseKey += 10        
         }
         if(artistAlbums){
+            
             renderQueue.push(
-                <CommonContainer>
-                    <RightAreaComponentForCardPresent itemList={artistAlbums.items} type="album" key="artistAlbumsTrue"/>
+                <CommonContainer key={increaseKey+1}>
+                    <RightAreaComponentForCardPresent itemList={artistAlbums.items} type="album" />
                 </CommonContainer>
             
             )
+            increaseKey++
         }else{
                 renderQueue.push(
-                    <CommonContainer>
+                    <CommonContainer key={increaseKey+1}>
                          <RightAreaContainerStyle>
                             <GridStyle>
                                 <PlaceholderCardComponent/>
@@ -111,6 +120,7 @@ const TrackListComponent = React.memo((props)=>{
                         </RightAreaContainerStyle>
                     </CommonContainer>
                 )
+                increaseKey++
         }
     }
     return renderQueue   

@@ -6,8 +6,8 @@ import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbu
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 import RightAreaComponent from '../components/RightAreaComponent';
-function AlbumPage(props) {
-    var {token} = props
+function AlbumPage() {
+    let token = JSON.parse(localStorage.getItem('token'))
     var albumList = []
     var album = null
     var {state} = useLocation()
@@ -41,13 +41,13 @@ function AlbumPage(props) {
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponent album={album}/>}
+            <RightAreaComponentForAlbum album={album}/>}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
           {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
-            <RightAreaComponent album={album}/>}
+            <RightAreaComponentForAlbum album={album}/>}
         </RightAreaStyleForMobile>
       </Mobile>
     </>

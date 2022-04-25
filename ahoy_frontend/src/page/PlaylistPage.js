@@ -5,8 +5,8 @@ import RightAreaComponentForCardpresent from '../components/RightAreaComponentFo
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 
-function PlaylistPage(props) {
-    var {token} = props
+function PlaylistPage() {
+  let token = JSON.parse(localStorage.getItem('token'))
 
     var playlist = null
     var playlistList = []

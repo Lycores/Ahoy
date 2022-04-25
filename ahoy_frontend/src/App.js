@@ -12,7 +12,7 @@ import {useRecoilState} from 'recoil'
 import RouteProtector from './components/RouteProtector'
 function App() {
 
-  var [token, setToken] = useState(null);
+  var [forceUpdate, setForceUpdate] = useState(null);
   // var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
   // var [deviceId, setDeviceId] = useState(null)
 
@@ -20,7 +20,9 @@ function App() {
     fetch('/auth/token').then((response)=>{
       return response.json()
     }).then((json)=>{
-      setToken(json.access_token)
+      localStorage.setItem('token', JSON.stringify(json.access_token))
+      setForceUpdate(0)
+      // setToken(json.access_token)
     })
   }
 
@@ -35,10 +37,7 @@ function App() {
   }
 
   useEffect(() => {
-
-    if(!token){
-      getToken();
-    }
+    getToken();
     getUserProfile()
     
   }, [])
@@ -48,11 +47,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />}/>
-        <Route element={<RouteProtector token={token}/>}>
-          <Route path="/traditional" element={<TraditionalMusicPlayerPage token={token} />}>
-            <Route exact path="album" element={<AlbumPage token={token} />}/>
-            <Route exact path="artists" element={<ArtistsPage token={token} /> }/>
-            <Route exact path="playlist" element={<PlaylistPage token={token} /> }/>
+        <Route element={<RouteProtector/>}>
+          <Route path="/traditional" element={<TraditionalMusicPlayerPage/>}>
+            <Route exact path="album" element={<AlbumPage/>}/>
+            <Route exact path="artists" element={<ArtistsPage/> }/>
+            <Route exact path="playlist" element={<PlaylistPage/> }/>
           </Route>
         </Route>
       </Routes>

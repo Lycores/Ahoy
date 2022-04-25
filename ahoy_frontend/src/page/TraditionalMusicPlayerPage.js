@@ -13,8 +13,8 @@ import {useRecoilState} from 'recoil'
 
 
 
-function TraditionalMusicPlayerPage(props){
-    const {token} = props
+function TraditionalMusicPlayerPage(){
+  let token = JSON.parse(localStorage.getItem('token'))
 
     // var globalDim = {globalHeight: window.innerHeight, globalWidth: window.innerWidth}
 

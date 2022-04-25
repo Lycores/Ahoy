@@ -6,8 +6,9 @@ import RightAreaComponentForArtistDetail from '../components/RightAreaComponentF
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 import RightAreaComponent from '../components/RightAreaComponent';
-function ArtistsPage(props) {
-    var {token} = props
+import React from 'react'
+function ArtistsPage() {
+  let token = JSON.parse(localStorage.getItem('token'))
 
     var artistsList = []
     var artist = null
@@ -38,17 +39,17 @@ function ArtistsPage(props) {
     <DesktopOrTablet>
       <RightAreaStyleForDesktopOrTablet >
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
-        <RightAreaComponent artist={artist}/>}
+        <RightAreaComponentForArtistDetail artist={artist}/>}
       </RightAreaStyleForDesktopOrTablet>
     </DesktopOrTablet>
     <Mobile>
     <RightAreaStyleForMobile>
       {(!artist) ? <RightAreaComponentForCardPresent itemList={artistsListState} type="artists"/>:
-        <RightAreaComponent artist={artist}/>}
+        <RightAreaComponentForArtistDetail artist={artist}/>}
       </RightAreaStyleForMobile>
     </Mobile>
   </>
   );
 }
 
-export default ArtistsPage;
+export default React.memo(ArtistsPage);

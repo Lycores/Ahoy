@@ -102,8 +102,8 @@ const VerticallyCentredStyle  = styled.div`
     margin: 20px;
 `
 
-function WebPlayback(props) {
-    var {token} = props
+const  WebPlayback=()=>{
+    let token = JSON.parse(localStorage.getItem('token'))
 
     var [is_paused, setPaused] = useState(false)
     var [is_active, setActive] = useState(false)
@@ -163,7 +163,7 @@ function WebPlayback(props) {
 
             player.connect();
         };
-    },[token]);
+    },[]);
 
     if (!is_active) { 
         if(recentlyPlayedState){
@@ -260,9 +260,7 @@ function WebPlayback(props) {
                             </VerticallyCentredStyleForPlayAndPause>
                             <VerticallyCentredStyleForOthers>
                             <FontAwesomeIcon icon={faForwardStep} color="#1bd760" size="2x" onClick={() => {player.nextTrack()}}/>
-                            </VerticallyCentredStyleForOthers>
-                                
-                    
+                            </VerticallyCentredStyleForOthers>           
                     </PlayerStyleForMobile>
                 </Mobile>
                 
@@ -271,4 +269,4 @@ function WebPlayback(props) {
     }
 }
 
-export default React.memo(WebPlayback)
+export default WebPlayback

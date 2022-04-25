@@ -94,18 +94,6 @@ function TraditionalMusicPlayerPage(){
                 <div style={albumListStyleState}/>
               </DesktopOrTablet>
 
-              {/* <DesktopOrTablet>
-                <div style={playerStyleForDesktopOrTablet}>
-                    { (!token) ? <></> : <WebPlayback token={token}/> }
-                </div>
-              </DesktopOrTablet>
-              
-              <Mobile>
-                <div style={playerStyleForMobile}>
-                    { (!token) ? <></> : <WebPlayback token={token}/> }
-                </div>
-              </Mobile> */}
-
               { (!token) ? 
               <>
                 <DesktopOrTablet>
@@ -116,7 +104,7 @@ function TraditionalMusicPlayerPage(){
                   <div style={playerStyleForMobile}/>
                 </Mobile>
               </> 
-              : <WebPlayback token={token}/> }
+              : <WebPlayback/> }
 
 
             </div>

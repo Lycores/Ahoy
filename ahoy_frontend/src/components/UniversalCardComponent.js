@@ -41,7 +41,7 @@ const ArtistFromAlbumStyle = styled.span`
     margin-top:5px;
 
 `
-function UniversalCardComponent(props) {
+const UniversalCardComponent = React.memo((props) => {
     var {item, type} = props
     // var {artists,images,albumName, tracks} = props
     const navigate = useNavigate()
@@ -107,7 +107,6 @@ function UniversalCardComponent(props) {
         )
     }
     
-    
-}
+})
 
-export default React.memo(UniversalCardComponent)
+export default UniversalCardComponent

@@ -1,54 +1,68 @@
-import '../App.css';
-import {useEffect, useState} from 'react';
-import {useLocation} from 'react-router-dom'
-import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
-import { DesktopOrTablet, Mobile} from '../MediaQuery';
-import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
+import "../App.css";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import RightAreaComponentForCardPresent from "../components/RightAreaComponentForCardPresent";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import {
+  RightAreaStyleForDesktopOrTablet,
+  RightAreaStyleForMobile,
+} from "../components/ReusableStyleComponent";
 
 function PlaylistPage() {
-  let token = JSON.parse(localStorage.getItem('token'))
+  let token = JSON.parse(localStorage.getItem("token"));
 
-    var playlist = null
-    var playlistList = []
-    var {state} = useLocation()
-    if(state){
-      var playlist = state.playlist
+  var playlist = null;
+  var playlistList = [];
+  var { state } = useLocation();
+  if (state) {
+    var playlist = state.playlist;
+  }
+
+  const getMyPlaylist = () => {
+    fetch("/playlist/getMyPlaylists")
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        setPlaylistListState(json.items);
+      });
+  };
+
+  var [playlistListState, setPlaylistListState] = useState(playlistList);
+
+  useEffect(() => {
+    if (!playlist) {
+      getMyPlaylist();
     }
-
-
-    const getMyPlaylist = () =>{
-        fetch('/playlist/getMyPlaylists')
-        .then((response)=>{
-            return response.json()
-        }).then((json)=>{
-            setPlaylistListState(json.items)
-        })
-    }
-
-    var [playlistListState, setPlaylistListState] = useState(playlistList)
-
-    useEffect(() => { 
-        if(!playlist){
-            getMyPlaylist()
-        }
-    },[token])
+  }, [token]);
   return (
     <>
       <DesktopOrTablet>
-        <RightAreaStyleForDesktopOrTablet >
-          {(!playlist) ? <RightAreaComponentForCardPresent itemList={playlistListState} type="playlist"/> :
-            <></>}
+        <RightAreaStyleForDesktopOrTablet>
+          {!playlist ? (
+            <RightAreaComponentForCardPresent
+              itemList={playlistListState}
+              type="playlist"
+            />
+          ) : (
+            <></>
+          )}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
-          {(!playlist) ? <RightAreaComponentForCardPresent itemList={playlistListState} type="playlist"/> :
-            <></>}
+          {!playlist ? (
+            <RightAreaComponentForCardPresent
+              itemList={playlistListState}
+              type="playlist"
+            />
+          ) : (
+            <></>
+          )}
         </RightAreaStyleForMobile>
       </Mobile>
     </>
-      
-    );
+  );
 }
 
-export default PlaylistPage
+export default PlaylistPage;

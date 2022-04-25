@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body{
@@ -23,6 +23,6 @@ body{
     --search-bar-height: 50px;
     --search-bar-width: 150px;
 }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

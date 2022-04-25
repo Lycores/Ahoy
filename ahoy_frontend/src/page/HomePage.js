@@ -1,4 +1,3 @@
-import "../App.css";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import Card from "../components/CardComponent.js";

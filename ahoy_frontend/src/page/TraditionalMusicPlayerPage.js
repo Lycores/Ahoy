@@ -1,4 +1,3 @@
-import "../App.css";
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import {
@@ -24,6 +23,15 @@ import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import globalStyle from "../stylesheets/globalStyle/globalStyleSheet";
 import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
+import styled from "styled-components";
+
+const AppStyle = styled.div`
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+`;
 
 function TraditionalMusicPlayerPage() {
   let token = JSON.parse(localStorage.getItem("token"));
@@ -98,7 +106,7 @@ function TraditionalMusicPlayerPage() {
         ></script>
       </Helmet>
 
-      <div className="App-Container">
+      <AppStyle>
         <div style={mainBodyStyleState}>
           <div style={leftAreaStyleState}>
             <DesktopOrTablet>
@@ -177,7 +185,7 @@ function TraditionalMusicPlayerPage() {
             <input ref={searchBarInputRef} style={searchBarInputStyle}></input>
           </div>
         </Mobile>
-      </div>
+      </AppStyle>
     </div>
   );
 }

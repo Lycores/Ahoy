@@ -1,4 +1,3 @@
-import "../App.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import RightAreaComponentForCardPresent from "../components/RightAreaComponentForCardPresent";

@@ -33,6 +33,8 @@ body{
     font-family: "Helvetica";
     color: #66727c;
     font-weight: 600;
+    padding:0;
+    margin:0;
 }
 `;
 

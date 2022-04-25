@@ -1,20 +1,10 @@
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
-import HomePage from "./page/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AlbumPage from "./page/AlbumPage";
 import WelcomePage from "./page/WelcomePage";
 import ArtistsPage from "./page/ArtistsPage";
 import PlaylistPage from "./page/PlaylistPage";
 import TraditionalMusicPlayerPage from "./page/TraditionalMusicPlayerPage";
-import { userProfileRecoil } from "./recoilInfo";
-import { useRecoilState } from "recoil";
 import RouteProtector from "./components/RouteProtector";
 function App() {
   var [forceUpdate, setForceUpdate] = useState(null);

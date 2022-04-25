@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {RightAreaContainerStyle, GridStyle} from './ReusableStyleComponent'
 
-function RightAreaComponentForCardPresent(props) {
+const RightAreaComponentForCardPresent = React.memo((props)=> {
     var {itemList, type} = props
 
     if(itemList.length == 0){
@@ -42,6 +42,6 @@ function RightAreaComponentForCardPresent(props) {
             </RightAreaContainerStyle>    
         )
     }   
-}
+})
 
-export default React.memo(RightAreaComponentForCardPresent)
+export default RightAreaComponentForCardPresent

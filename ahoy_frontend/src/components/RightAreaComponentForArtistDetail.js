@@ -10,7 +10,7 @@ const ArtistNameStyle = styled.div`
     font-size:clamp(30px, 6vw, 80px);
 `
 
-function RightAreaComponentForArtistDetail(props){
+const RightAreaComponentForArtistDetail = React.memo((props)=>{
     let {artist} = props
     const userProfileState = JSON.parse(localStorage.getItem("userProfile"))
     const getArtistTopTrack = () => {
@@ -61,6 +61,6 @@ function RightAreaComponentForArtistDetail(props){
             <TrackListComponent artistTopTrack={artistTopTrackState} artistAlbums={artistAlbumsState}/>
         </RightAreaContainerStyle>
     )
-}
+})
 
-export default React.memo(RightAreaComponentForArtistDetail)
+export default RightAreaComponentForArtistDetail

@@ -29,7 +29,7 @@ const TrackArtistStyle = styled.div`
     vertical-align:bottom;
 `
 
-function TrackEntryComponent(props){
+const TrackEntryComponent = React.memo((props)=>{
     const {track, albumId, positionInAlbum, images} = props
     const deviceIdState =  useRecoilValue(deviceIdRecoil)
 
@@ -48,6 +48,6 @@ function TrackEntryComponent(props){
             </TrackInfoContainerStyle>
         </TrackEntryComponentStyle>
     )
-}
+})
 
-export default React.memo(TrackEntryComponent)
+export default TrackEntryComponent

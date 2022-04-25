@@ -7,13 +7,13 @@ const PlaceholderRow = styled.div.attrs({
     className: "ph-row"
 })``
 
-function PlaceholderTrackEntryComponent(){
+const PlaceholderTrackEntryComponent = React.memo(()=>{
 
     return (
         <TrackEntryComponentStyle skeleton="ph-item">
             <PlaceholderRow/>
         </TrackEntryComponentStyle>
     )
-}
+})
 
-export default React.memo(PlaceholderTrackEntryComponent)
+export default PlaceholderTrackEntryComponent

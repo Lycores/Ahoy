@@ -21,7 +21,7 @@ const CommonContainer = styled.div`
     border-radius: var(--global-border-radius); 
     box-shadow: var(--global-box-shadow);
 `
-function TrackListComponent(props){
+const TrackListComponent = React.memo((props)=>{
     var {album, artistTopTrack, artistAlbums} = props
     var renderQueue = []
     var [tracksState, setTracksState] = useState([])
@@ -114,7 +114,7 @@ function TrackListComponent(props){
         }
     }
     return renderQueue   
-}
+})
 
-export default React.memo(TrackListComponent)
+export default TrackListComponent
 

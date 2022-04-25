@@ -12,7 +12,7 @@ const AlbumNameStyle = styled.div`
     -webkit-line-clamp: 3;
 `
 
-function RightAreaComponentForAlbum(props) {
+const RightAreaComponentForAlbum = React.memo((props)=> {
     var {album} = props
     var [coverBackgroundImageState, setCoverBackgroundImageState] = useState('')
     var [albumOverviewBackgroundImageState, setAlbumOverviewBackgroundImageState] = useState('')
@@ -38,8 +38,7 @@ function RightAreaComponentForAlbum(props) {
             </RightAreaOverviewStyle>
             <TrackListComponent album={album}/>
         </RightAreaContainerStyle>   
-    )
-    
-}
+    )  
+})
 
-export default React.memo(RightAreaComponentForAlbum)
+export default RightAreaComponentForAlbum

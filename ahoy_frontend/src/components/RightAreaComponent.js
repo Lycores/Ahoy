@@ -19,7 +19,7 @@ const AlbumNameStyle = styled.div`
     -webkit-line-clamp: 3;
 `
 
-function RightAreaComponent(props){
+const RightAreaComponent = React.memo((props)=>{
     let {artist, album} = props
     const userProfileState = JSON.parse(localStorage.getItem("userProfile"))
     const getArtistTopTrack = () => {
@@ -96,9 +96,7 @@ function RightAreaComponent(props){
                     <TrackListComponent album={album}/>
                 </RightAreaContainerStyle>   
             )
-        }
-        
-    
-}
+        }  
+})
 
-export default React.memo(RightAreaComponent)
+export default RightAreaComponent

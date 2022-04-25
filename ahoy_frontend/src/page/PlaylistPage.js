@@ -1,7 +1,7 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom'
-import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
+import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
 
@@ -36,13 +36,13 @@ function PlaylistPage() {
     <>
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet >
-          {(!playlist) ? <RightAreaComponentForCardpresent itemList={playlistListState} type="playlist"/> :
+          {(!playlist) ? <RightAreaComponentForCardPresent itemList={playlistListState} type="playlist"/> :
             <></>}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
-          {(!playlist) ? <RightAreaComponentForCardpresent itemList={playlistListState} type="playlist"/> :
+          {(!playlist) ? <RightAreaComponentForCardPresent itemList={playlistListState} type="playlist"/> :
             <></>}
         </RightAreaStyleForMobile>
       </Mobile>

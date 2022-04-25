@@ -1,7 +1,7 @@
 import '../App.css';
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom'
-import RightAreaComponentForCardpresent from '../components/RightAreaComponentForCardPresent'
+import RightAreaComponentForCardPresent from '../components/RightAreaComponentForCardPresent'
 import RightAreaComponentForAlbum from '../components/RightAreaComponentsForAlbum'
 import { DesktopOrTablet, Mobile} from '../MediaQuery';
 import {RightAreaStyleForDesktopOrTablet, RightAreaStyleForMobile} from '../components/ReusableStyleComponent'
@@ -40,13 +40,13 @@ function AlbumPage() {
     <>
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
-          {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
+          {(!album) ? <RightAreaComponentForCardPresent itemList={albumListState} type="album"/> :
             <RightAreaComponentForAlbum album={album}/>}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
-          {(!album) ? <RightAreaComponentForCardpresent itemList={albumListState} type="album"/> :
+          {(!album) ? <RightAreaComponentForCardPresent itemList={albumListState} type="album"/> :
             <RightAreaComponentForAlbum album={album}/>}
         </RightAreaStyleForMobile>
       </Mobile>

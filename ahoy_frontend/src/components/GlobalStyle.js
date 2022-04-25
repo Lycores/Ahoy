@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+:root {
+  font-size: 10px;
+}
+
 body{
     --global-margin: 10px;
     --global-margin-top: 10;
@@ -22,6 +27,12 @@ body{
     --global-desktop-or-tablet-min: 601px;
     --search-bar-height: 50px;
     --search-bar-width: 150px;
+
+
+    background-color: #e1e7ef;
+    font-family: "Helvetica";
+    color: #66727c;
+    font-weight: 600;
 }
 `;
 

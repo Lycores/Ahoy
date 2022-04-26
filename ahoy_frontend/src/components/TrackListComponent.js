@@ -21,7 +21,7 @@ const CommonContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListComponent = React.memo((props) => {
-  var { album, artistTopTrack, artistAlbums, playlistTrack, type } = props;
+  var { album, artistTopTrack, artistAlbums, playlistTracks, type } = props;
   var renderQueue = [];
   var [tracksState, setTracksState] = useState([]);
   const loadTrackList = () => {
@@ -131,7 +131,25 @@ const TrackListComponent = React.memo((props) => {
       increaseKey++;
     }
   } else if (type == "playlist") {
-    if (playlistTrack) {
+    if (playlistTracks) {
+      var tracks = playlistTracks.items;
+      console.log(tracks);
+      renderQueue.push(
+        <StyleForTrackContainer key={increaseKey + 1}>
+          {tracks.map((track, index) => {
+            return (
+              <TrackEntryComponent
+                key={track.track.id}
+                track={track.track}
+                albumId={track.track.album.id}
+                positionInAlbum={track.track.track_number - 1}
+                images={track.track.album.images}
+              />
+            );
+          })}
+        </StyleForTrackContainer>
+      );
+      increaseKey++;
     } else {
       for (var i = 0; i < 10; i++) {
         renderQueue.push(

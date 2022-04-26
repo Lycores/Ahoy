@@ -10,7 +10,6 @@ import {
   DescriptionStyle,
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComponent";
-import axios from "axios";
 
 const AlbumNameStyle = styled.div`
   width: 100%;
@@ -34,7 +33,7 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
       })
       .then((json) => {
         console.log(json);
-        setPlaylistTrackState(json.items);
+        setPlaylistTrackState(json);
       });
   };
 
@@ -63,7 +62,7 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComponent playlistTrack={playlistTrackState} type="playlist" />
+      <TrackListComponent playlistTracks={playlistTrackState} type="playlist" />
     </RightAreaContainerStyle>
   );
 });

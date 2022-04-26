@@ -24,7 +24,6 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
 
   const getPlaylistTracks = () => {
     let country = JSON.parse(localStorage.getItem("userProfile")).country;
-    console.log(country);
     fetch(
       `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}`
     )
@@ -32,7 +31,6 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
         return response.json();
       })
       .then((json) => {
-        console.log(json);
         setPlaylistTrackState(json);
       });
   };

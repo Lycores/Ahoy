@@ -133,7 +133,6 @@ const TrackListComponent = React.memo((props) => {
   } else if (type == "playlist") {
     if (playlistTracks) {
       var tracks = playlistTracks.items;
-      console.log(tracks);
       renderQueue.push(
         <StyleForTrackContainer key={increaseKey + 1}>
           {tracks.map((track, index) => {

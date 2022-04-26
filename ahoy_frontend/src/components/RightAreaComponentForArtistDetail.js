@@ -74,6 +74,7 @@ const RightAreaComponentForArtistDetail = React.memo((props) => {
       <TrackListComponent
         artistTopTrack={artistTopTrackState}
         artistAlbums={artistAlbumsState}
+        type={"artist"}
       />
     </RightAreaContainerStyle>
   );

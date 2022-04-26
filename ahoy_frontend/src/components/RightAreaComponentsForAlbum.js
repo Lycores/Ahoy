@@ -44,7 +44,7 @@ const RightAreaComponentForAlbum = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComponent album={album} />
+      <TrackListComponent album={album} type="album" />
     </RightAreaContainerStyle>
   );
 });

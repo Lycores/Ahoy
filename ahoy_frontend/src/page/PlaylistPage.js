@@ -6,7 +6,7 @@ import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComponent";
-
+import RightAreaComponentForPlaylist from "../components/RightAreaComponentForPlaylist";
 function PlaylistPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
@@ -44,7 +44,7 @@ function PlaylistPage() {
               type="playlist"
             />
           ) : (
-            <></>
+            <RightAreaComponentForPlaylist playlist={playlist} />
           )}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
@@ -56,7 +56,7 @@ function PlaylistPage() {
               type="playlist"
             />
           ) : (
-            <></>
+            <RightAreaComponentForPlaylist playlist={playlist} />
           )}
         </RightAreaStyleForMobile>
       </Mobile>

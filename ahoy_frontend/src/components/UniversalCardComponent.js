@@ -46,6 +46,7 @@ const ArtistFromAlbumStyle = styled.span`
 `;
 const UniversalCardComponent = React.memo((props) => {
   var { item, type } = props;
+  console.log(item);
   // var {artists,images,albumName, tracks} = props
   const navigate = useNavigate();
 
@@ -66,6 +67,7 @@ const UniversalCardComponent = React.memo((props) => {
   };
 
   const goToPlaylistPage = () => {
+    console.log(item);
     navigate("/traditional/playlist", {
       state: {
         playlist: item,
@@ -100,9 +102,12 @@ const UniversalCardComponent = React.memo((props) => {
       <GridSpaceStyle>
         <CardContainerStyle>
           {item.images.length == 0 ? (
-            <CardCoverStyle />
+            <CardCoverStyle onClick={goToPlaylistPage} />
           ) : (
-            <CardCoverStyle imageUrl={item.images[0].url} />
+            <CardCoverStyle
+              imageUrl={item.images[0].url}
+              onClick={goToPlaylistPage}
+            />
           )}
           <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
         </CardContainerStyle>

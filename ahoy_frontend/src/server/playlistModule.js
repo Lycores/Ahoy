@@ -3,7 +3,7 @@ const router = express.Router();
 
 const axios = require("axios");
 router.get("/getMyPlaylists", (req, res) => {
-  let url = "https://api.spotify.com/v1/me/playlists?limit=40";
+  let url = `https://api.spotify.com/v1/me/playlists?limit=${global.cardLimit}`;
   axios
     .get(url, {
       headers: {
@@ -26,7 +26,7 @@ router.get("/getPlaylistItems", (req, res) => {
   let playlistId = req.query.playlistId;
   let market = req.query.market;
   console.log(playlistId, market);
-  let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=${market}`;
+  let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=${market}&limit=${global.trackLimit}`;
   axios
     .get(url, {
       headers: {

@@ -13,6 +13,8 @@ const host = process.env.REACT_APP_HOST;
 const port = process.env.REACT_APP_PORT;
 
 global.access_token = "";
+global.cardLimit = 20;
+global.trackLimit = 40;
 
 var app = express();
 

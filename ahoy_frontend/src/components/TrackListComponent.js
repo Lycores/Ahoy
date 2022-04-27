@@ -132,7 +132,7 @@ const TrackListComponent = React.memo((props) => {
     }
   } else if (type == "playlist") {
     if (playlistTracks) {
-      var tracks = playlistTracks.items;
+      var tracks = playlistTracks;
       var tracksLen = tracks.length;
       if (tracksLen != 0) {
         renderQueue.push(
@@ -143,9 +143,6 @@ const TrackListComponent = React.memo((props) => {
                   <TrackEntryComponent
                     ref={(node) => {
                       var observer = new IntersectionObserver((entries) => {
-                        if (observer) {
-                          observer.disconnect();
-                        }
                         if (entries[0].isIntersecting) {
                           console.log(entries);
                         }

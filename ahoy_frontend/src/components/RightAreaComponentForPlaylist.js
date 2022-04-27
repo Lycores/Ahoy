@@ -10,6 +10,7 @@ import {
   DescriptionStyle,
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComponent";
+import usePlaylistItems from "../customHooks/usePlaylistItems";
 
 const AlbumNameStyle = styled.div`
   width: 100%;
@@ -19,38 +20,36 @@ const AlbumNameStyle = styled.div`
   -webkit-line-clamp: 3;
 `;
 
-var hasMorePlaylistItems = true;
-var isLoading = false;
-var offset = 0;
-var limit = 40;
 const RightAreaComponentForPlaylist = React.memo((props) => {
   var { playlist } = props;
-
-  const getPlaylistTracks = () => {
-    let country = JSON.parse(localStorage.getItem("userProfile")).country;
-    fetch(
-      `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit}&offset=${offset}`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        if ((offset + 1) * limit < json.total) {
-          hasMorePlaylistItems = true;
-          offset++;
-        } else {
-          hasMorePlaylistItems = false;
-        }
-        setPlaylistTrackState(json);
-      });
-  };
+  let userProfile = JSON.parse(localStorage.getItem("userProfile"));
+  let [playlistTrackState, hasMorePlaylistItems, isLoading, getPlaylistTracks] =
+    usePlaylistItems(playlist, userProfile);
+  // const getPlaylistTracks = () => {
+  //   let country = JSON.parse(localStorage.getItem("userProfile")).country;
+  //   fetch(
+  //     `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit}&offset=${offset}`
+  //   )
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((json) => {
+  //       if ((offset + 1) * limit < json.total) {
+  //         hasMorePlaylistItems = true;
+  //         offset++;
+  //       } else {
+  //         hasMorePlaylistItems = false;
+  //       }
+  //       setPlaylistTrackState(json);
+  //     });
+  // };
 
   var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   var [
     playlistOverviewBackgroundImageState,
     setPlaylistOverviewBackgroundImageState,
   ] = useState("");
-  var [playlistTrackState, setPlaylistTrackState] = useState(null);
+  // var [playlistTrackState, setPlaylistTrackState] = useState(null);
 
   useEffect(() => {
     setCoverBackgroundImageState(playlist.images[0].url);

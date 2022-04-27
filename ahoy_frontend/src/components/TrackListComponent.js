@@ -133,22 +133,49 @@ const TrackListComponent = React.memo((props) => {
   } else if (type == "playlist") {
     if (playlistTracks) {
       var tracks = playlistTracks.items;
-      renderQueue.push(
-        <StyleForTrackContainer key={increaseKey + 1}>
-          {tracks.map((track, index) => {
-            return (
-              <TrackEntryComponent
-                key={track.track.id}
-                track={track.track}
-                albumId={track.track.album.id}
-                positionInAlbum={track.track.track_number - 1}
-                images={track.track.album.images}
-              />
-            );
-          })}
-        </StyleForTrackContainer>
-      );
-      increaseKey++;
+      var tracksLen = tracks.length;
+      if (tracksLen != 0) {
+        renderQueue.push(
+          <StyleForTrackContainer key={increaseKey + 1}>
+            {tracks.map((track, index) => {
+              if (index == tracksLen - 1) {
+                return (
+                  <TrackEntryComponent
+                    ref={(node) => {
+                      var observer = new IntersectionObserver((entries) => {
+                        if (observer) {
+                          observer.disconnect();
+                        }
+                        if (entries[0].isIntersecting) {
+                          console.log(entries);
+                        }
+                      });
+                      console.log(node);
+                      observer.observe(node);
+                    }}
+                    key={track.track.id}
+                    track={track.track}
+                    albumId={track.track.album.id}
+                    positionInAlbum={track.track.track_number - 1}
+                    images={track.track.album.images}
+                  />
+                );
+              } else {
+                return (
+                  <TrackEntryComponent
+                    key={track.track.id}
+                    track={track.track}
+                    albumId={track.track.album.id}
+                    positionInAlbum={track.track.track_number - 1}
+                    images={track.track.album.images}
+                  />
+                );
+              }
+            })}
+          </StyleForTrackContainer>
+        );
+        increaseKey++;
+      }
     } else {
       for (var i = 0; i < 10; i++) {
         renderQueue.push(

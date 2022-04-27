@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { deviceIdRecoil } from "../recoilInfo";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -28,7 +28,7 @@ const TrackArtistStyle = styled.div`
   vertical-align: bottom;
 `;
 
-const TrackEntryComponent = React.memo((props) => {
+const TrackEntryComponent = React.forwardRef((props, ref) => {
   const { track, albumId, positionInAlbum, images } = props;
   const deviceIdState = useRecoilValue(deviceIdRecoil);
 
@@ -41,7 +41,7 @@ const TrackEntryComponent = React.memo((props) => {
   };
 
   return (
-    <TrackEntryComponentStyle onClick={playTrack()}>
+    <TrackEntryComponentStyle ref={ref} onClick={playTrack()}>
       <TrackImageStyle trackImage={images[2].url} />
       <TrackInfoContainerStyle>
         <TracktitleStyle>{track.name}</TracktitleStyle>
@@ -51,4 +51,4 @@ const TrackEntryComponent = React.memo((props) => {
   );
 });
 
-export default TrackEntryComponent;
+export default React.memo(TrackEntryComponent);

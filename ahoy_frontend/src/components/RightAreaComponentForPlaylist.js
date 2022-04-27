@@ -19,18 +19,28 @@ const AlbumNameStyle = styled.div`
   -webkit-line-clamp: 3;
 `;
 
+var hasMorePlaylistItems = true;
+var isLoading = false;
+var offset = 0;
+var limit = 40;
 const RightAreaComponentForPlaylist = React.memo((props) => {
   var { playlist } = props;
 
   const getPlaylistTracks = () => {
     let country = JSON.parse(localStorage.getItem("userProfile")).country;
     fetch(
-      `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}`
+      `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit}&offset=${offset}`
     )
       .then((response) => {
         return response.json();
       })
       .then((json) => {
+        if ((offset + 1) * limit < json.total) {
+          hasMorePlaylistItems = true;
+          offset++;
+        } else {
+          hasMorePlaylistItems = false;
+        }
         setPlaylistTrackState(json);
       });
   };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 const useArtist = (artist) => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const getArtistTopTrack = () => {
@@ -15,12 +15,19 @@ const useArtist = (artist) => {
 
   const getArtistAlbums = async () => {
     fetch(
-      `/artists/getArtistAlbums?artistId=${artist.id}&market=${userProfileState.country}`
+      `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}`
     )
       .then((response) => {
         return response.json();
       })
       .then((json) => {
+        console.log(json);
+        offset.current += limit.current;
+        if (offset.current < json.total) {
+          hasMoreAlbumForArtist.current = true;
+        } else {
+          hasMoreAlbumForArtist.current = false;
+        }
         setArtistAlbumsState(json);
       });
   };
@@ -32,6 +39,10 @@ const useArtist = (artist) => {
     artistOverviewBackgroundImageState,
     setArtistOverviewBackgroundImageState,
   ] = useState("");
+
+  let hasMoreAlbumForArtist = useRef(true);
+  let offset = useRef(0);
+  let limit = useRef(40);
 
   useEffect(() => {
     setCoverBackgroundImageState(artist.images[1].url);

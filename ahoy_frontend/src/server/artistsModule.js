@@ -48,7 +48,9 @@ router.get("/getArtistTopTrack", (req, res) => {
 router.get("/getArtistAlbums", (req, res) => {
   let artistId = req.query.artistId;
   let market = req.query.market;
-  let url = `https://api.spotify.com/v1/artists/${artistId}/albums?limit=${global.cardLimit}&market=${market}`;
+  let limit = req.query.limit;
+  let offset = req.query.offset;
+  let url = `https://api.spotify.com/v1/artists/${artistId}/albums?limit=${limit}&offset=${offset}&market=${market}`;
 
   axios
     .get(url, {

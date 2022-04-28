@@ -15,7 +15,7 @@ const StyleForTrackContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListComp = React.memo((props) => {
-  let { playlistTracks, getMorePlaylistTracks } = props;
+  let { playlistTracks, getPlaylistTracks } = props;
   let renderQueue = [];
 
   let observer = useRef();
@@ -36,7 +36,7 @@ const TrackListComp = React.memo((props) => {
                     }
                     observer.current = new IntersectionObserver((entries) => {
                       if (entries[0].isIntersecting) {
-                        getMorePlaylistTracks();
+                        getPlaylistTracks();
                       }
                     });
                     if (node) {

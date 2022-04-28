@@ -28,7 +28,6 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     playlistTrackState,
     hasMorePlaylistItems,
     getPlaylistTracks,
-    getMorePlaylistTracks,
   ] = usePlaylist(playlist);
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
       </RightAreaOverviewStyle>
       <TrackListCompForPlaylist
         playlistTracks={playlistTrackState}
-        getMorePlaylistTracks={getMorePlaylistTracks}
+        getPlaylistTracks={getPlaylistTracks}
       />
     </RightAreaContainerStyle>
   );

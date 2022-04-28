@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap-grid.css";
 import React, { useState, useEffect, useRef } from "react";
-import TrackListComp from "./TrackListComp";
 import styled from "styled-components";
 import {
   RightAreaContainerStyle,
@@ -11,7 +10,7 @@ import {
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
 import usePlaylistItems from "../customHooks/usePlaylistItems";
-
+import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
 const AlbumNameStyle = styled.div`
   width: 100%;
   margin-top: clamp(100px, 15vw, 130px);
@@ -73,10 +72,9 @@ const RightAreaCompForPlaylist = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComp
+      <TrackListCompForPlaylist
         playlistTracks={playlistTrackState}
         getMorePlaylistTracks={getMorePlaylistTracks}
-        type="playlist"
       />
     </RightAreaContainerStyle>
   );

@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 
 const usePlaylistItems = (playlist, userProfile) => {
   let hasMorePlaylistItems = useRef(true);
-  let isLoading = useRef(false);
   let offset = useRef(0);
   let limit = useRef(40);
   var [playlistTrackState, setPlaylistTrackState] = useState(null);
@@ -22,7 +21,6 @@ const usePlaylistItems = (playlist, userProfile) => {
           hasMorePlaylistItems.current = false;
         }
         setPlaylistTrackState(json.items);
-        console.log(json);
       });
   };
 
@@ -44,10 +42,8 @@ const usePlaylistItems = (playlist, userProfile) => {
             hasMorePlaylistItems.current = false;
           }
           setPlaylistTrackState((prevTracks) => {
-            console.log(json);
             return [...prevTracks, ...json.items];
           });
-          console.log(json);
         });
     }
   };
@@ -55,7 +51,6 @@ const usePlaylistItems = (playlist, userProfile) => {
   return [
     playlistTrackState,
     hasMorePlaylistItems.current,
-    isLoading.current,
     getPlaylistTracks,
     getMorePlaylistTracks,
   ];

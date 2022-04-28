@@ -26,11 +26,9 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
   let [
     playlistTrackState,
     hasMorePlaylistItems,
-    isLoading,
     getPlaylistTracks,
     getMorePlaylistTracks,
   ] = usePlaylistItems(playlist, userProfile);
-  console.log(playlistTrackState);
   // const getPlaylistTracks = () => {
   //   let country = JSON.parse(localStorage.getItem("userProfile")).country;
   //   fetch(

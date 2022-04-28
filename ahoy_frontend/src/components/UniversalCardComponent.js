@@ -65,7 +65,6 @@ const UniversalCardComponent = React.memo((props) => {
   };
 
   const goToPlaylistPage = () => {
-    console.log(item);
     navigate("/traditional/playlist", {
       state: {
         playlist: item,

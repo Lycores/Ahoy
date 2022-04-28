@@ -27,7 +27,6 @@ router.get("/getPlaylistItems", (req, res) => {
   let market = req.query.market;
   let offset = req.query.offset;
   let limit = req.query.limit;
-  console.log(playlistId, market);
   let url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?market=${market}&limit=${limit}&offset=${offset}`;
   axios
     .get(url, {
@@ -39,7 +38,6 @@ router.get("/getPlaylistItems", (req, res) => {
     })
     .then((response) => {
       if (response.status == 200) {
-        console.log(response.data);
         res.status(200).send(response.data);
       }
     })

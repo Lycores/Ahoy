@@ -161,7 +161,6 @@ const TrackListComponent = React.memo((props) => {
                           getMorePlaylistTracks();
                         }
                       });
-                      // console.log(node);
                       if (node) {
                         observer.current.observe(node);
                       }

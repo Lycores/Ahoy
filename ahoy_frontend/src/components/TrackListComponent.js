@@ -1,5 +1,5 @@
 import TrackEntryComponent from "./TrackEntryComponent";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import RightAreaComponentForCardPresent from "./RightAreaComponentForCardPresent";
 import PlaceholderCardComponent from "./PlaceholderCardComponent";
 import PlaceholderTrackEntryComponent from "./PlaceholderTrackEntryComponent";
@@ -21,9 +21,19 @@ const CommonContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListComponent = React.memo((props) => {
-  var { album, artistTopTrack, artistAlbums, playlistTracks, type } = props;
+  var {
+    album,
+    artistTopTrack,
+    artistAlbums,
+    playlistTracks,
+    getMorePlaylistTracks,
+    type,
+  } = props;
   var renderQueue = [];
   var [tracksState, setTracksState] = useState([]);
+
+  let observer = useRef();
+
   const loadTrackList = () => {
     if (tracksState.length == 0) {
       for (var i = 0; i < 10; i++) {
@@ -142,13 +152,18 @@ const TrackListComponent = React.memo((props) => {
                 return (
                   <TrackEntryComponent
                     ref={(node) => {
-                      var observer = new IntersectionObserver((entries) => {
+                      if (observer.current) {
+                        observer.current.disconnect();
+                      }
+                      observer.current = new IntersectionObserver((entries) => {
                         if (entries[0].isIntersecting) {
-                          console.log(entries);
+                          getMorePlaylistTracks();
                         }
                       });
-                      console.log(node);
-                      observer.observe(node);
+                      // console.log(node);
+                      if (node) {
+                        observer.current.observe(node);
+                      }
                     }}
                     key={track.track.id}
                     track={track.track}

@@ -15,9 +15,8 @@ const usePlaylistItems = (playlist, userProfile) => {
         return response.json();
       })
       .then((json) => {
-        if ((offset.current + 1) * limit.current < json.total) {
+        if (offset.current + 1 + limit.current < json.total) {
           hasMorePlaylistItems.current = true;
-          offset.current++;
         } else {
           hasMorePlaylistItems.current = false;
         }
@@ -26,11 +25,38 @@ const usePlaylistItems = (playlist, userProfile) => {
       });
   };
 
+  const getMorePlaylistTracks = () => {
+    console.log("getMorePlaylistTracks reached");
+    if (hasMorePlaylistItems.current) {
+      offset.current = limit.current;
+      let country = userProfile.country;
+      fetch(
+        `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit.current}&offset=${offset.current}`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          if ((offset.current + 1) * limit.current < json.total) {
+            hasMorePlaylistItems.current = true;
+          } else {
+            hasMorePlaylistItems.current = false;
+          }
+          setPlaylistTrackState((prevTracks) => {
+            console.log(json);
+            return [...prevTracks, ...json.items];
+          });
+          console.log(json);
+        });
+    }
+  };
+
   return [
     playlistTrackState,
     hasMorePlaylistItems.current,
     isLoading.current,
     getPlaylistTracks,
+    getMorePlaylistTracks,
   ];
 };
 

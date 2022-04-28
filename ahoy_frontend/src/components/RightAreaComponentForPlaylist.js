@@ -23,8 +23,14 @@ const AlbumNameStyle = styled.div`
 const RightAreaComponentForPlaylist = React.memo((props) => {
   var { playlist } = props;
   let userProfile = JSON.parse(localStorage.getItem("userProfile"));
-  let [playlistTrackState, hasMorePlaylistItems, isLoading, getPlaylistTracks] =
-    usePlaylistItems(playlist, userProfile);
+  let [
+    playlistTrackState,
+    hasMorePlaylistItems,
+    isLoading,
+    getPlaylistTracks,
+    getMorePlaylistTracks,
+  ] = usePlaylistItems(playlist, userProfile);
+  console.log(playlistTrackState);
   // const getPlaylistTracks = () => {
   //   let country = JSON.parse(localStorage.getItem("userProfile")).country;
   //   fetch(
@@ -69,7 +75,11 @@ const RightAreaComponentForPlaylist = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComponent playlistTracks={playlistTrackState} type="playlist" />
+      <TrackListComponent
+        playlistTracks={playlistTrackState}
+        getMorePlaylistTracks={getMorePlaylistTracks}
+        type="playlist"
+      />
     </RightAreaContainerStyle>
   );
 });

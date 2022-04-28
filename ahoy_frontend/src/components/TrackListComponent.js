@@ -157,6 +157,7 @@ const TrackListComponent = React.memo((props) => {
                       }
                       observer.current = new IntersectionObserver((entries) => {
                         if (entries[0].isIntersecting) {
+                          console.log(111);
                           getMorePlaylistTracks();
                         }
                       });
@@ -166,7 +167,7 @@ const TrackListComponent = React.memo((props) => {
                       }
                     }}
                     position={index + 1}
-                    key={track.track.id}
+                    key={index}
                     track={track.track}
                     albumId={track.track.album.id}
                     positionInAlbum={track.track.track_number - 1}
@@ -177,7 +178,7 @@ const TrackListComponent = React.memo((props) => {
                 return (
                   <TrackEntryComponent
                     position={index + 1}
-                    key={track.track.id}
+                    key={index}
                     track={track.track}
                     albumId={track.track.album.id}
                     positionInAlbum={track.track.track_number - 1}

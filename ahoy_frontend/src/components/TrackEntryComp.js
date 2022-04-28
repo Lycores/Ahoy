@@ -7,7 +7,7 @@ import { TrackEntryComponentStyle } from "./ReusableStyleComp";
 const TrackImageStyle = styled.div`
   height: 50px;
   width: 50px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-image: url(${(props) => props.trackImage});
 `;
 

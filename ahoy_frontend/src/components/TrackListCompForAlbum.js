@@ -13,33 +13,33 @@ const StyleForTrackContainer = styled.div`
 
 let increaseKey = 999;
 const TrackListCompForAlbum = React.memo((props) => {
-  let { album } = props;
+  let { tracks, albumId } = props;
   let renderQueue = [];
-  let [tracksState, setTracksState] = useState([]);
+  // let [tracksState, setTracksState] = useState([]);
 
   const userProfileState = JSON.parse(localStorage.getItem("userProfile"));
 
-  useEffect(() => {
-    if (album) {
-      let tracks = null;
-      try {
-        tracks = album.tracks.items;
-        setTracksState(tracks);
-      } catch {
-        fetch(
-          `/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}`
-        )
-          .then((response) => {
-            return response.json();
-          })
-          .then((json) => {
-            setTracksState(json.tracks.items);
-          });
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (album) {
+  //     let tracks = null;
+  //     try {
+  //       tracks = album.tracks.items;
+  //       setTracksState(tracks);
+  //     } catch {
+  //       fetch(
+  //         `/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}`
+  //       )
+  //         .then((response) => {
+  //           return response.json();
+  //         })
+  //         .then((json) => {
+  //           setTracksState(json.tracks.items);
+  //         });
+  //     }
+  //   }
+  // }, []);
 
-  if (tracksState.length == 0) {
+  if (tracks.length == 0) {
     for (let i = 0; i < 10; i++) {
       renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
     }
@@ -47,14 +47,13 @@ const TrackListCompForAlbum = React.memo((props) => {
   } else {
     renderQueue.push(
       <StyleForTrackContainer key={increaseKey + 1}>
-        {tracksState.map((track, index) => {
+        {tracks.map((track, index) => {
           return (
             <TrackEntryComp
               key={track.id}
               track={track}
-              albumId={album.id}
+              albumId={albumId}
               positionInAlbum={index}
-              images={album.images}
             />
           );
         })}

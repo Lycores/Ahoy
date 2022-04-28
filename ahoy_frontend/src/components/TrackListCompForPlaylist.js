@@ -49,6 +49,7 @@ const TrackListComp = React.memo((props) => {
                   albumId={track.track.album.id}
                   positionInAlbum={track.track.track_number - 1}
                   images={track.track.album.images}
+                  showImage={true}
                 />
               );
             } else {
@@ -60,6 +61,7 @@ const TrackListComp = React.memo((props) => {
                   albumId={track.track.album.id}
                   positionInAlbum={track.track.track_number - 1}
                   images={track.track.album.images}
+                  showImage={true}
                 />
               );
             }

@@ -23,7 +23,8 @@ const RightAreaCompForAlbum = React.memo((props) => {
   let { album } = props;
 
   let [
-    albumList,
+    tracks,
+    albumId,
     coverBackgroundImageState,
     albumOverviewBackgroundImageState,
   ] = useAlbum(album);
@@ -40,7 +41,11 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForAlbum album={albumList} />
+      <TrackListCompForAlbum
+        tracks={tracks}
+        albumId={albumId}
+        showImage={false}
+      />
     </RightAreaContainerStyle>
   );
 });

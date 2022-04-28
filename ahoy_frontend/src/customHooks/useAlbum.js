@@ -12,7 +12,12 @@ const useAlbum = (album) => {
     setAlbumOverviewBackgroundImageState(album.images[0].url);
   }, [album]);
 
-  return [album, coverBackgroundImageState, albumOverviewBackgroundImageState];
+  return [
+    album.tracks.items,
+    album.id,
+    coverBackgroundImageState,
+    albumOverviewBackgroundImageState,
+  ];
 };
 
 export default useAlbum;

@@ -15,7 +15,8 @@ const usePlaylistItems = (playlist, userProfile) => {
         return response.json();
       })
       .then((json) => {
-        if (offset.current + 1 + limit.current < json.total) {
+        offset.current += limit.current;
+        if (offset.current < json.total) {
           hasMorePlaylistItems.current = true;
         } else {
           hasMorePlaylistItems.current = false;
@@ -28,7 +29,6 @@ const usePlaylistItems = (playlist, userProfile) => {
   const getMorePlaylistTracks = () => {
     console.log("getMorePlaylistTracks reached");
     if (hasMorePlaylistItems.current) {
-      offset.current = limit.current;
       let country = userProfile.country;
       fetch(
         `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit.current}&offset=${offset.current}`
@@ -37,7 +37,8 @@ const usePlaylistItems = (playlist, userProfile) => {
           return response.json();
         })
         .then((json) => {
-          if ((offset.current + 1) * limit.current < json.total) {
+          offset.current += limit.current;
+          if (offset.current < json.total) {
             hasMorePlaylistItems.current = true;
           } else {
             hasMorePlaylistItems.current = false;

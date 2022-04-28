@@ -15,29 +15,6 @@ let increaseKey = 999;
 const TrackListCompForAlbum = React.memo((props) => {
   let { tracks, albumId } = props;
   let renderQueue = [];
-  // let [tracksState, setTracksState] = useState([]);
-
-  const userProfileState = JSON.parse(localStorage.getItem("userProfile"));
-
-  // useEffect(() => {
-  //   if (album) {
-  //     let tracks = null;
-  //     try {
-  //       tracks = album.tracks.items;
-  //       setTracksState(tracks);
-  //     } catch {
-  //       fetch(
-  //         `/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}`
-  //       )
-  //         .then((response) => {
-  //           return response.json();
-  //         })
-  //         .then((json) => {
-  //           setTracksState(json.tracks.items);
-  //         });
-  //     }
-  //   }
-  // }, []);
 
   if (tracks.length == 0) {
     for (let i = 0; i < 10; i++) {
@@ -50,10 +27,12 @@ const TrackListCompForAlbum = React.memo((props) => {
         {tracks.map((track, index) => {
           return (
             <TrackEntryComp
+              position={index + 1}
               key={track.id}
               track={track}
               albumId={albumId}
               positionInAlbum={index}
+              showImage={false}
             />
           );
         })}

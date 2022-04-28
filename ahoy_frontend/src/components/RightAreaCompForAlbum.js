@@ -41,11 +41,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForAlbum
-        tracks={tracks}
-        albumId={albumId}
-        showImage={false}
-      />
+      <TrackListCompForAlbum tracks={tracks} albumId={albumId} />
     </RightAreaContainerStyle>
   );
 });

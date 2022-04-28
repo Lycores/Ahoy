@@ -21,11 +21,11 @@ const CommonContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListCompForArtist = React.memo((props) => {
-  var { artistTopTrack, artistAlbums } = props;
-  var renderQueue = [];
+  let { artistTopTrack, artistAlbums } = props;
+  let renderQueue = [];
 
   if (artistTopTrack) {
-    var tracks = artistTopTrack.tracks;
+    let tracks = artistTopTrack.tracks;
     renderQueue.push(
       <StyleForTrackContainer key={increaseKey + 1}>
         {tracks.map((track, index) => {
@@ -45,7 +45,7 @@ const TrackListCompForArtist = React.memo((props) => {
     );
     increaseKey++;
   } else {
-    for (var i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
     }
     increaseKey += 10;

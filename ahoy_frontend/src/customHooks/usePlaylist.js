@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 const usePlaylist = (playlist) => {
   let userProfile = JSON.parse(localStorage.getItem("userProfile"));
+
   const getPlaylistTracks = () => {
     let country = userProfile.country;
     fetch(

@@ -20,7 +20,7 @@ const AlbumNameStyle = styled.div`
 `;
 
 const RightAreaCompForPlaylist = React.memo((props) => {
-  var { playlist } = props;
+  let { playlist } = props;
 
   let [
     coverBackgroundImageState,

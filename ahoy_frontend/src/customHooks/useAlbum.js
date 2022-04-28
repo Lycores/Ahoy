@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const useAlbum = (album) => {
-  var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  var [
+  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
+  let [
     albumOverviewBackgroundImageState,
     setAlbumOverviewBackgroundImageState,
   ] = useState("");

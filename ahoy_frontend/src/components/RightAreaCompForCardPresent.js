@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { RightAreaContainerStyle, GridStyle } from "./ReusableStyleComp";
 
 const RightAreaCompForCardPresent = React.memo((props) => {
-  var { itemList, type } = props;
+  let { itemList, type } = props;
 
   if (itemList.length == 0) {
     return (

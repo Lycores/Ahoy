@@ -15,14 +15,14 @@ const StyleForTrackContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListComp = React.memo((props) => {
-  var { playlistTracks, getMorePlaylistTracks } = props;
-  var renderQueue = [];
+  let { playlistTracks, getMorePlaylistTracks } = props;
+  let renderQueue = [];
 
   let observer = useRef();
 
   if (playlistTracks) {
-    var tracks = playlistTracks;
-    var tracksLen = tracks.length;
+    let tracks = playlistTracks;
+    let tracksLen = tracks.length;
     if (tracksLen != 0) {
       renderQueue.push(
         <StyleForTrackContainer key={increaseKey + 1}>
@@ -71,7 +71,7 @@ const TrackListComp = React.memo((props) => {
       increaseKey++;
     }
   } else {
-    for (var i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
     }
     increaseKey += 10;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 const useArtist = (artist) => {
-  const userProfileState = JSON.parse(localStorage.getItem("userProfile"));
+  let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const getArtistTopTrack = () => {
     fetch(
       `/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`
@@ -25,10 +25,10 @@ const useArtist = (artist) => {
       });
   };
 
-  var [artistTopTrackState, setArtistTopTrackState] = useState(null);
-  var [artistAlbumsState, setArtistAlbumsState] = useState(null);
-  var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  var [
+  let [artistTopTrackState, setArtistTopTrackState] = useState(null);
+  let [artistAlbumsState, setArtistAlbumsState] = useState(null);
+  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
+  let [
     artistOverviewBackgroundImageState,
     setArtistOverviewBackgroundImageState,
   ] = useState("");

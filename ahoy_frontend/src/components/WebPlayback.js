@@ -104,13 +104,13 @@ const VerticallyCentredStyle = styled.div`
 const WebPlayback = () => {
   let token = JSON.parse(localStorage.getItem("token"));
 
-  var [is_paused, setPaused] = useState(false);
-  var [is_active, setActive] = useState(false);
-  var [player, setPlayer] = useState(undefined);
-  var [current_track, setTrack] = useState(track);
+  let [is_paused, setPaused] = useState(false);
+  let [is_active, setActive] = useState(false);
+  let [player, setPlayer] = useState(undefined);
+  let [current_track, setTrack] = useState(track);
 
-  var [deviceIdState, setDevicedIdState] = useRecoilState(deviceIdRecoil);
-  var [recentlyPlayedState, setRecentlyPlayedState] =
+  let [deviceIdState, setDevicedIdState] = useRecoilState(deviceIdRecoil);
+  let [recentlyPlayedState, setRecentlyPlayedState] =
     useRecoilState(recentlyPlayedRecoil);
 
   const recentlyPlayedStart = () => {

@@ -10,6 +10,7 @@ import {
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
+import useAlbum from "../customHooks/useAlbum";
 const AlbumNameStyle = styled.div`
   width: 100%;
   margin-top: clamp(100px, 15vw, 180px);
@@ -19,17 +20,13 @@ const AlbumNameStyle = styled.div`
 `;
 
 const RightAreaCompForAlbum = React.memo((props) => {
-  var { album } = props;
-  var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  var [
-    albumOverviewBackgroundImageState,
-    setAlbumOverviewBackgroundImageState,
-  ] = useState("");
+  let { album } = props;
 
-  useEffect(() => {
-    setCoverBackgroundImageState(album.images[1].url);
-    setAlbumOverviewBackgroundImageState(album.images[0].url);
-  }, [album]);
+  let [
+    albumList,
+    coverBackgroundImageState,
+    albumOverviewBackgroundImageState,
+  ] = useAlbum(album);
 
   return (
     <RightAreaContainerStyle>
@@ -43,7 +40,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForAlbum album={album} />
+      <TrackListCompForAlbum album={albumList} />
     </RightAreaContainerStyle>
   );
 });

@@ -9,9 +9,9 @@ import {
 } from "../components/ReusableStyleComp";
 function AlbumPage() {
   let token = JSON.parse(localStorage.getItem("token"));
-  var albumList = [];
-  var album = null;
-  var { state } = useLocation();
+  let albumList = [];
+  let album = null;
+  let { state } = useLocation();
   if (state) {
     album = state.album;
   }
@@ -29,7 +29,7 @@ function AlbumPage() {
       });
   };
 
-  var [albumListState, setAlbumListState] = useState(albumList);
+  let [albumListState, setAlbumListState] = useState(albumList);
 
   useEffect(() => {
     if (!album) {

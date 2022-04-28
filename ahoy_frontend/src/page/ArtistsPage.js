@@ -12,11 +12,11 @@ import React from "react";
 function ArtistsPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
-  var artistsList = [];
-  var artist = null;
-  var { state } = useLocation();
+  let artistsList = [];
+  let artist = null;
+  let { state } = useLocation();
   if (state) {
-    var artist = state.artist;
+    artist = state.artist;
   }
 
   const getFollowedArtists = () => {
@@ -28,7 +28,7 @@ function ArtistsPage() {
         setArtistsListState(json.artists.items);
       });
   };
-  var [artistsListState, setArtistsListState] = useState(artistsList);
+  let [artistsListState, setArtistsListState] = useState(artistsList);
   useEffect(() => {
     if (!artist) {
       getFollowedArtists();

@@ -10,11 +10,11 @@ import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
 function PlaylistPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
-  var playlist = null;
-  var playlistList = [];
-  var { state } = useLocation();
+  let playlist = null;
+  let playlistList = [];
+  let { state } = useLocation();
   if (state) {
-    var playlist = state.playlist;
+    playlist = state.playlist;
   }
 
   const getMyPlaylist = () => {
@@ -27,7 +27,7 @@ function PlaylistPage() {
       });
   };
 
-  var [playlistListState, setPlaylistListState] = useState(playlistList);
+  let [playlistListState, setPlaylistListState] = useState(playlistList);
 
   useEffect(() => {
     if (!playlist) {

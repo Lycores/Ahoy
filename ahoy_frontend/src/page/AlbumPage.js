@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import RightAreaComponentForCardPresent from "../components/RightAreaComponentForCardPresent";
-import RightAreaComponentForAlbum from "../components/RightAreaComponentsForAlbum";
+import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
+import RightAreaCompForAlbum from "../components/RightAreaCompForAlbum";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
-} from "../components/ReusableStyleComponent";
+} from "../components/ReusableStyleComp";
 function AlbumPage() {
   let token = JSON.parse(localStorage.getItem("token"));
   var albumList = [];
@@ -42,24 +42,24 @@ function AlbumPage() {
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
           {!album ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={albumListState}
               type="album"
             />
           ) : (
-            <RightAreaComponentForAlbum album={album} />
+            <RightAreaCompForAlbum album={album} />
           )}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
           {!album ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={albumListState}
               type="album"
             />
           ) : (
-            <RightAreaComponentForAlbum album={album} />
+            <RightAreaCompForAlbum album={album} />
           )}
         </RightAreaStyleForMobile>
       </Mobile>

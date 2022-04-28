@@ -1,13 +1,13 @@
 import React from "react";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
-import { TrackEntryComponentStyle } from "./ReusableStyleComponent";
+import { TrackEntryComponentStyle } from "./ReusableStyleComp";
 
 const PlaceholderRow = styled.div.attrs({
   className: "ph-row",
 })``;
 
-const PlaceholderTrackEntryComponent = React.memo(() => {
+const PlaceholderTrackEntryComp = React.memo(() => {
   return (
     <TrackEntryComponentStyle skeleton="ph-item">
       <PlaceholderRow />
@@ -15,4 +15,4 @@ const PlaceholderTrackEntryComponent = React.memo(() => {
   );
 });
 
-export default PlaceholderTrackEntryComponent;
+export default PlaceholderTrackEntryComp;

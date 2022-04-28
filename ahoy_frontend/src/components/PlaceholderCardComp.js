@@ -4,8 +4,8 @@ import {
   CardContainerStyle,
   GridSpaceStyle,
   CardCoverStyle,
-} from "./ReusableStyleComponent";
-const PlaceholderCardComponent = React.memo(() => {
+} from "./ReusableStyleComp";
+const PlaceholderCardComp = React.memo(() => {
   return (
     <GridSpaceStyle>
       <CardContainerStyle>
@@ -15,4 +15,4 @@ const PlaceholderCardComponent = React.memo(() => {
   );
 });
 
-export default PlaceholderCardComponent;
+export default PlaceholderCardComp;

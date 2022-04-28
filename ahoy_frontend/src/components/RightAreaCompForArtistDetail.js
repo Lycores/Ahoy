@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TrackListComponent from "./TrackListComponent";
+import TrackListComp from "./TrackListComp";
 import styled from "styled-components";
 import {
   RightAreaContainerStyle,
@@ -8,7 +8,7 @@ import {
   RightAreaCoverStyle,
   DescriptionStyle,
   RightAreaCoverContainerStyle,
-} from "./ReusableStyleComponent";
+} from "./ReusableStyleComp";
 
 const ArtistNameStyle = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ const ArtistNameStyle = styled.div`
   font-size: clamp(30px, 6vw, 80px);
 `;
 
-const RightAreaComponentForArtistDetail = React.memo((props) => {
+const RightAreaCompForArtistDetail = React.memo((props) => {
   let { artist } = props;
   const userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const getArtistTopTrack = () => {
@@ -71,7 +71,7 @@ const RightAreaComponentForArtistDetail = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComponent
+      <TrackListComp
         artistTopTrack={artistTopTrackState}
         artistAlbums={artistAlbumsState}
         type={"artist"}
@@ -80,4 +80,4 @@ const RightAreaComponentForArtistDetail = React.memo((props) => {
   );
 });
 
-export default RightAreaComponentForArtistDetail;
+export default RightAreaCompForArtistDetail;

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { deviceIdRecoil } from "../recoilInfo";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { TrackEntryComponentStyle } from "./ReusableStyleComponent";
+import { TrackEntryComponentStyle } from "./ReusableStyleComp";
 
 const TrackImageStyle = styled.div`
   height: 50px;
@@ -35,7 +35,7 @@ const TrackNumberArea = styled.div`
   text-align: center;
 `;
 
-const TrackEntryComponent = React.forwardRef((props, ref) => {
+const TrackEntryComp = React.forwardRef((props, ref) => {
   const { position, track, albumId, positionInAlbum, images } = props;
   const deviceIdState = useRecoilValue(deviceIdRecoil);
 
@@ -59,4 +59,4 @@ const TrackEntryComponent = React.forwardRef((props, ref) => {
   );
 });
 
-export default React.memo(TrackEntryComponent);
+export default React.memo(TrackEntryComp);

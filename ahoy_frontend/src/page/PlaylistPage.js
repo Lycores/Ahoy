@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import RightAreaComponentForCardPresent from "../components/RightAreaComponentForCardPresent";
+import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
-} from "../components/ReusableStyleComponent";
-import RightAreaComponentForPlaylist from "../components/RightAreaComponentForPlaylist";
+} from "../components/ReusableStyleComp";
+import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
 function PlaylistPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
@@ -39,24 +39,24 @@ function PlaylistPage() {
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
           {!playlist ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={playlistListState}
               type="playlist"
             />
           ) : (
-            <RightAreaComponentForPlaylist playlist={playlist} />
+            <RightAreaCompForPlaylist playlist={playlist} />
           )}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
           {!playlist ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={playlistListState}
               type="playlist"
             />
           ) : (
-            <RightAreaComponentForPlaylist playlist={playlist} />
+            <RightAreaCompForPlaylist playlist={playlist} />
           )}
         </RightAreaStyleForMobile>
       </Mobile>

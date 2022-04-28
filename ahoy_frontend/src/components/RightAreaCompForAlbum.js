@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap-grid.css";
 import React, { useState, useEffect, useRef } from "react";
-import TrackListComponent from "./TrackListComponent";
+import TrackListComp from "./TrackListComp";
 import styled from "styled-components";
 import {
   RightAreaContainerStyle,
@@ -9,7 +9,7 @@ import {
   RightAreaOverviewStyle,
   DescriptionStyle,
   RightAreaCoverContainerStyle,
-} from "./ReusableStyleComponent";
+} from "./ReusableStyleComp";
 
 const AlbumNameStyle = styled.div`
   width: 100%;
@@ -19,7 +19,7 @@ const AlbumNameStyle = styled.div`
   -webkit-line-clamp: 3;
 `;
 
-const RightAreaComponentForAlbum = React.memo((props) => {
+const RightAreaCompForAlbum = React.memo((props) => {
   var { album } = props;
   var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   var [
@@ -44,9 +44,9 @@ const RightAreaComponentForAlbum = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListComponent album={album} type="album" />
+      <TrackListComp album={album} type="album" />
     </RightAreaContainerStyle>
   );
 });
 
-export default RightAreaComponentForAlbum;
+export default RightAreaCompForAlbum;

@@ -1,11 +1,11 @@
-import TrackEntryComponent from "./TrackEntryComponent";
+import TrackEntryComp from "./TrackEntryComp";
 import React, { useEffect, useState, useRef } from "react";
-import RightAreaComponentForCardPresent from "./RightAreaComponentForCardPresent";
-import PlaceholderCardComponent from "./PlaceholderCardComponent";
-import PlaceholderTrackEntryComponent from "./PlaceholderTrackEntryComponent";
+import RightAreaCompForCardPresent from "./RightAreaCompForCardPresent";
+import PlaceholderCardComp from "./PlaceholderCardComp";
+import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
-import { GridStyle, RightAreaContainerStyle } from "./ReusableStyleComponent";
+import { GridStyle, RightAreaContainerStyle } from "./ReusableStyleComp";
 
 const StyleForTrackContainer = styled.div`
   box-shadow: var(--global-box-shadow);
@@ -20,7 +20,7 @@ const CommonContainer = styled.div`
 `;
 
 var increaseKey = 999;
-const TrackListComponent = React.memo((props) => {
+const TrackListComp = React.memo((props) => {
   var {
     album,
     artistTopTrack,
@@ -37,9 +37,7 @@ const TrackListComponent = React.memo((props) => {
   const loadTrackList = () => {
     if (tracksState.length == 0) {
       for (var i = 0; i < 10; i++) {
-        renderQueue.push(
-          <PlaceholderTrackEntryComponent key={increaseKey + i} />
-        );
+        renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
       }
       increaseKey += 10;
     } else {
@@ -47,7 +45,7 @@ const TrackListComponent = React.memo((props) => {
         <StyleForTrackContainer key={increaseKey + 1}>
           {tracksState.map((track, index) => {
             return (
-              <TrackEntryComponent
+              <TrackEntryComp
                 key={track.id}
                 track={track}
                 albumId={album.id}
@@ -91,7 +89,7 @@ const TrackListComponent = React.memo((props) => {
         <StyleForTrackContainer key={increaseKey + 1}>
           {tracks.map((track, index) => {
             return (
-              <TrackEntryComponent
+              <TrackEntryComp
                 key={track.id}
                 track={track}
                 albumId={track.album.id}
@@ -105,9 +103,7 @@ const TrackListComponent = React.memo((props) => {
       increaseKey++;
     } else {
       for (var i = 0; i < 10; i++) {
-        renderQueue.push(
-          <PlaceholderTrackEntryComponent key={increaseKey + i} />
-        );
+        renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
       }
       increaseKey += 10;
     }
@@ -115,7 +111,7 @@ const TrackListComponent = React.memo((props) => {
     if (artistAlbums) {
       renderQueue.push(
         <CommonContainer key={increaseKey + 1}>
-          <RightAreaComponentForCardPresent
+          <RightAreaCompForCardPresent
             itemList={artistAlbums.items}
             type="album"
           />
@@ -127,13 +123,13 @@ const TrackListComponent = React.memo((props) => {
         <CommonContainer key={increaseKey + 1}>
           <RightAreaContainerStyle>
             <GridStyle>
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
-              <PlaceholderCardComponent />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
+              <PlaceholderCardComp />
             </GridStyle>
           </RightAreaContainerStyle>
         </CommonContainer>
@@ -150,7 +146,7 @@ const TrackListComponent = React.memo((props) => {
             {tracks.map((track, index) => {
               if (index == tracksLen - 1) {
                 return (
-                  <TrackEntryComponent
+                  <TrackEntryComp
                     ref={(node) => {
                       if (observer.current) {
                         observer.current.disconnect();
@@ -175,7 +171,7 @@ const TrackListComponent = React.memo((props) => {
                 );
               } else {
                 return (
-                  <TrackEntryComponent
+                  <TrackEntryComp
                     position={index + 1}
                     key={index}
                     track={track.track}
@@ -192,9 +188,7 @@ const TrackListComponent = React.memo((props) => {
       }
     } else {
       for (var i = 0; i < 10; i++) {
-        renderQueue.push(
-          <PlaceholderTrackEntryComponent key={increaseKey + i} />
-        );
+        renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
       }
       increaseKey += 10;
     }
@@ -202,4 +196,4 @@ const TrackListComponent = React.memo((props) => {
   return renderQueue;
 });
 
-export default TrackListComponent;
+export default TrackListComp;

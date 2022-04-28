@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import RightAreaComponentForCardPresent from "../components/RightAreaComponentForCardPresent";
-import RightAreaComponentForArtistDetail from "../components/RightAreaComponentForArtistDetail";
+import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
+import RightAreaCompForArtistDetail from "../components/RightAreaCompForArtistDetail";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
-} from "../components/ReusableStyleComponent";
+} from "../components/ReusableStyleComp";
 import React from "react";
 
 function ArtistsPage() {
@@ -40,24 +40,24 @@ function ArtistsPage() {
       <DesktopOrTablet>
         <RightAreaStyleForDesktopOrTablet>
           {!artist ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={artistsListState}
               type="artists"
             />
           ) : (
-            <RightAreaComponentForArtistDetail artist={artist} />
+            <RightAreaCompForArtistDetail artist={artist} />
           )}
         </RightAreaStyleForDesktopOrTablet>
       </DesktopOrTablet>
       <Mobile>
         <RightAreaStyleForMobile>
           {!artist ? (
-            <RightAreaComponentForCardPresent
+            <RightAreaCompForCardPresent
               itemList={artistsListState}
               type="artists"
             />
           ) : (
-            <RightAreaComponentForArtistDetail artist={artist} />
+            <RightAreaCompForArtistDetail artist={artist} />
           )}
         </RightAreaStyleForMobile>
       </Mobile>

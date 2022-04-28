@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap-grid.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import {
   RightAreaContainerStyle,
@@ -9,7 +9,7 @@ import {
   DescriptionStyle,
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
-import usePlaylistItems from "../customHooks/usePlaylistItems";
+import usePlaylist from "../customHooks/usePlaylist";
 import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
 const AlbumNameStyle = styled.div`
   width: 100%;
@@ -21,42 +21,17 @@ const AlbumNameStyle = styled.div`
 
 const RightAreaCompForPlaylist = React.memo((props) => {
   var { playlist } = props;
-  let userProfile = JSON.parse(localStorage.getItem("userProfile"));
+
   let [
+    coverBackgroundImageState,
+    playlistOverviewBackgroundImageState,
     playlistTrackState,
     hasMorePlaylistItems,
     getPlaylistTracks,
     getMorePlaylistTracks,
-  ] = usePlaylistItems(playlist, userProfile);
-  // const getPlaylistTracks = () => {
-  //   let country = JSON.parse(localStorage.getItem("userProfile")).country;
-  //   fetch(
-  //     `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit}&offset=${offset}`
-  //   )
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       if ((offset + 1) * limit < json.total) {
-  //         hasMorePlaylistItems = true;
-  //         offset++;
-  //       } else {
-  //         hasMorePlaylistItems = false;
-  //       }
-  //       setPlaylistTrackState(json);
-  //     });
-  // };
-
-  var [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  var [
-    playlistOverviewBackgroundImageState,
-    setPlaylistOverviewBackgroundImageState,
-  ] = useState("");
-  // var [playlistTrackState, setPlaylistTrackState] = useState(null);
+  ] = usePlaylist(playlist);
 
   useEffect(() => {
-    setCoverBackgroundImageState(playlist.images[0].url);
-    setPlaylistOverviewBackgroundImageState(playlist.images[0].url);
     getPlaylistTracks();
   }, [playlist]);
 

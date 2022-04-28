@@ -1,10 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const usePlaylistItems = (playlist, userProfile) => {
-  let hasMorePlaylistItems = useRef(true);
-  let offset = useRef(0);
-  let limit = useRef(40);
-  var [playlistTrackState, setPlaylistTrackState] = useState(null);
+const usePlaylist = (playlist) => {
+  let userProfile = JSON.parse(localStorage.getItem("userProfile"));
   const getPlaylistTracks = () => {
     let country = userProfile.country;
     fetch(
@@ -48,7 +45,24 @@ const usePlaylistItems = (playlist, userProfile) => {
     }
   };
 
+  let hasMorePlaylistItems = useRef(true);
+  let offset = useRef(0);
+  let limit = useRef(40);
+  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
+  let [
+    playlistOverviewBackgroundImageState,
+    setPlaylistOverviewBackgroundImageState,
+  ] = useState("");
+  let [playlistTrackState, setPlaylistTrackState] = useState(null);
+
+  useEffect(() => {
+    setCoverBackgroundImageState(playlist.images[0].url);
+    setPlaylistOverviewBackgroundImageState(playlist.images[0].url);
+  }, [playlist]);
+
   return [
+    coverBackgroundImageState,
+    playlistOverviewBackgroundImageState,
     playlistTrackState,
     hasMorePlaylistItems.current,
     getPlaylistTracks,
@@ -56,4 +70,4 @@ const usePlaylistItems = (playlist, userProfile) => {
   ];
 };
 
-export default usePlaylistItems;
+export default usePlaylist;

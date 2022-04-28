@@ -165,6 +165,7 @@ const TrackListComponent = React.memo((props) => {
                         observer.current.observe(node);
                       }
                     }}
+                    position={index + 1}
                     key={track.track.id}
                     track={track.track}
                     albumId={track.track.album.id}
@@ -175,6 +176,7 @@ const TrackListComponent = React.memo((props) => {
               } else {
                 return (
                   <TrackEntryComponent
+                    position={index + 1}
                     key={track.track.id}
                     track={track.track}
                     albumId={track.track.album.id}

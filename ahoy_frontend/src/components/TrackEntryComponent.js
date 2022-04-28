@@ -28,8 +28,15 @@ const TrackArtistStyle = styled.div`
   vertical-align: bottom;
 `;
 
+const TrackNumberArea = styled.div`
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+`;
+
 const TrackEntryComponent = React.forwardRef((props, ref) => {
-  const { track, albumId, positionInAlbum, images } = props;
+  const { position, track, albumId, positionInAlbum, images } = props;
   const deviceIdState = useRecoilValue(deviceIdRecoil);
 
   const playTrack = () => {
@@ -42,6 +49,7 @@ const TrackEntryComponent = React.forwardRef((props, ref) => {
 
   return (
     <TrackEntryComponentStyle ref={ref} onClick={playTrack()}>
+      <TrackNumberArea>{position}</TrackNumberArea>
       <TrackImageStyle trackImage={images[2].url} />
       <TrackInfoContainerStyle>
         <TracktitleStyle>{track.name}</TracktitleStyle>

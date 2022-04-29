@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import {
   RightAreaContainerStyle,
@@ -10,6 +10,7 @@ import {
 } from "./ReusableStyleComp";
 import TrackListCompForArtist from "./TrackListCompForArtist";
 import useArtist from "../customHooks/useArtist";
+import AlbumCompForArtist from "./AlbumCompForArtist";
 const ArtistNameStyle = styled.div`
   width: 100%;
   margin-top: clamp(100px, 12.5vw, 150px);
@@ -40,11 +41,11 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
           </DescriptionStyle>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForArtist
-        artistTopTrack={artistTopTrackState}
+      <TrackListCompForArtist artistTopTrack={artistTopTrackState} />
+      <AlbumCompForArtist
         artistAlbums={artistAlbumsState}
         getArtistAlbums={getArtistAlbums}
-      />
+      ></AlbumCompForArtist>
     </RightAreaContainerStyle>
   );
 });

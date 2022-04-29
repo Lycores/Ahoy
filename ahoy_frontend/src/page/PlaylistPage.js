@@ -8,7 +8,7 @@ import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
 import usePlaylistPage from "../customHooks/usePlaylistPage";
 
 function PlaylistPage() {
-  let [playlist, playlistListState] = usePlaylistPage();
+  let [playlist, playlistListState, getMorePlaylist] = usePlaylistPage();
 
   return (
     <>
@@ -18,6 +18,7 @@ function PlaylistPage() {
             <RightAreaCompForCardPresent
               itemList={playlistListState}
               type="playlist"
+              getMoreItems={getMorePlaylist}
             />
           ) : (
             <RightAreaCompForPlaylist playlist={playlist} />
@@ -30,6 +31,7 @@ function PlaylistPage() {
             <RightAreaCompForCardPresent
               itemList={playlistListState}
               type="playlist"
+              getMoreItems={getMorePlaylist}
             />
           ) : (
             <RightAreaCompForPlaylist playlist={playlist} />

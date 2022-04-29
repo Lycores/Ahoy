@@ -96,15 +96,12 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
   }
   if (type == "playlist") {
     return (
-      <GridSpaceStyle>
+      <GridSpaceStyle ref={ref} onClick={goToPlaylistPage}>
         <CardContainerStyle>
           {item.images.length == 0 ? (
-            <CardCoverStyle onClick={goToPlaylistPage} />
+            <CardCoverStyle />
           ) : (
-            <CardCoverStyle
-              imageUrl={item.images[0].url}
-              onClick={goToPlaylistPage}
-            />
+            <CardCoverStyle imageUrl={item.images[0].url} />
           )}
           <PlaylistNameStyle>{item.name}</PlaylistNameStyle>
         </CardContainerStyle>

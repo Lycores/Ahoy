@@ -5,7 +5,7 @@ import WelcomePage from "./page/WelcomePage";
 import ArtistsPage from "./page/ArtistsPage";
 import PlaylistPage from "./page/PlaylistPage";
 import TraditionalMusicPlayerPage from "./page/TraditionalMusicPlayerPage";
-import RouteProtector from "./components/RouteProtector";
+import RouteProtector from "./RouteProtector";
 function App() {
   var [forceUpdate, setForceUpdate] = useState(null);
   // var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)

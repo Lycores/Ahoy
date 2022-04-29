@@ -1,27 +1,27 @@
-import { globalStyle } from "../stylesheets/globalStyle/globalStyleSheet";
-import spotify from "../assets/spotify_welcome.png";
+import styled from "styled-components";
+
+const BackgroundStyle = styled.div`
+  background-color: var(--global-background-color);
+  width: 100vw;
+  height: 100vh;
+`;
+
+const WelcomeImage = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+  background-image: url("../assets/spotify_welcome.png");
+  background-size: 80%;
+`;
+
 function WelcomePage() {
-  const backgroundStyle = {
-    backgroundColor: globalStyle.globalBackgroundColor,
-    width: "100vw",
-    height: "100vh",
-  };
-
-  const welcomeImage = {
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: 300,
-    height: 300,
-    backgroundImage: `url(${spotify})`,
-    backgroundSize: "80%",
-  };
-
   return (
-    <div style={backgroundStyle}>
+    <BackgroundStyle>
       <a href="/auth/login">
-        <div style={welcomeImage} />
+        <WelcomeImage />
       </a>
-    </div>
+    </BackgroundStyle>
   );
 }
 

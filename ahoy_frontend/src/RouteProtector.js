@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import WelcomePage from "../page/WelcomePage";
+import WelcomePage from "./page/WelcomePage";
 
 const RouteProtector = () => {
   let token = JSON.parse(localStorage.getItem("token"));

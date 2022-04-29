@@ -14,24 +14,25 @@ const useArtist = (artist) => {
   };
 
   const getArtistAlbums = async () => {
-    fetch(
-      `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-        offset.current += limit.current;
-        if (offset.current < json.total) {
-          hasMoreAlbumForArtist.current = true;
-        } else {
-          hasMoreAlbumForArtist.current = false;
-        }
-        setArtistAlbumsState((prevAlbums) => {
-          return [...prevAlbums, ...json.items];
+    if (hasMoreAlbumForArtist.current) {
+      fetch(
+        `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          offset.current += limit.current;
+          if (offset.current < json.total) {
+            hasMoreAlbumForArtist.current = true;
+          } else {
+            hasMoreAlbumForArtist.current = false;
+          }
+          setArtistAlbumsState((prevAlbums) => {
+            return [...prevAlbums, ...json.items];
+          });
         });
-      });
+    }
   };
 
   let [artistTopTrackState, setArtistTopTrackState] = useState(null);

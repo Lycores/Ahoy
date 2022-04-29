@@ -43,12 +43,10 @@ const RightAreaCompForCardPresent = React.memo((props) => {
                     }
                     observer.current = new IntersectionObserver((entries) => {
                       if (entries[0].isIntersecting) {
-                        console.log(entries[0]);
                         getMoreItems();
                       }
                     });
                     if (node) {
-                      console.log(node);
                       observer.current.observe(node);
                     }
                   }}

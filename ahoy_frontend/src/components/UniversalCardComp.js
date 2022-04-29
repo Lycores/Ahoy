@@ -49,7 +49,6 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
   const navigate = useNavigate();
 
   const goToAlbumPage = () => {
-    console.log(item);
     navigate("/traditional/album", {
       state: {
         album: item,

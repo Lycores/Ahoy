@@ -35,7 +35,7 @@ const useArtistDetail = (artist) => {
     }
   };
 
-  let [artistTopTrackState, setArtistTopTrackState] = useState(null);
+  let [artistTopTrackState, setArtistTopTrackState] = useState([]);
   let [artistAlbumsState, setArtistAlbumsState] = useState([]);
   let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   let [

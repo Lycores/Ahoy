@@ -16,7 +16,7 @@ const TrackListCompForArtist = React.memo((props) => {
   let { artistTopTrack } = props;
   let renderQueue = [];
 
-  if (artistTopTrack) {
+  if (artistTopTrack.length != 0) {
     let tracks = artistTopTrack.tracks;
     renderQueue.push(
       <StyleForTrackContainer key={increaseKey + 1}>

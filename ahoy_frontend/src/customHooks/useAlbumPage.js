@@ -5,7 +5,7 @@ const useAlbumPage = () => {
   let album = null;
   let { state } = useLocation();
   if (state) {
-    album = state;
+    album = state.album;
   }
 
   const getUserSavedAlbum = () => {

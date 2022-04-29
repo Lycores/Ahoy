@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const usePlaylist = (playlist) => {
+const usePlaylistDetail = (playlist) => {
   let userProfile = JSON.parse(localStorage.getItem("userProfile"));
 
   const getPlaylistTracks = () => {
@@ -50,4 +50,4 @@ const usePlaylist = (playlist) => {
   ];
 };
 
-export default usePlaylist;
+export default usePlaylistDetail;

@@ -9,7 +9,7 @@ import {
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
 import TrackListCompForArtist from "./TrackListCompForArtist";
-import useArtist from "../customHooks/useArtist";
+import useArtistDetail from "../customHooks/useArtistDetail";
 import AlbumCompForArtist from "./AlbumCompForArtist";
 const ArtistNameStyle = styled.div`
   width: 100%;
@@ -27,7 +27,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
     coverBackgroundImageState,
     artistOverviewBackgroundImageState,
     getArtistAlbums,
-  ] = useArtist(artist);
+  ] = useArtistDetail(artist);
 
   return (
     <RightAreaContainerStyle>

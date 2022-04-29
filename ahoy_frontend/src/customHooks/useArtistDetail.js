@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-const useArtist = (artist) => {
+const useArtistDetail = (artist) => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const getArtistTopTrack = () => {
     fetch(
@@ -63,4 +63,4 @@ const useArtist = (artist) => {
   ];
 };
 
-export default useArtist;
+export default useArtistDetail;

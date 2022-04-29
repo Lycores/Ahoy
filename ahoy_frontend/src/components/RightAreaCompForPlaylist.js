@@ -9,7 +9,7 @@ import {
   DescriptionStyle,
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
-import usePlaylist from "../customHooks/usePlaylist";
+import usePlaylistDetail from "../customHooks/usePlaylistDetail";
 import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
 const AlbumNameStyle = styled.div`
   width: 100%;
@@ -28,7 +28,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     playlistTrackState,
     hasMorePlaylistItems,
     getPlaylistTracks,
-  ] = usePlaylist(playlist);
+  ] = usePlaylistDetail(playlist);
 
   useEffect(() => {
     getPlaylistTracks();

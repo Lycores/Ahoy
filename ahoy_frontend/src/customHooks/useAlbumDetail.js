@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useAlbum = (album) => {
+const useAlbumDetail = (album) => {
   let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   let [
     albumOverviewBackgroundImageState,
@@ -20,4 +20,4 @@ const useAlbum = (album) => {
   ];
 };
 
-export default useAlbum;
+export default useAlbumDetail;

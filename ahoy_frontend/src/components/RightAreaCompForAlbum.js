@@ -10,7 +10,7 @@ import {
   RightAreaCoverContainerStyle,
 } from "./ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
-import useAlbum from "../customHooks/useAlbum";
+import useAlbumDetail from "../customHooks/useAlbumDetail";
 const AlbumNameStyle = styled.div`
   width: 100%;
   margin-top: clamp(100px, 15vw, 180px);
@@ -27,7 +27,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
     albumId,
     coverBackgroundImageState,
     albumOverviewBackgroundImageState,
-  ] = useAlbum(album);
+  ] = useAlbumDetail(album);
 
   return (
     <RightAreaContainerStyle>

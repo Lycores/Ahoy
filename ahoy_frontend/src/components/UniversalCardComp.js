@@ -44,7 +44,7 @@ const ArtistFromAlbumStyle = styled.span`
   margin-left: 7px;
   margin-top: 5px;
 `;
-const UniversalCardComp = React.memo((props) => {
+const UniversalCardComp = React.forwardRef((props, ref) => {
   let { item, type } = props;
   const navigate = useNavigate();
 
@@ -86,7 +86,7 @@ const UniversalCardComp = React.memo((props) => {
   }
   if (type == "artists") {
     return (
-      <GridSpaceStyle onClick={goToArtistPage}>
+      <GridSpaceStyle ref={ref} onClick={goToArtistPage}>
         <CardContainerStyle>
           <CardCoverStyle imageUrl={item.images[1].url} />
           <ArtistsNameStyle>{item.name}</ArtistsNameStyle>
@@ -113,4 +113,4 @@ const UniversalCardComp = React.memo((props) => {
   }
 });
 
-export default UniversalCardComp;
+export default React.memo(UniversalCardComp);

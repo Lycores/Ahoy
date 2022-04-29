@@ -25,6 +25,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
     artistAlbumsState,
     coverBackgroundImageState,
     artistOverviewBackgroundImageState,
+    getArtistAlbums,
   ] = useArtist(artist);
 
   return (
@@ -42,6 +43,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
       <TrackListCompForArtist
         artistTopTrack={artistTopTrackState}
         artistAlbums={artistAlbumsState}
+        getArtistAlbums={getArtistAlbums}
       />
     </RightAreaContainerStyle>
   );

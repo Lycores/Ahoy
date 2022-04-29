@@ -21,7 +21,7 @@ const CommonContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListCompForArtist = React.memo((props) => {
-  let { artistTopTrack, artistAlbums } = props;
+  let { artistTopTrack, artistAlbums, getArtistAlbums } = props;
   let renderQueue = [];
 
   if (artistTopTrack) {
@@ -55,7 +55,8 @@ const TrackListCompForArtist = React.memo((props) => {
     renderQueue.push(
       <CommonContainer key={increaseKey + 1}>
         <RightAreaCompForCardPresent
-          itemList={artistAlbums.items}
+          itemList={artistAlbums}
+          getMoreItems={getArtistAlbums}
           type="album"
         />
       </CommonContainer>

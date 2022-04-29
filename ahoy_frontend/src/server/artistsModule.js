@@ -49,6 +49,7 @@ router.get("/getArtistAlbums", (req, res) => {
   let artistId = req.query.artistId;
   let market = req.query.market;
   let limit = req.query.limit;
+  console.log("limit", limit);
   let offset = req.query.offset;
   let url = `https://api.spotify.com/v1/artists/${artistId}/albums?limit=${limit}&offset=${offset}&market=${market}`;
 

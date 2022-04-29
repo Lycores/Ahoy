@@ -28,12 +28,14 @@ const useArtist = (artist) => {
         } else {
           hasMoreAlbumForArtist.current = false;
         }
-        setArtistAlbumsState(json);
+        setArtistAlbumsState((prevAlbums) => {
+          return [...prevAlbums, ...json.items];
+        });
       });
   };
 
   let [artistTopTrackState, setArtistTopTrackState] = useState(null);
-  let [artistAlbumsState, setArtistAlbumsState] = useState(null);
+  let [artistAlbumsState, setArtistAlbumsState] = useState([]);
   let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   let [
     artistOverviewBackgroundImageState,
@@ -42,7 +44,7 @@ const useArtist = (artist) => {
 
   let hasMoreAlbumForArtist = useRef(true);
   let offset = useRef(0);
-  let limit = useRef(40);
+  let limit = useRef(10);
 
   useEffect(() => {
     setCoverBackgroundImageState(artist.images[1].url);
@@ -56,6 +58,7 @@ const useArtist = (artist) => {
     artistAlbumsState,
     coverBackgroundImageState,
     artistOverviewBackgroundImageState,
+    getArtistAlbums,
   ];
 };
 

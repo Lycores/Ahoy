@@ -23,9 +23,12 @@ const useAlbumPage = () => {
           } else {
             hasMoreAlbum.current = false;
           }
-          console.log(json);
           setAlbumListState((prevAlbumList) => {
-            return [...prevAlbumList, ...json.items];
+            let albumList = [];
+            json.items.forEach((item) => {
+              albumList.push(item.album);
+            });
+            return [...prevAlbumList, ...albumList];
           });
         });
     }

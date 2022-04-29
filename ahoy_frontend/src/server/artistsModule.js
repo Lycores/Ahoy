@@ -3,7 +3,14 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/getFollowedArtists", (req, res) => {
-  let url = `https://api.spotify.com/v1/me/following?type=artist&limit=${global.cardLimit}`;
+  let limit = req.query.limit;
+  let after = req.query.after;
+  let url = "";
+  if (after) {
+    url = `https://api.spotify.com/v1/me/following?type=artist&limit=${limit}&after=${after}`;
+  } else {
+    url = `https://api.spotify.com/v1/me/following?type=artist&limit=${limit}`;
+  }
   axios
     .get(url, {
       headers: {
@@ -18,6 +25,7 @@ router.get("/getFollowedArtists", (req, res) => {
       }
     })
     .catch((error) => {
+      console.log(error);
       console.log("an error happened at /artists/getFollowedArtists");
     });
 });
@@ -49,7 +57,6 @@ router.get("/getArtistAlbums", (req, res) => {
   let artistId = req.query.artistId;
   let market = req.query.market;
   let limit = req.query.limit;
-  console.log("limit", limit);
   let offset = req.query.offset;
   let url = `https://api.spotify.com/v1/artists/${artistId}/albums?limit=${limit}&offset=${offset}&market=${market}`;
 

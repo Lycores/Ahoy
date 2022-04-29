@@ -76,19 +76,17 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
     return (
       <GridSpaceStyle ref={ref} onClick={goToAlbumPage}>
         <CardContainerStyle>
-          <CardCoverStyle imageUrl={item.album.images[1].url} />
-          <AlbumNameStyle>{item.album.name}</AlbumNameStyle>
+          <CardCoverStyle imageUrl={item.images[1].url} />
+          <AlbumNameStyle>{item.name}</AlbumNameStyle>
           <ArtistFromAlbumStyle></ArtistFromAlbumStyle>
-          <ArtistFromAlbumStyle>
-            {item.album.artists[0].name}
-          </ArtistFromAlbumStyle>
+          <ArtistFromAlbumStyle>{item.artists[0].name}</ArtistFromAlbumStyle>
         </CardContainerStyle>
       </GridSpaceStyle>
     );
   }
   if (type == "artists") {
     return (
-      <GridSpaceStyle onClick={goToArtistPage}>
+      <GridSpaceStyle ref={ref} onClick={goToArtistPage}>
         <CardContainerStyle>
           <CardCoverStyle imageUrl={item.images[1].url} />
           <ArtistsNameStyle>{item.name}</ArtistsNameStyle>

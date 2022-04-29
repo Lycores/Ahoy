@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import WebPlayback from "../components/WebPlayback";
 import { useNavigate, Outlet } from "react-router-dom";
@@ -147,35 +147,35 @@ const SearchBarInputStyle = styled.input`
 function TraditionalMusicPlayerPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
-  const extendSearchBarForDesktopOrTablet = () => {
+  const extendSearchBarForDesktopOrTablet = useCallback(() => {
     setSearchBarStyleStateForDesktopOrTablet({
       ...searchBarStyleStateForDesktopOrTablet,
       width: searchBarMaxWidth,
     });
-  };
+  }, []);
 
-  const extendSearchBarForMobile = () => {
+  const extendSearchBarForMobile = useCallback(() => {
     setSearchBarStyleStateForMobile({
       ...searchBarStyleStateForMobile,
       width: window.innerWidth - 2 * 30,
     });
-  };
+  }, []);
 
-  const withdrawSearchBarForDesktopOrTablet = () => {
+  const withdrawSearchBarForDesktopOrTablet = useCallback(() => {
     setSearchBarStyleStateForDesktopOrTablet({
       ...searchBarStyleStateForDesktopOrTablet,
       width: searchBarStyleForDesktopOrTablet.width,
     });
     searchBarInputRef.current.blur();
-  };
+  }, []);
 
-  const withdrawSearchBarForMobile = () => {
+  const withdrawSearchBarForMobile = useCallback(() => {
     setSearchBarStyleStateForMobile({
       ...searchBarStyleStateForMobile,
       width: searchBarStyleForMobile.width,
     });
     searchBarInputRef.current.blur();
-  };
+  }, []);
 
   let [
     searchBarStyleStateForDesktopOrTablet,

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback } from "react";
 import { deviceIdRecoil } from "../recoilInfo";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -39,16 +39,14 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
   let { position, track, albumId, positionInAlbum, images, showImage } = props;
   let deviceIdState = useRecoilValue(deviceIdRecoil);
 
-  const playTrack = () => {
-    return () => {
-      fetch(
-        `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
-      );
-    };
-  };
+  const playTrack = useCallback(() => {
+    fetch(
+      `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
+    );
+  }, [albumId, positionInAlbum, deviceIdState]);
 
   return (
-    <TrackEntryComponentStyle ref={ref} onClick={playTrack()}>
+    <TrackEntryComponentStyle ref={ref} onClick={playTrack}>
       <TrackNumberArea>{position}</TrackNumberArea>
       {showImage ? <TrackImageStyle trackImage={images[2].url} /> : <></>}
       <TrackInfoContainerStyle>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { deviceIdRecoil, recentlyPlayedRecoil } from "../recoilInfo";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
@@ -113,13 +113,14 @@ const WebPlayback = () => {
   let [recentlyPlayedState, setRecentlyPlayedState] =
     useRecoilState(recentlyPlayedRecoil);
 
-  const recentlyPlayedStart = () => {
+  const recentlyPlayedStart = useCallback(() => {
     let albumId = recentlyPlayedState.album.id;
     let positionInAlbum = recentlyPlayedState.track_number - 1;
     fetch(
       `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
     );
-  };
+  }, [recentlyPlayedState]);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";

@@ -1,7 +1,20 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 const useArtistDetail = (artist) => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
-  const getArtistTopTrack = () => {
+
+  let [artistTopTrackState, setArtistTopTrackState] = useState([]);
+  let [artistAlbumsState, setArtistAlbumsState] = useState([]);
+  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
+  let [
+    artistOverviewBackgroundImageState,
+    setArtistOverviewBackgroundImageState,
+  ] = useState("");
+
+  let offset = useRef(0);
+  let limit = useRef(10);
+  let hasMoreAlbumForArtist = useRef(true);
+
+  const getArtistTopTrack = useCallback(() => {
     fetch(
       `/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`
     )
@@ -11,9 +24,9 @@ const useArtistDetail = (artist) => {
       .then((json) => {
         setArtistTopTrackState(json);
       });
-  };
+  }, [artist]);
 
-  const getArtistAlbums = async () => {
+  const getArtistAlbums = useCallback(() => {
     if (hasMoreAlbumForArtist.current) {
       fetch(
         `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}`
@@ -33,19 +46,7 @@ const useArtistDetail = (artist) => {
           });
         });
     }
-  };
-
-  let [artistTopTrackState, setArtistTopTrackState] = useState([]);
-  let [artistAlbumsState, setArtistAlbumsState] = useState([]);
-  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  let [
-    artistOverviewBackgroundImageState,
-    setArtistOverviewBackgroundImageState,
-  ] = useState("");
-
-  let hasMoreAlbumForArtist = useRef(true);
-  let offset = useRef(0);
-  let limit = useRef(10);
+  }, [hasMoreAlbumForArtist, artist, offset]);
 
   useEffect(() => {
     setCoverBackgroundImageState(artist.images[1].url);

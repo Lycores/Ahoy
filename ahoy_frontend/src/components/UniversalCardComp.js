@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import {
   GridSpaceStyle,
@@ -48,29 +48,29 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
   let { item, type } = props;
   const navigate = useNavigate();
 
-  const goToAlbumPage = () => {
+  const goToAlbumPage = useCallback(() => {
     navigate("/traditional/album", {
       state: {
         album: item,
       },
     });
-  };
+  }, [item]);
 
-  const goToArtistPage = () => {
+  const goToArtistPage = useCallback(() => {
     navigate("/traditional/artists", {
       state: {
         artist: item,
       },
     });
-  };
+  }, [item]);
 
-  const goToPlaylistPage = () => {
+  const goToPlaylistPage = useCallback(() => {
     navigate("/traditional/playlist", {
       state: {
         playlist: item,
       },
     });
-  };
+  }, [item]);
 
   if (type == "album") {
     return (

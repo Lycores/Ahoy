@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 
 const usePlaylistPage = () => {
@@ -10,8 +10,12 @@ const usePlaylistPage = () => {
   if (state) {
     playlist = state.playlist;
   }
+  let [playlistListState, setPlaylistListState] = useState(playlistList);
+  let hasMorePlaylist = useRef(true);
+  let limit = useRef(10);
+  let offset = useRef(0);
 
-  const getMyPlaylist = () => {
+  const getMyPlaylist = useCallback(() => {
     if (hasMorePlaylist.current) {
       fetch(
         `/playlist/getMyPlaylists?offset=${offset.current}&limit=${limit.current}`
@@ -31,12 +35,7 @@ const usePlaylistPage = () => {
           });
         });
     }
-  };
-
-  let [playlistListState, setPlaylistListState] = useState(playlistList);
-  let hasMorePlaylist = useRef(true);
-  let limit = useRef(10);
-  let offset = useRef(0);
+  }, [hasMorePlaylist, offset]);
 
   useEffect(() => {
     if (!playlist) {

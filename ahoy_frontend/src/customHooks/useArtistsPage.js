@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 const useArtistsPage = () => {
   let token = JSON.parse(localStorage.getItem("token"));
@@ -9,11 +9,20 @@ const useArtistsPage = () => {
     artist = state.artist;
   }
 
-  const recordLastArtist = (json) => {
-    lastArtistIdInPrevReq.current =
-      json.artists.items[json.artists.items.length - 1].id;
-  };
-  const getFollowedArtists = () => {
+  let [artistsListState, setArtistsListState] = useState([]);
+  let hasMoreArtist = useRef(true);
+  let limit = useRef(10);
+  let offset = useRef(0);
+  let lastArtistIdInPrevReq = useRef(null);
+
+  const recordLastArtist = useCallback(
+    (json) => {
+      lastArtistIdInPrevReq.current =
+        json.artists.items[json.artists.items.length - 1].id;
+    },
+    [lastArtistIdInPrevReq]
+  );
+  const getFollowedArtists = useCallback(() => {
     if (hasMoreArtist.current) {
       let url = "";
       if (lastArtistIdInPrevReq.current) {
@@ -38,13 +47,8 @@ const useArtistsPage = () => {
           });
         });
     }
-  };
+  }, [hasMoreArtist, lastArtistIdInPrevReq, offset]);
 
-  let [artistsListState, setArtistsListState] = useState([]);
-  let hasMoreArtist = useRef(true);
-  let limit = useRef(10);
-  let offset = useRef(0);
-  let lastArtistIdInPrevReq = useRef(null);
   useEffect(() => {
     if (!artist) {
       getFollowedArtists();

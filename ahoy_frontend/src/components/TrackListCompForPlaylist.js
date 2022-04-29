@@ -1,5 +1,5 @@
 import TrackEntryComp from "./TrackEntryComp";
-import React, { useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
@@ -17,6 +17,23 @@ const TrackListComp = React.memo((props) => {
 
   let observer = useRef();
 
+  let lastElement = useCallback(
+    (node) => {
+      if (observer.current) {
+        observer.current.disconnect();
+      }
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          getPlaylistTracks();
+        }
+      });
+      if (node) {
+        observer.current.observe(node);
+      }
+    },
+    [observer]
+  );
+
   if (playlistTracks.length != 0) {
     let tracks = playlistTracks;
     let tracksLen = tracks.length;
@@ -27,19 +44,7 @@ const TrackListComp = React.memo((props) => {
             if (index == tracksLen - 1) {
               return (
                 <TrackEntryComp
-                  ref={(node) => {
-                    if (observer.current) {
-                      observer.current.disconnect();
-                    }
-                    observer.current = new IntersectionObserver((entries) => {
-                      if (entries[0].isIntersecting) {
-                        getPlaylistTracks();
-                      }
-                    });
-                    if (node) {
-                      observer.current.observe(node);
-                    }
-                  }}
+                  ref={lastElement}
                   position={index + 1}
                   key={index}
                   track={track.track}

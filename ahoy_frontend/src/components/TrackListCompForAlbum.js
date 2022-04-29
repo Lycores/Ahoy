@@ -1,5 +1,5 @@
 import TrackEntryComp from "./TrackEntryComp";
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";

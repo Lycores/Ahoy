@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 const useAlbumPage = () => {
   let token = JSON.parse(localStorage.getItem("token"));
@@ -7,8 +7,12 @@ const useAlbumPage = () => {
   if (state) {
     album = state.album;
   }
+  let [albumListState, setAlbumListState] = useState([]);
+  let hasMoreAlbum = useRef(true);
+  let offset = useRef(0);
+  let limit = useRef(10);
 
-  const getUserSavedAlbum = () => {
+  const getUserSavedAlbum = useCallback(() => {
     if (hasMoreAlbum.current) {
       fetch(
         `album/getSavedAlbum?offset=${offset.current}&limit=${limit.current}`
@@ -32,12 +36,7 @@ const useAlbumPage = () => {
           });
         });
     }
-  };
-
-  let [albumListState, setAlbumListState] = useState([]);
-  let hasMoreAlbum = useRef(true);
-  let offset = useRef(0);
-  let limit = useRef(10);
+  }, [offset, hasMoreAlbum]);
 
   useEffect(() => {
     if (!album) {

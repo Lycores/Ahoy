@@ -1,9 +1,18 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const usePlaylistDetail = (playlist) => {
   let userProfile = JSON.parse(localStorage.getItem("userProfile"));
+  let hasMorePlaylistItems = useRef(true);
+  let offset = useRef(0);
+  let limit = useRef(40);
+  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
+  let [
+    playlistOverviewBackgroundImageState,
+    setPlaylistOverviewBackgroundImageState,
+  ] = useState("");
+  let [playlistTrackState, setPlaylistTrackState] = useState([]);
 
-  const getPlaylistTracks = () => {
+  const getPlaylistTracks = useCallback(() => {
     if (hasMorePlaylistItems.current) {
       let country = userProfile.country;
       fetch(
@@ -24,17 +33,7 @@ const usePlaylistDetail = (playlist) => {
           });
         });
     }
-  };
-
-  let hasMorePlaylistItems = useRef(true);
-  let offset = useRef(0);
-  let limit = useRef(40);
-  let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
-  let [
-    playlistOverviewBackgroundImageState,
-    setPlaylistOverviewBackgroundImageState,
-  ] = useState("");
-  let [playlistTrackState, setPlaylistTrackState] = useState([]);
+  }, [hasMorePlaylistItems, offset]);
 
   useEffect(() => {
     setCoverBackgroundImageState(playlist.images[0].url);

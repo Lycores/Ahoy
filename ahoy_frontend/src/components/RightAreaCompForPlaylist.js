@@ -26,7 +26,6 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     coverBackgroundImageState,
     playlistOverviewBackgroundImageState,
     playlistTrackState,
-    hasMorePlaylistItems,
     getPlaylistTracks,
   ] = usePlaylistDetail(playlist);
 

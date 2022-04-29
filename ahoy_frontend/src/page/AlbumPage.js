@@ -8,7 +8,7 @@ import {
 import useAlbumPage from "../customHooks/useAlbumPage";
 
 function AlbumPage() {
-  let [album, albumListState] = useAlbumPage();
+  let [album, albumListState, getMoreAlbum] = useAlbumPage();
 
   return (
     <>
@@ -18,6 +18,7 @@ function AlbumPage() {
             <RightAreaCompForCardPresent
               itemList={albumListState}
               type="album"
+              getMoreItems={getMoreAlbum}
             />
           ) : (
             <RightAreaCompForAlbum album={album} />
@@ -30,6 +31,7 @@ function AlbumPage() {
             <RightAreaCompForCardPresent
               itemList={albumListState}
               type="album"
+              getMoreItems={getMoreAlbum}
             />
           ) : (
             <RightAreaCompForAlbum album={album} />

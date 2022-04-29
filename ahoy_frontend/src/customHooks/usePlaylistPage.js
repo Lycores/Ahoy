@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
-import {
-  RightAreaStyleForDesktopOrTablet,
-  RightAreaStyleForMobile,
-} from "../components/ReusableStyleComp";
-import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
 
 const usePlaylistPage = () => {
   let token = JSON.parse(localStorage.getItem("token"));

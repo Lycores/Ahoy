@@ -45,7 +45,6 @@ const usePlaylistDetail = (playlist) => {
     coverBackgroundImageState,
     playlistOverviewBackgroundImageState,
     playlistTrackState,
-    hasMorePlaylistItems.current,
     getPlaylistTracks,
   ];
 };

@@ -1,11 +1,8 @@
 import TrackEntryComp from "./TrackEntryComp";
-import React, { useEffect, useState, useRef } from "react";
-import RightAreaCompForCardPresent from "./RightAreaCompForCardPresent";
-import PlaceholderCardComp from "./PlaceholderCardComp";
+import React, { useRef } from "react";
 import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
-import { GridStyle, RightAreaContainerStyle } from "./ReusableStyleComp";
 const StyleForTrackContainer = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
@@ -20,7 +17,7 @@ const TrackListComp = React.memo((props) => {
 
   let observer = useRef();
 
-  if (playlistTracks) {
+  if (playlistTracks.length != 0) {
     let tracks = playlistTracks;
     let tracksLen = tracks.length;
     if (tracksLen != 0) {

@@ -7,33 +7,11 @@ import {
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
 import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
+import usePlaylistPage from "../customHooks/usePlaylistPage";
+
 function PlaylistPage() {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let [playlist, playlistListState] = usePlaylistPage();
 
-  let playlist = null;
-  let playlistList = [];
-  let { state } = useLocation();
-  if (state) {
-    playlist = state.playlist;
-  }
-
-  const getMyPlaylist = () => {
-    fetch("/playlist/getMyPlaylists")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        setPlaylistListState(json.items);
-      });
-  };
-
-  let [playlistListState, setPlaylistListState] = useState(playlistList);
-
-  useEffect(() => {
-    if (!playlist) {
-      getMyPlaylist();
-    }
-  }, [token]);
   return (
     <>
       <DesktopOrTablet>

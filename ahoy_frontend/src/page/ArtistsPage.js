@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
 import RightAreaCompForArtistDetail from "../components/RightAreaCompForArtistDetail";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
@@ -8,32 +6,10 @@ import {
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
 import React from "react";
+import useArtistsPage from "../customHooks/useArtistsPage";
 
 function ArtistsPage() {
-  let token = JSON.parse(localStorage.getItem("token"));
-
-  let artistsList = [];
-  let artist = null;
-  let { state } = useLocation();
-  if (state) {
-    artist = state.artist;
-  }
-
-  const getFollowedArtists = () => {
-    fetch("artists/getFollowedArtists")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        setArtistsListState(json.artists.items);
-      });
-  };
-  let [artistsListState, setArtistsListState] = useState(artistsList);
-  useEffect(() => {
-    if (!artist) {
-      getFollowedArtists();
-    }
-  }, [token]);
+  let [artist, artistsListState] = useArtistsPage();
 
   return (
     <>

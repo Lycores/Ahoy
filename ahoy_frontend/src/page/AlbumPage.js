@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
 import RightAreaCompForAlbum from "../components/RightAreaCompForAlbum";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
@@ -7,35 +5,10 @@ import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
+import useAlbumPage from "../customHooks/useAlbumPage";
+
 function AlbumPage() {
-  let token = JSON.parse(localStorage.getItem("token"));
-  let albumList = [];
-  let album = null;
-  let { state } = useLocation();
-  if (state) {
-    album = state.album;
-  }
-
-  const getUserSavedAlbum = () => {
-    fetch("album/getSavedAlbum")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        json.items.forEach((albumObj) => {
-          albumList.push(albumObj.album);
-        });
-        setAlbumListState([...albumList]);
-      });
-  };
-
-  let [albumListState, setAlbumListState] = useState(albumList);
-
-  useEffect(() => {
-    if (!album) {
-      getUserSavedAlbum();
-    }
-  }, [token]);
+  let [album, albumListState] = useAlbumPage();
 
   return (
     <>

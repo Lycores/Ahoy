@@ -72,5 +72,17 @@ module.exports = function (app) {
       createProxyMiddleware({
         target: "http://localhost:4000",
       })
+    ),
+    app.use(
+      "/search/**",
+      createProxyMiddleware({
+        target: "http://localhost:4000",
+      })
+    ),
+    app.use(
+      "/traditional/search/**",
+      createProxyMiddleware({
+        target: "http://localhost:4000",
+      })
     );
 };

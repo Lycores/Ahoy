@@ -6,7 +6,7 @@ import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-
+import useSearch from "../customHooks/useSearch";
 const AppStyle = styled.div`
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
@@ -102,36 +102,35 @@ const ForwardButton = styled.div`
   opacity: 0.9;
 `;
 
-const searchBarMaxWidth = 400;
-const searchBarStyleForDesktopOrTablet = {
-  position: "fixed",
-  top: 30,
-  left: 290,
-  width: 150,
-  height: 50,
-  borderRadius: "50px 50px 50px 50px",
-  cursor: "pointer",
-  transitionDuration: "500ms",
-  boxShadow: "inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff",
-};
+const SearchBarStyleForDesktopOrTablet = styled.div`
+  position: fixed;
+  top: 30px;
+  left: 290px;
+  width: ${(props) => props.width}px;
+  height: 50px;
+  border-radius: 50px 50px 50px 50px;
+  cursor: pointer;
+  transition-duration: 500ms;
+  box-shadow: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
+`;
 
-const searchBarStyleForMobile = {
-  position: "fixed",
-  top: 30,
-  left: 40,
-  width: 150,
-  height: 50,
-  borderRadius: "50px 50px 50px 50px",
-  cursor: "pointer",
-  transitionDuration: "500ms",
-  boxShadow: "inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff",
-};
+const SearchBarStyleForMobile = styled.div`
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  width: ${(props) => props.width}px;
+  height: 50px;
+  border-radius: 50px 50px 50px 50px;
+  cursor: pointer;
+  transition-duration: 500ms;
+  box-shadow: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
+`;
 
 const SearchBarInputStyle = styled.input`
   margin-left: 20px;
   margin-top: 2px;
   height: 80%;
-  width: 80%;
+  width: ${(props) => props.width - 30}px;
   outline-style: none;
   border: 0;
   font-size: 24px;
@@ -147,44 +146,18 @@ const SearchBarInputStyle = styled.input`
 function TraditionalMusicPlayerPage() {
   let token = JSON.parse(localStorage.getItem("token"));
 
-  const extendSearchBarForDesktopOrTablet = useCallback(() => {
-    setSearchBarStyleStateForDesktopOrTablet({
-      ...searchBarStyleStateForDesktopOrTablet,
-      width: searchBarMaxWidth,
-    });
-  }, []);
-
-  const extendSearchBarForMobile = useCallback(() => {
-    setSearchBarStyleStateForMobile({
-      ...searchBarStyleStateForMobile,
-      width: window.innerWidth - 2 * 30,
-    });
-  }, []);
-
-  const withdrawSearchBarForDesktopOrTablet = useCallback(() => {
-    setSearchBarStyleStateForDesktopOrTablet({
-      ...searchBarStyleStateForDesktopOrTablet,
-      width: searchBarStyleForDesktopOrTablet.width,
-    });
-    searchBarInputRef.current.blur();
-  }, []);
-
-  const withdrawSearchBarForMobile = useCallback(() => {
-    setSearchBarStyleStateForMobile({
-      ...searchBarStyleStateForMobile,
-      width: searchBarStyleForMobile.width,
-    });
-    searchBarInputRef.current.blur();
-  }, []);
-
-  let [
-    searchBarStyleStateForDesktopOrTablet,
-    setSearchBarStyleStateForDesktopOrTablet,
-  ] = useState(searchBarStyleForDesktopOrTablet);
-  let [searchBarStyleStateForMobile, setSearchBarStyleStateForMobile] =
-    useState(searchBarStyleForMobile);
   let [recentlyPlayedState, setRecentlyPlayedState] =
     useRecoilState(recentlyPlayedRecoil);
+
+  let [
+    searchBarWidth,
+    searchBarInputRef,
+    extendSearchBarForDesktopOrTablet,
+    extendSearchBarForMobile,
+    withdrawSearchBarForDesktopOrTablet,
+    withdrawSearchBarForMobile,
+    handleSearch,
+  ] = useSearch();
 
   useEffect(() => {
     if (recentlyPlayedState == null) {
@@ -197,8 +170,6 @@ function TraditionalMusicPlayerPage() {
         });
     }
   }, []);
-
-  const searchBarInputRef = useRef(null);
 
   const navigate = useNavigate();
   return (
@@ -270,23 +241,31 @@ function TraditionalMusicPlayerPage() {
         </Mobile>
 
         <DesktopOrTablet>
-          <div
-            style={searchBarStyleStateForDesktopOrTablet}
+          <SearchBarStyleForDesktopOrTablet
+            width={searchBarWidth}
             onMouseOver={extendSearchBarForDesktopOrTablet}
             onMouseLeave={withdrawSearchBarForDesktopOrTablet}
           >
-            <SearchBarInputStyle ref={searchBarInputRef} />
-          </div>
+            <SearchBarInputStyle
+              width={searchBarWidth}
+              ref={searchBarInputRef}
+              onChange={handleSearch}
+            />
+          </SearchBarStyleForDesktopOrTablet>
         </DesktopOrTablet>
 
         <Mobile>
-          <div
-            style={searchBarStyleStateForMobile}
+          <SearchBarStyleForMobile
+            width={searchBarWidth}
             onMouseOver={extendSearchBarForMobile}
             onMouseLeave={withdrawSearchBarForMobile}
           >
-            <SearchBarInputStyle ref={searchBarInputRef} />
-          </div>
+            <SearchBarInputStyle
+              width={searchBarWidth}
+              ref={searchBarInputRef}
+              onChange={handleSearch}
+            />
+          </SearchBarStyleForMobile>
         </Mobile>
       </AppStyle>
     </div>

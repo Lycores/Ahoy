@@ -1,11 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const useSearch = () => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   let [searchBarWidth, setSearchBarWidth] = useState(150);
+  let [searchResultState, setSearchResultState] = useState(null);
   let query = useRef(null);
   let offset = useRef(0);
   let limit = useRef(20);
+  let abortController = useRef(null);
+  let navigate = useNavigate();
 
   const searchBarInputRef = useRef(null);
 
@@ -27,11 +31,38 @@ const useSearch = () => {
     searchBarInputRef.current.blur();
   }, []);
 
+  const cancelRequest = () => {
+    if (abortController.current) {
+      abortController.current.abort();
+    }
+  };
+
+  const goToSearchPage = useCallback(() => {
+    navigate("/traditional/search", {
+      state: {
+        result: searchResultState,
+      },
+    });
+  }, [searchResultState]);
+
   const handleSearch = (e) => {
+    cancelRequest();
+    abortController.current = new AbortController();
+    let signal = abortController.current.signal;
+
     query.current = e.target.value;
     fetch(
-      `/search/search?query=${query.current}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}`
-    );
+      `/search/search?query=${query.current}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}`,
+      { signal }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        goToSearchPage();
+        setSearchResultState(json);
+      });
   };
 
   return [

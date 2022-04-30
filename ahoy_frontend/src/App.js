@@ -6,6 +6,7 @@ import ArtistsPage from "./page/ArtistsPage";
 import PlaylistPage from "./page/PlaylistPage";
 import TraditionalMusicPlayerPage from "./page/TraditionalMusicPlayerPage";
 import RouteProtector from "./RouteProtector";
+import SearchPage from "./page/SearchPage";
 function App() {
   var [forceUpdate, setForceUpdate] = useState(null);
   // var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="album" element={<AlbumPage />} />
             <Route exact path="artists" element={<ArtistsPage />} />
             <Route exact path="playlist" element={<PlaylistPage />} />
+            <Route exact path="search" element={<SearchPage />} />
           </Route>
         </Route>
       </Routes>

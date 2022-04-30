@@ -22,7 +22,7 @@ router.get("/search", (req, res) => {
     )
     .then((response) => {
       if (response.status == 200) {
-        console.log(response);
+        res.status(200).send(response.data);
       }
     })
     .catch((error) => {

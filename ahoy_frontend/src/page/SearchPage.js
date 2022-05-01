@@ -1,10 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { RightAreaStyleForDesktopOrTablet } from "../components/ReusableStyleComp";
 import styled from "styled-components";
-import { useEffect } from "react";
-import Levenshtein from "../algorithm/Levenshtein";
 import { CardCoverStyle } from "../components/ReusableStyleComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import useSearchPage from "../customHooks/useSearchPage";
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
 //   border-radius: var(--global-border-radius);
@@ -19,34 +18,34 @@ const TopResultContainerStyle = styled.div`
   margin-top: 80px;
 `;
 
+const TopResultTitleStyle = styled.div``;
 const TopResultCardAreaStyle = styled.div`
-  /* width: calc(50% - calc(var(--global-margin) / 2)); */
   margin-right: var(--global-margin);
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 `;
 
 const TopResultTrackAreaStyle = styled.div`
-  /* width: calc(50% - calc(var(--global-margin) / 2)); */
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
 `;
 
+//inheritance, so no need to give skeleton and imageUrl
 const LocalCardCoverStyle = styled(CardCoverStyle)`
   margin: 10px;
 `;
 
 const LocalDescriptionStyle = styled.div`
-  min-width: 100px;
+  min-width: 200px;
+  width: 200px;
 `;
 
 const SearchPage = () => {
   let { state } = useLocation();
   let result = null;
   let query = null;
-
   if (state) {
     result = state.result;
     query = state.query;
@@ -55,36 +54,28 @@ const SearchPage = () => {
     console.log(query);
   }
 
-  const chooseBestMatch = (result) => {
-    let minDistance = Number.MAX_SAFE_INTEGER;
-    let bestMatchKey = null;
-    let bestMatchObj = null;
-    Object.keys(result).forEach((key) => {
-      let distance = Levenshtein(
-        result[key].items[0].name.toUpperCase(),
-        query.toUpperCase()
-      );
-      if (distance < minDistance) {
-        bestMatchKey = key;
-        minDistance = distance;
-        bestMatchObj = result[key].items[0];
-      }
-    });
-    return [bestMatchKey, bestMatchObj];
-  };
-  useEffect(() => {
-    if (result) {
-      let [type, obj] = chooseBestMatch(result);
-      console.log(type, obj);
-    }
-  }, [result]);
+  let [topResultObj, typeOfResult] = useSearchPage(result, query);
   return (
     <RightAreaStyleForDesktopOrTablet>
       <TopResultContainerStyle>
-        <TopResultCardAreaStyle>
-          <LocalCardCoverStyle skeleton="ph-item"></LocalCardCoverStyle>
-          <LocalDescriptionStyle></LocalDescriptionStyle>
-        </TopResultCardAreaStyle>
+        <div>
+          <TopResultTitleStyle>{typeOfResult}</TopResultTitleStyle>
+          <TopResultCardAreaStyle>
+            {topResultObj ? (
+              <>
+                <LocalCardCoverStyle imageUrl={topResultObj.images[1].url} />
+                <LocalDescriptionStyle>
+                  {topResultObj.name}
+                </LocalDescriptionStyle>
+              </>
+            ) : (
+              <>
+                <LocalCardCoverStyle skeleton="ph-item" />
+              </>
+            )}
+          </TopResultCardAreaStyle>
+        </div>
+
         <TopResultTrackAreaStyle></TopResultTrackAreaStyle>
       </TopResultContainerStyle>
     </RightAreaStyleForDesktopOrTablet>

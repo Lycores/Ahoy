@@ -5,7 +5,8 @@ const useSearch = () => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   let [searchBarWidth, setSearchBarWidth] = useState(150);
   let searchResult = useRef(null);
-  let query = useRef(null);
+  let [query, setQuery] = useState(null);
+
   let offset = useRef(0);
   let limit = useRef(5);
   let abortController = useRef(null);
@@ -41,31 +42,37 @@ const useSearch = () => {
     navigate("/traditional/search", {
       state: {
         result: searchResult.current,
-        query: query.current,
+        query: query,
       },
     });
-  }, [searchResult.current, query.current]);
+  }, [searchResult.current, query]);
 
   const handleSearch = (e) => {
     cancelRequest();
-    abortController.current = new AbortController();
-    let signal = abortController.current.signal;
-
-    query.current = e.target.value;
-    fetch(
-      `/search/search?query=${query.current}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}`,
-      { signal }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-
-        searchResult.current = json;
-        goToSearchPage();
-      });
+    setQuery(e.target.value);
   };
+
+  useDebounce(
+    () => {
+      abortController.current = new AbortController();
+      let signal = abortController.current.signal;
+      fetch(
+        `/search/search?query=${query}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}`,
+        { signal }
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+
+          searchResult.current = json;
+          goToSearchPage();
+        });
+    },
+    300,
+    [query]
+  );
 
   return [
     searchBarWidth,

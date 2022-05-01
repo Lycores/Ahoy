@@ -49,8 +49,8 @@ export const CardContainerStyle = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 70px;
+  margin-bottom: 30px;
   cursor: pointer;
 `;
 

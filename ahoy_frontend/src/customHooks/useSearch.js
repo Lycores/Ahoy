@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 const useSearch = () => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   let [searchBarWidth, setSearchBarWidth] = useState(150);
-  let [searchResultState, setSearchResultState] = useState(null);
+  let searchResult = useRef(null);
   let query = useRef(null);
   let offset = useRef(0);
-  let limit = useRef(20);
+  let limit = useRef(5);
   let abortController = useRef(null);
   let navigate = useNavigate();
 
@@ -40,10 +40,11 @@ const useSearch = () => {
   const goToSearchPage = useCallback(() => {
     navigate("/traditional/search", {
       state: {
-        result: searchResultState,
+        result: searchResult.current,
+        query: query.current,
       },
     });
-  }, [searchResultState]);
+  }, [searchResult.current, query.current]);
 
   const handleSearch = (e) => {
     cancelRequest();
@@ -60,8 +61,9 @@ const useSearch = () => {
       })
       .then((json) => {
         console.log(json);
+
+        searchResult.current = json;
         goToSearchPage();
-        setSearchResultState(json);
       });
   };
 

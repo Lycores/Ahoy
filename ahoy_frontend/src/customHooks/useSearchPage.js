@@ -6,6 +6,7 @@ const useSearchPage = (result, query) => {
   let [topResultObj, setTopResultObj] = useState(null);
   let [typeOfResult, setTypeOfResult] = useState(null);
   let [topResultTracks, setTopResultTracks] = useState([]);
+  let [possibleResultsState, setPossibleResultState] = useState([]);
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const chooseBestMatch = (result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;
@@ -46,14 +47,14 @@ const useSearchPage = (result, query) => {
     if (result) {
       let [type, obj] = chooseBestMatch(result);
       console.log(type, obj);
-
       getRelatedTracks(obj, type);
+      setPossibleResultState(result);
       setTopResultObj(obj);
       setTypeOfResult(type);
     }
   }, [result]);
 
-  return [topResultObj, typeOfResult, topResultTracks];
+  return [topResultObj, typeOfResult, topResultTracks, possibleResultsState];
 };
 
 export default useSearchPage;

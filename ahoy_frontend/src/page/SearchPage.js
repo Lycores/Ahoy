@@ -6,6 +6,7 @@ import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import useSearchPage from "../customHooks/useSearchPage";
 import TrackEntryComp from "../components/TrackEntryComp";
 import TrackListCompForSearch from "../components/TrackListCompForSearch";
+import UniversalCardComp from "../components/UniversalCardComp";
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
 //   border-radius: var(--global-border-radius);
@@ -64,6 +65,17 @@ const LocalDescriptionStyle = styled.div`
   font-size: clamp(40px, 4vw, 50px);
 `;
 
+const ArtistSuggestionStyle = styled.div`
+  margin: 10px;
+`;
+
+const ArtistSuggestionContainer = styled.div`
+  height: 100px;
+  border-radius: var(--global-border-radius);
+  box-shadow: var(--global-box-shadow);
+  display: flex;
+`;
+
 const SearchPage = () => {
   let { state } = useLocation();
   let result = null;
@@ -76,10 +88,8 @@ const SearchPage = () => {
     console.log(query);
   }
 
-  let [topResultObj, typeOfResult, topResultTracks] = useSearchPage(
-    result,
-    query
-  );
+  let [topResultObj, typeOfResult, topResultTracks, possibleResults] =
+    useSearchPage(result, query);
   return (
     <RightAreaStyleForDesktopOrTablet>
       <TopResultContainerStyle>
@@ -110,6 +120,29 @@ const SearchPage = () => {
           </TopResultTrackAreaStyle>
         </TopResultForTracks>
       </TopResultContainerStyle>
+      <ArtistSuggestionStyle>
+        <TopResultTitleStyle>Artists</TopResultTitleStyle>
+        <ArtistSuggestionContainer>
+          {possibleResults.length != 0 && typeOfResult ? (
+            possibleResults[typeOfResult].items.map((ps, index) => {
+              console.log(possibleResults[typeOfResult]);
+              if (ps.images.length != 0) {
+                return (
+                  <UniversalCardComp
+                    key={index}
+                    item={ps}
+                    type={typeOfResult}
+                  />
+                );
+              } else {
+                return <></>;
+              }
+            })
+          ) : (
+            <></>
+          )}
+        </ArtistSuggestionContainer>
+      </ArtistSuggestionStyle>
     </RightAreaStyleForDesktopOrTablet>
   );
 };

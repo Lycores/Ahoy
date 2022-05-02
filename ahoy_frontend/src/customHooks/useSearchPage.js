@@ -5,11 +5,13 @@ import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 const useSearchPage = (result, query) => {
   let [topResultObj, setTopResultObj] = useState(null);
   let [typeOfResult, setTypeOfResult] = useState(null);
-
+  let [topResultTracks, setTopResultTracks] = useState([]);
+  let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   const chooseBestMatch = (result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;
     let bestMatchKey = null;
     let bestMatchObj = null;
+
     Object.keys(result).forEach((key) => {
       let distance = Levenshtein(
         result[key].items[0].name.toUpperCase(),
@@ -24,16 +26,34 @@ const useSearchPage = (result, query) => {
     return [bestMatchKey, bestMatchObj];
   };
 
+  const getRelatedTracks = (obj, type) => {
+    if (type == "artists") {
+      fetch(
+        `/artists/getArtistTopTrack?artistId=${obj.id}&market=${userProfileState.country}`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          console.log(json);
+          setTopResultTracks(json.tracks);
+        });
+    } else if (typeOfResult == "tracks") {
+    }
+  };
+
   useEffect(() => {
     if (result) {
       let [type, obj] = chooseBestMatch(result);
       console.log(type, obj);
+
+      getRelatedTracks(obj, type);
       setTopResultObj(obj);
       setTypeOfResult(type);
     }
   }, [result]);
 
-  return [topResultObj, typeOfResult];
+  return [topResultObj, typeOfResult, topResultTracks];
 };
 
 export default useSearchPage;

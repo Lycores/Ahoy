@@ -36,7 +36,7 @@ const TrackNumberArea = styled.div`
 `;
 
 const TrackEntryComp = React.forwardRef((props, ref) => {
-  let { position, track, albumId, positionInAlbum, images, showImage } = props;
+  let { number, track, albumId, positionInAlbum, images, showImage } = props;
   let deviceIdState = useRecoilValue(deviceIdRecoil);
 
   const playTrack = useCallback(() => {
@@ -47,7 +47,7 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
 
   return (
     <TrackEntryComponentStyle ref={ref} onClick={playTrack}>
-      <TrackNumberArea>{position}</TrackNumberArea>
+      <TrackNumberArea>{number}</TrackNumberArea>
       {showImage ? <TrackImageStyle trackImage={images[2].url} /> : <></>}
       <TrackInfoContainerStyle>
         <TracktitleStyle>{track.name}</TracktitleStyle>

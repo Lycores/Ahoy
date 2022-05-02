@@ -45,7 +45,7 @@ const TrackListComp = React.memo((props) => {
               return (
                 <TrackEntryComp
                   ref={lastElement}
-                  position={index + 1}
+                  number={index + 1}
                   key={index}
                   track={track.track}
                   albumId={track.track.album.id}
@@ -57,7 +57,7 @@ const TrackListComp = React.memo((props) => {
             } else {
               return (
                 <TrackEntryComp
-                  position={index + 1}
+                  number={index + 1}
                   key={index}
                   track={track.track}
                   albumId={track.track.album.id}

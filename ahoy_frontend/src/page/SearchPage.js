@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { CardCoverStyle } from "../components/ReusableStyleComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import useSearchPage from "../customHooks/useSearchPage";
+import TrackEntryComp from "../components/TrackEntryComp";
+import TrackListCompForSearch from "../components/TrackListCompForSearch";
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
 //   border-radius: var(--global-border-radius);
@@ -25,6 +27,7 @@ const TopResultCardAreaStyle = styled.div`
   border-radius: var(--global-border-radius);
   display: flex;
   flex-wrap: nowrap;
+  margin-top: 10px;
 `;
 
 const TopResultTrackAreaStyle = styled.div`
@@ -54,7 +57,10 @@ const SearchPage = () => {
     console.log(query);
   }
 
-  let [topResultObj, typeOfResult] = useSearchPage(result, query);
+  let [topResultObj, typeOfResult, topResultTracks] = useSearchPage(
+    result,
+    query
+  );
   return (
     <RightAreaStyleForDesktopOrTablet>
       <TopResultContainerStyle>
@@ -75,8 +81,12 @@ const SearchPage = () => {
             )}
           </TopResultCardAreaStyle>
         </div>
-
-        <TopResultTrackAreaStyle></TopResultTrackAreaStyle>
+        <div>
+          <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+          <TopResultTrackAreaStyle>
+            <TrackListCompForSearch topResultTracks={topResultTracks} />
+          </TopResultTrackAreaStyle>
+        </div>
       </TopResultContainerStyle>
     </RightAreaStyleForDesktopOrTablet>
   );

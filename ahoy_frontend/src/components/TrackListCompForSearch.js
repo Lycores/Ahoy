@@ -14,7 +14,8 @@ const TrackListCompForSearch = (props) => {
           track={track}
           albumId={track.album.id}
           positionInAlbum={track.track_number - 1}
-          showImage={false}
+          images={track.album.images}
+          showImage={true}
         />
       );
     });

@@ -15,7 +15,7 @@ export const BackgroundFilterStyle = styled.div`
   border-radius: var(--global-border-radius);
 `;
 export const RightAreaCoverContainerStyle = styled.div`
-  width: clamp(200px, 25vw, 300px);
+  width: clamp(200px, 250px, 300px);
   min-width: 200px;
   margin: var(--global-margin);
   margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));

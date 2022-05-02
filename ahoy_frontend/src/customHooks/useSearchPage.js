@@ -36,9 +36,9 @@ const useSearchPage = (result, query) => {
         })
         .then((json) => {
           console.log(json);
-          setTopResultTracks(json.tracks);
+          setTopResultTracks(json.tracks.slice(0, 4));
         });
-    } else if (typeOfResult == "tracks") {
+    } else if (type == "tracks") {
     }
   };
 

@@ -18,31 +18,50 @@ const TopResultContainerStyle = styled.div`
   flex-wrap: wrap;
   margin: 10px;
   margin-top: 80px;
+  position: relative;
+  gap: 10px;
 `;
 
+const TopResultForCard = styled.div`
+  flex-grow: 1;
+  flex-basis: 42%;
+  height: 100%;
+`;
+const TopResultForTracks = styled.div`
+  flex-grow: 1;
+`;
 const TopResultTitleStyle = styled.div``;
 const TopResultCardAreaStyle = styled.div`
-  margin-right: var(--global-margin);
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 10px;
+  margin-top: var(--global-margin);
+  padding: var(--global-padding);
+  height: 100%;
 `;
 
 const TopResultTrackAreaStyle = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
+  margin-top: var(--global-margin);
+  margin-bottom: var(--global-margin);
+  padding: var(--global-padding);
+`;
+
+const TypeInfoStyle = styled.div`
+  height: 60px;
 `;
 
 //inheritance, so no need to give skeleton and imageUrl
-const LocalCardCoverStyle = styled(CardCoverStyle)`
-  margin: 10px;
-`;
+const LocalCardCoverStyle = styled(CardCoverStyle)``;
 
 const LocalDescriptionStyle = styled.div`
-  min-width: 200px;
-  width: 200px;
+  margin-left: 10px;
+  font-size: 50px;
+  margin-top: clamp(50px, 10vw, 120px);
+  text-align: left;
+  font-size: clamp(40px, 4vw, 50px);
 `;
 
 const SearchPage = () => {
@@ -64,12 +83,15 @@ const SearchPage = () => {
   return (
     <RightAreaStyleForDesktopOrTablet>
       <TopResultContainerStyle>
-        <div>
-          <TopResultTitleStyle>{typeOfResult}</TopResultTitleStyle>
+        <TopResultForCard>
+          <TopResultTitleStyle>Top Result</TopResultTitleStyle>
           <TopResultCardAreaStyle>
             {topResultObj ? (
               <>
-                <LocalCardCoverStyle imageUrl={topResultObj.images[1].url} />
+                <div>
+                  <LocalCardCoverStyle imageUrl={topResultObj.images[1].url} />
+                  <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
+                </div>
                 <LocalDescriptionStyle>
                   {topResultObj.name}
                 </LocalDescriptionStyle>
@@ -80,13 +102,13 @@ const SearchPage = () => {
               </>
             )}
           </TopResultCardAreaStyle>
-        </div>
-        <div>
+        </TopResultForCard>
+        <TopResultForTracks>
           <TopResultTitleStyle>Tracks</TopResultTitleStyle>
           <TopResultTrackAreaStyle>
             <TrackListCompForSearch topResultTracks={topResultTracks} />
           </TopResultTrackAreaStyle>
-        </div>
+        </TopResultForTracks>
       </TopResultContainerStyle>
     </RightAreaStyleForDesktopOrTablet>
   );

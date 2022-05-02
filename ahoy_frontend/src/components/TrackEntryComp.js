@@ -26,6 +26,7 @@ const TrackArtistStyle = styled.div`
   text-overflow: ellipsis;
   display: table-cell;
   vertical-align: bottom;
+  text-overflow: ellipsis;
 `;
 
 const TrackNumberArea = styled.div`

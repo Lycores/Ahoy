@@ -1,12 +1,18 @@
-import { useLocation } from "react-router-dom";
-import { RightAreaStyleForDesktopOrTablet } from "../components/ReusableStyleComp";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+  RightAreaStyleForDesktopOrTablet,
+  RightAreaContainerStyle,
+} from "../components/ReusableStyleComp";
 import styled from "styled-components";
-import { CardCoverStyle } from "../components/ReusableStyleComp";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import useSearchPage from "../customHooks/useSearchPage";
 import TrackEntryComp from "../components/TrackEntryComp";
 import TrackListCompForSearch from "../components/TrackListCompForSearch";
 import UniversalCardComp from "../components/UniversalCardComp";
+import {
+  CardContainerStyle,
+  CardCoverStyle,
+} from "../components/ReusableStyleComp";
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
 //   border-radius: var(--global-border-radius);
@@ -27,6 +33,7 @@ const TopResultForCard = styled.div`
   flex-grow: 1;
   flex-basis: 42%;
   height: 100%;
+  cursor: pointer;
 `;
 const TopResultForTracks = styled.div`
   flex-grow: 1;
@@ -56,7 +63,10 @@ const TypeInfoStyle = styled.div`
 
 //inheritance, so no need to give skeleton and imageUrl
 const LocalCardCoverStyle = styled(CardCoverStyle)``;
-
+const LocalCardContainerStyle = styled(CardContainerStyle)`
+  margin: 0px;
+  /* flex-shrink: 0; */
+`;
 const LocalDescriptionStyle = styled.div`
   margin-left: 10px;
   font-size: 50px;
@@ -70,10 +80,15 @@ const ArtistSuggestionStyle = styled.div`
 `;
 
 const ArtistSuggestionContainer = styled.div`
-  height: 100px;
   border-radius: var(--global-border-radius);
   box-shadow: var(--global-box-shadow);
   display: flex;
+  padding: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+  height: 300px;
+  overflow-y: hidden;
+  justify-content: space-around;
 `;
 
 const SearchPage = () => {
@@ -87,62 +102,78 @@ const SearchPage = () => {
     console.log(111111, result);
     console.log(query);
   }
-
   let [topResultObj, typeOfResult, topResultTracks, possibleResults] =
     useSearchPage(result, query);
+
+  let navigate = useNavigate();
+
+  const goToResultPage = () => {
+    if (topResultObj && typeOfResult == "artists") {
+      navigate("/traditional/artists", {
+        state: {
+          artist: topResultObj,
+        },
+      });
+    }
+  };
+
   return (
     <RightAreaStyleForDesktopOrTablet>
-      <TopResultContainerStyle>
-        <TopResultForCard>
-          <TopResultTitleStyle>Top Result</TopResultTitleStyle>
-          <TopResultCardAreaStyle>
-            {topResultObj ? (
-              <>
-                <div>
-                  <LocalCardCoverStyle imageUrl={topResultObj.images[1].url} />
-                  <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
-                </div>
-                <LocalDescriptionStyle>
-                  {topResultObj.name}
-                </LocalDescriptionStyle>
-              </>
+      <RightAreaContainerStyle>
+        <TopResultContainerStyle>
+          <TopResultForCard onClick={goToResultPage}>
+            <TopResultTitleStyle>Top Result</TopResultTitleStyle>
+            <TopResultCardAreaStyle>
+              {topResultObj ? (
+                <>
+                  <div>
+                    <LocalCardCoverStyle
+                      imageUrl={topResultObj.images[1].url}
+                    />
+                    <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
+                  </div>
+                  <LocalDescriptionStyle>
+                    {topResultObj.name}
+                  </LocalDescriptionStyle>
+                </>
+              ) : (
+                <>
+                  <LocalCardCoverStyle skeleton="ph-item" />
+                </>
+              )}
+            </TopResultCardAreaStyle>
+          </TopResultForCard>
+          <TopResultForTracks>
+            <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+            <TopResultTrackAreaStyle>
+              <TrackListCompForSearch topResultTracks={topResultTracks} />
+            </TopResultTrackAreaStyle>
+          </TopResultForTracks>
+        </TopResultContainerStyle>
+        <ArtistSuggestionStyle>
+          <TopResultTitleStyle>Artists</TopResultTitleStyle>
+
+          <ArtistSuggestionContainer>
+            {possibleResults.length != 0 && typeOfResult ? (
+              possibleResults[typeOfResult].items.map((ps, index) => {
+                console.log(possibleResults[typeOfResult]);
+                if (ps.images.length != 0) {
+                  return (
+                    <LocalCardContainerStyle key={index}>
+                      <CardCoverStyle imageUrl={ps.images[1].url} />
+                      <div>{ps.name}</div>
+                    </LocalCardContainerStyle>
+                  );
+                } else {
+                  return <></>;
+                }
+              })
             ) : (
-              <>
-                <LocalCardCoverStyle skeleton="ph-item" />
-              </>
+              <></>
             )}
-          </TopResultCardAreaStyle>
-        </TopResultForCard>
-        <TopResultForTracks>
-          <TopResultTitleStyle>Tracks</TopResultTitleStyle>
-          <TopResultTrackAreaStyle>
-            <TrackListCompForSearch topResultTracks={topResultTracks} />
-          </TopResultTrackAreaStyle>
-        </TopResultForTracks>
-      </TopResultContainerStyle>
-      <ArtistSuggestionStyle>
-        <TopResultTitleStyle>Artists</TopResultTitleStyle>
-        <ArtistSuggestionContainer>
-          {possibleResults.length != 0 && typeOfResult ? (
-            possibleResults[typeOfResult].items.map((ps, index) => {
-              console.log(possibleResults[typeOfResult]);
-              if (ps.images.length != 0) {
-                return (
-                  <UniversalCardComp
-                    key={index}
-                    item={ps}
-                    type={typeOfResult}
-                  />
-                );
-              } else {
-                return <></>;
-              }
-            })
-          ) : (
-            <></>
-          )}
-        </ArtistSuggestionContainer>
-      </ArtistSuggestionStyle>
+          </ArtistSuggestionContainer>
+        </ArtistSuggestionStyle>
+      </RightAreaContainerStyle>
     </RightAreaStyleForDesktopOrTablet>
   );
 };

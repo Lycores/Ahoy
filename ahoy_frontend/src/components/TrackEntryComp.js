@@ -18,6 +18,7 @@ const TracktitleStyle = styled.div`
   font-size: 22px;
   white-space: nowrap;
   text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 const TrackArtistStyle = styled.div`

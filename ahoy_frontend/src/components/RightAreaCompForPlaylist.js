@@ -16,7 +16,6 @@ const AlbumNameStyle = styled.div`
   margin-top: clamp(100px, 15vw, 130px);
   text-align: left;
   font-size: clamp(30px, 5vw, 100px);
-  -webkit-line-clamp: 3;
 `;
 
 const RightAreaCompForPlaylist = React.memo((props) => {

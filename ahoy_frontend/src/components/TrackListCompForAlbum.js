@@ -33,6 +33,7 @@ const TrackListCompForAlbum = React.memo((props) => {
               albumId={albumId}
               positionInAlbum={index}
               showImage={false}
+              showNumber={true}
             />
           );
         })}

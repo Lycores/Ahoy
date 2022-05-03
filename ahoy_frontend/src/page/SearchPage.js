@@ -31,12 +31,13 @@ const TopResultContainerStyle = styled.div`
 
 const TopResultForCard = styled.div`
   flex-grow: 1;
-  flex-basis: 42%;
+  flex-basis: calc(50% - calc(var(--global-margin) / 2));
   height: 100%;
   cursor: pointer;
 `;
 const TopResultForTracks = styled.div`
   flex-grow: 1;
+  flex-basis: calc(50% - calc(var(--global-margin) / 2));
 `;
 const TopResultTitleStyle = styled.div``;
 const TopResultCardAreaStyle = styled.div`

@@ -7,14 +7,17 @@ import { TrackEntryComponentStyle } from "./ReusableStyleComp";
 const TrackImageStyle = styled.div`
   height: 50px;
   width: 50px;
+  min-width: 50px;
   border-radius: 5px;
   background-image: url(${(props) => props.trackImage});
 `;
 
 const TrackInfoContainerStyle = styled.div`
   margin-left: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
-const TracktitleStyle = styled.div`
+const TrackTitleStyle = styled.div`
   font-size: 22px;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -38,7 +41,15 @@ const TrackNumberArea = styled.div`
 `;
 
 const TrackEntryComp = React.forwardRef((props, ref) => {
-  let { number, track, albumId, positionInAlbum, images, showImage } = props;
+  let {
+    number,
+    track,
+    albumId,
+    positionInAlbum,
+    images,
+    showImage,
+    showNumber,
+  } = props;
   let deviceIdState = useRecoilValue(deviceIdRecoil);
 
   const playTrack = useCallback(() => {
@@ -49,10 +60,10 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
 
   return (
     <TrackEntryComponentStyle ref={ref} onClick={playTrack}>
-      <TrackNumberArea>{number}</TrackNumberArea>
-      {showImage ? <TrackImageStyle trackImage={images[2].url} /> : <></>}
+      {showNumber && <TrackNumberArea>{number}</TrackNumberArea>}
+      {showImage && <TrackImageStyle trackImage={images[2].url} />}
       <TrackInfoContainerStyle>
-        <TracktitleStyle>{track.name}</TracktitleStyle>
+        <TrackTitleStyle>{track.name}</TrackTitleStyle>
         <TrackArtistStyle>{track.artists[0].name}</TrackArtistStyle>
       </TrackInfoContainerStyle>
     </TrackEntryComponentStyle>

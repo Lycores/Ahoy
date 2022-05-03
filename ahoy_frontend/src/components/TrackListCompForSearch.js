@@ -1,9 +1,8 @@
 import TrackEntryComp from "./TrackEntryComp";
-
+import styled from "styled-components";
 const TrackListCompForSearch = (props) => {
   let { topResultTracks } = props;
 
-  let renderQueue = [];
   if (topResultTracks.length != 0) {
     let tracks = topResultTracks;
     return tracks.map((track, index) => {
@@ -16,6 +15,7 @@ const TrackListCompForSearch = (props) => {
           positionInAlbum={track.track_number - 1}
           images={track.album.images}
           showImage={true}
+          showNumber={false}
         />
       );
     });

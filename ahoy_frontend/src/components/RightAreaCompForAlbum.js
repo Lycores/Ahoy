@@ -13,11 +13,16 @@ import TrackListCompForAlbum from "./TrackListCompForAlbum";
 import useAlbumDetail from "../customHooks/useAlbumDetail";
 import useDescResizeForDesk from "../customHooks/useDescResizeForDesk";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import useFontSize from "../utilHooks/useFontSize";
 const AlbumNameStyle = styled.div`
   width: 100%;
-  margin-top: clamp(100px, 15vw, 180px);
+  margin-top: clamp(100px, 13vw, 150px);
   text-align: left;
-  font-size: clamp(30px, 5vw, 100px);
+  font-size: clamp(
+    30px,
+    ${(props) => props.avgFontSize}vw,
+    ${(props) => props.maxFontSize}px
+  );
 `;
 
 const RightAreaCompForAlbum = React.memo((props) => {
@@ -30,8 +35,18 @@ const RightAreaCompForAlbum = React.memo((props) => {
     albumOverviewBackgroundImageState,
   ] = useAlbumDetail(album);
 
-  let [overviewCoverRef, descWidthStateForDesk, descWidthStateForMobile] =
-    useDescResizeForDesk();
+  let [maxFontSize, avgFontSize] = useFontSize(album.name);
+  console.log(maxFontSize, avgFontSize);
+
+  let [
+    overviewCoverRef,
+    descRef,
+    descWidthStateForDesk,
+    descWidthStateForMobile,
+    shouldJSEngage,
+  ] = useDescResizeForDesk();
+
+  console.log(shouldJSEngage);
 
   useDescResizeForDesk();
   return (
@@ -42,14 +57,46 @@ const RightAreaCompForAlbum = React.memo((props) => {
             <RightAreaCoverStyle imageUrl={coverBackgroundImageState} />
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
-            <DescriptionStyle width={descWidthStateForDesk}>
-              <AlbumNameStyle>{album.name}</AlbumNameStyle>
-            </DescriptionStyle>
+            {shouldJSEngage ? (
+              <DescriptionStyle ref={descRef} width={descWidthStateForDesk}>
+                <AlbumNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {album.name}
+                </AlbumNameStyle>
+              </DescriptionStyle>
+            ) : (
+              <DescriptionStyle ref={descRef}>
+                <AlbumNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {album.name}
+                </AlbumNameStyle>
+              </DescriptionStyle>
+            )}
           </DesktopOrTablet>
           <Mobile>
-            <DescriptionStyle width={descWidthStateForMobile}>
-              <AlbumNameStyle>{album.name}</AlbumNameStyle>
-            </DescriptionStyle>
+            {shouldJSEngage ? (
+              <DescriptionStyle width={descWidthStateForMobile}>
+                <AlbumNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {album.name}
+                </AlbumNameStyle>
+              </DescriptionStyle>
+            ) : (
+              <DescriptionStyle>
+                <AlbumNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {album.name}
+                </AlbumNameStyle>
+              </DescriptionStyle>
+            )}
           </Mobile>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>

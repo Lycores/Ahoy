@@ -1,24 +1,53 @@
 import useWindowSize from "./useWindowSize";
 import { useLayoutEffect, useRef, useState } from "react";
+import useRerender from "./useRerender";
 
+const breakPoint = 250;
 const useDescResizeForDesk = () => {
   let [windowWidth, windowHeight] = useWindowSize();
   let overviewCoverRef = useRef(null);
-  let [descWidthState, setDescWidthState] = useState([0, 0]);
+  let descRef = useRef(null);
+  let breakPointUsingJS = useRef(0);
+  let shouldJSEngage = useRef(false);
+  let descWidthStateForDesk = useRef(0);
+  let descWidthStateForMobile = useRef(0);
+  let trackListWidthStateForDesk = useRef(0);
+  let trackListWidthStateForMobile = useRef(0);
+  let [forceUpdate] = useRerender();
 
   useLayoutEffect(() => {
-    if (windowWidth != 0 && overviewCoverRef.current) {
+    if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
-      let descWidth = [
-        windowWidth - 320 - coverWidth,
-        windowWidth - coverWidth,
-      ];
-      console.log(descWidth);
-      setDescWidthState(descWidth);
+      console.log(coverWidth, breakPoint);
+      if (coverWidth <= breakPoint) {
+        //record the width of desc
+        breakPointUsingJS.current = descRef.current;
+        //if right now the width of desc is smaller and equal to threshold,
+        if (descRef.current <= breakPointUsingJS.current) {
+          // do this
+          shouldJSEngage.current = true;
+          descWidthStateForDesk.current = windowWidth - 320 - coverWidth;
+          descWidthStateForMobile.current = windowWidth - coverWidth;
+          forceUpdate();
+        } else {
+          shouldJSEngage.current = false;
+          forceUpdate();
+        }
+      }
+      // else {
+      //   shouldJSEngage.current = false;
+      //   forceUpdate();
+      // }
     }
   }, [windowWidth]);
 
-  return [overviewCoverRef, descWidthState[0], descWidthState[1]];
+  return [
+    overviewCoverRef,
+    descRef,
+    descWidthStateForDesk.current,
+    descWidthStateForMobile.current,
+    shouldJSEngage.current,
+  ];
 };
 
 export default useDescResizeForDesk;

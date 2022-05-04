@@ -27,6 +27,9 @@ body{
     --global-desktop-or-tablet-min: 601px;
     --search-bar-height: 50px;
     --search-bar-width: 150px;
+    --right-area-cover-min-size:200px;
+    --right-area-cover-avg-size:25vw;
+    --right-area-cover-max-size:300px;
 
 
     background-color: #e1e7ef;

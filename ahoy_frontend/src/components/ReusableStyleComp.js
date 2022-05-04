@@ -15,7 +15,11 @@ export const BackgroundFilterStyle = styled.div`
   border-radius: var(--global-border-radius);
 `;
 export const RightAreaCoverContainerStyle = styled.div`
-  width: clamp(200px, 250px, 300px);
+  width: clamp(
+    var(--right-area-cover-min-size),
+    calc(var(--right-area-cover-avg-size) - 10px),
+    var(--right-area-cover-max-size)
+  );
   min-width: 200px;
   margin: var(--global-margin);
   margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));
@@ -41,6 +45,7 @@ export const RightAreaOverviewStyle = styled.div`
 export const DescriptionStyle = styled.div`
   width: ${(props) => props.width}px;
   height: 100%;
+  flex-shrink: 1;
 `;
 
 export const CardContainerStyle = styled.div`

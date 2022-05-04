@@ -39,6 +39,7 @@ export const RightAreaOverviewStyle = styled.div`
 `;
 
 export const DescriptionStyle = styled.div`
+  width: ${(props) => props.width}px;
   height: 100%;
 `;
 

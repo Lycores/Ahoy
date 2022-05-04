@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const useAlbumDetail = (album) => {
   const userProfileState = JSON.parse(localStorage.getItem("userProfile"));
-
   let [coverBackgroundImageState, setCoverBackgroundImageState] = useState("");
   let [
     albumOverviewBackgroundImageState,

@@ -11,6 +11,8 @@ import {
 } from "./ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
 import useAlbumDetail from "../customHooks/useAlbumDetail";
+import useDescResizeForDesk from "../customHooks/useDescResizeForDesk";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
 const AlbumNameStyle = styled.div`
   width: 100%;
   margin-top: clamp(100px, 15vw, 180px);
@@ -28,16 +30,27 @@ const RightAreaCompForAlbum = React.memo((props) => {
     albumOverviewBackgroundImageState,
   ] = useAlbumDetail(album);
 
+  let [overviewCoverRef, descWidthStateForDesk, descWidthStateForMobile] =
+    useDescResizeForDesk();
+
+  useDescResizeForDesk();
   return (
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>
         <BackgroundFilterStyle>
-          <RightAreaCoverContainerStyle>
+          <RightAreaCoverContainerStyle ref={overviewCoverRef}>
             <RightAreaCoverStyle imageUrl={coverBackgroundImageState} />
           </RightAreaCoverContainerStyle>
-          <DescriptionStyle>
-            <AlbumNameStyle>{album.name}</AlbumNameStyle>
-          </DescriptionStyle>
+          <DesktopOrTablet>
+            <DescriptionStyle width={descWidthStateForDesk}>
+              <AlbumNameStyle>{album.name}</AlbumNameStyle>
+            </DescriptionStyle>
+          </DesktopOrTablet>
+          <Mobile>
+            <DescriptionStyle width={descWidthStateForMobile}>
+              <AlbumNameStyle>{album.name}</AlbumNameStyle>
+            </DescriptionStyle>
+          </Mobile>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
       <TrackListCompForAlbum tracks={tracks} albumId={albumId} />

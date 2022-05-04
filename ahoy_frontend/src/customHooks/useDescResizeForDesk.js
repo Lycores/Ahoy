@@ -1,5 +1,5 @@
 import useWindowSize from "./useWindowSize";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import useRerender from "./useRerender";
 
 const breakPoint = 250;
@@ -14,8 +14,8 @@ const useDescResizeForDesk = () => {
   let trackListWidthStateForDesk = useRef(0);
   let trackListWidthStateForMobile = useRef(0);
   let [forceUpdate] = useRerender();
-
-  useLayoutEffect(() => {
+  console.log(111111111);
+  useEffect(() => {
     if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
       console.log(coverWidth, breakPoint);

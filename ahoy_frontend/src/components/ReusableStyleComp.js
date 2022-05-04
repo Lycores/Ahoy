@@ -20,7 +20,7 @@ export const RightAreaCoverContainerStyle = styled.div`
     calc(var(--right-area-cover-avg-size) - 10px),
     var(--right-area-cover-max-size)
   );
-  min-width: 200px;
+  min-width: var(--right-area-cover-min-size);
   margin: var(--global-margin);
   margin-top: calc(var(--global-margin) * 2 + var(--search-bar-height));
 `;
@@ -43,7 +43,6 @@ export const RightAreaOverviewStyle = styled.div`
 `;
 
 export const DescriptionStyle = styled.div`
-  width: ${(props) => props.width}px;
   height: 100%;
   flex-shrink: 1;
 `;

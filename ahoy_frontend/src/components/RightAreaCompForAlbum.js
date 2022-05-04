@@ -15,7 +15,7 @@ import useDescResizeForDesk from "../customHooks/useDescResizeForDesk";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import useFontSize from "../utilHooks/useFontSize";
 const AlbumNameStyle = styled.div`
-  width: 100%;
+  width: ${(props) => props.width}px;
   margin-top: clamp(100px, 13vw, 150px);
   text-align: left;
   font-size: clamp(

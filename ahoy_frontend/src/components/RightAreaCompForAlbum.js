@@ -23,6 +23,8 @@ const AlbumNameStyle = styled.div`
     ${(props) => props.avgFontSize}vw,
     ${(props) => props.maxFontSize}px
   );
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 const RightAreaCompForAlbum = React.memo((props) => {
@@ -36,17 +38,16 @@ const RightAreaCompForAlbum = React.memo((props) => {
   ] = useAlbumDetail(album);
 
   let [maxFontSize, avgFontSize] = useFontSize(album.name);
-  console.log(maxFontSize, avgFontSize);
 
   let [
     overviewCoverRef,
     descRef,
     descWidthStateForDesk,
     descWidthStateForMobile,
+    trackListWidthStateForDesk,
+    trackListWidthStateForMobile,
     shouldJSEngage,
   ] = useDescResizeForDesk();
-
-  console.log(shouldJSEngage);
 
   useDescResizeForDesk();
   return (
@@ -58,8 +59,9 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef} width={descWidthStateForDesk}>
+              <DescriptionStyle ref={descRef}>
                 <AlbumNameStyle
+                  width={descWidthStateForDesk}
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}
                 >
@@ -79,8 +81,9 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DesktopOrTablet>
           <Mobile>
             {shouldJSEngage ? (
-              <DescriptionStyle width={descWidthStateForMobile}>
+              <DescriptionStyle>
                 <AlbumNameStyle
+                  width={descWidthStateForMobile}
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}
                 >
@@ -100,7 +103,20 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </Mobile>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForAlbum tracks={tracks} albumId={albumId} />
+      <DesktopOrTablet>
+        <TrackListCompForAlbum
+          width={trackListWidthStateForDesk}
+          tracks={tracks}
+          albumId={albumId}
+        />
+      </DesktopOrTablet>
+      <Mobile>
+        <TrackListCompForAlbum
+          width={trackListWidthStateForMobile}
+          tracks={tracks}
+          albumId={albumId}
+        />
+      </Mobile>
     </RightAreaContainerStyle>
   );
 });

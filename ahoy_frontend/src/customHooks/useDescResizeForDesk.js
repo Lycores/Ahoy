@@ -14,11 +14,9 @@ const useDescResizeForDesk = () => {
   let trackListWidthStateForDesk = useRef(0);
   let trackListWidthStateForMobile = useRef(0);
   let [forceUpdate] = useRerender();
-  console.log(111111111);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
-      console.log(coverWidth, breakPoint);
       if (coverWidth <= breakPoint) {
         //record the width of desc
         breakPointUsingJS.current = descRef.current;
@@ -28,16 +26,17 @@ const useDescResizeForDesk = () => {
           shouldJSEngage.current = true;
           descWidthStateForDesk.current = windowWidth - 320 - coverWidth;
           descWidthStateForMobile.current = windowWidth - coverWidth;
-          forceUpdate();
         } else {
           shouldJSEngage.current = false;
-          forceUpdate();
         }
       }
-      // else {
-      //   shouldJSEngage.current = false;
-      //   forceUpdate();
-      // }
+      trackListWidthStateForDesk.current = windowWidth - 300;
+      trackListWidthStateForMobile.current = windowWidth - 20;
+      console.log(
+        trackListWidthStateForDesk.current,
+        trackListWidthStateForMobile.current
+      );
+      forceUpdate();
     }
   }, [windowWidth]);
 
@@ -46,6 +45,8 @@ const useDescResizeForDesk = () => {
     descRef,
     descWidthStateForDesk.current,
     descWidthStateForMobile.current,
+    trackListWidthStateForDesk.current,
+    trackListWidthStateForMobile.current,
     shouldJSEngage.current,
   ];
 };

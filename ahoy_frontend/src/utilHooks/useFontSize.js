@@ -5,7 +5,10 @@ const useFontSize = (str) => {
   let avgFontSize = useRef(null);
 
   useLayoutEffect(() => {
-    if (str.length <= 15) {
+    if (str.length <= 8) {
+      maxFontSize.current = 150;
+      avgFontSize.current = 6;
+    } else if (str.length <= 15) {
       maxFontSize.current = 100;
       avgFontSize.current = 4.5;
     } else if (15 < str.length < 25) {

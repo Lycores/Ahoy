@@ -17,8 +17,8 @@ export const BackgroundFilterStyle = styled.div`
 export const RightAreaCoverContainerStyle = styled.div`
   width: clamp(
     var(--right-area-cover-min-size),
-    calc(var(--right-area-cover-avg-size) - 10px),
-    var(--right-area-cover-max-size)
+    ${(props) => props.avgCoverSize}vw,
+    ${(props) => props.maxCoverSize}px
   );
   min-width: var(--right-area-cover-min-size);
   margin: var(--global-margin);

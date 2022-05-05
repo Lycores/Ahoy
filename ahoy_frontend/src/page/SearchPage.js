@@ -99,9 +99,6 @@ const SearchPage = () => {
   if (state) {
     result = state.result;
     query = state.query;
-
-    console.log(111111, result);
-    console.log(query);
   }
   let [topResultObj, typeOfResult, topResultTracks, possibleResults] =
     useSearchPage(result, query);

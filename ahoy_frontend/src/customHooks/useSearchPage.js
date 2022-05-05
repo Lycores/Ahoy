@@ -36,7 +36,6 @@ const useSearchPage = (result, query) => {
           return response.json();
         })
         .then((json) => {
-          console.log(json);
           setTopResultTracks(json.tracks.slice(0, 4));
         });
     } else if (type == "tracks") {
@@ -46,7 +45,6 @@ const useSearchPage = (result, query) => {
   useEffect(() => {
     if (result) {
       let [type, obj] = chooseBestMatch(result);
-      console.log(type, obj);
       getRelatedTracks(obj, type);
       setPossibleResultState(result);
       setTopResultObj(obj);

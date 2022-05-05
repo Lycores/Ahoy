@@ -64,8 +64,6 @@ const useSearch = () => {
           return response.json();
         })
         .then((json) => {
-          console.log(json);
-
           searchResult.current = json;
           goToSearchPage();
         });

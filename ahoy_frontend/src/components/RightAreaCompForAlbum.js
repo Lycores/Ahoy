@@ -14,12 +14,13 @@ import useAlbumDetail from "../customHooks/useAlbumDetail";
 import useDescResizeForDesk from "../customHooks/useDescResizeForDesk";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import useFontSize from "../utilHooks/useFontSize";
+import useCoverSize from "../utilHooks/useCoverSize";
 const AlbumNameStyle = styled.div`
   width: ${(props) => props.width}px;
   margin-top: clamp(100px, 13vw, 150px);
   text-align: left;
   font-size: clamp(
-    30px,
+    25px,
     ${(props) => props.avgFontSize}vw,
     ${(props) => props.maxFontSize}px
   );
@@ -38,6 +39,8 @@ const RightAreaCompForAlbum = React.memo((props) => {
   ] = useAlbumDetail(album);
 
   let [maxFontSize, avgFontSize] = useFontSize(album.name);
+  let [maxCoverSize, avgCoverSize] = useCoverSize(album.name);
+  console.log(maxFontSize, avgFontSize);
 
   let [
     overviewCoverRef,
@@ -49,12 +52,15 @@ const RightAreaCompForAlbum = React.memo((props) => {
     shouldJSEngage,
   ] = useDescResizeForDesk();
 
-  useDescResizeForDesk();
   return (
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>
         <BackgroundFilterStyle>
-          <RightAreaCoverContainerStyle ref={overviewCoverRef}>
+          <RightAreaCoverContainerStyle
+            maxCoverSize={maxCoverSize}
+            avgCoverSize={avgCoverSize}
+            ref={overviewCoverRef}
+          >
             <RightAreaCoverStyle imageUrl={coverBackgroundImageState} />
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
@@ -81,7 +87,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DesktopOrTablet>
           <Mobile>
             {shouldJSEngage ? (
-              <DescriptionStyle>
+              <DescriptionStyle ref={descRef}>
                 <AlbumNameStyle
                   width={descWidthStateForMobile}
                   maxFontSize={maxFontSize}
@@ -91,7 +97,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
                 </AlbumNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle>
+              <DescriptionStyle ref={descRef}>
                 <AlbumNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}

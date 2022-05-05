@@ -1,6 +1,6 @@
 import useWindowSize from "./useWindowSize";
 import { useLayoutEffect, useRef } from "react";
-import useRerender from "./useRerender";
+import useRerender from "../customHooks/useRerender";
 
 const breakPoint = 250;
 const useDescResizeForDesk = () => {
@@ -18,6 +18,7 @@ const useDescResizeForDesk = () => {
   useLayoutEffect(() => {
     if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
+      console.log(coverWidth);
       if (coverWidth <= breakPoint) {
         //record the width of desc
         breakPointUsingJS.current = descRef.current;
@@ -26,7 +27,7 @@ const useDescResizeForDesk = () => {
           // do this
           shouldJSEngage.current = true;
           descWidthStateForDesk.current = windowWidth - 320 - coverWidth;
-          descWidthStateForMobile.current = windowWidth - coverWidth;
+          descWidthStateForMobile.current = windowWidth - coverWidth - 40;
         } else {
           shouldJSEngage.current = false;
         }

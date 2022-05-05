@@ -11,7 +11,7 @@ import {
 } from "./ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
 import useAlbumDetail from "../customHooks/useAlbumDetail";
-import useDescResizeForDesk from "../customHooks/useDescResizeForDesk";
+import useDescResizeForDesk from "../utilHooks/useDescResize";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import useFontSize from "../utilHooks/useFontSize";
 import useCoverSize from "../utilHooks/useCoverSize";

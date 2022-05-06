@@ -13,7 +13,7 @@ const StyleForTrackContainer = styled.div`
 
 var increaseKey = 999;
 const TrackListCompForArtist = React.memo((props) => {
-  let { artistTopTrack } = props;
+  let { width, artistTopTrack } = props;
   let renderQueue = [];
 
   if (artistTopTrack.length != 0) {
@@ -23,6 +23,7 @@ const TrackListCompForArtist = React.memo((props) => {
         {tracks.map((track, index) => {
           return (
             <TrackEntryComp
+              width={width - 20}
               number={index + 1}
               key={track.id}
               track={track}

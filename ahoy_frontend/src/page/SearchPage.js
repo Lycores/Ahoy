@@ -13,6 +13,10 @@ import {
   CardContainerStyle,
   CardCoverStyle,
 } from "../components/ReusableStyleComp";
+
+import useTopTrackResize from "../utilHooks/useTopTrackResize";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
+
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
 //   border-radius: var(--global-border-radius);
@@ -36,7 +40,6 @@ const TopResultForCard = styled.div`
   cursor: pointer;
 `;
 const TopResultForTracks = styled.div`
-  flex-grow: 1;
   flex-basis: calc(50% - calc(var(--global-margin) / 2));
 `;
 const TopResultTitleStyle = styled.div``;
@@ -115,11 +118,18 @@ const SearchPage = () => {
     }
   };
 
+  let [
+    shouldJSEngage,
+    topResultCardRef,
+    topResultTracksRef,
+    topTracksWidthForDesk,
+    topTracksWidthForMobile,
+  ] = useTopTrackResize();
   return (
     <RightAreaStyleForDesktopOrTablet>
       <RightAreaContainerStyle>
         <TopResultContainerStyle>
-          <TopResultForCard onClick={goToResultPage}>
+          <TopResultForCard ref={topResultCardRef} onClick={goToResultPage}>
             <TopResultTitleStyle>Top Result</TopResultTitleStyle>
             <TopResultCardAreaStyle>
               {topResultObj ? (
@@ -141,12 +151,46 @@ const SearchPage = () => {
               )}
             </TopResultCardAreaStyle>
           </TopResultForCard>
-          <TopResultForTracks>
-            <TopResultTitleStyle>Tracks</TopResultTitleStyle>
-            <TopResultTrackAreaStyle>
-              <TrackListCompForSearch topResultTracks={topResultTracks} />
-            </TopResultTrackAreaStyle>
-          </TopResultForTracks>
+
+          {shouldJSEngage ? (
+            <TopResultForTracks ref={topResultTracksRef}>
+              <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+
+              <DesktopOrTablet>
+                <TopResultTrackAreaStyle>
+                  <TrackListCompForSearch
+                    width={topTracksWidthForDesk}
+                    topResultTracks={topResultTracks}
+                  />
+                </TopResultTrackAreaStyle>
+              </DesktopOrTablet>
+
+              <Mobile>
+                <TopResultTrackAreaStyle>
+                  <TrackListCompForSearch
+                    width={topTracksWidthForMobile}
+                    topResultTracks={topResultTracks}
+                  />
+                </TopResultTrackAreaStyle>
+              </Mobile>
+            </TopResultForTracks>
+          ) : (
+            <TopResultForTracks ref={topResultTracksRef}>
+              <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+
+              <DesktopOrTablet>
+                <TopResultTrackAreaStyle>
+                  <TrackListCompForSearch topResultTracks={topResultTracks} />
+                </TopResultTrackAreaStyle>
+              </DesktopOrTablet>
+
+              <Mobile>
+                <TopResultTrackAreaStyle>
+                  <TrackListCompForSearch topResultTracks={topResultTracks} />
+                </TopResultTrackAreaStyle>
+              </Mobile>
+            </TopResultForTracks>
+          )}
         </TopResultContainerStyle>
         <ArtistSuggestionStyle>
           <TopResultTitleStyle>Artists</TopResultTitleStyle>
@@ -154,7 +198,6 @@ const SearchPage = () => {
           <ArtistSuggestionContainer>
             {possibleResults.length != 0 && typeOfResult ? (
               possibleResults[typeOfResult].items.map((ps, index) => {
-                console.log(possibleResults[typeOfResult]);
                 if (ps.images.length != 0) {
                   return (
                     <LocalCardContainerStyle key={index}>

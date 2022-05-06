@@ -9,7 +9,6 @@ const StyleForTrackContainer = styled.div`
   border-radius: var(--global-border-radius);
   margin: var(--global-margin);
   overflow: hidden;
-  width: ${(props) => props.width}px;
 `;
 
 let increaseKey = 999;
@@ -23,10 +22,11 @@ const TrackListCompForAlbum = React.memo((props) => {
     increaseKey += 10;
   } else {
     renderQueue.push(
-      <StyleForTrackContainer width={width} key={increaseKey + 1}>
+      <StyleForTrackContainer key={increaseKey + 1}>
         {tracks.map((track, index) => {
           return (
             <TrackEntryComp
+              width={width - 20}
               number={index + 1}
               key={track.id}
               track={track}

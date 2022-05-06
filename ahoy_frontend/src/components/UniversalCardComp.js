@@ -14,6 +14,7 @@ const PlaylistNameStyle = styled.div`
   text-overflow: ellipsis;
   font-size: x-large;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 `;
 
 const AlbumNameStyle = styled.div`
@@ -28,10 +29,11 @@ const AlbumNameStyle = styled.div`
 
 const ArtistsNameStyle = styled.div`
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   font-size: x-large;
   margin-left: 7px;
   margin-top: 10px;
+  -webkit-line-clamp: 2;
 `;
 
 const ArtistFromAlbumStyle = styled.span`

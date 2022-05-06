@@ -5,10 +5,10 @@ const useCoverSize = (str) => {
   let avgCoverSize = useRef(null);
 
   useLayoutEffect(() => {
-    if (str.length <= 15) {
+    if (str.length <= 20) {
       maxCoverSize.current = 300;
       avgCoverSize.current = 25;
-    } else if (15 < str.length < 25) {
+    } else if (20 < str.length <= 25) {
       maxCoverSize.current = 210;
       avgCoverSize.current = 20;
     } else {

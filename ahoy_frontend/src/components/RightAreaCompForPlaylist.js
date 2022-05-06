@@ -11,11 +11,20 @@ import {
 } from "./ReusableStyleComp";
 import usePlaylistDetail from "../customHooks/usePlaylistDetail";
 import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
-const AlbumNameStyle = styled.div`
-  width: 100%;
+import useFontSize from "../utilHooks/useFontSize";
+import useCoverSize from "../utilHooks/useCoverSize";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import useDescResizeForDesk from "../utilHooks/useDescResize";
+
+const PlaylistNameStyle = styled.div`
+  width: ${(props) => props.width}px;
   margin-top: clamp(100px, 15vw, 130px);
   text-align: left;
-  font-size: clamp(30px, 5vw, 100px);
+  font-size: clamp(
+    30px,
+    ${(props) => props.avgFontSize}vw,
+    ${(props) => props.maxFontSize}px
+  );
 `;
 
 const RightAreaCompForPlaylist = React.memo((props) => {
@@ -28,6 +37,19 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     getPlaylistTracks,
   ] = usePlaylistDetail(playlist);
 
+  let [maxFontSize, avgFontSize] = useFontSize(playlist.name);
+  let [maxCoverSize, avgCoverSize] = useCoverSize(playlist.name);
+
+  let [
+    overviewCoverRef,
+    descRef,
+    descWidthStateForDesk,
+    descWidthStateForMobile,
+    trackListWidthStateForDesk,
+    trackListWidthStateForMobile,
+    shouldJSEngage,
+  ] = useDescResizeForDesk();
+
   useEffect(() => {
     getPlaylistTracks();
   }, [playlist]);
@@ -36,18 +58,76 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={playlistOverviewBackgroundImageState}>
         <BackgroundFilterStyle>
-          <RightAreaCoverContainerStyle>
+          <RightAreaCoverContainerStyle
+            maxCoverSize={maxCoverSize}
+            avgCoverSize={avgCoverSize}
+            ref={overviewCoverRef}
+          >
             <RightAreaCoverStyle imageUrl={coverBackgroundImageState} />
           </RightAreaCoverContainerStyle>
-          <DescriptionStyle>
-            <AlbumNameStyle>{playlist.name}</AlbumNameStyle>
-          </DescriptionStyle>
+          <DesktopOrTablet>
+            {shouldJSEngage ? (
+              <DescriptionStyle ref={descRef}>
+                <PlaylistNameStyle
+                  width={descWidthStateForDesk}
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {playlist.name}
+                </PlaylistNameStyle>
+              </DescriptionStyle>
+            ) : (
+              <DescriptionStyle ref={descRef}>
+                <PlaylistNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {playlist.name}
+                </PlaylistNameStyle>
+              </DescriptionStyle>
+            )}
+          </DesktopOrTablet>
+
+          <Mobile>
+            {shouldJSEngage ? (
+              <DescriptionStyle ref={descRef}>
+                <PlaylistNameStyle
+                  width={descWidthStateForMobile}
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {playlist.name}
+                </PlaylistNameStyle>
+              </DescriptionStyle>
+            ) : (
+              <DescriptionStyle ref={descRef}>
+                <PlaylistNameStyle
+                  maxFontSize={maxFontSize}
+                  avgFontSize={avgFontSize}
+                >
+                  {playlist.name}
+                </PlaylistNameStyle>
+              </DescriptionStyle>
+            )}
+          </Mobile>
         </BackgroundFilterStyle>
       </RightAreaOverviewStyle>
-      <TrackListCompForPlaylist
-        playlistTracks={playlistTrackState}
-        getPlaylistTracks={getPlaylistTracks}
-      />
+
+      <DesktopOrTablet>
+        <TrackListCompForPlaylist
+          width={trackListWidthStateForDesk}
+          playlistTracks={playlistTrackState}
+          getPlaylistTracks={getPlaylistTracks}
+        />
+      </DesktopOrTablet>
+
+      <Mobile>
+        <TrackListCompForPlaylist
+          width={trackListWidthStateForMobile}
+          playlistTracks={playlistTrackState}
+          getPlaylistTracks={getPlaylistTracks}
+        />
+      </Mobile>
     </RightAreaContainerStyle>
   );
 });

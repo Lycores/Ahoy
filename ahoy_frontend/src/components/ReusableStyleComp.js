@@ -40,6 +40,7 @@ export const RightAreaOverviewStyle = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px, -100px;
+  overflow: hidden;
 `;
 
 export const DescriptionStyle = styled.div`
@@ -74,6 +75,7 @@ export const CardCoverStyle = styled.div.attrs((props) => ({
 export const TrackEntryComponentStyle = styled.div.attrs((props) => ({
   className: props.skeleton,
 }))`
+  width: ${(props) => props.width}px;
   margin: var(--global-margin);
   height: 50px;
   border-radius: var(--global-border-radius);

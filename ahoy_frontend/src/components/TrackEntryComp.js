@@ -43,6 +43,7 @@ const TrackNumberArea = styled.div`
 
 const TrackEntryComp = React.forwardRef((props, ref) => {
   let {
+    width,
     number,
     track,
     albumId,
@@ -60,7 +61,7 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
   }, [albumId, positionInAlbum, deviceIdState]);
 
   return (
-    <TrackEntryComponentStyle ref={ref} onClick={playTrack}>
+    <TrackEntryComponentStyle width={width} ref={ref} onClick={playTrack}>
       {showNumber && <TrackNumberArea>{number}</TrackNumberArea>}
       {showImage && <TrackImageStyle trackImage={images[2].url} />}
       <TrackInfoContainerStyle>

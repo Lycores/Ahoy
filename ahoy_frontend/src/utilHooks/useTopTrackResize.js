@@ -6,9 +6,12 @@ import { useCallback } from "react";
 const useTopTrackResize = () => {
   let topResultCardRef = useRef(null);
   let topResultTracksRef = useRef(null);
+  let outerWrapperRef = useRef(null);
   let topTracksWidthForDesk = useRef(null);
   let topTracksWidthForMobile = useRef(null);
   let shouldJSEngage = useRef(false);
+  let firstTime = useRef(true);
+  let breakpointWidth = useRef(920);
   let [windowWidth, windowHeight] = useWindowSize();
 
   let [forceUpdate] = useRerender();
@@ -24,6 +27,10 @@ const useTopTrackResize = () => {
     }
   }, []);
 
+  const recordBreakpoint = useCallback(() => {
+    breakpointWidth.current = outerWrapperRef.current.offsetWidth;
+  }, [outerWrapperRef]);
+
   useLayoutEffect(() => {
     if (
       windowWidth != 0 &&
@@ -34,12 +41,17 @@ const useTopTrackResize = () => {
         areTopResultElementsParallel(
           topResultCardRef.current,
           topResultTracksRef.current
-        )
+        ) ||
+        outerWrapperRef.current.offsetWidth >= breakpointWidth.current
       ) {
         shouldJSEngage.current = false;
       } else {
+        if (firstTime.current) {
+          recordBreakpoint();
+          firstTime.current = false;
+        }
         shouldJSEngage.current = true;
-        // topTracksWidthForDesk.current = windowWidth - 300;
+
         topTracksWidthForDesk.current = windowWidth - 310;
         topTracksWidthForMobile.current = windowWidth - 40;
       }
@@ -52,6 +64,7 @@ const useTopTrackResize = () => {
     shouldJSEngage.current,
     topResultCardRef,
     topResultTracksRef,
+    outerWrapperRef,
     topTracksWidthForDesk.current,
     topTracksWidthForMobile.current,
   ];

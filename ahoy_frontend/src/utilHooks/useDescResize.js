@@ -18,7 +18,7 @@ const useDescResizeForDesk = () => {
   useLayoutEffect(() => {
     if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
-      console.log(coverWidth);
+
       if (coverWidth <= breakPoint) {
         //record the width of desc
         breakPointUsingJS.current = descRef.current;

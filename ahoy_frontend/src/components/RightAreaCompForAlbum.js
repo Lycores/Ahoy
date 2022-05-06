@@ -40,7 +40,6 @@ const RightAreaCompForAlbum = React.memo((props) => {
 
   let [maxFontSize, avgFontSize] = useFontSize(album.name);
   let [maxCoverSize, avgCoverSize] = useCoverSize(album.name);
-  console.log(maxFontSize, avgFontSize);
 
   let [
     overviewCoverRef,

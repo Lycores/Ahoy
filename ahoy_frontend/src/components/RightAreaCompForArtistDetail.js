@@ -42,7 +42,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
 
   let [maxFontSize, avgFontSize] = useFontSize(artist.name);
   let [maxCoverSize, avgCoverSize] = useCoverSize(artist.name);
-  console.log(maxCoverSize, avgCoverSize);
+
   let [
     overviewCoverRef,
     descRef,

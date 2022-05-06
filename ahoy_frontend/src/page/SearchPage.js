@@ -16,6 +16,7 @@ import {
 
 import useTopTrackResize from "../utilHooks/useTopTrackResize";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import { useCallback } from "react";
 
 // const HorizontalCardContainer = styled.div`
 //   display: flex;
@@ -35,11 +36,13 @@ const TopResultContainerStyle = styled.div`
 
 const TopResultForCard = styled.div`
   flex-grow: 1;
+  flex-shrink: 1;
   flex-basis: calc(50% - calc(var(--global-margin) / 2));
   height: 100%;
   cursor: pointer;
 `;
 const TopResultForTracks = styled.div`
+  flex-grow: 1;
   flex-basis: calc(50% - calc(var(--global-margin) / 2));
 `;
 const TopResultTitleStyle = styled.div``;
@@ -71,7 +74,7 @@ const LocalCardContainerStyle = styled(CardContainerStyle)`
   margin: 0px;
   /* flex-shrink: 0; */
 `;
-const LocalDescriptionStyle = styled.div`
+const TitleStyle = styled.div`
   margin-left: 10px;
   font-size: 50px;
   margin-top: clamp(50px, 10vw, 120px);
@@ -108,7 +111,7 @@ const SearchPage = () => {
 
   let navigate = useNavigate();
 
-  const goToResultPage = () => {
+  const goToResultPage = useCallback(() => {
     if (topResultObj && typeOfResult == "artists") {
       navigate("/traditional/artists", {
         state: {
@@ -116,18 +119,19 @@ const SearchPage = () => {
         },
       });
     }
-  };
+  }, [topResultObj, typeOfResult]);
 
   let [
     shouldJSEngage,
     topResultCardRef,
     topResultTracksRef,
+    outerWrapperRef,
     topTracksWidthForDesk,
     topTracksWidthForMobile,
   ] = useTopTrackResize();
   return (
     <RightAreaStyleForDesktopOrTablet>
-      <RightAreaContainerStyle>
+      <RightAreaContainerStyle ref={outerWrapperRef}>
         <TopResultContainerStyle>
           <TopResultForCard ref={topResultCardRef} onClick={goToResultPage}>
             <TopResultTitleStyle>Top Result</TopResultTitleStyle>
@@ -140,9 +144,7 @@ const SearchPage = () => {
                     />
                     <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
                   </div>
-                  <LocalDescriptionStyle>
-                    {topResultObj.name}
-                  </LocalDescriptionStyle>
+                  <TitleStyle>{topResultObj.name}</TitleStyle>
                 </>
               ) : (
                 <>

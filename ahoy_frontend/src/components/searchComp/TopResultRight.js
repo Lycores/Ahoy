@@ -2,11 +2,11 @@ import styled from "styled-components";
 import TrackListCompForSearch from "./TrackListCompForSearch";
 import { DesktopOrTablet, Mobile } from "../../MediaQuery";
 import React from "react";
+import { TopResultTitleStyle } from "../ReusableStyleComp";
 const TopResultForTracks = styled.div`
   flex-grow: 1;
   flex-basis: calc(50% - calc(var(--global-margin) / 2));
 `;
-const TopResultTitleStyle = styled.div``;
 
 const TopResultTrackAreaStyle = styled.div`
   box-shadow: var(--global-box-shadow);

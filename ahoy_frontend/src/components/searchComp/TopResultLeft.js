@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { CardCoverStyle } from "../ReusableStyleComp";
+import { TopResultTitleStyle } from "../ReusableStyleComp";
 const TopResultForResult = styled.div`
   flex-grow: 1;
   flex-shrink: 1;
@@ -10,7 +11,6 @@ const TopResultForResult = styled.div`
   cursor: pointer;
 `;
 
-const TopResultTitleStyle = styled.div``;
 const TopResultCardAreaStyle = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);

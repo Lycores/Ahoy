@@ -6,6 +6,7 @@ import {
   CardContainerStyle,
   CardCoverStyle,
 } from "../ReusableStyleComp.js";
+import { ArtistsNameStyle } from "../ReusableStyleComp.js";
 const PlaylistNameStyle = styled.div`
   margin-left: 7px;
   margin-top: 10px;
@@ -25,15 +26,6 @@ const AlbumNameStyle = styled.div`
   font-size: x-large;
   margin-left: 7px;
   margin-top: 10px;
-`;
-
-const ArtistsNameStyle = styled.div`
-  overflow: hidden;
-  /* text-overflow: ellipsis; */
-  font-size: x-large;
-  margin-left: 7px;
-  margin-top: 10px;
-  -webkit-line-clamp: 2;
 `;
 
 const ArtistFromAlbumStyle = styled.span`
@@ -79,7 +71,6 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
         <CardContainerStyle>
           <CardCoverStyle imageUrl={item.images[1].url} />
           <AlbumNameStyle>{item.name}</AlbumNameStyle>
-          <ArtistFromAlbumStyle></ArtistFromAlbumStyle>
           <ArtistFromAlbumStyle>{item.artists[0].name}</ArtistFromAlbumStyle>
         </CardContainerStyle>
       </GridSpaceStyle>

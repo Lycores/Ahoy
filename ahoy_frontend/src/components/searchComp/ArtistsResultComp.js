@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
-
+import { ArtistsNameStyle } from "../ReusableStyleComp";
 import { CardContainerStyle, CardCoverStyle } from "../ReusableStyleComp";
-
-const TopResultTitleStyle = styled.div``;
+import { TopResultTitleStyle } from "../ReusableStyleComp";
 
 const LocalCardContainerStyle = styled(CardContainerStyle)`
   margin: 0px;
@@ -22,6 +21,7 @@ const SuggestionContainer = styled.div`
   height: 340px;
   overflow-y: hidden;
   justify-content: space-around;
+  margin-top: 10px;
 `;
 
 const SuggestionStyle = styled.div`
@@ -40,7 +40,7 @@ const ArtistsResultComp = (props) => {
               return (
                 <LocalCardContainerStyle key={index}>
                   <CardCoverStyle imageUrl={ps.images[1].url} />
-                  <div>{ps.name}</div>
+                  <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
                 </LocalCardContainerStyle>
               );
             } else {

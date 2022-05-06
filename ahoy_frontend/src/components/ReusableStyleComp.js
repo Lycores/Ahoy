@@ -105,3 +105,29 @@ export const RightAreaStyleForMobile = styled.div`
   border-radius: var(--global-border-radius);
   flex-grow: 1;
 `;
+
+export const ArtistsNameStyle = styled.div`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: x-large;
+  margin-left: 7px;
+  margin-top: 10px;
+  -webkit-line-clamp: 2;
+`;
+
+export const TrackNameStyle = styled.div`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: x-large;
+  margin-left: 7px;
+  margin-top: 10px;
+  -webkit-line-clamp: 2;
+`;
+
+export const TopResultTitleStyle = styled.div`
+  margin-left: 10px;
+`;

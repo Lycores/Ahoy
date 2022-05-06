@@ -8,6 +8,7 @@ const useSearchPage = (result, query) => {
   let [topResultTracks, setTopResultTracks] = useState([]);
   let [possibleResultsState, setPossibleResultState] = useState([]);
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
+  console.log(11111, result, query);
   const chooseBestMatch = (result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;
     let bestMatchKey = null;
@@ -39,6 +40,16 @@ const useSearchPage = (result, query) => {
           setTopResultTracks(json.tracks.slice(0, 4));
         });
     } else if (type == "tracks") {
+      let artistId = obj.artists[0].id;
+      fetch(
+        `/artists/getArtistTopTrack?artistId=${artistId}&market=${userProfileState.country}`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((json) => {
+          setTopResultTracks(json.tracks.slice(0, 4));
+        });
     }
   };
 

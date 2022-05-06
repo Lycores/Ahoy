@@ -1,6 +1,6 @@
 import TrackEntryComp from "../TrackEntryComp";
 import styled from "styled-components";
-
+import PlaceholderTrackEntryComp from "../placeholderComp/PlaceholderTrackEntryComp";
 const TrackListContainer = styled.div``;
 const TrackListCompForSearch = (props) => {
   let { width, topResultTracks } = props;
@@ -27,7 +27,11 @@ const TrackListCompForSearch = (props) => {
       </TrackListContainer>
     );
   } else {
-    return <></>;
+    let result = [];
+    for (let i = 0; i < 4; i++) {
+      result.push(<PlaceholderTrackEntryComp key={i} />);
+    }
+    return result;
   }
 };
 

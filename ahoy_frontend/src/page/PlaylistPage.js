@@ -1,11 +1,11 @@
-import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
+import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
-import RightAreaCompForPlaylist from "../components/RightAreaCompForPlaylist";
-import usePlaylistPage from "../customHooks/usePlaylistPage";
+import RightAreaCompForPlaylist from "../components/playlistComp/RightAreaCompForPlaylist";
+import usePlaylistPage from "../customHooks/forPlaylist/usePlaylistPage";
 
 function PlaylistPage() {
   let [playlist, playlistListState, getMorePlaylist] = usePlaylistPage();

@@ -1,6 +1,6 @@
 import useWindowSize from "./useWindowSize";
 import { useLayoutEffect, useRef } from "react";
-import useRerender from "../customHooks/useRerender";
+import useRerender from "./useRerender";
 
 const breakPoint = 250;
 const useDescResizeForDesk = () => {

@@ -1,9 +1,9 @@
 import React from "react";
-import RightAreaCompForCardPresent from "./RightAreaCompForCardPresent";
-import PlaceholderCardComp from "./PlaceholderCardComp";
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import RightAreaCompForCardPresent from "../cardComp/RightAreaCompForCardPresent";
+import PlaceholderCardComp from "../placeholderComp/PlaceholderCardComp";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
-import { GridStyle, RightAreaContainerStyle } from "./ReusableStyleComp";
+import { GridStyle, RightAreaContainerStyle } from "../ReusableStyleComp";
 
 const CommonContainer = styled.div`
   margin: var(--global-margin);

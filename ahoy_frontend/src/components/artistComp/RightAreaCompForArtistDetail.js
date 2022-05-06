@@ -8,14 +8,14 @@ import {
   DescriptionStyle,
   RightAreaCoverContainerStyle,
   RightAreaStyleForDesktopOrTablet,
-} from "./ReusableStyleComp";
+} from "../ReusableStyleComp";
 import TrackListCompForArtist from "./TrackListCompForArtist";
-import useArtistDetail from "../customHooks/useArtistDetail";
+import useArtistDetail from "../../customHooks/forArtist/useArtistDetail";
 import AlbumCompForArtist from "./AlbumCompForArtist";
-import useDescResizeForDesk from "../utilHooks/useDescResize";
-import useFontSize from "../utilHooks/useFontSize";
-import useCoverSize from "../utilHooks/useCoverSize";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import useDescResizeForDesk from "../../utilHooks/useDescResize";
+import useFontSize from "../../utilHooks/useFontSize";
+import useCoverSize from "../../utilHooks/useCoverSize";
+import { DesktopOrTablet, Mobile } from "../../MediaQuery";
 const ArtistNameStyle = styled.div`
   width: ${(props) => props.width}px;
   margin-top: clamp(100px, 12.5vw, 150px);

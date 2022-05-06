@@ -1,12 +1,12 @@
-import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
-import RightAreaCompForArtistDetail from "../components/RightAreaCompForArtistDetail";
+import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
+import RightAreaCompForArtistDetail from "../components/artistComp/RightAreaCompForArtistDetail";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
 import React from "react";
-import useArtistsPage from "../customHooks/useArtistsPage";
+import useArtistsPage from "../customHooks/forArtist/useArtistsPage";
 
 function ArtistsPage() {
   let [artist, artistsListState, getMoreArtist] = useArtistsPage();

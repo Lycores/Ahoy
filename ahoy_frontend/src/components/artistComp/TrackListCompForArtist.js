@@ -1,7 +1,7 @@
-import TrackEntryComp from "./TrackEntryComp";
+import TrackEntryComp from "../TrackEntryComp";
 import React from "react";
-import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import PlaceholderTrackEntryComp from "../placeholderComp/PlaceholderTrackEntryComp";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
 
 const StyleForTrackContainer = styled.div`

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useDebounce from "../utilHooks/useDebounce";
+import useDebounce from "../../utilHooks/useDebounce";
 const useSearch = () => {
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
   let [searchBarWidth, setSearchBarWidth] = useState(150);

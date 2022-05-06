@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import Levenshtein from "../algorithm/Levenshtein";
+import Levenshtein from "../../algorithm/Levenshtein";
 
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 const useSearchPage = (result, query) => {
   let [topResultObj, setTopResultObj] = useState(null);
   let [typeOfResult, setTypeOfResult] = useState(null);

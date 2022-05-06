@@ -1,7 +1,7 @@
-import TrackEntryComp from "./TrackEntryComp";
+import TrackEntryComp from "../TrackEntryComp";
 import React, { useCallback, useRef } from "react";
-import PlaceholderTrackEntryComp from "./PlaceholderTrackEntryComp";
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import PlaceholderTrackEntryComp from "../placeholderComp/PlaceholderTrackEntryComp";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
 const StyleForTrackContainer = styled.div`
   box-shadow: var(--global-box-shadow);

@@ -1,10 +1,10 @@
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import React from "react";
 import {
   CardContainerStyle,
   GridSpaceStyle,
   CardCoverStyle,
-} from "./ReusableStyleComp";
+} from "../ReusableStyleComp";
 const PlaceholderCardComp = React.memo(() => {
   return (
     <GridSpaceStyle>

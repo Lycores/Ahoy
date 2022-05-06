@@ -1,12 +1,16 @@
-import React, { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
-const useRerender = React.memo(() => {
+const useRerender = () => {
   let [state, setState] = useState(0);
 
-  const forceRender = useCallback(() => {
-    setState(0);
-  });
-  return [forceRender];
-});
+  const forceUpdate = useCallback(() => {
+    let random = Math.random();
+    while (random === state) {
+      random = Math.random();
+    }
+    setState(random);
+  }, [state]);
 
+  return [forceUpdate];
+};
 export default useRerender;

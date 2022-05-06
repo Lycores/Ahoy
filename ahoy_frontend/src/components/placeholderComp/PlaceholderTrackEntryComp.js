@@ -1,7 +1,7 @@
 import React from "react";
-import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
+import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import styled from "styled-components";
-import { TrackEntryComponentStyle } from "./ReusableStyleComp";
+import { TrackEntryComponentStyle } from "../ReusableStyleComp";
 
 const PlaceholderRow = styled.div.attrs({
   className: "ph-row",

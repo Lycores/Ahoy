@@ -8,13 +8,13 @@ import {
   RightAreaOverviewStyle,
   DescriptionStyle,
   RightAreaCoverContainerStyle,
-} from "./ReusableStyleComp";
+} from "../ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
-import useAlbumDetail from "../customHooks/useAlbumDetail";
-import useDescResizeForDesk from "../utilHooks/useDescResize";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
-import useFontSize from "../utilHooks/useFontSize";
-import useCoverSize from "../utilHooks/useCoverSize";
+import useAlbumDetail from "../../customHooks/forAlbum/useAlbumDetail";
+import useDescResizeForDesk from "../../utilHooks/useDescResize";
+import { DesktopOrTablet, Mobile } from "../../MediaQuery";
+import useFontSize from "../../utilHooks/useFontSize";
+import useCoverSize from "../../utilHooks/useCoverSize";
 const AlbumNameStyle = styled.div`
   width: ${(props) => props.width}px;
   margin-top: clamp(100px, 13vw, 150px);

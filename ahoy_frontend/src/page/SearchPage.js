@@ -5,10 +5,10 @@ import {
 } from "../components/ReusableStyleComp";
 import styled from "styled-components";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
-import useSearchPage from "../customHooks/useSearchPage";
+import useSearchPage from "../customHooks/forSearch/useSearchPage";
 import TrackEntryComp from "../components/TrackEntryComp";
-import TrackListCompForSearch from "../components/TrackListCompForSearch";
-import UniversalCardComp from "../components/UniversalCardComp";
+import TrackListCompForSearch from "../components/searchComp/TrackListCompForSearch";
+import UniversalCardComp from "../components/cardComp/UniversalCardComp";
 import {
   CardContainerStyle,
   CardCoverStyle,

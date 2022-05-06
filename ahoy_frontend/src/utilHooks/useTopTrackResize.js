@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef } from "react";
-import useRerender from "../customHooks/useRerender";
+import useRerender from "./useRerender";
 import useWindowSize from "./useWindowSize";
 import { useCallback } from "react";
 

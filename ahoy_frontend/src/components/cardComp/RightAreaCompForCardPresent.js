@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap-grid.css";
 import UniversalCardComp from "./UniversalCardComp";
-import PlaceholderCardComp from "./PlaceholderCardComp";
+import PlaceholderCardComp from "../placeholderComp/PlaceholderCardComp";
 import React, { useCallback, useRef } from "react";
-import { RightAreaContainerStyle, GridStyle } from "./ReusableStyleComp";
+import { RightAreaContainerStyle, GridStyle } from "../ReusableStyleComp";
 
 const RightAreaCompForCardPresent = React.memo((props) => {
   let { itemList, getMoreItems, type } = props;

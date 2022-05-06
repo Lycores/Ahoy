@@ -1,4 +1,4 @@
-import TrackEntryComp from "./TrackEntryComp";
+import TrackEntryComp from "../TrackEntryComp";
 import styled from "styled-components";
 
 const TrackListContainer = styled.div``;

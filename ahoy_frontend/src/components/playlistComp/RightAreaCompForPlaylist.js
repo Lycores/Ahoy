@@ -8,13 +8,13 @@ import {
   RightAreaOverviewStyle,
   DescriptionStyle,
   RightAreaCoverContainerStyle,
-} from "./ReusableStyleComp";
-import usePlaylistDetail from "../customHooks/usePlaylistDetail";
+} from "../ReusableStyleComp";
+import usePlaylistDetail from "../../customHooks/forPlaylist/usePlaylistDetail";
 import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
-import useFontSize from "../utilHooks/useFontSize";
-import useCoverSize from "../utilHooks/useCoverSize";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
-import useDescResizeForDesk from "../utilHooks/useDescResize";
+import useFontSize from "../../utilHooks/useFontSize";
+import useCoverSize from "../../utilHooks/useCoverSize";
+import { DesktopOrTablet, Mobile } from "../../MediaQuery";
+import useDescResizeForDesk from "../../utilHooks/useDescResize";
 
 const PlaylistNameStyle = styled.div`
   width: ${(props) => props.width}px;

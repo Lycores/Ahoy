@@ -6,7 +6,7 @@ import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import useSearch from "../customHooks/useSearch";
+import useSearch from "../customHooks/forSearch/useSearch";
 const AppStyle = styled.div`
   min-height: 100vh;
   font-size: calc(10px + 2vmin);

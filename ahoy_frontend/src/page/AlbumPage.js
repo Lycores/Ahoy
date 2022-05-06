@@ -1,11 +1,11 @@
-import RightAreaCompForCardPresent from "../components/RightAreaCompForCardPresent";
-import RightAreaCompForAlbum from "../components/RightAreaCompForAlbum";
+import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
+import RightAreaCompForAlbum from "../components/albumComp/RightAreaCompForAlbum";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
 } from "../components/ReusableStyleComp";
-import useAlbumPage from "../customHooks/useAlbumPage";
+import useAlbumPage from "../customHooks/forAlbum/useAlbumPage";
 
 function AlbumPage() {
   let [album, albumListState, getMoreAlbum] = useAlbumPage();

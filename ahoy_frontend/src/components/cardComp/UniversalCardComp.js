@@ -5,7 +5,7 @@ import {
   GridSpaceStyle,
   CardContainerStyle,
   CardCoverStyle,
-} from "./ReusableStyleComp.js";
+} from "../ReusableStyleComp.js";
 const PlaylistNameStyle = styled.div`
   margin-left: 7px;
   margin-top: 10px;

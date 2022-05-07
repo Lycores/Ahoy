@@ -11,7 +11,7 @@ body{
     --global-padding: 10px;
     --global-padding-for-card: 10px;
     --global-padding-for-list-item: 5px;
-    --global-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
+    --global-box-shadow: 20px 20px 60px #bfc4cb;
     --global-box-shadow-for-input: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
     --global-border-radius: 20px;
     --global-playlist-area-width:250px;
@@ -28,6 +28,8 @@ body{
     --playback-bar-height-desktop:50px;
     --player-cover-size-desktop: 230px;
     --left-area-width: 250px;
+    --track-height:50px;
+    --hover-color:#1bd760;
 
 
     background-color: #e1e7ef;

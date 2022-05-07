@@ -52,6 +52,10 @@ const NavAreaEntryStyle = styled.div`
   padding: var(--global-padding-for-list-item);
   cursor: pointer;
   height: var(--height-nav-bar-entry);
+  &:hover {
+    background-color: var(--hover-color);
+  }
+  border-radius: 5px;
 `;
 
 const LyricAreaStyle = styled.div`
@@ -152,7 +156,7 @@ const SearchBarStyleForMobile = styled.div`
 const SearchBarInputStyle = styled.input`
   margin-left: 5px;
   height: 80%;
-  width: ${(props) => props.width - 30}px;
+  width: ${(props) => props.width - 40}px;
   outline-style: none;
   border: 0;
   font-size: 24px;

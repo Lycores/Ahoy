@@ -17,8 +17,11 @@ const TopResultCardAreaStyle = styled.div`
   flex-wrap: nowrap;
   margin-top: var(--global-margin);
   padding: var(--global-padding);
-  height: 250px;
+  height: 240px;
   overflow: hidden;
+  &:hover {
+    background-color: var(--hover-color);
+  }
 `;
 
 const TypeInfoStyle = styled.div`
@@ -26,7 +29,9 @@ const TypeInfoStyle = styled.div`
 `;
 
 //inheritance, so no need to give skeleton and imageUrl
-const LocalCardCoverStyle = styled(CardCoverStyle)``;
+const LocalCardCoverStyle = styled(CardCoverStyle)`
+  box-shadow: "";
+`;
 
 const TitleStyle = styled.div`
   margin-left: 10px;

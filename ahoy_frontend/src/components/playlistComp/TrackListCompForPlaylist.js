@@ -8,6 +8,7 @@ const StyleForTrackContainer = styled.div`
   border-radius: var(--global-border-radius);
   margin: var(--global-margin);
   overflow: hidden;
+  padding: var(--global-padding-for-card);
 `;
 
 var increaseKey = 999;
@@ -77,10 +78,17 @@ const TrackListComp = React.memo((props) => {
       increaseKey++;
     }
   } else {
+    let list = [];
     for (let i = 0; i < 10; i++) {
-      renderQueue.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
+      list.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);
     }
     increaseKey += 10;
+    renderQueue.push(
+      <StyleForTrackContainer key={increaseKey + 1}>
+        {list}
+      </StyleForTrackContainer>
+    );
+    increaseKey++;
   }
 
   return renderQueue;

@@ -13,7 +13,7 @@ const TopResultTrackAreaStyle = styled.div`
   border-radius: var(--global-border-radius);
   margin-top: var(--global-margin);
   margin-bottom: var(--global-margin);
-  padding: var(--global-padding);
+  padding: var(--global-padding-for-card);
   overflow: hidden;
 `;
 

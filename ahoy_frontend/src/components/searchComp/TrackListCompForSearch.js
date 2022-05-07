@@ -31,7 +31,7 @@ const TrackListCompForSearch = (props) => {
     for (let i = 0; i < 4; i++) {
       result.push(<PlaceholderTrackEntryComp key={i} />);
     }
-    return result;
+    return <TrackListContainer>{result}</TrackListContainer>;
   }
 };
 

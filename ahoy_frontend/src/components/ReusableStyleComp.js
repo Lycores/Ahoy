@@ -58,6 +58,9 @@ export const CardContainerStyle = styled.div`
   margin-top: 70px;
   margin-bottom: 30px;
   cursor: pointer;
+  &:hover {
+    background-color: var(--hover-color);
+  }
 `;
 
 export const CardCoverStyle = styled.div.attrs((props) => ({
@@ -67,20 +70,23 @@ export const CardCoverStyle = styled.div.attrs((props) => ({
   min-width: 190px;
   height: 190px;
   border-radius: var(--global-border-radius);
-  box-shadow: var(--global-box-shadow);
   background-image: url(${(props) => props.imageUrl});
   background-size: 190px;
+  padding: 0px;
 `;
 
 export const TrackEntryComponentStyle = styled.div.attrs((props) => ({
   className: props.skeleton,
 }))`
   width: ${(props) => props.width}px;
-  margin: var(--global-margin);
-  height: 50px;
-  border-radius: var(--global-border-radius);
+  padding: var(--global-padding-for-list-item);
+  height: var(--track-height);
+  border-radius: 5px;
   cursor: pointer;
   display: flex;
+  &:hover {
+    background-color: var(--hover-color);
+  }
 `;
 export const GridSpaceStyle = styled.div.attrs({
   className: "col-md-6  col-lg-4 col-xl-3",

@@ -8,11 +8,7 @@ const PlaceholderRow = styled.div.attrs({
 })``;
 
 const PlaceholderTrackEntryComp = React.memo(() => {
-  return (
-    <TrackEntryComponentStyle skeleton="ph-item">
-      <PlaceholderRow />
-    </TrackEntryComponentStyle>
-  );
+  return <TrackEntryComponentStyle skeleton="ph-item" />;
 });
 
 export default PlaceholderTrackEntryComp;

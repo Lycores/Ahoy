@@ -8,6 +8,9 @@ const LocalCardContainerStyle = styled(CardContainerStyle)`
   margin: 0px;
   margin-top: 20px;
   margin-bottom: 20px;
+  &:hover {
+    background-color: var(--hover-color);
+  }
   /* flex-shrink: 0; */
 `;
 

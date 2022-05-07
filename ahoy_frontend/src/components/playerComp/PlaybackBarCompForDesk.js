@@ -10,9 +10,9 @@ import {
 
 const PlaybackBarStyle = styled.div`
   width: 230px;
-  height: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: var(--playback-bar-height-desktop);
+  padding-top: var(--global-padding-for-card);
+  padding-bottom: var(--global-padding-for-card);
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;

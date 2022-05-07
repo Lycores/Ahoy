@@ -8,15 +8,9 @@ const GlobalStyle = createGlobalStyle`
 
 body{
     --global-margin: 10px;
-    --global-margin-top: 10;
-    --global-margin-left: 10;
-    --global-margin-right: 10;
-    --global-margin-bottom: 10;
     --global-padding: 10px;
-    --global-component-distance: 10;
-    --global-header-item-height: 70;
-    --global-home-button-width:70;
-    --global-login-button-width:70;
+    --global-padding-for-card: 10px;
+    --global-padding-for-list-item: 5px;
     --global-box-shadow: 20px 20px 60px #bfc4cb, -20px -20px 60px #ffffff;
     --global-box-shadow-for-input: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
     --global-border-radius: 20px;
@@ -30,6 +24,10 @@ body{
     --right-area-cover-min-size:200px;
     --right-area-cover-avg-size:25vw;
     --right-area-cover-max-size:300px;
+    --height-nav-bar-entry:30px;
+    --playback-bar-height-desktop:50px;
+    --player-cover-size-desktop: 230px;
+    --left-area-width: 250px;
 
 
     background-color: #e1e7ef;

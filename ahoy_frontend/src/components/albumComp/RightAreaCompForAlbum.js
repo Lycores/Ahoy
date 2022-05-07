@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap-grid.css";
+import { useOutletContext } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import {

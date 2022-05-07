@@ -92,8 +92,6 @@ export const GridStyle = styled.div.attrs({
 
 export const RightAreaStyleForDesktopOrTablet = styled.div`
   margin: var(--global-margin);
-  margin-left: 0px;
-  height: 100%;
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   flex-grow: 1;
@@ -104,6 +102,8 @@ export const RightAreaStyleForMobile = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   flex-grow: 1;
+  // this is used to activate --global-margin, otherwise there is overflow, i do not know the mechanism
+  width: 1px;
 `;
 
 export const ArtistsNameStyle = styled.div`

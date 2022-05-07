@@ -20,6 +20,7 @@ const AppStyle = styled.div`
   height: 100vh;
   width: 100vw;
   position: relative;
+  overflow-y: hidden;
 `;
 
 const MainBodyStyle = styled.div`
@@ -27,33 +28,45 @@ const MainBodyStyle = styled.div`
   height: calc(100% - 20px);
   flex-wrap: nowrap;
   align-items: stretch;
+  height: 100%;
 `;
 
 const LeftAreaStyle = styled.div`
-  height: 100%;
   position: relative;
+  box-sizing: border-box;
 `;
 
 const NavAreaStyle = styled.div`
   margin: var(--global-margin);
-  width: calc(var(--global-playlist-area-width) - 40px);
+  margin-right: 0px;
+  width: calc(
+    var(--global-playlist-area-width) - 2 * var(--global-padding-for-card)
+  );
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   overflow: hidden;
-  padding: 20px;
+  padding: var(--global-padding-for-card);
 `;
 
 const NavAreaEntryStyle = styled.div`
-  padding: 5px;
+  padding: var(--global-padding-for-list-item);
   cursor: pointer;
-  height: 30px;
+  height: var(--height-nav-bar-entry);
 `;
 
 const LyricAreaStyle = styled.div`
   margin: var(--global-margin);
+  margin-right: 0px;
   width: var(--global-playlist-area-width);
   box-shadow: var(--global-box-shadow);
-  height: calc(100% - 500px);
+  height: calc(
+    100% -
+      calc(
+        4 * var(--global-margin) + 6 * var(--global-padding-for-card) + 6 *
+          var(--global-padding-for-list-item) + 3 * var(--height-nav-bar-entry) +
+          var(--player-cover-size-desktop) + var(--playback-bar-height-desktop)
+      )
+  );
   border-radius: var(--global-border-radius);
 `;
 

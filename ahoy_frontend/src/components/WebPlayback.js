@@ -19,7 +19,7 @@ const PlayerStyleForDesktopOrTablet = styled.div`
   padding: var(--global-padding);
   width: 230px;
   box-shadow: var(--global-box-shadow);
-  bottom: -10px;
+  bottom: 10px;
   position: absolute;
   border-radius: var(--global-border-radius);
   left: var(--global-margin);
@@ -42,23 +42,14 @@ const PlayerStyleForMobile = styled.div`
 const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props) => ({
   className: props.skeleton,
 }))`
-  height: 230px;
-  width: 230px;
+  height: var(--player-cover-size-desktop);
+  width: var(--player-cover-size-desktop);
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   background-image: url(${(props) => props.imageUrl});
   background-size: cover;
   padding: 0px;
   margin-bottom: 0px;
-`;
-
-const PlaybackBarStyle = styled.div`
-  width: 230px;
-  height: 50px;
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
 `;
 
 const MusicCoverStyleForMobile = styled.div.attrs((props) => ({
@@ -73,29 +64,6 @@ const MusicCoverStyleForMobile = styled.div.attrs((props) => ({
   border-radius: var(--global-border-radius);
   padding: 0px;
   margin-bottom: 0px;
-`;
-
-const BackStyle = styled.div`
-  height: 60px;
-  width: 60px;
-  box-shadow: var(--global-box-shadow);
-  background-image: url("/Users/rcmao/Desktop/ahoy/Ahoy/ahoy_frontend/src/assets/pause.png");
-  background-size: contain;
-`;
-
-const VerticallyCentredStyleForPlayAndPause = styled.div`
-  margin: 20px;
-`;
-
-const VerticallyCentredStyleForOthers = styled.div`
-  margin: 30px;
-`;
-
-const VerticallyCentredStyle = styled.div`
-  height: 50px;
-  justify-content: space-around;
-  width: 100%;
-  margin: 20px;
 `;
 
 const WebPlayback = () => {

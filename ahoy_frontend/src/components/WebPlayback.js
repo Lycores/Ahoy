@@ -3,13 +3,9 @@ import { useRecoilState } from "recoil";
 import { deviceIdRecoil, recentlyPlayedRecoil } from "../recoilInfo";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCirclePause,
-  faCirclePlay,
-  faBackwardStep,
-  faForwardStep,
-} from "@fortawesome/free-solid-svg-icons";
+
+import PlaybackBarCompForDesk from "./playerComp/PlaybackBarCompForDesk";
+import PlaybackBarCompForMobile from "./playerComp/PlaybackBarCompForMobile";
 
 const track = {
   name: "",
@@ -40,6 +36,7 @@ const PlayerStyleForMobile = styled.div`
   border-radius: var(--global-border-radius);
   z-index: 5;
   display: flex;
+  min-width: 280px;
 `;
 
 const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props) => ({
@@ -119,7 +116,7 @@ const WebPlayback = () => {
     fetch(
       `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
     );
-  }, [recentlyPlayedState]);
+  }, [recentlyPlayedState, deviceIdState]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -174,24 +171,12 @@ const WebPlayback = () => {
               <MusicPlayerCoverStyleForDesktopOrTablet
                 imageUrl={recentlyPlayedState.album.images[0].url}
               />
-              <PlaybackBarStyle>
-                <FontAwesomeIcon
-                  icon={faBackwardStep}
-                  color="#1bd760"
-                  size="lg"
-                />
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="lg"
-                  onClick={recentlyPlayedStart}
-                />
-                <FontAwesomeIcon
-                  icon={faForwardStep}
-                  color="#1bd760"
-                  size="lg"
-                />
-              </PlaybackBarStyle>
+              <PlaybackBarCompForDesk
+                onBack={() => {}}
+                onPlay={recentlyPlayedStart}
+                onPause={() => {}}
+                onForward={() => {}}
+              />
             </PlayerStyleForDesktopOrTablet>
           </DesktopOrTablet>
           <Mobile>
@@ -199,28 +184,13 @@ const WebPlayback = () => {
               <MusicCoverStyleForMobile
                 imageUrl={recentlyPlayedState.album.images[0].url}
               />
-              <VerticallyCentredStyleForOthers>
-                <FontAwesomeIcon
-                  icon={faBackwardStep}
-                  color="#1bd760"
-                  size="2x"
-                />
-              </VerticallyCentredStyleForOthers>
-              <VerticallyCentredStyleForPlayAndPause>
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="3x"
-                  onClick={recentlyPlayedStart}
-                />
-              </VerticallyCentredStyleForPlayAndPause>
-              <VerticallyCentredStyleForOthers>
-                <FontAwesomeIcon
-                  icon={faForwardStep}
-                  color="#1bd760"
-                  size="2x"
-                />
-              </VerticallyCentredStyleForOthers>
+
+              <PlaybackBarCompForMobile
+                onBack={() => {}}
+                onPlay={recentlyPlayedStart}
+                onPause={() => {}}
+                onForward={() => {}}
+              />
             </PlayerStyleForMobile>
           </Mobile>
         </>
@@ -231,49 +201,24 @@ const WebPlayback = () => {
           <DesktopOrTablet>
             <PlayerStyleForDesktopOrTablet>
               <MusicPlayerCoverStyleForDesktopOrTablet skeleton="ph-item" />
-              <PlaybackBarStyle>
-                <FontAwesomeIcon
-                  icon={faBackwardStep}
-                  color="#1bd760"
-                  size="lg"
-                />
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="lg"
-                />
-                <FontAwesomeIcon
-                  icon={faForwardStep}
-                  color="#1bd760"
-                  size="lg"
-                />
-              </PlaybackBarStyle>
+              <PlaybackBarCompForDesk
+                onBack={() => {}}
+                onPlay={() => {}}
+                onPause={() => {}}
+                onForward={() => {}}
+              />
             </PlayerStyleForDesktopOrTablet>
           </DesktopOrTablet>
           <Mobile>
             <PlayerStyleForMobile>
               <MusicCoverStyleForMobile skeleton="ph-item" />
-              <VerticallyCentredStyleForOthers>
-                <FontAwesomeIcon
-                  icon={faBackwardStep}
-                  color="#1bd760"
-                  size="2x"
-                />
-              </VerticallyCentredStyleForOthers>
-              <VerticallyCentredStyleForPlayAndPause>
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="3x"
-                />
-              </VerticallyCentredStyleForPlayAndPause>
-              <VerticallyCentredStyleForOthers>
-                <FontAwesomeIcon
-                  icon={faForwardStep}
-                  color="#1bd760"
-                  size="2x"
-                />
-              </VerticallyCentredStyleForOthers>
+
+              <PlaybackBarCompForMobile
+                onBack={() => {}}
+                onPlay={() => {}}
+                onPause={() => {}}
+                onForward={() => {}}
+              />
             </PlayerStyleForMobile>
           </Mobile>
         </>
@@ -287,43 +232,22 @@ const WebPlayback = () => {
             <MusicPlayerCoverStyleForDesktopOrTablet
               imageUrl={current_track.album.images[0].url}
             />
-            <PlaybackBarStyle>
-              <FontAwesomeIcon
-                icon={faBackwardStep}
-                color="#1bd760"
-                size="lg"
-                onClick={() => {
-                  player.previousTrack();
-                }}
-              />
-              {is_paused ? (
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="lg"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faCirclePause}
-                  color="#1bd760"
-                  size="lg"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                />
-              )}
-              <FontAwesomeIcon
-                icon={faForwardStep}
-                color="#1bd760"
-                size="lg"
-                onClick={() => {
-                  player.nextTrack();
-                }}
-              />
-            </PlaybackBarStyle>
+
+            <PlaybackBarCompForDesk
+              isPaused={is_paused}
+              onBack={() => {
+                player.previousTrack();
+              }}
+              onPlay={() => {
+                player.togglePlay();
+              }}
+              onPause={() => {
+                player.togglePlay();
+              }}
+              onForward={() => {
+                player.nextTrack();
+              }}
+            />
           </PlayerStyleForDesktopOrTablet>
         </DesktopOrTablet>
         <Mobile>
@@ -331,48 +255,22 @@ const WebPlayback = () => {
             <MusicCoverStyleForMobile
               imageUrl={current_track.album.images[0].url}
             />
-            <VerticallyCentredStyleForOthers>
-              <FontAwesomeIcon
-                icon={faBackwardStep}
-                color="#1bd760"
-                size="2x"
-                onClick={() => {
-                  player.previousTrack();
-                }}
-              />
-            </VerticallyCentredStyleForOthers>
 
-            <VerticallyCentredStyleForPlayAndPause>
-              {is_paused ? (
-                <FontAwesomeIcon
-                  icon={faCirclePlay}
-                  color="#1bd760"
-                  size="3x"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faCirclePause}
-                  color="#1bd760"
-                  size="3x"
-                  onClick={() => {
-                    player.togglePlay();
-                  }}
-                />
-              )}
-            </VerticallyCentredStyleForPlayAndPause>
-            <VerticallyCentredStyleForOthers>
-              <FontAwesomeIcon
-                icon={faForwardStep}
-                color="#1bd760"
-                size="2x"
-                onClick={() => {
-                  player.nextTrack();
-                }}
-              />
-            </VerticallyCentredStyleForOthers>
+            <PlaybackBarCompForMobile
+              isPaused={is_paused}
+              onBack={() => {
+                player.previousTrack();
+              }}
+              onPlay={() => {
+                player.togglePlay();
+              }}
+              onPause={() => {
+                player.togglePlay();
+              }}
+              onForward={() => {
+                player.nextTrack();
+              }}
+            />
           </PlayerStyleForMobile>
         </Mobile>
       </>

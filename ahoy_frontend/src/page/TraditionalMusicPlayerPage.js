@@ -7,6 +7,12 @@ import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useSearch from "../customHooks/forSearch/useSearch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCompactDisc,
+  faList,
+  faPalette,
+} from "@fortawesome/free-solid-svg-icons";
 const AppStyle = styled.div`
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
@@ -29,25 +35,24 @@ const LeftAreaStyle = styled.div`
 
 const NavAreaStyle = styled.div`
   margin: var(--global-margin);
-  width: var(--global-playlist-area-width);
+  width: calc(var(--global-playlist-area-width) - 40px);
   box-shadow: var(--global-box-shadow);
-  height: 180px;
   border-radius: var(--global-border-radius);
   overflow: hidden;
+  padding: 20px;
 `;
 
 const NavAreaEntryStyle = styled.div`
-  height: 18%;
-  margin: 10px;
-  background-color: white;
+  padding: 5px;
   cursor: pointer;
+  height: 30px;
 `;
 
 const LyricAreaStyle = styled.div`
   margin: var(--global-margin);
   width: var(--global-playlist-area-width);
   box-shadow: var(--global-box-shadow);
-  height: calc(100% - 520px);
+  height: calc(100% - 500px);
   border-radius: var(--global-border-radius);
 `;
 
@@ -196,19 +201,21 @@ function TraditionalMusicPlayerPage() {
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/album")}
                 >
-                  Albums
+                  <FontAwesomeIcon icon={faCompactDisc} />
+                  <span style={{ paddingLeft: "10px" }}>Album</span>
                 </NavAreaEntryStyle>
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/artists")}
                 >
-                  Artists
+                  <FontAwesomeIcon icon={faPalette} />
+                  <span style={{ paddingLeft: "10px" }}>Artists</span>
                 </NavAreaEntryStyle>
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/playlist")}
                 >
-                  Playlist
+                  <FontAwesomeIcon icon={faList} />
+                  <span style={{ paddingLeft: "10px" }}>Playlist</span>
                 </NavAreaEntryStyle>
-                <NavAreaEntryStyle></NavAreaEntryStyle>
               </NavAreaStyle>
               <LyricAreaStyle />
             </DesktopOrTablet>

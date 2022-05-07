@@ -12,6 +12,7 @@ import {
   faCompactDisc,
   faList,
   faPalette,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 const AppStyle = styled.div`
   min-height: 100vh;
@@ -117,6 +118,8 @@ const SearchBarStyleForDesktopOrTablet = styled.div`
   cursor: pointer;
   transition-duration: 500ms;
   box-shadow: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
+  display: flex;
+  align-items: center;
 `;
 
 const SearchBarStyleForMobile = styled.div`
@@ -129,11 +132,12 @@ const SearchBarStyleForMobile = styled.div`
   cursor: pointer;
   transition-duration: 500ms;
   box-shadow: inset 20px 20px 60px #bfc4cb, inset -20px -20px 60px #ffffff;
+  display: flex;
+  align-items: center;
 `;
 
 const SearchBarInputStyle = styled.input`
-  margin-left: 20px;
-  margin-top: 2px;
+  margin-left: 5px;
   height: 80%;
   width: ${(props) => props.width - 30}px;
   outline-style: none;
@@ -256,6 +260,10 @@ function TraditionalMusicPlayerPage() {
             onMouseOver={extendSearchBarForDesktopOrTablet}
             onMouseLeave={withdrawSearchBarForDesktopOrTablet}
           >
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ paddingLeft: "20px" }}
+            />
             <SearchBarInputStyle
               width={searchBarWidth}
               ref={searchBarInputRef}
@@ -271,6 +279,10 @@ function TraditionalMusicPlayerPage() {
             onMouseOver={extendSearchBarForMobile}
             onMouseLeave={withdrawSearchBarForMobile}
           >
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              style={{ paddingLeft: "20px" }}
+            />
             <SearchBarInputStyle
               width={searchBarWidth}
               ref={searchBarInputRef}

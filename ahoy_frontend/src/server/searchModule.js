@@ -3,7 +3,8 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/search", (req, res) => {
-  let queryString = req.query.query;
+  let queryString = encodeURI(req.query.query);
+  console.log(queryString);
   let type = req.query.type;
   let limit = req.query.limit;
   let offset = req.query.offset;

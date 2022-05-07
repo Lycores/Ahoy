@@ -7,7 +7,6 @@ const TopResultForResult = styled.div`
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: calc(50% - calc(var(--global-margin) / 2));
-  height: 100%;
   cursor: pointer;
 `;
 
@@ -18,7 +17,7 @@ const TopResultCardAreaStyle = styled.div`
   flex-wrap: nowrap;
   margin-top: var(--global-margin);
   padding: var(--global-padding);
-  height: 100%;
+  height: 250px;
 `;
 
 const TypeInfoStyle = styled.div`
@@ -49,7 +48,12 @@ const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
   }, [topResultObj, typeOfResult]);
   return (
     <TopResultForResult ref={topResultCardRef} onClick={goToResultPage}>
-      <TopResultTitleStyle>Top Result</TopResultTitleStyle>
+      <TopResultTitleStyle>
+        {typeOfResult
+          ? typeOfResult.charAt(0).toUpperCase() +
+            typeOfResult.substring(1, typeOfResult.length + 1)
+          : ""}
+      </TopResultTitleStyle>
       <TopResultCardAreaStyle>
         {topResultObj ? (
           <>
@@ -63,7 +67,6 @@ const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
                       imageUrl={topResultObj.images[1].url}
                     />
                   )}
-                  <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
                 </>
               ) : (
                 <>
@@ -76,7 +79,6 @@ const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
                           imageUrl={topResultObj.album.images[1].url}
                         />
                       )}
-                      <TypeInfoStyle>{typeOfResult}</TypeInfoStyle>
                     </>
                   ) : (
                     <></>

@@ -66,8 +66,16 @@ const SearchPage = () => {
             topResultTracks={topResultTracks}
           />
         </TopResultContainerStyle>
-        <TracksResultComp possibleResults={possibleResults} />
-        <ArtistsResultComp possibleResults={possibleResults} />
+        {possibleResults ? (
+          <>
+            <TracksResultComp possibleTracks={possibleResults.tracks.items} />
+            <ArtistsResultComp
+              possibleArtists={possibleResults.artists.items}
+            />
+          </>
+        ) : (
+          <></>
+        )}
       </RightAreaContainerStyle>
     </RightAreaStyleForDesktopOrTablet>
   );

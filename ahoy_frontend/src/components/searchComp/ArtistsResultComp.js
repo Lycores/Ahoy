@@ -28,14 +28,15 @@ const SuggestionStyle = styled.div`
   margin: 10px;
 `;
 const ArtistsResultComp = (props) => {
-  let { possibleResults } = props;
+  let { possibleArtists } = props;
+  console.log(possibleArtists);
   return (
     <SuggestionStyle>
       <TopResultTitleStyle>Artists</TopResultTitleStyle>
 
       <SuggestionContainer>
-        {possibleResults.length != 0 ? (
-          possibleResults["artists"].items.map((ps, index) => {
+        {possibleArtists.length != 0 ? (
+          possibleArtists.map((ps, index) => {
             if (ps.images.length != 0) {
               return (
                 <LocalCardContainerStyle key={index}>

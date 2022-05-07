@@ -24,12 +24,10 @@ const useSearch = () => {
 
   const withdrawSearchBarForDesktopOrTablet = useCallback(() => {
     setSearchBarWidth(150);
-    searchBarInputRef.current.blur();
   }, []);
 
   const withdrawSearchBarForMobile = useCallback(() => {
     setSearchBarWidth(150);
-    searchBarInputRef.current.blur();
   }, []);
 
   const cancelRequest = () => {

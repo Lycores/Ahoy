@@ -171,6 +171,9 @@ function TraditionalMusicPlayerPage() {
     }
   }, []);
 
+  const stopDrag = (e) => {
+    e.preventDefault();
+  };
   const navigate = useNavigate();
   return (
     <div>
@@ -250,6 +253,7 @@ function TraditionalMusicPlayerPage() {
               width={searchBarWidth}
               ref={searchBarInputRef}
               onChange={handleSearch}
+              onDragStart={stopDrag}
             />
           </SearchBarStyleForDesktopOrTablet>
         </DesktopOrTablet>
@@ -264,6 +268,7 @@ function TraditionalMusicPlayerPage() {
               width={searchBarWidth}
               ref={searchBarInputRef}
               onChange={handleSearch}
+              onDragStart={stopDrag}
             />
           </SearchBarStyleForMobile>
         </Mobile>

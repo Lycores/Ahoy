@@ -29,29 +29,27 @@ const SuggestionStyle = styled.div`
 `;
 const TracksResultComp = (props) => {
   let { possibleTracks } = props;
-  return (
+  return possibleTracks.length > 1 ? (
     <SuggestionStyle>
       <TopResultTitleStyle>Tracks</TopResultTitleStyle>
 
       <SuggestionContainer>
-        {possibleTracks.length != 0 ? (
-          possibleTracks.map((ps, index) => {
-            if (ps.album.images.length != 0) {
-              return (
-                <LocalCardContainerStyle key={index}>
-                  <CardCoverStyle imageUrl={ps.album.images[1].url} />
-                  <TrackNameStyle>{ps.name}</TrackNameStyle>
-                </LocalCardContainerStyle>
-              );
-            } else {
-              return <></>;
-            }
-          })
-        ) : (
-          <></>
-        )}
+        {possibleTracks.map((ps, index) => {
+          if (ps.album.images.length != 0) {
+            return (
+              <LocalCardContainerStyle key={index}>
+                <CardCoverStyle imageUrl={ps.album.images[1].url} />
+                <TrackNameStyle>{ps.name}</TrackNameStyle>
+              </LocalCardContainerStyle>
+            );
+          } else {
+            return <></>;
+          }
+        })}
       </SuggestionContainer>
     </SuggestionStyle>
+  ) : (
+    <></>
   );
 };
 

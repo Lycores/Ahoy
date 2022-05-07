@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Levenshtein from "../../algorithm/Levenshtein";
 
 import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
@@ -8,9 +8,8 @@ const useSearchPage = (result, query) => {
   let [topResultTracks, setTopResultTracks] = useState([]);
   let [possibleResultsState, setPossibleResultState] = useState(null);
   let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
-  console.log(11111, result, query);
 
-  const chooseBestMatch = (result) => {
+  const chooseBestMatch = useCallback((result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;
     let bestMatchKey = null;
     let bestMatchObj = null;
@@ -31,9 +30,9 @@ const useSearchPage = (result, query) => {
       }
     });
     return [bestMatchKey, bestMatchObj];
-  };
+  });
 
-  const getRelatedTracks = (obj, type) => {
+  const getRelatedTracks = useCallback((obj, type) => {
     if (type == "artists") {
       fetch(
         `/artists/getArtistTopTrack?artistId=${obj.id}&market=${userProfileState.country}`
@@ -56,7 +55,7 @@ const useSearchPage = (result, query) => {
           setTopResultTracks(json.tracks.slice(0, 4));
         });
     }
-  };
+  });
 
   useEffect(() => {
     if (result) {

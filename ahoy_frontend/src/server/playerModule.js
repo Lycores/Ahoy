@@ -6,7 +6,7 @@ router.get("/PlayTrack", (req, res) => {
   let albumId = req.query.albumId;
   let position = req.query.position;
   let deviceId = req.query.deviceId;
-
+  console.log(albumId, position, deviceId);
   let url = `https://api.spotify.com/v1/me/player/play?device_id=${deviceId}`;
   let data = JSON.stringify({
     context_uri: "spotify:album:" + albumId,
@@ -25,6 +25,7 @@ router.get("/PlayTrack", (req, res) => {
       },
     })
     .catch((error) => {
+      console.log(error);
       console.log("an error happened at /player/PlayTrack");
     });
 });

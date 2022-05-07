@@ -30,29 +30,27 @@ const SuggestionStyle = styled.div`
 const ArtistsResultComp = (props) => {
   let { possibleArtists } = props;
   console.log(possibleArtists);
-  return (
+  return possibleArtists.length > 1 ? (
     <SuggestionStyle>
       <TopResultTitleStyle>Artists</TopResultTitleStyle>
 
       <SuggestionContainer>
-        {possibleArtists.length != 0 ? (
-          possibleArtists.map((ps, index) => {
-            if (ps.images.length != 0) {
-              return (
-                <LocalCardContainerStyle key={index}>
-                  <CardCoverStyle imageUrl={ps.images[1].url} />
-                  <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
-                </LocalCardContainerStyle>
-              );
-            } else {
-              return <></>;
-            }
-          })
-        ) : (
-          <></>
-        )}
+        {possibleArtists.map((ps, index) => {
+          if (ps.images.length != 0) {
+            return (
+              <LocalCardContainerStyle key={index}>
+                <CardCoverStyle imageUrl={ps.images[1].url} />
+                <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
+              </LocalCardContainerStyle>
+            );
+          } else {
+            return <></>;
+          }
+        })}
       </SuggestionContainer>
     </SuggestionStyle>
+  ) : (
+    <></>
   );
 };
 

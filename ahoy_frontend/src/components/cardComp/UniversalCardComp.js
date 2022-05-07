@@ -67,8 +67,8 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
 
   if (type == "album") {
     return (
-      <GridSpaceStyle ref={ref} onClick={goToAlbumPage}>
-        <CardContainerStyle>
+      <GridSpaceStyle ref={ref}>
+        <CardContainerStyle onClick={goToAlbumPage}>
           <CardCoverStyle imageUrl={item.images[1].url} />
           <AlbumNameStyle>{item.name}</AlbumNameStyle>
           <ArtistFromAlbumStyle>{item.artists[0].name}</ArtistFromAlbumStyle>
@@ -78,8 +78,8 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
   }
   if (type == "artists") {
     return (
-      <GridSpaceStyle ref={ref} onClick={goToArtistPage}>
-        <CardContainerStyle>
+      <GridSpaceStyle ref={ref}>
+        <CardContainerStyle onClick={goToArtistPage}>
           <CardCoverStyle imageUrl={item.images[1].url} />
           <ArtistsNameStyle>{item.name}</ArtistsNameStyle>
         </CardContainerStyle>
@@ -88,8 +88,8 @@ const UniversalCardComp = React.forwardRef((props, ref) => {
   }
   if (type == "playlist") {
     return (
-      <GridSpaceStyle ref={ref} onClick={goToPlaylistPage}>
-        <CardContainerStyle>
+      <GridSpaceStyle ref={ref}>
+        <CardContainerStyle onClick={goToPlaylistPage}>
           {item.images.length == 0 ? (
             <CardCoverStyle />
           ) : (

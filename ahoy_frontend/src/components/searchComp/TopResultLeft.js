@@ -18,6 +18,7 @@ const TopResultCardAreaStyle = styled.div`
   margin-top: var(--global-margin);
   padding: var(--global-padding);
   height: 250px;
+  overflow: hidden;
 `;
 
 const TypeInfoStyle = styled.div`
@@ -29,10 +30,9 @@ const LocalCardCoverStyle = styled(CardCoverStyle)``;
 
 const TitleStyle = styled.div`
   margin-left: 10px;
-  font-size: 50px;
-  margin-top: clamp(50px, 10vw, 120px);
+  margin-top: clamp(20px, 5vw, 120px);
   text-align: left;
-  font-size: clamp(40px, 4vw, 50px);
+  font-size: clamp(20px, 3.5vw, 45px);
 `;
 const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
   let { topResultObj, typeOfResult } = props;

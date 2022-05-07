@@ -14,6 +14,7 @@ const TopResultTrackAreaStyle = styled.div`
   margin-top: var(--global-margin);
   margin-bottom: var(--global-margin);
   padding: var(--global-padding);
+  overflow: hidden;
 `;
 
 const TopResultRight = React.forwardRef((props, topResultTracksRef) => {

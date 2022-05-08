@@ -8,8 +8,10 @@ import {
 import useAlbumPage from "../customHooks/forAlbum/useAlbumPage";
 
 function AlbumPage() {
-  let [album, albumListState, getMoreAlbum] = useAlbumPage();
+  let [album, albumListState, placeholderCardList, getMoreAlbum] =
+    useAlbumPage();
 
+  console.log(placeholderCardList);
   return (
     <>
       <DesktopOrTablet>
@@ -19,6 +21,7 @@ function AlbumPage() {
               itemList={albumListState}
               type="album"
               getMoreItems={getMoreAlbum}
+              placeholder={placeholderCardList}
             />
           ) : (
             <RightAreaCompForAlbum album={album} />
@@ -32,6 +35,7 @@ function AlbumPage() {
               itemList={albumListState}
               type="album"
               getMoreItems={getMoreAlbum}
+              placeholder={placeholderCardList}
             />
           ) : (
             <RightAreaCompForAlbum album={album} />

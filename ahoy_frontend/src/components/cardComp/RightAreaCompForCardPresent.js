@@ -5,7 +5,7 @@ import React, { useCallback, useRef } from "react";
 import { RightAreaContainerStyle, GridStyle } from "../ReusableStyleComp";
 
 const RightAreaCompForCardPresent = React.memo((props) => {
-  let { itemList, getMoreItems, type } = props;
+  let { itemList, getMoreItems, type, placeholder } = props;
   let observer = useRef();
 
   let lastElement = useCallback(
@@ -64,6 +64,7 @@ const RightAreaCompForCardPresent = React.memo((props) => {
               return <UniversalCardComp key={index} item={item} type={type} />;
             }
           })}
+          {placeholder}
         </GridStyle>
       </RightAreaContainerStyle>
     );

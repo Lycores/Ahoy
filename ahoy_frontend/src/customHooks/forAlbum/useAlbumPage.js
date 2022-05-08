@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
+import PlaceholderCardComp from "../../components/placeholderComp/PlaceholderCardComp";
 const useAlbumPage = () => {
   let token = JSON.parse(localStorage.getItem("token"));
   let album = null;
@@ -9,11 +10,18 @@ const useAlbumPage = () => {
   }
   let [albumListState, setAlbumListState] = useState([]);
   let hasMoreAlbum = useRef(true);
+  let [placeholderCardList, setPlaceholderCardList] = useState([]);
   let offset = useRef(0);
   let limit = useRef(10);
 
+  const generatePlaceHolder = () => {
+    let list = [];
+    list.push(<PlaceholderCardComp key={1} />);
+    return list;
+  };
   const getUserSavedAlbum = useCallback(() => {
     if (hasMoreAlbum.current) {
+      setPlaceholderCardList(generatePlaceHolder());
       fetch(
         `album/getSavedAlbum?offset=${offset.current}&limit=${limit.current}`
       )
@@ -27,6 +35,7 @@ const useAlbumPage = () => {
           } else {
             hasMoreAlbum.current = false;
           }
+          setPlaceholderCardList([]);
           setAlbumListState((prevAlbumList) => {
             let albumList = [];
             json.items.forEach((item) => {
@@ -44,7 +53,7 @@ const useAlbumPage = () => {
     }
   }, [token]);
 
-  return [album, albumListState, getUserSavedAlbum];
+  return [album, albumListState, placeholderCardList, getUserSavedAlbum];
 };
 
 export default useAlbumPage;

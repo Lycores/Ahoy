@@ -27,7 +27,7 @@ const useDescResizeForDesk = () => {
           // do this
           shouldJSEngage.current = true;
           descWidthStateForDesk.current = windowWidth - 320 - coverWidth;
-          descWidthStateForMobile.current = windowWidth - coverWidth - 40;
+          descWidthStateForMobile.current = windowWidth - coverWidth - 60;
         } else {
           shouldJSEngage.current = false;
         }

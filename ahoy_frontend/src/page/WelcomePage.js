@@ -17,6 +17,7 @@ const WelcomeContainer = styled.div`
   font-size: 20px;
   text-align: center;
   line-height: 50px;
+  cursor: pointer;
 `;
 
 const TextStyle = styled.a`
@@ -32,8 +33,12 @@ function WelcomePage() {
     //   </a>
     // </BackgroundStyle>
     <BackgroundStyle>
-      <WelcomeContainer>
-        <TextStyle href="/auth/login">Grant Access</TextStyle>
+      <WelcomeContainer
+        onClick={() => {
+          window.location.href = "/auth/login";
+        }}
+      >
+        <TextStyle>Grant Access</TextStyle>
       </WelcomeContainer>
     </BackgroundStyle>
   );

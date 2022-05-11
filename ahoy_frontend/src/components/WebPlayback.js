@@ -82,9 +82,9 @@ const WebPlayback = () => {
     let albumId = recentlyPlayedState.album.id;
     let positionInAlbum = recentlyPlayedState.track_number - 1;
     fetch(
-      `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
+      `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}&token=${token}`
     );
-  }, [recentlyPlayedState, deviceIdState]);
+  }, [recentlyPlayedState, deviceIdState, token]);
 
   useEffect(() => {
     const script = document.createElement("script");

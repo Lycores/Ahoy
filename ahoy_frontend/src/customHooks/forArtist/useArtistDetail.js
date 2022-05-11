@@ -13,10 +13,11 @@ const useArtistDetail = (artist) => {
   let offset = useRef(0);
   let limit = useRef(10);
   let hasMoreAlbumForArtist = useRef(true);
+  let token = sessionStorage.getItem("token");
 
   const getArtistTopTrack = useCallback(() => {
     fetch(
-      `/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}`
+      `/artists/getArtistTopTrack?artistId=${artist.id}&market=${userProfileState.country}&token=${token}`
     )
       .then((response) => {
         return response.json();
@@ -24,12 +25,12 @@ const useArtistDetail = (artist) => {
       .then((json) => {
         setArtistTopTrackState(json);
       });
-  }, [artist]);
+  }, [artist, token]);
 
   const getArtistAlbums = useCallback(() => {
     if (hasMoreAlbumForArtist.current) {
       fetch(
-        `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}`
+        `/artists/getArtistAlbums?artistId=${artist.id}&limit=${limit.current}&offset=${offset.current}&market=${userProfileState.country}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -46,7 +47,7 @@ const useArtistDetail = (artist) => {
           });
         });
     }
-  }, [hasMoreAlbumForArtist, artist, offset]);
+  }, [hasMoreAlbumForArtist, artist, offset, token]);
 
   useEffect(() => {
     setCoverBackgroundImageState(artist.images[1].url);

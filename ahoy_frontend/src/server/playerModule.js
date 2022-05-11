@@ -3,6 +3,7 @@ const router = express.Router();
 const { default: axios } = require("axios");
 
 router.get("/PlayTrack", (req, res) => {
+  let token = req.query.token;
   let albumId = req.query.albumId;
   let position = req.query.position;
   let deviceId = req.query.deviceId;
@@ -20,7 +21,7 @@ router.get("/PlayTrack", (req, res) => {
     .put(url, data, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json; charset=utf-8",
       },
     })
@@ -31,6 +32,7 @@ router.get("/PlayTrack", (req, res) => {
 });
 
 router.get("/getRecentlyPlayed", (req, res) => {
+  let token = req.query.token;
   let url = `https://api.spotify.com/v1/me/player/recently-played?limit=1`;
 
   console.log("getRecentlyPlayed");
@@ -38,7 +40,7 @@ router.get("/getRecentlyPlayed", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })

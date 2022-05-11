@@ -11,12 +11,13 @@ const usePlaylistDetail = (playlist) => {
     setPlaylistOverviewBackgroundImageState,
   ] = useState("");
   let [playlistTrackState, setPlaylistTrackState] = useState([]);
+  let token = sessionStorage.getItem("token");
 
   const getPlaylistTracks = useCallback(() => {
     if (hasMorePlaylistItems.current) {
       let country = userProfile.country;
       fetch(
-        `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit.current}&offset=${offset.current}`
+        `/playlist/getPlaylistItems?playlistId=${playlist.id}&market=${country}&limit=${limit.current}&offset=${offset.current}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -33,7 +34,7 @@ const usePlaylistDetail = (playlist) => {
           });
         });
     }
-  }, [hasMorePlaylistItems, offset]);
+  }, [hasMorePlaylistItems, offset, token]);
 
   useEffect(() => {
     setCoverBackgroundImageState(playlist.images[0].url);

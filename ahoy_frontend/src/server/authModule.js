@@ -90,15 +90,14 @@ router.get("/callback", (req, res) => {
     })
     .then((response) => {
       if (response.status === 200) {
-        global.access_token = response.data.access_token;
-        res.redirect("/traditional/album");
+        res.redirect(`/authenticated?token=${response.data.access_token}`);
       }
     })
     .catch((error) => console.log(error));
 });
 
-router.get("/token", (req, res) => {
-  res.json({ access_token: global.access_token });
-});
+// router.get("/token", (req, res) => {
+//   res.json({ access_token: global.access_token });
+// });
 
 module.exports = { router };

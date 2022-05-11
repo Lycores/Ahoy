@@ -54,11 +54,12 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
   } = props;
   let deviceIdState = useRecoilValue(deviceIdRecoil);
 
+  let token = sessionStorage.getItem("token");
   const playTrack = useCallback(() => {
     fetch(
-      `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}`
+      `/player/PlayTrack?albumId=${albumId}&position=${positionInAlbum}&deviceId=${deviceIdState}&token=${token}`
     );
-  }, [albumId, positionInAlbum, deviceIdState]);
+  }, [albumId, positionInAlbum, deviceIdState, token]);
 
   return (
     <TrackEntryComponentStyle width={width} ref={ref} onClick={playTrack}>

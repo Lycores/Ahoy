@@ -187,7 +187,7 @@ function TraditionalMusicPlayerPage() {
 
   useEffect(() => {
     if (recentlyPlayedState == null) {
-      fetch("/player/getRecentlyPlayed")
+      fetch(`/player/getRecentlyPlayed?token=${token}`)
         .then((response) => {
           return response.json();
         })
@@ -195,7 +195,7 @@ function TraditionalMusicPlayerPage() {
           setRecentlyPlayedState(json.items[0].track);
         });
     }
-  }, []);
+  }, [token]);
 
   const stopDrag = (e) => {
     e.preventDefault();

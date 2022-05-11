@@ -13,6 +13,7 @@ const useSearch = () => {
   let navigate = useNavigate();
 
   const searchBarInputRef = useRef(null);
+  let token = sessionStorage.getItem("token");
 
   const extendSearchBarForDesktopOrTablet = useCallback(() => {
     setSearchBarWidth(400);
@@ -55,7 +56,7 @@ const useSearch = () => {
       abortController.current = new AbortController();
       let signal = abortController.current.signal;
       fetch(
-        `/search/search?query=${query}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}`,
+        `/search/search?query=${query}&type=track,artist&market=${userProfileState.country}&offset=${offset.current}&limit=${limit.current}&token=${token}`,
         { signal }
       )
         .then((response) => {

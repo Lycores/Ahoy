@@ -23,7 +23,7 @@ const useAlbumPage = () => {
     if (hasMoreAlbum.current) {
       setPlaceholderCardList(generatePlaceHolder());
       fetch(
-        `album/getSavedAlbum?offset=${offset.current}&limit=${limit.current}`
+        `album/getSavedAlbum?offset=${offset.current}&limit=${limit.current}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -45,7 +45,7 @@ const useAlbumPage = () => {
           });
         });
     }
-  }, [offset, hasMoreAlbum]);
+  }, [offset, hasMoreAlbum, token]);
 
   useEffect(() => {
     if (!album) {

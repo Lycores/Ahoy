@@ -3,6 +3,7 @@ const router = express.Router();
 
 const axios = require("axios");
 router.get("/getMyPlaylists", (req, res) => {
+  let token = req.query.token;
   let offset = req.query.offset;
   let limit = req.query.limit;
   let url = `https://api.spotify.com/v1/me/playlists?offset=${offset}&limit=${limit}`;
@@ -10,7 +11,7 @@ router.get("/getMyPlaylists", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })
@@ -25,6 +26,7 @@ router.get("/getMyPlaylists", (req, res) => {
 });
 
 router.get("/getPlaylistItems", (req, res) => {
+  let token = req.query.token;
   let playlistId = req.query.playlistId;
   let market = req.query.market;
   let offset = req.query.offset;
@@ -34,7 +36,7 @@ router.get("/getPlaylistItems", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })

@@ -3,6 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/getFollowedArtists", (req, res) => {
+  let token = req.query.token;
   let limit = req.query.limit;
   let after = req.query.after;
   let url = "";
@@ -15,7 +16,7 @@ router.get("/getFollowedArtists", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })
@@ -31,6 +32,7 @@ router.get("/getFollowedArtists", (req, res) => {
 });
 
 router.get("/getArtistTopTrack", (req, res) => {
+  let token = req.query.token;
   let artistId = req.query.artistId;
   let market = req.query.market;
   let url = `https://api.spotify.com/v1/artists/${artistId}/top-tracks?market=${market}`;
@@ -39,7 +41,7 @@ router.get("/getArtistTopTrack", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })
@@ -54,6 +56,7 @@ router.get("/getArtistTopTrack", (req, res) => {
 });
 
 router.get("/getArtistAlbums", (req, res) => {
+  let token = req.query.token;
   let artistId = req.query.artistId;
   let market = req.query.market;
   let limit = req.query.limit;
@@ -64,7 +67,7 @@ router.get("/getArtistAlbums", (req, res) => {
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })

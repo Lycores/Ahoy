@@ -8,6 +8,7 @@ const useAlbumDetail = (album) => {
     setAlbumOverviewBackgroundImageState,
   ] = useState("");
   let [trackListState, setTrackListState] = useState([]);
+  let token = sessionStorage.getItem("token");
 
   useEffect(() => {
     let tracks = [];
@@ -16,7 +17,7 @@ const useAlbumDetail = (album) => {
       setTrackListState(tracks);
     } catch {
       fetch(
-        `/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}`
+        `/album/getAlbum?albumId=${album.id}&market=${userProfileState.country}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -27,7 +28,7 @@ const useAlbumDetail = (album) => {
     }
     setCoverBackgroundImageState(album.images[1].url);
     setAlbumOverviewBackgroundImageState(album.images[0].url);
-  }, [album]);
+  }, [album, token]);
 
   return [
     trackListState,

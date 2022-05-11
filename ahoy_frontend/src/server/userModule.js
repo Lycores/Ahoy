@@ -3,12 +3,13 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/getUserProfile", (req, res) => {
+  let token = req.query.token;
   let url = "https://api.spotify.com/v1/me";
   axios
     .get(url, {
       headers: {
         Accept: "application/json",
-        Authorization: "Bearer " + global.access_token,
+        Authorization: "Bearer " + token,
         "Content-Type": "application/json",
       },
     })

@@ -18,7 +18,7 @@ const usePlaylistPage = () => {
   const getMyPlaylist = useCallback(() => {
     if (hasMorePlaylist.current) {
       fetch(
-        `/playlist/getMyPlaylists?offset=${offset.current}&limit=${limit.current}`
+        `/playlist/getMyPlaylists?offset=${offset.current}&limit=${limit.current}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -35,7 +35,7 @@ const usePlaylistPage = () => {
           });
         });
     }
-  }, [hasMorePlaylist, offset]);
+  }, [hasMorePlaylist, offset, token]);
 
   useEffect(() => {
     if (!playlist) {

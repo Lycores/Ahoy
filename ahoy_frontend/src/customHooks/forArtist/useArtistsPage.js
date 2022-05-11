@@ -26,9 +26,9 @@ const useArtistsPage = () => {
     if (hasMoreArtist.current) {
       let url = "";
       if (lastArtistIdInPrevReq.current) {
-        url = `artists/getFollowedArtists?limit=${limit.current}&after=${lastArtistIdInPrevReq.current}`;
+        url = `artists/getFollowedArtists?limit=${limit.current}&after=${lastArtistIdInPrevReq.current}&token=${token}`;
       } else {
-        url = `artists/getFollowedArtists?limit=${limit.current}`;
+        url = `artists/getFollowedArtists?limit=${limit.current}&token=${token}`;
       }
       fetch(url)
         .then((response) => {
@@ -47,7 +47,7 @@ const useArtistsPage = () => {
           });
         });
     }
-  }, [hasMoreArtist, lastArtistIdInPrevReq, offset]);
+  }, [hasMoreArtist, lastArtistIdInPrevReq, offset, token]);
 
   useEffect(() => {
     if (!artist) {

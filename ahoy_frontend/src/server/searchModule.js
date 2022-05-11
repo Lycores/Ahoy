@@ -3,6 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 
 router.get("/search", (req, res) => {
+  let token = req.query.token;
   let queryString = encodeURI(req.query.query);
   console.log(queryString);
   let type = req.query.type;
@@ -16,7 +17,7 @@ router.get("/search", (req, res) => {
       {
         headers: {
           Accept: "application/json",
-          Authorization: "Bearer " + global.access_token,
+          Authorization: "Bearer " + token,
           "Content-Type": "application/json",
         },
       }

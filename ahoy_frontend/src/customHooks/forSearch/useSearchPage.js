@@ -8,7 +8,7 @@ const useSearchPage = (result, query) => {
   let [topResultTracks, setTopResultTracks] = useState([]);
   let [possibleResultsState, setPossibleResultState] = useState(null);
   let userProfileState = JSON.parse(sessionStorage.getItem("userProfile"));
-
+  let token = sessionStorage.getItem("token");
   const chooseBestMatch = useCallback((result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;
     let bestMatchKey = null;
@@ -32,10 +32,10 @@ const useSearchPage = (result, query) => {
     return [bestMatchKey, bestMatchObj];
   });
 
-  const getRelatedTracks = useCallback((obj, type) => {
+  const getRelatedTracks = (obj, type) => {
     if (type == "artists") {
       fetch(
-        `/artists/getArtistTopTrack?artistId=${obj.id}&market=${userProfileState.country}`
+        `/artists/getArtistTopTrack?artistId=${obj.id}&market=${userProfileState.country}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -46,7 +46,7 @@ const useSearchPage = (result, query) => {
     } else if (type == "tracks") {
       let artistId = obj.artists[0].id;
       fetch(
-        `/artists/getArtistTopTrack?artistId=${artistId}&market=${userProfileState.country}`
+        `/artists/getArtistTopTrack?artistId=${artistId}&market=${userProfileState.country}&token=${token}`
       )
         .then((response) => {
           return response.json();
@@ -55,7 +55,7 @@ const useSearchPage = (result, query) => {
           setTopResultTracks(json.tracks.slice(0, 4));
         });
     }
-  });
+  };
 
   useEffect(() => {
     if (result) {

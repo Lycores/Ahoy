@@ -7,44 +7,45 @@ import PlaylistPage from "./page/PlaylistPage";
 import TraditionalMusicPlayerPage from "./page/TraditionalMusicPlayerPage";
 import RouteProtector from "./RouteProtector";
 import SearchPage from "./page/SearchPage";
+import Auth from "./components/Auth";
 function App() {
-  var [forceUpdate, setForceUpdate] = useState(null);
   // var [userProfileState, setUserProfileState] = useRecoilState(userProfileRecoil)
   // var [deviceId, setDeviceId] = useState(null)
 
-  async function getToken() {
-    fetch("/auth/token")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        sessionStorage.setItem("token", json.access_token);
-        setForceUpdate(0);
-        // setToken(json.access_token)
-      });
-  }
+  // async function getToken() {
+  //   fetch("/auth/token")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((json) => {
+  //       sessionStorage.setItem("token", json.access_token);
+  //       setForceUpdate(0);
+  //       // setToken(json.access_token)
+  //     });
+  // }
 
-  async function getUserProfile() {
-    fetch("/user/getUserProfile")
-      .then((response) => {
-        return response.json();
-      })
-      .then((json) => {
-        // setUserProfileState(json)
-        sessionStorage.setItem("userProfile", JSON.stringify(json));
-      });
-  }
+  // async function getUserProfile() {
+  //   fetch("/user/getUserProfile")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((json) => {
+  //       // setUserProfileState(json)
+  //       sessionStorage.setItem("userProfile", JSON.stringify(json));
+  //     });
+  // }
 
-  useEffect(() => {
-    getToken();
-    getUserProfile();
-  }, []);
+  // useEffect(() => {
+  //   // getToken();
+  //   // getUserProfile();
+  // }, []);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         {/* <Route element={<RouteProtector />}> */}
+        <Route path="/authenticated" element={<Auth />} />
         <Route path="/traditional" element={<TraditionalMusicPlayerPage />}>
           <Route exact path="album" element={<AlbumPage />} />
           <Route exact path="artists" element={<ArtistsPage />} />

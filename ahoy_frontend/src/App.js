@@ -7,7 +7,7 @@ import PlaylistPage from "./page/PlaylistPage";
 import TraditionalMusicPlayerPage from "./page/TraditionalMusicPlayerPage";
 import RouteProtector from "./RouteProtector";
 import SearchPage from "./page/SearchPage";
-import AuthPage from "./components/AuthPage";
+import AuthPage from "./page/AuthPage";
 import NotFound from "./page/NotFound";
 function App() {
   return (

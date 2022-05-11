@@ -21,6 +21,8 @@ router.get("/getSavedAlbum", (req, res) => {
       }
     })
     .catch((error) => {
+      console.log("++++++++++++++++++=");
+      console.log(error);
       console.log("an error happened at /album/getSavedAlbum");
     });
 });

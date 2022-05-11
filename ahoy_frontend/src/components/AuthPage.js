@@ -7,9 +7,10 @@ import styled from "styled-components";
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
+  overflow: hidden;
 `;
 const SpotifyLogo = styled.i`
-  font-size: 300px;
+  font-size: clamp(50px, 30vw, 200px);
   color: var(--global-spotify-color);
   line-height: 100vh;
 `;

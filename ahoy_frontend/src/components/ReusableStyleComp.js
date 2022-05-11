@@ -101,6 +101,14 @@ export const RightAreaStyleForDesktopOrTablet = styled.div`
   box-shadow: var(--global-box-shadow);
   border-radius: var(--global-border-radius);
   flex-grow: 1;
+  width: 1px;
+`;
+export const RightAreaStyle = styled.div`
+  margin: var(--global-margin);
+  box-shadow: var(--global-box-shadow);
+  border-radius: var(--global-border-radius);
+  flex-grow: 1;
+  width: 1px;
 `;
 export const RightAreaStyleForMobile = styled.div`
   margin: var(--global-margin);

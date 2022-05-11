@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaContainerStyle,
+  RightAreaStyle,
 } from "../components/ReusableStyleComp";
 import styled from "styled-components";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
@@ -50,7 +51,7 @@ const SearchPage = () => {
     topTracksWidthForMobile,
   ] = useTopTrackResize();
   return (
-    <RightAreaStyleForDesktopOrTablet>
+    <RightAreaStyle>
       <RightAreaContainerStyle ref={outerWrapperRef}>
         <TopResultContainerStyle>
           <TopResultLeft
@@ -77,7 +78,7 @@ const SearchPage = () => {
           <></>
         )}
       </RightAreaContainerStyle>
-    </RightAreaStyleForDesktopOrTablet>
+    </RightAreaStyle>
   );
 };
 

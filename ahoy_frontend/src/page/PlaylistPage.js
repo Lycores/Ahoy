@@ -3,6 +3,7 @@ import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
+  RightAreaStyle,
 } from "../components/ReusableStyleComp";
 import RightAreaCompForPlaylist from "../components/playlistComp/RightAreaCompForPlaylist";
 import usePlaylistPage from "../customHooks/forPlaylist/usePlaylistPage";
@@ -12,32 +13,17 @@ function PlaylistPage() {
 
   return (
     <>
-      <DesktopOrTablet>
-        <RightAreaStyleForDesktopOrTablet>
-          {!playlist ? (
-            <RightAreaCompForCardPresent
-              itemList={playlistListState}
-              type="playlist"
-              getMoreItems={getMorePlaylist}
-            />
-          ) : (
-            <RightAreaCompForPlaylist playlist={playlist} />
-          )}
-        </RightAreaStyleForDesktopOrTablet>
-      </DesktopOrTablet>
-      <Mobile>
-        <RightAreaStyleForMobile>
-          {!playlist ? (
-            <RightAreaCompForCardPresent
-              itemList={playlistListState}
-              type="playlist"
-              getMoreItems={getMorePlaylist}
-            />
-          ) : (
-            <RightAreaCompForPlaylist playlist={playlist} />
-          )}
-        </RightAreaStyleForMobile>
-      </Mobile>
+      <RightAreaStyle>
+        {!playlist ? (
+          <RightAreaCompForCardPresent
+            itemList={playlistListState}
+            type="playlist"
+            getMoreItems={getMorePlaylist}
+          />
+        ) : (
+          <RightAreaCompForPlaylist playlist={playlist} />
+        )}
+      </RightAreaStyle>
     </>
   );
 }

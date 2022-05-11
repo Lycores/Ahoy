@@ -4,6 +4,7 @@ import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,
+  RightAreaStyle,
 } from "../components/ReusableStyleComp";
 import useAlbumPage from "../customHooks/forAlbum/useAlbumPage";
 
@@ -14,34 +15,18 @@ function AlbumPage() {
   console.log(placeholderCardList);
   return (
     <>
-      <DesktopOrTablet>
-        <RightAreaStyleForDesktopOrTablet>
-          {!album ? (
-            <RightAreaCompForCardPresent
-              itemList={albumListState}
-              type="album"
-              getMoreItems={getMoreAlbum}
-              placeholder={placeholderCardList}
-            />
-          ) : (
-            <RightAreaCompForAlbum album={album} />
-          )}
-        </RightAreaStyleForDesktopOrTablet>
-      </DesktopOrTablet>
-      <Mobile>
-        <RightAreaStyleForMobile>
-          {!album ? (
-            <RightAreaCompForCardPresent
-              itemList={albumListState}
-              type="album"
-              getMoreItems={getMoreAlbum}
-              placeholder={placeholderCardList}
-            />
-          ) : (
-            <RightAreaCompForAlbum album={album} />
-          )}
-        </RightAreaStyleForMobile>
-      </Mobile>
+      <RightAreaStyle>
+        {!album ? (
+          <RightAreaCompForCardPresent
+            itemList={albumListState}
+            type="album"
+            getMoreItems={getMoreAlbum}
+            placeholder={placeholderCardList}
+          />
+        ) : (
+          <RightAreaCompForAlbum album={album} />
+        )}
+      </RightAreaStyle>
     </>
   );
 }

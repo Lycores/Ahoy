@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import PlaceholderCardComp from "../../components/placeholderComp/PlaceholderCardComp";
 const useAlbumPage = () => {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = sessionStorage.getItem("token");
   let album = null;
   let { state } = useLocation();
   if (state) {

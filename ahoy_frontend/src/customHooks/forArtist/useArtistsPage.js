@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 const useArtistsPage = () => {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = sessionStorage.getItem("token");
 
   let artist = null;
   let { state } = useLocation();

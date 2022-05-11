@@ -18,7 +18,7 @@ function App() {
         return response.json();
       })
       .then((json) => {
-        localStorage.setItem("token", JSON.stringify(json.access_token));
+        sessionStorage.setItem("token", json.access_token);
         setForceUpdate(0);
         // setToken(json.access_token)
       });
@@ -31,7 +31,7 @@ function App() {
       })
       .then((json) => {
         // setUserProfileState(json)
-        localStorage.setItem("userProfile", JSON.stringify(json));
+        sessionStorage.setItem("userProfile", JSON.stringify(json));
       });
   }
 
@@ -44,14 +44,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route element={<RouteProtector />}>
-          <Route path="/traditional" element={<TraditionalMusicPlayerPage />}>
-            <Route exact path="album" element={<AlbumPage />} />
-            <Route exact path="artists" element={<ArtistsPage />} />
-            <Route exact path="playlist" element={<PlaylistPage />} />
-            <Route exact path="search" element={<SearchPage />} />
-          </Route>
+        {/* <Route element={<RouteProtector />}> */}
+        <Route path="/traditional" element={<TraditionalMusicPlayerPage />}>
+          <Route exact path="album" element={<AlbumPage />} />
+          <Route exact path="artists" element={<ArtistsPage />} />
+          <Route exact path="playlist" element={<PlaylistPage />} />
+          <Route exact path="search" element={<SearchPage />} />
         </Route>
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );

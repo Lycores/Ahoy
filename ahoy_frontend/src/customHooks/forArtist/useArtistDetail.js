@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 const useArtistDetail = (artist) => {
-  let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
+  let userProfileState = JSON.parse(sessionStorage.getItem("userProfile"));
 
   let [artistTopTrackState, setArtistTopTrackState] = useState([]);
   let [artistAlbumsState, setArtistAlbumsState] = useState([]);

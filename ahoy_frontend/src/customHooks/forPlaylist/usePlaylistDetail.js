@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
 const usePlaylistDetail = (playlist) => {
-  let userProfile = JSON.parse(localStorage.getItem("userProfile"));
+  let userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
   let hasMorePlaylistItems = useRef(true);
   let offset = useRef(0);
   let limit = useRef(40);

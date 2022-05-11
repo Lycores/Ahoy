@@ -170,7 +170,7 @@ const SearchBarInputStyle = styled.input`
 `;
 
 function TraditionalMusicPlayerPage() {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = sessionStorage.getItem("token");
 
   let [recentlyPlayedState, setRecentlyPlayedState] =
     useRecoilState(recentlyPlayedRecoil);

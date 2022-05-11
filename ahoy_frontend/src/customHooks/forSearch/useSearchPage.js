@@ -7,7 +7,7 @@ const useSearchPage = (result, query) => {
   let [typeOfResult, setTypeOfResult] = useState(null);
   let [topResultTracks, setTopResultTracks] = useState([]);
   let [possibleResultsState, setPossibleResultState] = useState(null);
-  let userProfileState = JSON.parse(localStorage.getItem("userProfile"));
+  let userProfileState = JSON.parse(sessionStorage.getItem("userProfile"));
 
   const chooseBestMatch = useCallback((result) => {
     let minDistance = Number.MAX_SAFE_INTEGER;

@@ -67,7 +67,7 @@ const MusicCoverStyleForMobile = styled.div.attrs((props) => ({
 `;
 
 const WebPlayback = () => {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = sessionStorage.getItem("token");
 
   let [is_paused, setPaused] = useState(false);
   let [is_active, setActive] = useState(false);

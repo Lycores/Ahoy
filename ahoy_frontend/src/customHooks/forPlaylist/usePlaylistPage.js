@@ -2,7 +2,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 
 const usePlaylistPage = () => {
-  let token = JSON.parse(localStorage.getItem("token"));
+  let token = sessionStorage.getItem("token");
 
   let playlist = null;
   let playlistList = [];

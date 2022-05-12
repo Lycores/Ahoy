@@ -10,7 +10,8 @@ import React from "react";
 import useArtistsPage from "../customHooks/forArtist/useArtistsPage";
 
 function ArtistsPage() {
-  let [artist, artistsListState, getMoreArtist] = useArtistsPage();
+  let [artist, artistsListState, placeholderCardList, getMoreArtist] =
+    useArtistsPage();
 
   return (
     <>
@@ -20,6 +21,7 @@ function ArtistsPage() {
             itemList={artistsListState}
             type="artists"
             getMoreItems={getMoreArtist}
+            placeholder={placeholderCardList}
           />
         ) : (
           <RightAreaCompForArtistDetail artist={artist} />

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 const useLoadProfile = () => {
   const navigate = useNavigate();
   let token = sessionStorage.getItem("token");
-  console.log(999, token);
   useEffect(() => {
     if (token) {
       fetch(`/user/getUserProfile?token=${token}`)

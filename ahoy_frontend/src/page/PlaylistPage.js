@@ -9,7 +9,8 @@ import RightAreaCompForPlaylist from "../components/playlistComp/RightAreaCompFo
 import usePlaylistPage from "../customHooks/forPlaylist/usePlaylistPage";
 
 function PlaylistPage() {
-  let [playlist, playlistListState, getMorePlaylist] = usePlaylistPage();
+  let [playlist, playlistListState, placeholderCardList, getMorePlaylist] =
+    usePlaylistPage();
 
   return (
     <>
@@ -19,6 +20,7 @@ function PlaylistPage() {
             itemList={playlistListState}
             type="playlist"
             getMoreItems={getMorePlaylist}
+            placeholder={placeholderCardList}
           />
         ) : (
           <RightAreaCompForPlaylist playlist={playlist} />

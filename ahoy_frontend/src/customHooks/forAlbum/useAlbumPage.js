@@ -12,7 +12,7 @@ const useAlbumPage = () => {
   let hasMoreAlbum = useRef(true);
   let [placeholderCardList, setPlaceholderCardList] = useState([]);
   let offset = useRef(0);
-  let limit = useRef(10);
+  let limit = useRef(8);
 
   const generatePlaceHolder = () => {
     let list = [];

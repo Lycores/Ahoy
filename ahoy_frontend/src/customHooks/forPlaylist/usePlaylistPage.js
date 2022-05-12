@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-
+import PlaceholderCardComp from "../../components/placeholderComp/PlaceholderCardComp";
 const usePlaylistPage = () => {
   let token = sessionStorage.getItem("token");
 
@@ -12,11 +12,17 @@ const usePlaylistPage = () => {
   }
   let [playlistListState, setPlaylistListState] = useState(playlistList);
   let hasMorePlaylist = useRef(true);
-  let limit = useRef(10);
+  let limit = useRef(8);
   let offset = useRef(0);
-
+  let [placeholderCardList, setPlaceholderCardList] = useState([]);
+  const generatePlaceHolder = () => {
+    let list = [];
+    list.push(<PlaceholderCardComp key={1} />);
+    return list;
+  };
   const getMyPlaylist = useCallback(() => {
     if (hasMorePlaylist.current) {
+      setPlaceholderCardList(generatePlaceHolder());
       fetch(
         `/playlist/getMyPlaylists?offset=${offset.current}&limit=${limit.current}&token=${token}`
       )
@@ -30,6 +36,7 @@ const usePlaylistPage = () => {
           } else {
             hasMorePlaylist.current = false;
           }
+          setPlaceholderCardList([]);
           setPlaylistListState((prevPlaylist) => {
             return [...prevPlaylist, ...json.items];
           });
@@ -43,6 +50,6 @@ const usePlaylistPage = () => {
     }
   }, [token]);
 
-  return [playlist, playlistListState, getMyPlaylist];
+  return [playlist, playlistListState, placeholderCardList, getMyPlaylist];
 };
 export default usePlaylistPage;

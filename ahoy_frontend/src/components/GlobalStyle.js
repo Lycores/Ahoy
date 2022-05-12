@@ -16,6 +16,7 @@ body{
     --global-border-radius: 20px;
     --global-playlist-area-width:250px;
     --global-background-color: #e1e7ef;
+    --global-background-color-dark: #bfcddd;
     --global-spotify-color: #1bd760;
     --global-mobile-max: 600px;
     --global-desktop-or-tablet-min: 601px;

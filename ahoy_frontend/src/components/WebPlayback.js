@@ -25,18 +25,9 @@ const PlayerStyleForDesktopOrTablet = styled.div`
   left: var(--global-margin);
 `;
 const PlayerStyleForMobile = styled.div`
-  position: fixed;
   width: auto;
   height: 100px;
-  bottom: 0px;
-  background-color: white;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border-radius: var(--global-border-radius);
-  z-index: 5;
   display: flex;
-  min-width: 280px;
 `;
 
 const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props) => ({
@@ -66,6 +57,42 @@ const MusicCoverStyleForMobile = styled.div.attrs((props) => ({
   margin-bottom: 0px;
 `;
 
+const Container = styled.div`
+  border-radius: var(--global-border-radius);
+  box-shadow: var(--global-box-shadow);
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.9;
+  z-index: 5;
+  min-width: 280px;
+  background-color: var(--global-background-color);
+`;
+
+const MobileNavBar = styled.div`
+  display: flex;
+  gap: 10px;
+  padding: var(--global-padding);
+  padding-bottom: 0px;
+`;
+
+const NavBarItem = styled.div`
+  height: 40px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: var(--global-spotify-color);
+  }
+  &:active {
+    background-color: var(--global-spotify-color);
+  }
+`;
+const AlbumMobileNavBarItem = styled(NavBarItem)``;
+const ArtistsMobileNavBarItem = styled(NavBarItem)``;
+const PlaylistMobileNavBarItem = styled(NavBarItem)``;
 const WebPlayback = () => {
   let token = sessionStorage.getItem("token");
 
@@ -148,18 +175,25 @@ const WebPlayback = () => {
             </PlayerStyleForDesktopOrTablet>
           </DesktopOrTablet>
           <Mobile>
-            <PlayerStyleForMobile>
-              <MusicCoverStyleForMobile
-                imageUrl={recentlyPlayedState.album.images[0].url}
-              />
+            <Container>
+              <MobileNavBar>
+                <AlbumMobileNavBarItem />
+                <ArtistsMobileNavBarItem />
+                <PlaylistMobileNavBarItem />
+              </MobileNavBar>
+              <PlayerStyleForMobile>
+                <MusicCoverStyleForMobile
+                  imageUrl={recentlyPlayedState.album.images[0].url}
+                />
 
-              <PlaybackBarCompForMobile
-                onBack={() => {}}
-                onPlay={recentlyPlayedStart}
-                onPause={() => {}}
-                onForward={() => {}}
-              />
-            </PlayerStyleForMobile>
+                <PlaybackBarCompForMobile
+                  onBack={() => {}}
+                  onPlay={recentlyPlayedStart}
+                  onPause={() => {}}
+                  onForward={() => {}}
+                />
+              </PlayerStyleForMobile>
+            </Container>
           </Mobile>
         </>
       );
@@ -178,16 +212,23 @@ const WebPlayback = () => {
             </PlayerStyleForDesktopOrTablet>
           </DesktopOrTablet>
           <Mobile>
-            <PlayerStyleForMobile>
-              <MusicCoverStyleForMobile skeleton="ph-item" />
+            <Container>
+              <MobileNavBar>
+                <AlbumMobileNavBarItem />
+                <ArtistsMobileNavBarItem />
+                <PlaylistMobileNavBarItem />
+              </MobileNavBar>
+              <PlayerStyleForMobile>
+                <MusicCoverStyleForMobile skeleton="ph-item" />
 
-              <PlaybackBarCompForMobile
-                onBack={() => {}}
-                onPlay={() => {}}
-                onPause={() => {}}
-                onForward={() => {}}
-              />
-            </PlayerStyleForMobile>
+                <PlaybackBarCompForMobile
+                  onBack={() => {}}
+                  onPlay={() => {}}
+                  onPause={() => {}}
+                  onForward={() => {}}
+                />
+              </PlayerStyleForMobile>
+            </Container>
           </Mobile>
         </>
       );
@@ -219,27 +260,34 @@ const WebPlayback = () => {
           </PlayerStyleForDesktopOrTablet>
         </DesktopOrTablet>
         <Mobile>
-          <PlayerStyleForMobile>
-            <MusicCoverStyleForMobile
-              imageUrl={current_track.album.images[0].url}
-            />
+          <Container>
+            <MobileNavBar>
+              <AlbumMobileNavBarItem />
+              <ArtistsMobileNavBarItem />
+              <PlaylistMobileNavBarItem />
+            </MobileNavBar>
+            <PlayerStyleForMobile>
+              <MusicCoverStyleForMobile
+                imageUrl={current_track.album.images[0].url}
+              />
 
-            <PlaybackBarCompForMobile
-              isPaused={is_paused}
-              onBack={() => {
-                player.previousTrack();
-              }}
-              onPlay={() => {
-                player.togglePlay();
-              }}
-              onPause={() => {
-                player.togglePlay();
-              }}
-              onForward={() => {
-                player.nextTrack();
-              }}
-            />
-          </PlayerStyleForMobile>
+              <PlaybackBarCompForMobile
+                isPaused={is_paused}
+                onBack={() => {
+                  player.previousTrack();
+                }}
+                onPlay={() => {
+                  player.togglePlay();
+                }}
+                onPause={() => {
+                  player.togglePlay();
+                }}
+                onForward={() => {
+                  player.nextTrack();
+                }}
+              />
+            </PlayerStyleForMobile>
+          </Container>
         </Mobile>
       </>
     );

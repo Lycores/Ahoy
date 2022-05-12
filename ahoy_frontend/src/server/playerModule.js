@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { default: axios } = require("axios");
+const axios = require("axios");
+const axiosRetry = require("axios-retry");
 
+axiosRetry(axios);
 router.get("/PlayTrack", (req, res) => {
   let token = req.query.token;
   let albumId = req.query.albumId;

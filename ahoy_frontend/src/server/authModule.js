@@ -7,7 +7,9 @@ const router = express.Router();
 const whereIsDotEnv = path.join("../", ".env");
 const qs = require("qs");
 dotenv.config({ path: whereIsDotEnv });
+const axiosRetry = require("axios-retry");
 
+axiosRetry(axios);
 const UGC_IMAGE_UPLOAD = "ugc-image-upload";
 const USER_READ_PLAYBACK_STATE = "user-read-playback-state";
 const USER_MODIFY_PLAYBACK_STATE = "user-modify-playback-state";

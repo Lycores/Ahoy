@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-
 const axios = require("axios");
+const axiosRetry = require("axios-retry");
+
+axiosRetry(axios);
 router.get("/getMyPlaylists", (req, res) => {
   let token = req.query.token;
   let offset = req.query.offset;

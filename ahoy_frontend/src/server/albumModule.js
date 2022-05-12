@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
 const axios = require("axios");
+const axiosRetry = require("axios-retry");
+
+axiosRetry(axios);
+
 router.get("/getSavedAlbum", (req, res) => {
   let token = req.query.token;
   let offset = req.query.offset;
@@ -21,8 +24,6 @@ router.get("/getSavedAlbum", (req, res) => {
       }
     })
     .catch((error) => {
-      console.log("++++++++++++++++++=");
-      console.log(error);
       console.log("an error happened at /album/getSavedAlbum");
     });
 });

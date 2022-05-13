@@ -5,7 +5,7 @@ import { TrackNameStyle } from "../ReusableStyleComp";
 import { CardContainerStyle, CardCoverStyle } from "../ReusableStyleComp";
 import { TopResultTitleStyle } from "../ReusableStyleComp";
 import { useRecoilState } from "recoil";
-import { deviceIdRecoil, recentlyPlayedRecoil } from "../../recoilInfo";
+import { deviceIdRecoil } from "../../recoilInfo";
 const LocalCardContainerStyle = styled(CardContainerStyle)`
   margin: 0px;
   margin-top: 20px;
@@ -52,11 +52,11 @@ const TracksResultComp = (props) => {
   );
   return possibleTracks.length > 1 ? (
     <SuggestionStyle>
-      <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+      <TopResultTitleStyle>Possible Tracks</TopResultTitleStyle>
 
       <SuggestionContainer>
         {possibleTracks.map((ps, index) => {
-          if (ps.album.images.length != 0) {
+          if (ps.album.images.length !== 0) {
             return (
               <LocalCardContainerStyle
                 onClick={() => {

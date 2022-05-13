@@ -16,7 +16,7 @@ const useSearchPage = (result, query) => {
 
     Object.keys(result).forEach((key) => {
       let distance = Number.MAX_SAFE_INTEGER;
-      if (result[key].items.length != 0) {
+      if (result[key].items.length !== 0) {
         distance = Levenshtein(
           result[key].items[0].name.toUpperCase(),
           query.toUpperCase()
@@ -33,7 +33,7 @@ const useSearchPage = (result, query) => {
   });
 
   const getRelatedTracks = (obj, type) => {
-    if (type == "artists") {
+    if (type === "artists") {
       fetch(
         `/artists/getArtistTopTrack?artistId=${obj.id}&market=${userProfileState.country}&token=${token}`
       )
@@ -43,7 +43,7 @@ const useSearchPage = (result, query) => {
         .then((json) => {
           setTopResultTracks(json.tracks.slice(0, 4));
         });
-    } else if (type == "tracks") {
+    } else if (type === "tracks") {
       let artistId = obj.artists[0].id;
       fetch(
         `/artists/getArtistTopTrack?artistId=${artistId}&market=${userProfileState.country}&token=${token}`

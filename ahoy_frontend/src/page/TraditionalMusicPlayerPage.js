@@ -1,10 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import WebPlayback from "../components/WebPlayback";
 import { useNavigate, Outlet } from "react-router-dom";
 import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
-import { recentlyPlayedRecoil } from "../recoilInfo";
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useSearch from "../customHooks/forSearch/useSearch";
 
@@ -168,13 +166,21 @@ const SearchBarInputStyle = styled.input`
   color: #66727c;
   font-size: 20px;
   font-weight: bold;
+  &::-webkit-input-placeholder {
+    color: var(--placeholder-color);
+  }
+  &:-moz-placeholder {
+    color: var(--placeholder-color);
+  }
+  &:-ms-input-placeholder {
+    color: var(--placeholder-color);
+  }
 `;
 
 function TraditionalMusicPlayerPage() {
   let token = sessionStorage.getItem("token");
 
-  let [recentlyPlayedState, setRecentlyPlayedState] =
-    useRecoilState(recentlyPlayedRecoil);
+  let [recentlyPlayedState, setRecentlyPlayedState] = useState(null);
 
   let [
     searchBarWidth,
@@ -187,7 +193,7 @@ function TraditionalMusicPlayerPage() {
   ] = useSearch();
 
   useEffect(() => {
-    if (recentlyPlayedState == null) {
+    if (recentlyPlayedState === null) {
       fetch(`/player/getRecentlyPlayed?token=${token}`)
         .then((response) => {
           return response.json();
@@ -249,7 +255,7 @@ function TraditionalMusicPlayerPage() {
                 </Mobile>
               </>
             ) : (
-              <WebPlayback />
+              <WebPlayback recentlyPlayedState={recentlyPlayedState} />
             )}
           </LeftAreaStyle>
 
@@ -283,6 +289,7 @@ function TraditionalMusicPlayerPage() {
               ref={searchBarInputRef}
               onChange={handleSearch}
               onDragStart={stopDrag}
+              placeholder="artists, tracks"
             />
           </SearchBarStyleForDesktopOrTablet>
         </DesktopOrTablet>

@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
-axiosRetry(axios);
+axiosRetry(axios, { retries: 5 });
 router.get("/getFollowedArtists", (req, res) => {
   let token = req.query.token;
   let limit = req.query.limit;
@@ -28,7 +28,6 @@ router.get("/getFollowedArtists", (req, res) => {
       }
     })
     .catch((error) => {
-      console.log(error);
       console.log("an error happened at /artists/getFollowedArtists");
     });
 });

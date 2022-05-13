@@ -16,8 +16,7 @@ const useDescResize = () => {
   let [forceUpdate] = useRerender();
 
   useLayoutEffect(() => {
-    console.log(descRef.current);
-    if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
+    if (windowWidth !== 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
 
       if (coverWidth <= breakPoint) {

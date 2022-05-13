@@ -27,7 +27,7 @@ const TopResultRight = React.forwardRef((props, topResultTracksRef) => {
 
   return shouldJSEngage ? (
     <TopResultForTracks ref={topResultTracksRef}>
-      <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+      <TopResultTitleStyle>Artists' Tracks</TopResultTitleStyle>
 
       <DesktopOrTablet>
         <TopResultTrackAreaStyle>
@@ -49,7 +49,7 @@ const TopResultRight = React.forwardRef((props, topResultTracksRef) => {
     </TopResultForTracks>
   ) : (
     <TopResultForTracks ref={topResultTracksRef}>
-      <TopResultTitleStyle>Tracks</TopResultTitleStyle>
+      <TopResultTitleStyle>Artists' Tracks</TopResultTitleStyle>
 
       <DesktopOrTablet>
         <TopResultTrackAreaStyle>

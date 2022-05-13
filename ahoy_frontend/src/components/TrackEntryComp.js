@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback } from "react";
+import React, { useCallback } from "react";
 import { deviceIdRecoil } from "../recoilInfo";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";

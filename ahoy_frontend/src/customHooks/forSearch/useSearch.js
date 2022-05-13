@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useDebounce from "../../utilHooks/useDebounce";
+
+const searchBarDefaultWidth = 220;
 const useSearch = () => {
   let userProfileState = JSON.parse(sessionStorage.getItem("userProfile"));
-  let [searchBarWidth, setSearchBarWidth] = useState(150);
+  let [searchBarWidth, setSearchBarWidth] = useState(searchBarDefaultWidth);
   let searchResult = useRef(null);
   let [query, setQuery] = useState(null);
 
@@ -24,11 +26,11 @@ const useSearch = () => {
   }, []);
 
   const withdrawSearchBarForDesktopOrTablet = useCallback(() => {
-    setSearchBarWidth(150);
+    setSearchBarWidth(searchBarDefaultWidth);
   }, []);
 
   const withdrawSearchBarForMobile = useCallback(() => {
-    setSearchBarWidth(150);
+    setSearchBarWidth(searchBarDefaultWidth);
   }, []);
 
   const cancelRequest = () => {

@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
-axiosRetry(axios);
+axiosRetry(axios, { retries: 5 });
 router.get("/getUserProfile", (req, res) => {
   let token = req.query.token;
   let url = "https://api.spotify.com/v1/me";

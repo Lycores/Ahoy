@@ -1,11 +1,6 @@
 import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
 import RightAreaCompForAlbum from "../components/albumComp/RightAreaCompForAlbum";
-import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
-import {
-  RightAreaStyleForDesktopOrTablet,
-  RightAreaStyleForMobile,
-  RightAreaStyle,
-} from "../components/ReusableStyleComp";
+import { RightAreaStyle } from "../components/ReusableStyleComp";
 import useAlbumPage from "../customHooks/forAlbum/useAlbumPage";
 
 function AlbumPage() {

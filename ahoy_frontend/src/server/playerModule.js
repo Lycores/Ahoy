@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
-axiosRetry(axios);
+axiosRetry(axios, { retries: 5 });
 router.get("/PlayTrack", (req, res) => {
   let token = req.query.token;
   let albumId = req.query.albumId;
@@ -27,7 +27,6 @@ router.get("/PlayTrack", (req, res) => {
       },
     })
     .catch((error) => {
-      console.log(error);
       console.log("an error happened at /player/PlayTrack");
     });
 });
@@ -50,7 +49,6 @@ router.get("/getRecentlyPlayed", (req, res) => {
       }
     })
     .catch((error) => {
-      console.log(error);
       console.log("an error happened at /player/getRecentlyPlayed");
     });
 });

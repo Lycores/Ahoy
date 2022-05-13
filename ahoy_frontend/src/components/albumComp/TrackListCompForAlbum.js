@@ -16,7 +16,7 @@ let increaseKey = 999;
 const TrackListCompForAlbum = React.memo((props) => {
   let { width, tracks, albumId } = props;
   let renderQueue = [];
-  if (tracks.length == 0) {
+  if (tracks.length === 0) {
     let list = [];
     for (let i = 0; i < 10; i++) {
       list.push(<PlaceholderTrackEntryComp key={increaseKey + i} />);

@@ -1,23 +1,12 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
-  RightAreaStyleForDesktopOrTablet,
   RightAreaContainerStyle,
   RightAreaStyle,
 } from "../components/ReusableStyleComp";
 import styled from "styled-components";
 import "../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import useSearchPage from "../customHooks/forSearch/useSearchPage";
-import TrackEntryComp from "../components/TrackEntryComp";
-import TrackListCompForSearch from "../components/searchComp/TrackListCompForSearch";
-import UniversalCardComp from "../components/cardComp/UniversalCardComp";
-import {
-  CardContainerStyle,
-  CardCoverStyle,
-} from "../components/ReusableStyleComp";
-
 import useTopTrackResize from "../utilHooks/useTopTrackResize";
-import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
-import { useCallback } from "react";
 import ArtistsResultComp from "../components/searchComp/ArtistsResultComp";
 import TracksResultComp from "../components/searchComp/TracksResultComp";
 import TopResultLeft from "../components/searchComp/TopResultLeft";

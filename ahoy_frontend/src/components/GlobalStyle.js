@@ -31,7 +31,7 @@ body{
     --left-area-width: 250px;
     --track-height:50px;
     --hover-color:#1bd760;
-
+    --placeholder-color:#aec0d4;
 
     background-color: #e1e7ef;
     font-family: "Helvetica";

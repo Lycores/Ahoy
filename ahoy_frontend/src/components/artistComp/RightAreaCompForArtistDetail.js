@@ -7,7 +7,6 @@ import {
   RightAreaCoverStyle,
   DescriptionStyle,
   RightAreaCoverContainerStyle,
-  RightAreaStyleForDesktopOrTablet,
 } from "../ReusableStyleComp";
 import TrackListCompForArtist from "./TrackListCompForArtist";
 import useArtistDetail from "../../customHooks/forArtist/useArtistDetail";

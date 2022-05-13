@@ -56,40 +56,6 @@ const useArtistsPage = () => {
           });
         });
     }
-
-    // if (hasMoreArtist.current) {
-    //   setPlaceholderCardList(generatePlaceHolder());
-    //   let url = "";
-    //   if (lastArtistIdInPrevReq.current) {
-    //     url = `artists/getFollowedArtists?limit=${limit.current}&after=${lastArtistIdInPrevReq.current}&token=${token}`;
-    //   } else {
-    //     url = `artists/getFollowedArtists?limit=${limit.current}&token=${token}`;
-    //   }
-    //   fetch(url)
-    //     .then((response) => {
-    //       return response.json();
-    //     })
-    //     .then((json) => {
-    //       console.log(json);
-    //       offset.current += limit.current;
-    //       console.log(
-    //         "offset is ",
-    //         offset.current,
-    //         "total is ",
-    //         json.artists.total
-    //       );
-    //       if (offset.current < json.artists.total) {
-    //         hasMoreArtist.current = true;
-    //       } else {
-    //         hasMoreArtist.current = false;
-    //       }
-    //       recordLastArtist(json);
-    //       setPlaceholderCardList([]);
-    //       setArtistsListState((prevArtistList) => {
-    //         return [...prevArtistList, ...json.artists.items];
-    //       });
-    //     });
-    // }
   }, [hasMoreArtist, lastArtistIdInPrevReq, token]);
 
   useEffect(() => {

@@ -42,7 +42,7 @@ const TrackListComp = React.memo((props) => {
       renderQueue.push(
         <StyleForTrackContainer key={increaseKey + 1}>
           {tracks.map((track, index) => {
-            if (index == tracksLen - 1) {
+            if (index === tracksLen - 1) {
               return (
                 <TrackEntryComp
                   width={width - 20}

@@ -9,7 +9,7 @@ const qs = require("qs");
 dotenv.config({ path: whereIsDotEnv });
 const axiosRetry = require("axios-retry");
 
-axiosRetry(axios);
+axiosRetry(axios, { retries: 5 });
 const UGC_IMAGE_UPLOAD = "ugc-image-upload";
 const USER_READ_PLAYBACK_STATE = "user-read-playback-state";
 const USER_MODIFY_PLAYBACK_STATE = "user-modify-playback-state";
@@ -95,7 +95,9 @@ router.get("/callback", (req, res) => {
         res.redirect(`/authenticated?token=${response.data.access_token}`);
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.log("problem in callback");
+    });
 });
 
 // router.get("/token", (req, res) => {

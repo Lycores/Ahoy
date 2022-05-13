@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRecoilState } from "recoil";
-import { deviceIdRecoil, recentlyPlayedRecoil } from "../recoilInfo";
+import { deviceIdRecoil } from "../recoilInfo";
 import { DesktopOrTablet, Mobile } from "./MediaQuery";
 import styled from "styled-components";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -100,6 +100,7 @@ const NavBarItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--global-spotify-color);
@@ -111,7 +112,8 @@ const NavBarItem = styled.div`
 const AlbumMobileNavBarItem = styled(NavBarItem)``;
 const ArtistsMobileNavBarItem = styled(NavBarItem)``;
 const PlaylistMobileNavBarItem = styled(NavBarItem)``;
-const WebPlayback = () => {
+const WebPlayback = (props) => {
+  let { recentlyPlayedState } = props;
   let token = sessionStorage.getItem("token");
 
   let [is_paused, setPaused] = useState(false);
@@ -120,8 +122,6 @@ const WebPlayback = () => {
   let [current_track, setTrack] = useState(track);
 
   let [deviceIdState, setDevicedIdState] = useRecoilState(deviceIdRecoil);
-  let [recentlyPlayedState, setRecentlyPlayedState] =
-    useRecoilState(recentlyPlayedRecoil);
 
   const navigate = useNavigate();
   const recentlyPlayedStart = useCallback(() => {
@@ -299,10 +299,15 @@ const WebPlayback = () => {
       <>
         <DesktopOrTablet>
           <PlayerStyleForDesktopOrTablet>
-            <MusicPlayerCoverStyleForDesktopOrTablet
-              imageUrl={current_track.album.images[0].url}
-            />
-
+            {/*sometimes current_track is null i really dont know why,  should
+    comes from spotify*/}
+            {current_track ? (
+              <MusicPlayerCoverStyleForDesktopOrTablet
+                imageUrl={current_track.album.images[0].url}
+              />
+            ) : (
+              <MusicPlayerCoverStyleForDesktopOrTablet />
+            )}
             <PlaybackBarCompForDesk
               isPaused={is_paused}
               onBack={() => {
@@ -349,9 +354,13 @@ const WebPlayback = () => {
               </PlaylistMobileNavBarItem>
             </MobileNavBar>
             <PlayerStyleForMobile>
-              <MusicCoverStyleForMobile
-                imageUrl={current_track.album.images[0].url}
-              />
+              {current_track ? (
+                <MusicCoverStyleForMobile
+                  imageUrl={current_track.album.images[0].url}
+                />
+              ) : (
+                <MusicCoverStyleForMobile />
+              )}
 
               <PlaybackBarCompForMobile
                 isPaused={is_paused}

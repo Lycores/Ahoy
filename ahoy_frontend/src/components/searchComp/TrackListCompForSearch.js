@@ -4,8 +4,7 @@ import PlaceholderTrackEntryComp from "../placeholderComp/PlaceholderTrackEntryC
 const TrackListContainer = styled.div``;
 const TrackListCompForSearch = (props) => {
   let { width, topResultTracks } = props;
-  console.log("the width is", width);
-  if (topResultTracks.length != 0) {
+  if (topResultTracks.length !== 0) {
     let tracks = topResultTracks;
     if (width) {
       return (

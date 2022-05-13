@@ -3,7 +3,7 @@ const router = express.Router();
 const axios = require("axios");
 const axiosRetry = require("axios-retry");
 
-axiosRetry(axios);
+axiosRetry(axios, { retries: 5 });
 router.get("/getMyPlaylists", (req, res) => {
   let token = req.query.token;
   let offset = req.query.offset;
@@ -18,7 +18,7 @@ router.get("/getMyPlaylists", (req, res) => {
       },
     })
     .then((response) => {
-      if (response.status == 200) {
+      if (response.status === 200) {
         res.status(200).send(response.data);
       }
     })
@@ -43,12 +43,11 @@ router.get("/getPlaylistItems", (req, res) => {
       },
     })
     .then((response) => {
-      if (response.status == 200) {
+      if (response.status === 200) {
         res.status(200).send(response.data);
       }
     })
     .catch((error) => {
-      console.log(error);
       console.log("an error happened at /playlist/getMyPlaylists");
     });
 });

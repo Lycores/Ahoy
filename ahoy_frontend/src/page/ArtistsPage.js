@@ -1,11 +1,6 @@
 import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
 import RightAreaCompForArtistDetail from "../components/artistComp/RightAreaCompForArtistDetail";
-import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
-import {
-  RightAreaStyleForDesktopOrTablet,
-  RightAreaStyleForMobile,
-  RightAreaStyle,
-} from "../components/ReusableStyleComp";
+import { RightAreaStyle } from "../components/ReusableStyleComp";
 import React from "react";
 import useArtistsPage from "../customHooks/forArtist/useArtistsPage";
 

@@ -33,7 +33,7 @@ const useTopTrackResize = () => {
 
   useLayoutEffect(() => {
     if (
-      windowWidth != 0 &&
+      windowWidth !== 0 &&
       topResultCardRef.current &&
       topResultTracksRef.current
     ) {

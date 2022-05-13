@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { CardCoverStyle } from "../ReusableStyleComp";
 import { TopResultTitleStyle } from "../ReusableStyleComp";
+import useFontSizeForSearch from "../../utilHooks/useFontSizeForSearch";
 const TopResultForResult = styled.div`
   flex-grow: 1;
   flex-shrink: 1;
@@ -37,13 +38,17 @@ const TitleStyle = styled.div`
   margin-left: 10px;
   margin-top: clamp(20px, 5vw, 120px);
   text-align: left;
-  font-size: clamp(20px, 3.5vw, 45px);
+  font-size: clamp(
+    20px,
+    ${(props) => props.avgFontSize}vw,
+    ${(props) => props.maxFontSize}px
+  );
 `;
 const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
   let { topResultObj, typeOfResult } = props;
   let navigate = useNavigate();
   const goToResultPage = useCallback(() => {
-    if (topResultObj && typeOfResult == "artists") {
+    if (topResultObj && typeOfResult === "artists") {
       navigate("/traditional/artists", {
         state: {
           artist: topResultObj,
@@ -51,6 +56,9 @@ const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
       });
     }
   }, [topResultObj, typeOfResult]);
+
+  const [maxFontSize, avgFontSize] = useFontSizeForSearch(topResultObj);
+
   return (
     <TopResultForResult ref={topResultCardRef} onClick={goToResultPage}>
       <TopResultTitleStyle>
@@ -91,7 +99,9 @@ const TopResultLeft = React.forwardRef((props, topResultCardRef) => {
                 </>
               )}
             </div>
-            <TitleStyle>{topResultObj.name}</TitleStyle>
+            <TitleStyle maxFontSize={maxFontSize} avgFontSize={avgFontSize}>
+              {topResultObj.name}
+            </TitleStyle>
           </>
         ) : (
           <>

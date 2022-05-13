@@ -1,10 +1,5 @@
 import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
-import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
-import {
-  RightAreaStyleForDesktopOrTablet,
-  RightAreaStyleForMobile,
-  RightAreaStyle,
-} from "../components/ReusableStyleComp";
+import { RightAreaStyle } from "../components/ReusableStyleComp";
 import RightAreaCompForPlaylist from "../components/playlistComp/RightAreaCompForPlaylist";
 import usePlaylistPage from "../customHooks/forPlaylist/usePlaylistPage";
 

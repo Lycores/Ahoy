@@ -45,11 +45,11 @@ const ArtistsResultComp = (props) => {
 
   return possibleArtists.length > 1 ? (
     <SuggestionStyle>
-      <TopResultTitleStyle>Artists</TopResultTitleStyle>
+      <TopResultTitleStyle>Possible Artists</TopResultTitleStyle>
 
       <SuggestionContainer>
         {possibleArtists.map((ps, index) => {
-          if (ps.images.length != 0) {
+          if (ps.images.length !== 0) {
             return (
               <LocalCardContainerStyle
                 onClick={() => {

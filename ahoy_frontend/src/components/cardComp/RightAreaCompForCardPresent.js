@@ -25,7 +25,7 @@ const RightAreaCompForCardPresent = React.memo((props) => {
     [observer]
   );
 
-  if (itemList.length == 0) {
+  if (itemList.length === 0) {
     return (
       <RightAreaContainerStyle>
         <GridStyle>
@@ -51,7 +51,7 @@ const RightAreaCompForCardPresent = React.memo((props) => {
       <RightAreaContainerStyle>
         <GridStyle>
           {itemList.map((item, index) => {
-            if (index + 1 == ItemsLen) {
+            if (index + 1 === ItemsLen) {
               return (
                 <UniversalCardComp
                   ref={lastElement}

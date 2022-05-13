@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const useAlbumDetail = (album) => {
   const userProfileState = JSON.parse(sessionStorage.getItem("userProfile"));

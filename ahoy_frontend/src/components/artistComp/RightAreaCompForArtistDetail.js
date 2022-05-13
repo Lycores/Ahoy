@@ -12,7 +12,7 @@ import {
 import TrackListCompForArtist from "./TrackListCompForArtist";
 import useArtistDetail from "../../customHooks/forArtist/useArtistDetail";
 import AlbumCompForArtist from "./AlbumCompForArtist";
-import useDescResizeForDesk from "../../utilHooks/useDescResize";
+import useDescResize from "../../utilHooks/useDescResize";
 import useFontSize from "../../utilHooks/useFontSize";
 import useCoverSize from "../../utilHooks/useCoverSize";
 import { DesktopOrTablet, Mobile } from "../../MediaQuery";
@@ -51,7 +51,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
     trackListWidthStateForDesk,
     trackListWidthStateForMobile,
     shouldJSEngage,
-  ] = useDescResizeForDesk();
+  ] = useDescResize();
 
   return (
     <RightAreaContainerStyle>
@@ -66,7 +66,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <ArtistNameStyle
                   width={descWidthStateForDesk}
                   maxFontSize={maxFontSize}
@@ -76,7 +76,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
                 </ArtistNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <ArtistNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}
@@ -88,7 +88,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
           </DesktopOrTablet>
           <Mobile>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <ArtistNameStyle
                   width={descWidthStateForMobile}
                   maxFontSize={maxFontSize}
@@ -98,7 +98,7 @@ const RightAreaCompForArtistDetail = React.memo((props) => {
                 </ArtistNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <ArtistNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}

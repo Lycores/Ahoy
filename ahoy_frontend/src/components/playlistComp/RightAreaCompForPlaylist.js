@@ -14,7 +14,7 @@ import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
 import useFontSize from "../../utilHooks/useFontSize";
 import useCoverSize from "../../utilHooks/useCoverSize";
 import { DesktopOrTablet, Mobile } from "../../MediaQuery";
-import useDescResizeForDesk from "../../utilHooks/useDescResize";
+import useDescResize from "../../utilHooks/useDescResize";
 
 const PlaylistNameStyle = styled.div`
   width: ${(props) => props.width}px;
@@ -48,7 +48,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
     trackListWidthStateForDesk,
     trackListWidthStateForMobile,
     shouldJSEngage,
-  ] = useDescResizeForDesk();
+  ] = useDescResize();
 
   useEffect(() => {
     getPlaylistTracks();
@@ -67,7 +67,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <PlaylistNameStyle
                   width={descWidthStateForDesk}
                   maxFontSize={maxFontSize}
@@ -77,7 +77,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
                 </PlaylistNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <PlaylistNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}
@@ -90,7 +90,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
 
           <Mobile>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <PlaylistNameStyle
                   width={descWidthStateForMobile}
                   maxFontSize={maxFontSize}
@@ -100,7 +100,7 @@ const RightAreaCompForPlaylist = React.memo((props) => {
                 </PlaylistNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <PlaylistNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}

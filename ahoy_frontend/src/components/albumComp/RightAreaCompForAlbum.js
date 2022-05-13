@@ -12,7 +12,7 @@ import {
 } from "../ReusableStyleComp";
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
 import useAlbumDetail from "../../customHooks/forAlbum/useAlbumDetail";
-import useDescResizeForDesk from "../../utilHooks/useDescResize";
+import useDescResize from "../../utilHooks/useDescResize";
 import { DesktopOrTablet, Mobile } from "../../MediaQuery";
 import useFontSize from "../../utilHooks/useFontSize";
 import useCoverSize from "../../utilHooks/useCoverSize";
@@ -50,8 +50,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
     trackListWidthStateForDesk,
     trackListWidthStateForMobile,
     shouldJSEngage,
-  ] = useDescResizeForDesk();
-
+  ] = useDescResize();
   return (
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>
@@ -65,7 +64,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </RightAreaCoverContainerStyle>
           <DesktopOrTablet>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <AlbumNameStyle
                   width={descWidthStateForDesk}
                   maxFontSize={maxFontSize}
@@ -75,7 +74,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
                 </AlbumNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <AlbumNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}
@@ -87,7 +86,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
           </DesktopOrTablet>
           <Mobile>
             {shouldJSEngage ? (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <AlbumNameStyle
                   width={descWidthStateForMobile}
                   maxFontSize={maxFontSize}
@@ -97,7 +96,7 @@ const RightAreaCompForAlbum = React.memo((props) => {
                 </AlbumNameStyle>
               </DescriptionStyle>
             ) : (
-              <DescriptionStyle ref={descRef}>
+              <DescriptionStyle ref={(node) => (descRef.current = node)}>
                 <AlbumNameStyle
                   maxFontSize={maxFontSize}
                   avgFontSize={avgFontSize}

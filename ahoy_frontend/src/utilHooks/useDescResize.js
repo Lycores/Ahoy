@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import useRerender from "./useRerender";
 
 const breakPoint = 250;
-const useDescResizeForDesk = () => {
+const useDescResize = () => {
   let [windowWidth, windowHeight] = useWindowSize();
   let overviewCoverRef = useRef(null);
   let descRef = useRef(null);
@@ -16,12 +16,14 @@ const useDescResizeForDesk = () => {
   let [forceUpdate] = useRerender();
 
   useLayoutEffect(() => {
+    console.log(descRef.current);
     if (windowWidth != 0 && overviewCoverRef.current && descRef.current) {
       let coverWidth = overviewCoverRef.current.offsetWidth;
 
       if (coverWidth <= breakPoint) {
         //record the width of desc
         breakPointUsingJS.current = descRef.current;
+
         //if right now the width of desc is smaller and equal to threshold,
         if (descRef.current <= breakPointUsingJS.current) {
           // do this
@@ -49,4 +51,4 @@ const useDescResizeForDesk = () => {
   ];
 };
 
-export default useDescResizeForDesk;
+export default useDescResize;

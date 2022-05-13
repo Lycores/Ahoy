@@ -14,6 +14,7 @@ const useDescResize = () => {
   let trackListWidthStateForDesk = useRef(0);
   let trackListWidthStateForMobile = useRef(0);
   let [forceUpdate] = useRerender();
+  let firstRecord = useRef(true);
 
   useLayoutEffect(() => {
     if (windowWidth !== 0 && overviewCoverRef.current && descRef.current) {
@@ -21,7 +22,10 @@ const useDescResize = () => {
 
       if (coverWidth <= breakPoint) {
         //record the width of desc
-        breakPointUsingJS.current = descRef.current;
+        if (firstRecord.current) {
+          breakPointUsingJS.current = descRef.current;
+          firstRecord.current = false;
+        }
 
         //if right now the width of desc is smaller and equal to threshold,
         if (descRef.current <= breakPointUsingJS.current) {
@@ -32,6 +36,8 @@ const useDescResize = () => {
         } else {
           shouldJSEngage.current = false;
         }
+      } else {
+        shouldJSEngage.current = false;
       }
       trackListWidthStateForDesk.current = windowWidth - 300;
       trackListWidthStateForMobile.current = windowWidth - 20;

@@ -51,6 +51,8 @@ const RightAreaCompForAlbum = React.memo((props) => {
     trackListWidthStateForMobile,
     shouldJSEngage,
   ] = useDescResize();
+
+  console.log(shouldJSEngage);
   return (
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>

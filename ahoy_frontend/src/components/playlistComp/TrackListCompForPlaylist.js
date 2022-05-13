@@ -35,10 +35,10 @@ const TrackListComp = React.memo((props) => {
     [observer]
   );
 
-  if (playlistTracks.length != 0) {
+  if (playlistTracks.length !== 0) {
     let tracks = playlistTracks;
     let tracksLen = tracks.length;
-    if (tracksLen != 0) {
+    if (tracksLen !== 0) {
       renderQueue.push(
         <StyleForTrackContainer key={increaseKey + 1}>
           {tracks.map((track, index) => {

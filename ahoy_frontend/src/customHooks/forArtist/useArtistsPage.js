@@ -43,7 +43,6 @@ const useArtistsPage = () => {
           return response.json();
         })
         .then((json) => {
-          console.log(json);
           let numOfArtists = json.artists.items.length;
           if (numOfArtists < limit.current) {
             hasMoreArtist.current = false;

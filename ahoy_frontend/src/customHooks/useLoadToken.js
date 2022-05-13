@@ -9,7 +9,6 @@ const useLoadToken = () => {
   if (!token) {
     navigate("/notfound");
   }
-  console.log(123123, token);
   useEffect(() => {
     sessionStorage.setItem("token", token);
     forceUpdate();

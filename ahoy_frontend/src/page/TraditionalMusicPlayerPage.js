@@ -7,13 +7,13 @@ import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import useSearch from "../customHooks/forSearch/useSearch";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCompactDisc,
-  faList,
-  faPalette,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+const AlbumIcon = styled.i``;
+const ArtistIcon = styled.i``;
+const PlaylistIcon = styled.i``;
+const SearchIcon = styled.i``;
 const AppStyle = styled.div`
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
@@ -209,10 +209,6 @@ function TraditionalMusicPlayerPage() {
           name="viewport"
           content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"
         />
-        <script
-          src="https://kit.fontawesome.com/150bae60e3.js"
-          crossorigin="anonymous"
-        ></script>
       </Helmet>
 
       <AppStyle>
@@ -223,19 +219,19 @@ function TraditionalMusicPlayerPage() {
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/album")}
                 >
-                  <FontAwesomeIcon icon={faCompactDisc} />
+                  <AlbumIcon className="fa-solid fa-compact-disc" />
                   <span style={{ paddingLeft: "10px" }}>Album</span>
                 </NavAreaEntryStyle>
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/artists")}
                 >
-                  <FontAwesomeIcon icon={faPalette} />
+                  <ArtistIcon className="fa-solid fa-palette" />
                   <span style={{ paddingLeft: "10px" }}>Artists</span>
                 </NavAreaEntryStyle>
                 <NavAreaEntryStyle
                   onClick={() => navigate("/traditional/playlist")}
                 >
-                  <FontAwesomeIcon icon={faList} />
+                  <PlaylistIcon className="fa-solid fa-list" />
                   <span style={{ paddingLeft: "10px" }}>Playlist</span>
                 </NavAreaEntryStyle>
               </NavAreaStyle>
@@ -278,8 +274,8 @@ function TraditionalMusicPlayerPage() {
             onMouseOver={extendSearchBarForDesktopOrTablet}
             onMouseLeave={withdrawSearchBarForDesktopOrTablet}
           >
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
+            <SearchIcon
+              className="fa-solid fa-magnifying-glass"
               style={{ paddingLeft: "20px" }}
             />
             <SearchBarInputStyle
@@ -297,8 +293,8 @@ function TraditionalMusicPlayerPage() {
             onMouseOver={extendSearchBarForMobile}
             onMouseLeave={withdrawSearchBarForMobile}
           >
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
+            <SearchIcon
+              className="fa-solid fa-magnifying-glass"
               style={{ paddingLeft: "20px" }}
             />
             <SearchBarInputStyle

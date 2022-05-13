@@ -3,9 +3,22 @@ import { useRecoilState } from "recoil";
 import { deviceIdRecoil, recentlyPlayedRecoil } from "../recoilInfo";
 import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import styled from "styled-components";
-
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import PlaybackBarCompForDesk from "./playerComp/PlaybackBarCompForDesk";
 import PlaybackBarCompForMobile from "./playerComp/PlaybackBarCompForMobile";
+import { useNavigate } from "react-router-dom";
+const AlbumIcon = styled.i`
+  display: block;
+  font-size: 25px;
+`;
+const ArtistIcon = styled.i`
+  font-size: 25px;
+  text-align: center;
+`;
+const PlaylistIcon = styled.i`
+  font-size: 25px;
+  text-align: center;
+`;
 
 const track = {
   name: "",
@@ -28,6 +41,8 @@ const PlayerStyleForMobile = styled.div`
   width: auto;
   height: 100px;
   display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 `;
 
 const MusicPlayerCoverStyleForDesktopOrTablet = styled.div.attrs((props) => ({
@@ -82,6 +97,9 @@ const NavBarItem = styled.div`
   flex-grow: 1;
   flex-shrink: 1;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: var(--global-spotify-color);
@@ -105,6 +123,7 @@ const WebPlayback = () => {
   let [recentlyPlayedState, setRecentlyPlayedState] =
     useRecoilState(recentlyPlayedRecoil);
 
+  const navigate = useNavigate();
   const recentlyPlayedStart = useCallback(() => {
     let albumId = recentlyPlayedState.album.id;
     let positionInAlbum = recentlyPlayedState.track_number - 1;
@@ -177,9 +196,30 @@ const WebPlayback = () => {
           <Mobile>
             <Container>
               <MobileNavBar>
-                <AlbumMobileNavBarItem />
-                <ArtistsMobileNavBarItem />
-                <PlaylistMobileNavBarItem />
+                <AlbumMobileNavBarItem>
+                  <AlbumIcon
+                    className="fa-solid fa-compact-disc"
+                    onClick={() => {
+                      navigate("/traditional/album");
+                    }}
+                  />
+                </AlbumMobileNavBarItem>
+                <ArtistsMobileNavBarItem>
+                  <ArtistIcon
+                    className="fa-solid fa-palette"
+                    onClick={() => {
+                      navigate("/traditional/artists");
+                    }}
+                  />
+                </ArtistsMobileNavBarItem>
+                <PlaylistMobileNavBarItem>
+                  <PlaylistIcon
+                    className="fa-solid fa-list"
+                    onClick={() => {
+                      navigate("/traditional/playlist");
+                    }}
+                  />
+                </PlaylistMobileNavBarItem>
               </MobileNavBar>
               <PlayerStyleForMobile>
                 <MusicCoverStyleForMobile
@@ -214,9 +254,30 @@ const WebPlayback = () => {
           <Mobile>
             <Container>
               <MobileNavBar>
-                <AlbumMobileNavBarItem />
-                <ArtistsMobileNavBarItem />
-                <PlaylistMobileNavBarItem />
+                <AlbumMobileNavBarItem>
+                  <AlbumIcon
+                    className="fa-solid fa-compact-disc"
+                    onClick={() => {
+                      navigate("/traditional/album");
+                    }}
+                  />
+                </AlbumMobileNavBarItem>
+                <ArtistsMobileNavBarItem>
+                  <ArtistIcon
+                    className="fa-solid fa-palette"
+                    onClick={() => {
+                      navigate("/traditional/artists");
+                    }}
+                  />
+                </ArtistsMobileNavBarItem>
+                <PlaylistMobileNavBarItem>
+                  <PlaylistIcon
+                    className="fa-solid fa-list"
+                    onClick={() => {
+                      navigate("/traditional/playlist");
+                    }}
+                  />
+                </PlaylistMobileNavBarItem>
               </MobileNavBar>
               <PlayerStyleForMobile>
                 <MusicCoverStyleForMobile skeleton="ph-item" />
@@ -262,9 +323,30 @@ const WebPlayback = () => {
         <Mobile>
           <Container>
             <MobileNavBar>
-              <AlbumMobileNavBarItem />
-              <ArtistsMobileNavBarItem />
-              <PlaylistMobileNavBarItem />
+              <AlbumMobileNavBarItem>
+                <AlbumIcon
+                  className="fa-solid fa-compact-disc"
+                  onClick={() => {
+                    navigate("/traditional/album");
+                  }}
+                />
+              </AlbumMobileNavBarItem>
+              <ArtistsMobileNavBarItem>
+                <ArtistIcon
+                  className="fa-solid fa-palette"
+                  onClick={() => {
+                    navigate("/traditional/artists");
+                  }}
+                />
+              </ArtistsMobileNavBarItem>
+              <PlaylistMobileNavBarItem>
+                <PlaylistIcon
+                  className="fa-solid fa-list"
+                  onClick={() => {
+                    navigate("/traditional/playlist");
+                  }}
+                />
+              </PlaylistMobileNavBarItem>
             </MobileNavBar>
             <PlayerStyleForMobile>
               <MusicCoverStyleForMobile

@@ -12,7 +12,6 @@ function AlbumPage() {
   let [album, albumListState, placeholderCardList, getMoreAlbum] =
     useAlbumPage();
 
-  console.log(placeholderCardList);
   return (
     <>
       <RightAreaStyle>

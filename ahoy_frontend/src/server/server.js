@@ -31,6 +31,5 @@ app.use("/search", searchModule.router);
 app.use("/traditional/search", searchModule.router);
 
 app.listen(port, () => {
-  console.log("hello");
   console.log(`Listening at ${host}:${port}`);
 });

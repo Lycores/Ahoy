@@ -7,7 +7,6 @@ axiosRetry(axios);
 router.get("/search", (req, res) => {
   let token = req.query.token;
   let queryString = encodeURI(req.query.query);
-  console.log(queryString);
   let type = req.query.type;
   let limit = req.query.limit;
   let offset = req.query.offset;

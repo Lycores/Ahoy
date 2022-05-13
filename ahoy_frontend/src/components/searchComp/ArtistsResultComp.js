@@ -3,7 +3,8 @@ import "../../stylesheets/css/placeholderCardComponentStyleSheet.css";
 import { ArtistsNameStyle } from "../ReusableStyleComp";
 import { CardContainerStyle, CardCoverStyle } from "../ReusableStyleComp";
 import { TopResultTitleStyle } from "../ReusableStyleComp";
-
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 const LocalCardContainerStyle = styled(CardContainerStyle)`
   margin: 0px;
   margin-top: 20px;
@@ -32,7 +33,16 @@ const SuggestionStyle = styled.div`
 `;
 const ArtistsResultComp = (props) => {
   let { possibleArtists } = props;
-  console.log(possibleArtists);
+  const navigate = useNavigate();
+
+  const goToArtistPage = useCallback((ps) => {
+    navigate("/traditional/artists", {
+      state: {
+        artist: ps,
+      },
+    });
+  }, []);
+
   return possibleArtists.length > 1 ? (
     <SuggestionStyle>
       <TopResultTitleStyle>Artists</TopResultTitleStyle>
@@ -41,13 +51,28 @@ const ArtistsResultComp = (props) => {
         {possibleArtists.map((ps, index) => {
           if (ps.images.length != 0) {
             return (
-              <LocalCardContainerStyle key={index}>
+              <LocalCardContainerStyle
+                onClick={() => {
+                  goToArtistPage(ps);
+                }}
+                key={index}
+              >
                 <CardCoverStyle imageUrl={ps.images[1].url} />
                 <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
               </LocalCardContainerStyle>
             );
           } else {
-            return <></>;
+            return (
+              <LocalCardContainerStyle
+                onClick={() => {
+                  goToArtistPage(ps);
+                }}
+                key={index}
+              >
+                <CardCoverStyle />
+                <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
+              </LocalCardContainerStyle>
+            );
           }
         })}
       </SuggestionContainer>

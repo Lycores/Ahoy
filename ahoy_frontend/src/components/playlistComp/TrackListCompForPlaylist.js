@@ -45,7 +45,7 @@ const TrackListComp = React.memo((props) => {
             if (index === tracksLen - 1) {
               return (
                 <TrackEntryComp
-                  width={width - 20}
+                  width={width - 30}
                   ref={lastElement}
                   number={index + 1}
                   key={index}
@@ -60,7 +60,7 @@ const TrackListComp = React.memo((props) => {
             } else {
               return (
                 <TrackEntryComp
-                  width={width - 20}
+                  width={width - 30}
                   number={index + 1}
                   key={index}
                   track={track.track}

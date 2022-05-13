@@ -24,7 +24,7 @@ const TrackListCompForArtist = React.memo((props) => {
         {tracks.map((track, index) => {
           return (
             <TrackEntryComp
-              width={width - 20}
+              width={width - 30}
               number={index + 1}
               key={track.id}
               track={track}

@@ -37,8 +37,6 @@ const TracksResultComp = (props) => {
   let token = sessionStorage.getItem("token");
   let [deviceIdState, setDevicedIdState] = useRecoilState(deviceIdRecoil);
 
-  console.log(possibleTracks);
-
   const playTrack = useCallback(
     (ps) => {
       let albumId = ps.album.id;

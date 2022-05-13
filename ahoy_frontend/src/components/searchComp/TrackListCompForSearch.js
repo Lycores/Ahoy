@@ -12,7 +12,7 @@ const TrackListCompForSearch = (props) => {
           {tracks.map((track, index) => {
             return (
               <TrackEntryComp
-                width={width - 20}
+                width={width - 30}
                 key={index}
                 number={index + 1}
                 track={track}

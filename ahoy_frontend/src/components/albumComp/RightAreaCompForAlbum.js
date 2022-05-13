@@ -52,7 +52,6 @@ const RightAreaCompForAlbum = React.memo((props) => {
     shouldJSEngage,
   ] = useDescResize();
 
-  console.log(shouldJSEngage);
   return (
     <RightAreaContainerStyle>
       <RightAreaOverviewStyle imageUrl={albumOverviewBackgroundImageState}>

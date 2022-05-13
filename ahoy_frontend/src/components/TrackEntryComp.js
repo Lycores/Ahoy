@@ -61,16 +61,29 @@ const TrackEntryComp = React.forwardRef((props, ref) => {
     );
   }, [albumId, positionInAlbum, deviceIdState, token]);
 
-  return (
-    <TrackEntryComponentStyle width={width} ref={ref} onClick={playTrack}>
-      {showNumber && <TrackNumberArea>{number}</TrackNumberArea>}
-      {showImage && <TrackImageStyle trackImage={images[2].url} />}
-      <TrackInfoContainerStyle>
-        <TrackTitleStyle>{track.name}</TrackTitleStyle>
-        <TrackArtistStyle>{track.artists[0].name}</TrackArtistStyle>
-      </TrackInfoContainerStyle>
-    </TrackEntryComponentStyle>
-  );
+  if (width) {
+    return (
+      <TrackEntryComponentStyle width={width} ref={ref} onClick={playTrack}>
+        {showNumber && <TrackNumberArea>{number}</TrackNumberArea>}
+        {showImage && <TrackImageStyle trackImage={images[2].url} />}
+        <TrackInfoContainerStyle>
+          <TrackTitleStyle>{track.name}</TrackTitleStyle>
+          <TrackArtistStyle>{track.artists[0].name}</TrackArtistStyle>
+        </TrackInfoContainerStyle>
+      </TrackEntryComponentStyle>
+    );
+  } else {
+    return (
+      <TrackEntryComponentStyle ref={ref} onClick={playTrack}>
+        {showNumber && <TrackNumberArea>{number}</TrackNumberArea>}
+        {showImage && <TrackImageStyle trackImage={images[2].url} />}
+        <TrackInfoContainerStyle>
+          <TrackTitleStyle>{track.name}</TrackTitleStyle>
+          <TrackArtistStyle>{track.artists[0].name}</TrackArtistStyle>
+        </TrackInfoContainerStyle>
+      </TrackEntryComponentStyle>
+    );
+  }
 });
 
 export default React.memo(TrackEntryComp);

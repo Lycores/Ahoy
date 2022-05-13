@@ -109,6 +109,7 @@ export const RightAreaStyle = styled.div`
   border-radius: var(--global-border-radius);
   flex-grow: 1;
   width: 1px;
+  overflow: hidden;
 `;
 export const RightAreaStyleForMobile = styled.div`
   margin: var(--global-margin);

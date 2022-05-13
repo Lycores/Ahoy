@@ -61,18 +61,6 @@ const ArtistsResultComp = (props) => {
                 <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
               </LocalCardContainerStyle>
             );
-          } else {
-            return (
-              <LocalCardContainerStyle
-                onClick={() => {
-                  goToArtistPage(ps);
-                }}
-                key={index}
-              >
-                <CardCoverStyle />
-                <ArtistsNameStyle>{ps.name}</ArtistsNameStyle>
-              </LocalCardContainerStyle>
-            );
           }
         })}
       </SuggestionContainer>

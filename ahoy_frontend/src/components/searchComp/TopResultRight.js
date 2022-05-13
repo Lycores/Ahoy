@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TrackListCompForSearch from "./TrackListCompForSearch";
-import { DesktopOrTablet, Mobile } from "../../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import React from "react";
 import { TopResultTitleStyle } from "../ReusableStyleComp";
 const TopResultForTracks = styled.div`

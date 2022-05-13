@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import WebPlayback from "../components/WebPlayback";
 import { useNavigate, Outlet } from "react-router-dom";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
 import { recentlyPlayedRecoil } from "../recoilInfo";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";

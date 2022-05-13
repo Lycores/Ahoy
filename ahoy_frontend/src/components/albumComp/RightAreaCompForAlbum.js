@@ -13,7 +13,7 @@ import {
 import TrackListCompForAlbum from "./TrackListCompForAlbum";
 import useAlbumDetail from "../../customHooks/forAlbum/useAlbumDetail";
 import useDescResize from "../../utilHooks/useDescResize";
-import { DesktopOrTablet, Mobile } from "../../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import useFontSize from "../../utilHooks/useFontSize";
 import useCoverSize from "../../utilHooks/useCoverSize";
 const AlbumNameStyle = styled.div`

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { deviceIdRecoil, recentlyPlayedRecoil } from "../recoilInfo";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import { DesktopOrTablet, Mobile } from "./MediaQuery";
 import styled from "styled-components";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import PlaybackBarCompForDesk from "./playerComp/PlaybackBarCompForDesk";

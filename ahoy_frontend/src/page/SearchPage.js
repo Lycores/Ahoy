@@ -16,7 +16,7 @@ import {
 } from "../components/ReusableStyleComp";
 
 import useTopTrackResize from "../utilHooks/useTopTrackResize";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
 import { useCallback } from "react";
 import ArtistsResultComp from "../components/searchComp/ArtistsResultComp";
 import TracksResultComp from "../components/searchComp/TracksResultComp";

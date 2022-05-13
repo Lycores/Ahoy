@@ -1,6 +1,6 @@
 import RightAreaCompForCardPresent from "../components/cardComp/RightAreaCompForCardPresent";
 import RightAreaCompForArtistDetail from "../components/artistComp/RightAreaCompForArtistDetail";
-import { DesktopOrTablet, Mobile } from "../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../components/MediaQuery";
 import {
   RightAreaStyleForDesktopOrTablet,
   RightAreaStyleForMobile,

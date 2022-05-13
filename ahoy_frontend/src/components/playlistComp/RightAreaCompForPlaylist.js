@@ -13,7 +13,7 @@ import usePlaylistDetail from "../../customHooks/forPlaylist/usePlaylistDetail";
 import TrackListCompForPlaylist from "./TrackListCompForPlaylist";
 import useFontSize from "../../utilHooks/useFontSize";
 import useCoverSize from "../../utilHooks/useCoverSize";
-import { DesktopOrTablet, Mobile } from "../../MediaQuery";
+import { DesktopOrTablet, Mobile } from "../MediaQuery";
 import useDescResize from "../../utilHooks/useDescResize";
 
 const PlaylistNameStyle = styled.div`

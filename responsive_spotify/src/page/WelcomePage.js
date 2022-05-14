@@ -25,22 +25,29 @@ const TextStyle = styled.a`
   text-decoration: none;
 `;
 
+const Author = styled.div`
+  position: absolute;
+  bottom: 10px;
+  font-size: 20px;
+  width: 300px;
+  left: calc(calc(100% - 300px) / 2);
+  text-align: center;
+`;
+
 function WelcomePage() {
   return (
-    // <BackgroundStyle>
-    //   <a href="/auth/login">
-    //     <WelcomeImage />
-    //   </a>
-    // </BackgroundStyle>
-    <BackgroundStyle>
-      <WelcomeContainer
-        onClick={() => {
-          window.location.href = "/auth/login";
-        }}
-      >
-        <TextStyle>Grant Access</TextStyle>
-      </WelcomeContainer>
-    </BackgroundStyle>
+    <>
+      <BackgroundStyle>
+        <WelcomeContainer
+          onClick={() => {
+            window.location.href = "/auth/login";
+          }}
+        >
+          <TextStyle>Grant Access</TextStyle>
+        </WelcomeContainer>
+      </BackgroundStyle>
+      <Author>finished by Charles Mao</Author>
+    </>
   );
 }
 

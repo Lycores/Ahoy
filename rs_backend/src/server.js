@@ -10,8 +10,8 @@ const playlistModule = require("./playlistModule.js");
 const searchModule = require("./searchModule.js");
 const whereIsDotEnv = path.join("../", ".env");
 dotenv.config({ path: whereIsDotEnv });
-const host = process.env.REACT_APP_HOST;
-const port = process.env.REACT_APP_PORT;
+const host = process.env.HOST;
+const port = process.env.PORT;
 
 global.cardLimit = 20;
 global.trackLimit = 40;

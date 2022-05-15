@@ -36,9 +36,9 @@ ${USER_FOLLOW_READ} ${USER_LIBRARY_MODIFY} ${USER_LIBRARY_READ} ${STREAMING} ${A
 ${USER_READ_PLAYBACK_POSITION} ${USER_TOP_READ} ${USER_READ_RECENTLY_PLAYED} ${PLAYLIST_MODIFY_PRIVATE} 
 ${PLAYLIST_READ_COLLABORATIVE} ${PLAYLIST_READ_PRIVATE} ${PLAYLIST_MODIFY_PUBLIC}`;
 
-var spotify_client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-var spotify_client_secret = process.env.REACT_APP_SPOTIFY_CLIENT_SECRET;
-var spotify_redirect_uri = process.env.REACT_APP_SPOTIFY_REDIRECT_URI;
+var spotify_client_id = process.env.SPOTIFY_CLIENT_ID;
+var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+var spotify_redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
 
 const generateRandomString = function (length) {
   var text = "";

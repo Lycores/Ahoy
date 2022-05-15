@@ -1,14 +1,15 @@
-@import url(/Users/rcmao/Desktop/ahoy/Ahoy/ahoy_frontend/node_modules/placeholder-loading/dist/css/placeholder-loading.css);
+@import url(../../../node_modules/placeholder-loading/dist/css/placeholder-loading.css);
+
 .ph-item {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding: 5px;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   margin: 0px;
   overflow: hidden;
   direction: ltr;
@@ -16,7 +17,7 @@
   border-radius: 2px;
   border-width: 0px;
   -webkit-box-shadow: 20px 20px 60px #bfc4cb;
-          box-shadow: 20px 20px 60px #bfc4cb;
+  box-shadow: 20px 20px 60px #bfc4cb;
 }
 
 .ph-picture {
@@ -27,6 +28,6 @@
 
 .ph-item ::before {
   -webkit-box-sizing: content-box !important;
-          box-sizing: content-box !important;
+  box-sizing: content-box !important;
 }
 /*# sourceMappingURL=placeholderCardComponentStyleSheet.css.map */

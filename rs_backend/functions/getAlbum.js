@@ -26,7 +26,7 @@ exports.handler = async function (event, context) {
     .catch((error) => {
       console.log(error);
       return {
-        statusCode: error.status,
+        statusCode: 500,
         body: JSON.stringify({
           error: `the error happened`,
         }),

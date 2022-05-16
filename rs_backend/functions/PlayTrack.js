@@ -24,7 +24,13 @@ exports.handler = async function (event, context) {
         "Content-Type": "application/json; charset=utf-8",
       },
     })
+    .then(() => {
+      return {
+        statusCode: 200,
+      };
+    })
     .catch((error) => {
+      console.log(error);
       return {
         statusCode: error.status,
         body: JSON.stringify({

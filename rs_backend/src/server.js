@@ -13,9 +13,6 @@ dotenv.config({ path: whereIsDotEnv });
 const host = process.env.HOST;
 const port = process.env.PORT;
 
-global.cardLimit = 20;
-global.trackLimit = 40;
-
 var app = express();
 
 app.use("/auth", authModule.router);

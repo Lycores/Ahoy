@@ -1,4 +1,4 @@
-// Uncommit it if it is regular server, if it is deploy but command netlify deploy, commit it
+// Uncommit it if it is regular server, if it is deploy by netlify, you should commit it
 
 // const { createProxyMiddleware } = require("http-proxy-middleware");
 // const dotenv = require("dotenv");

@@ -309,6 +309,7 @@ function TraditionalMusicPlayerPage() {
               ref={searchBarInputRef}
               onChange={handleSearch}
               onDragStart={stopDrag}
+              placeholder="artists, tracks"
             />
           </SearchBarStyleForMobile>
         </Mobile>

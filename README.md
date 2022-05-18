@@ -14,7 +14,7 @@
 
 ##### before running the project, you need to know you must have a Spotify Premium account and register an App on Spotify, they will give you client id and client serect and you need to set your callback url. then you uncomment the .env file for local running.
 
-##### first, do
+##### first, please run on latest chrome, then do
 
 ```shell
 npm install

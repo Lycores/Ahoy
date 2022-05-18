@@ -14,7 +14,7 @@
 
 ##### before running the project, you need to know you must have a Spotify Premium account and register an App on Spotify, they will give you client id and client serect and you need to set your callback url. then you uncomment the .env file for local running.
 
-##### first, then do
+##### first, do
 
 ```shell
 npm install
@@ -29,16 +29,16 @@ npm run build
 npm start
 ```
 
-or
-
-```shell
-npm run dev
-```
-
 ##### and go to server folder, do
 
 ```shell
 node server.js
+```
+
+##### or just do:
+
+```shell
+npm run dev
 ```
 
 ##### right now do not support serverless dev server, seems need more configuration

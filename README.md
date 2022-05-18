@@ -4,7 +4,7 @@
 
 ## Introduction
 
-##### this is a fully responsive Spotify music player with neumorphism, user-friendly UI. App will maintain its responsive feature in most cases except under a very small screen width. 
+##### this is a fully responsive Spotify music player with neumorphism, user-friendly UI. App will maintain its responsive feature in most cases except under a very small screen width.
 
 ## Website
 
@@ -29,15 +29,16 @@ npm run build
 npm start
 ```
 
+or
+
+```shell
+npm run dev
+```
+
 ##### and go to server folder, do
 
 ```shell
 node server.js
 ```
 
-##### right now do not support serverless dev server, it may comes from netlify-cli bug, still investigating
-
-
-
-
-
+##### right now do not support serverless dev server, seems need more configuration

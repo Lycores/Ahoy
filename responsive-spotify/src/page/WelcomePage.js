@@ -46,7 +46,7 @@ function WelcomePage() {
           <TextStyle>Grant Access</TextStyle>
         </WelcomeContainer>
       </BackgroundStyle>
-      <Author>finished by Charles Mao</Author>
+      <Author>finished by Runchao Mao</Author>
     </>
   );
 }

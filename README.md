@@ -6,9 +6,6 @@
 
 ##### this is a fully responsive Spotify music player with neumorphism, user-friendly UI. App will maintain its responsive feature in most cases except under a very small screen width.
 
-## Website
-
-##### It has been deployed on https://responsive-spotify.netlify.app/
 
 ## Install
 
